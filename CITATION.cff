@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "economics-finance-ai999x: an offline, verified economics and finance solver"
+authors:
+  - family-names: Farabi
+    given-names: Ibnul Jaif
+    affiliation: AI999X
+version: 1.0.0
+license: Apache-2.0
+url: "https://huggingface.co/AI999X/economics-finance-ai999x"
+repository-code: "https://huggingface.co/AI999X/economics-finance-ai999x"
+keywords:
+  - economics and finance
+  - economics_finance
+  - finance
+  - economics
+  - npv
+  - irr
+  - bonds
+  - black-scholes
+  - portfolio
+  - value at risk
+  - actuarial
+  - econometrics
