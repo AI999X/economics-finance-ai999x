@@ -1024,6 +1024,10 @@ $$
 - **Assumes:** principal > 0; 0 <= annual_rate < 1; 1 <= payment_number <= number of payments
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![How the monthly payment of 1199](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/loan-payment-split-schedule.svg)
+
+*How the monthly payment of 1199.1 on a loan of 200000 at 6 % over 30 years splits into interest (lower part) and principal (upper part): the first payment of each year, as computed by the package. Year 1: interest 1000, principal 199.101; principal is the larger part from year 20 (interest 578.324). Total interest over the loan: 231676.*
+
 ```python
 economics_finance_ai999x.solve('loan_payment_split', principal=200000, annual_rate=0.06, years=30, payment_number=1)
 # -> interest_part = 1000, principal_part = 199.101, payment = 1199.1   (SOLVED)
@@ -1674,6 +1678,10 @@ $$
 - **Assumes:** face > 0; 0 <= coupon_rate < 1; the old and new yields between -100% and 100%; |yield_change| < 50%
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Price of a 10-year bond (face 1000, coupon 5 %, 2 payments a year) against its yield, with the duration (tangent) and duration-plus-convexity approximations, all computed by the package for yield changes of ±4 points](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/bond-price-change-curve.svg)
+
+*Price of a 10-year bond (face 1000, coupon 5 %, 2 payments a year) against its yield, with the duration (tangent) and duration-plus-convexity approximations, all computed by the package for yield changes of ±4 points. Modified duration 7.66505; marked: yield = 6 %, price = 925.613.*
+
 ```python
 economics_finance_ai999x.solve('bond_price_change', face=1000, coupon_rate=0.05, years=10, ytm=0.06, yield_change=0.01, frequency=2)
 # -> duration_estimate = -70.9486, duration_convexity_estimate = -67.6264, actual_change = -67.7367, new_price = 857.876, price = 925.613   (SOLVED)
@@ -2217,6 +2225,10 @@ $$
 - **Assumes:** -1 <= correlation <= 1; standard deviations >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Risk and return of every mix of two assets (returns 10 % and 15 %, standard deviations 20 % and 30 %, correlation 0](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/two-asset-portfolio-frontier.svg)
+
+*Risk and return of every mix of two assets (returns 10 % and 15 %, standard deviations 20 % and 30 %, correlation 0.1), computed by the package at 51 weights. The mix w₁ = 0.6 gives 12 % at σ = 17.7989 %; marked: the minimum-variance mix w₁ = 0.711864, σ = 17.3791 %, return 11.4407 %.*
+
 ```python
 economics_finance_ai999x.solve('two_asset_portfolio', weight_1=0.6, return_1=0.1, return_2=0.15, sd_1=0.2, sd_2=0.3, correlation=0.1)
 # -> expected_return = 0.12, std_dev = 0.177989, variance = 0.03168, weight_2 = 0.4   (SOLVED)
@@ -2300,6 +2312,10 @@ $$
 - **Method:** Cholesky solve of Sigma $x = 1$, w = x / sum(x)
 - **Assumes:** covariance symmetric and positive definite
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The global minimum-variance portfolio of three assets with the covariance matrix shown (left): the package returns weights [0](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/global-min-variance-heatmap.svg)
+
+*The global minimum-variance portfolio of three assets with the covariance matrix shown (left): the package returns weights [0.547506, 0.190409, 0.262085] (right), a portfolio standard deviation of 0.160198, below every single asset's (0.2, 0.3, 0.25, each also computed by the package).*
 
 ```python
 economics_finance_ai999x.solve('global_min_variance', covariance='[[0.04, 0.006, 0.01], [0.006, 0.09, 0.02], [0.01, 0.02, 0.0625]]')
@@ -2632,6 +2648,10 @@ $$
 - **Method:** $C = S$ $e^{-qT}$ N(d1) - K $e^{-rT}$ N(d2); $P = K$ $e^{-rT}$ N(-d2) - S $e^{-qT}$ N(-d1)
 - **Assumes:** spot, strike, time > 0; 0 < volatility < 5; European exercise; lognormal prices
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Profit and loss at expiry of a European call (strike 100) bought for the Black–Scholes price the package returns, 10](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/black-scholes-payoff.svg)
+
+*Profit and loss at expiry of a European call (strike 100) bought for the Black–Scholes price the package returns, 10.4506 (rate 5 %, volatility 20 %, 1 year): the payoff is the package's value with 10⁻⁶ year left, at 101 prices, minus the premium. The loss (shaded) is capped at the premium; profit starts above the break-even price S ≈ 110.451 (strike + premium = 110.451). Dashed: value before expiry minus the premium.*
 
 ```python
 economics_finance_ai999x.solve('black_scholes', spot=100, strike=100, time=1, rate=0.05, volatility=0.2)
@@ -3419,6 +3439,10 @@ $$
 - **Method:** $a - bP = c + dP$; surpluses are triangle/trapezoid areas
 - **Assumes:** b, $d > 0$; positive equilibrium price and quantity
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Linear demand Q = 100 − 2P and supply Q = -20 + 4P: the package returns the equilibrium P* = 20, Q* = 60, consumer surplus 900 and producer surplus 450 (the shaded triangles; total 1350)](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/market-equilibrium-equilibrium.svg)
+
+*Linear demand Q = 100 − 2P and supply Q = -20 + 4P: the package returns the equilibrium P* = 20, Q* = 60, consumer surplus 900 and producer surplus 450 (the shaded triangles; total 1350). Marked: Q = 60, P = 20.*
 
 ```python
 economics_finance_ai999x.solve('market_equilibrium', demand_intercept=100, demand_slope=2, supply_intercept=-20, supply_slope=4)
