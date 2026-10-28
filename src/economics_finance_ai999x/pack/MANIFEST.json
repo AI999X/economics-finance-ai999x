@@ -1,5 +1,5 @@
 {
- "package": "1.0.1",
+ "package": "1.0.2",
  "pack": "1.0.1",
  "knowledge_db": null,
  "files": {
@@ -9,7 +9,7 @@
   "knowledge/reference_cases.json": "7414a14e2c4202a7fae8cdd14e1a2ef7267f35a9665b0633001349c698d4e4e7",
   "capabilities/procedures.py": "1646cbe17c95356720c2b6d6b65e2a799e63ae8d86ac362968075c46bc04bfa5",
   "capabilities/procedures_certified.json": "c5254c746147651c8e9ae6d0e5a585f710d2d58b0882257c51d8ce30c19fc600",
-  "economics_finance_knowledge_public.sqlite": "97f69e6cb181e2567195f3b112e6687839eab7121974c47c9c1a539880e08d6a",
+  "economics_finance_knowledge_public.sqlite": "9a52fc566942e0d2e09d30992746bd0b02d0ad681a60753e92572ba79a5430ed",
   "search/encoder.int8.onnx": "521452d928a72da4d241b1835ab0f46b0e81ff58ffff0367b9a7029bd129fbd9",
   "search/tokenizer.json": "b2f2deb461e6ad672b8e42aac29773e7a9be77d582cdf58808113ea43fda565e",
   "search/index.json": "d8f81d9706c9a0efa7d9643bcec3d39a6c3500766ce0f44937d85ad90f772507",
