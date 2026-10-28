@@ -4,7 +4,7 @@
 
 **[Install](https://pypi.org/project/economics-finance-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/economics-finance-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/economics-finance-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.2
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
 
 Field: **Economics & Finance** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -27,7 +27,7 @@ economics-finance-ai999x is an offline, deterministic Python solver that answers
 
 | Property | Value |
 |---|---|
-| Package | `economics-finance-ai999x` 1.0.2 (import `economics_finance_ai999x`) |
+| Package | `economics-finance-ai999x` 1.0.3 (import `economics_finance_ai999x`) |
 | Type | Deterministic neuro-symbolic economics and finance engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 96 certified procedures |
 | Knowledge pack | version 1.0.1 |
@@ -61,7 +61,7 @@ economics_finance.ask("Who created you?").message
 # -> economics-finance-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `economics-finance-ai999x "<question>"`, `economics-finance-ai999x --capabilities`. The outputs above were produced by running this exact code on economics-finance-ai999x 1.0.2.
+Command line: `economics-finance-ai999x "<question>"`, `economics-finance-ai999x --capabilities`. The outputs above were produced by running this exact code on economics-finance-ai999x 1.0.3.
 
 ## Find the right capability, and draw it
 
@@ -222,10 +222,10 @@ _The global minimum-variance portfolio of three assets with the covariance matri
 ## Citation
 
 ```bibtex
-@software{economics_finance_ai999x_1_0_2,
+@software{economics_finance_ai999x_1_0_3,
   title  = {economics-finance-ai999x: an offline, verified economics and finance solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.2},
+  year   = {2026}, version = {1.0.3},
   url    = {https://huggingface.co/AI999X/economics-finance-ai999x}
 }
 ```

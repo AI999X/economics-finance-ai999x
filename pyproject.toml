@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "economics-finance-ai999x"
-version = "1.0.2"
+version = "1.0.3"
 description = "Offline economics and finance solver: time value of money, loans and annuities, bonds, stocks and options, portfolio theory, risk measures, actuarial mathematics, microeconomics, macroeconomics and econometrics, with steps, LaTeX and honest refusals"
 readme = "README.md"
 requires-python = ">=3.10"
