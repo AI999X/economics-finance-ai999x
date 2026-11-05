@@ -206,7 +206,7 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 
 <a id="simple_interest"></a>
 
-### Simple interest — `simple_interest`
+### Simple interest: `simple_interest`
 
 Interest and final amount when interest is earned on the principal only: $I = P$ r t.
 
@@ -255,7 +255,7 @@ economics_finance_ai999x.solve('simple_interest', principal=2500, rate=0.04, yea
 
 <a id="compound_interest"></a>
 
-### Compound interest — `compound_interest`
+### Compound interest: `compound_interest`
 
 Future amount of a sum invested at a nominal annual rate compounded m times a year: $A = P$ (1 + r/m)^(m t).
 
@@ -304,7 +304,7 @@ economics_finance_ai999x.solve('compound_interest', principal=1000, rate=0.05, y
 
 <a id="continuous_compounding"></a>
 
-### Continuous compounding — `continuous_compounding`
+### Continuous compounding: `continuous_compounding`
 
 Future amount of a sum growing at a continuously compounded annual rate: $A = P$ e^(r t).
 
@@ -351,7 +351,7 @@ economics_finance_ai999x.solve('continuous_compounding', principal=500, rate=0.0
 
 <a id="effective_annual_rate"></a>
 
-### Effective annual rate — `effective_annual_rate`
+### Effective annual rate: `effective_annual_rate`
 
 The effective annual rate (annual percentage yield) of a nominal rate compounded m times a year.
 
@@ -401,7 +401,7 @@ economics_finance_ai999x.solve('effective_annual_rate', rate=0.1, periods_per_ye
 
 <a id="nominal_rate"></a>
 
-### Nominal rate from an effective rate — `nominal_rate`
+### Nominal rate from an effective rate: `nominal_rate`
 
 The nominal annual rate (APR) compounded m times a year that gives a stated effective annual rate.
 
@@ -446,7 +446,7 @@ economics_finance_ai999x.solve('nominal_rate', effective_rate=0.08, periods_per_
 
 <a id="present_value"></a>
 
-### Present value of a single sum — `present_value`
+### Present value of a single sum: `present_value`
 
 What a single amount received after n periods is worth today at a rate per period: $PV = FV / (1 + r)^{n.}$
 
@@ -493,7 +493,7 @@ economics_finance_ai999x.solve('present_value', future_value=1000, rate=0.05, pe
 
 <a id="future_value_annuity"></a>
 
-### Future value of an annuity — `future_value_annuity`
+### Future value of an annuity: `future_value_annuity`
 
 The accumulated value after n periods of equal payments, ordinary (end of period) or due (beginning).
 
@@ -546,7 +546,7 @@ economics_finance_ai999x.solve('future_value_annuity', payment=100, rate=0.0, pe
 
 <a id="present_value_annuity"></a>
 
-### Present value of an annuity — `present_value_annuity`
+### Present value of an annuity: `present_value_annuity`
 
 The value today of n equal payments, ordinary (end of period) or due (beginning).
 
@@ -602,7 +602,7 @@ economics_finance_ai999x.solve('present_value_annuity', payment=250, rate=0.0, p
 
 <a id="loan_payment"></a>
 
-### Loan payment (amortizing loan) — `loan_payment`
+### Loan payment (amortizing loan): `loan_payment`
 
 The level payment that repays a loan over its term, with the total paid and the total interest.
 
@@ -659,7 +659,7 @@ economics_finance_ai999x.solve('loan_payment', principal=12000, annual_rate=0.0,
 
 <a id="sinking_fund"></a>
 
-### Sinking fund payment — `sinking_fund`
+### Sinking fund payment: `sinking_fund`
 
 The equal payment per period that accumulates to a target amount after n periods.
 
@@ -705,7 +705,7 @@ economics_finance_ai999x.solve('sinking_fund', future_value=1200, rate=0.0, peri
 
 <a id="number_of_periods"></a>
 
-### Number of payments to repay a loan — `number_of_periods`
+### Number of payments to repay a loan: `number_of_periods`
 
 How many periodic payments repay a present value at a rate per period (a fractional answer means the last payment is smaller).
 
@@ -751,7 +751,7 @@ economics_finance_ai999x.solve('number_of_periods', present_value=10000, payment
 
 <a id="annuity_rate"></a>
 
-### Interest rate of an annuity — `annuity_rate`
+### Interest rate of an annuity: `annuity_rate`
 
 The rate per period at which n equal payments are worth a given present value (bisection; the rate is unique because the present value falls as the rate rises).
 
@@ -797,7 +797,7 @@ economics_finance_ai999x.solve('annuity_rate', present_value=386.0867, payment=1
 
 <a id="perpetuity"></a>
 
-### Present value of a perpetuity — `perpetuity`
+### Present value of a perpetuity: `perpetuity`
 
 The value today of an equal payment every period forever: $PV = C / r$ (C / r + C if payments start now).
 
@@ -847,7 +847,7 @@ economics_finance_ai999x.solve('perpetuity', payment=100, rate=0.05, timing='due
 
 <a id="growing_perpetuity"></a>
 
-### Present value of a growing perpetuity — `growing_perpetuity`
+### Present value of a growing perpetuity: `growing_perpetuity`
 
 The value today of payments that start at C one period from now and grow at g per period forever: C / (r - g).
 
@@ -896,7 +896,7 @@ economics_finance_ai999x.solve('growing_perpetuity', first_payment=50, rate=0.1,
 
 <a id="growing_annuity"></a>
 
-### Present and future value of a growing annuity — `growing_annuity`
+### Present and future value of a growing annuity, `growing_annuity`
 
 n payments at the end of each period, the first C1, each growing at g per period.
 
@@ -946,7 +946,7 @@ economics_finance_ai999x.solve('growing_annuity', first_payment=100, rate=0.05, 
 
 <a id="doubling_time"></a>
 
-### Doubling time — `doubling_time`
+### Doubling time: `doubling_time`
 
 How many periods an amount compounding at r per period takes to double, with the rule-of-72 estimate.
 
@@ -990,7 +990,7 @@ economics_finance_ai999x.solve('doubling_time', rate=0.1111111111111111)
 
 <a id="cagr"></a>
 
-### Compound annual growth rate — `cagr`
+### Compound annual growth rate: `cagr`
 
 The constant annual growth rate that takes a beginning value to an ending value over a number of years.
 
@@ -1037,7 +1037,7 @@ economics_finance_ai999x.solve('cagr', begin_value=1000, end_value=2000, years=5
 
 <a id="loan_balance"></a>
 
-### Remaining balance of a loan — `loan_balance`
+### Remaining balance of a loan: `loan_balance`
 
 The balance still owed on an amortizing loan after k level payments.
 
@@ -1090,7 +1090,7 @@ economics_finance_ai999x.solve('loan_balance', principal=12000, annual_rate=0.0,
 
 <a id="loan_payment_split"></a>
 
-### Interest and principal in a loan payment — `loan_payment_split`
+### Interest and principal in a loan payment: `loan_payment_split`
 
 How payment number k of an amortizing loan splits into interest and principal repayment.
 
@@ -1144,7 +1144,7 @@ economics_finance_ai999x.solve('loan_payment_split', principal=200000, annual_ra
 
 <a id="loan_cumulative_interest"></a>
 
-### Cumulative interest of a loan — `loan_cumulative_interest`
+### Cumulative interest of a loan: `loan_cumulative_interest`
 
 Total interest paid and principal repaid over the first k payments of an amortizing loan.
 
@@ -1191,7 +1191,7 @@ economics_finance_ai999x.solve('loan_cumulative_interest', principal=200000, ann
 
 <a id="npv"></a>
 
-### Net present value — `npv`
+### Net present value: `npv`
 
 NPV of cash flows [CF0, CF1, ..., CFn] (CF0 now, CFt at the end of period t) at a discount rate per period.
 
@@ -1238,7 +1238,7 @@ economics_finance_ai999x.solve('npv', rate=0.0, cash_flows=[-100, 50, 60])
 
 <a id="irr"></a>
 
-### Internal rate of return — `irr`
+### Internal rate of return: `irr`
 
 The discount rate at which the NPV of [CF0, ..., CFn] is zero; given only when it is unique (the cash flows change sign exactly once).
 
@@ -1288,7 +1288,7 @@ economics_finance_ai999x.solve('irr', cash_flows=[-1000, 0, 1210])
 
 <a id="mirr"></a>
 
-### Modified internal rate of return — `mirr`
+### Modified internal rate of return: `mirr`
 
 MIRR: outflows discounted at the finance rate, inflows compounded to the end at the reinvestment rate.
 
@@ -1339,7 +1339,7 @@ economics_finance_ai999x.solve('mirr', cash_flows=[-100, 0, 121], finance_rate=0
 
 <a id="payback_period"></a>
 
-### Payback period — `payback_period`
+### Payback period: `payback_period`
 
 Time until the cumulative cash flow turns non-negative, interpolating linearly within the period (cash arriving evenly during the period).
 
@@ -1382,7 +1382,7 @@ economics_finance_ai999x.solve('payback_period', cash_flows=[-100, 50, 50, 50])
 
 <a id="discounted_payback"></a>
 
-### Discounted payback period — `discounted_payback`
+### Discounted payback period: `discounted_payback`
 
 Time until the cumulative DISCOUNTED cash flow turns non-negative (linear within the period).
 
@@ -1430,7 +1430,7 @@ economics_finance_ai999x.solve('discounted_payback', rate=0.0, cash_flows=[-100,
 
 <a id="profitability_index"></a>
 
-### Profitability index — `profitability_index`
+### Profitability index: `profitability_index`
 
 PV of the future cash flows divided by the initial investment (benefit-cost ratio).
 
@@ -1476,7 +1476,7 @@ economics_finance_ai999x.solve('profitability_index', rate=0.0, cash_flows=[-100
 
 <a id="equivalent_annual_annuity"></a>
 
-### Equivalent annual annuity — `equivalent_annual_annuity`
+### Equivalent annual annuity: `equivalent_annual_annuity`
 
 The level payment over the project's life with the same NPV (for comparing projects of unequal lives).
 
@@ -1520,7 +1520,7 @@ economics_finance_ai999x.solve('equivalent_annual_annuity', rate=0.0, cash_flows
 
 <a id="crossover_rate"></a>
 
-### NPV crossover rate of two projects — `crossover_rate`
+### NPV crossover rate of two projects: `crossover_rate`
 
 The discount rate at which two projects have equal NPV (the IRR of the difference A - B); given only when it is unique.
 
@@ -1560,7 +1560,7 @@ economics_finance_ai999x.solve('crossover_rate', cash_flows_a='-1000, 100, 1200'
 
 <a id="bond_price"></a>
 
-### Bond price from its yield — `bond_price`
+### Bond price from its yield: `bond_price`
 
 Price of a fixed-coupon bond on a coupon date from its yield to maturity, with the current yield.
 
@@ -1615,7 +1615,7 @@ economics_finance_ai999x.solve('bond_price', face=1000, coupon_rate=0.06, years=
 
 <a id="bond_ytm"></a>
 
-### Yield to maturity of a bond — `bond_ytm`
+### Yield to maturity of a bond: `bond_ytm`
 
 The yield to maturity (nominal annual, compounded at the coupon frequency) that equates the bond's price to the present value of its coupons and face value.
 
@@ -1664,7 +1664,7 @@ economics_finance_ai999x.solve('bond_ytm', price=925.61, face=1000, coupon_rate=
 
 <a id="bond_duration"></a>
 
-### Macaulay and modified duration of a bond — `bond_duration`
+### Macaulay and modified duration of a bond: `bond_duration`
 
 The Macaulay duration (PV-weighted average time to the cash flows, years) and the modified duration (the price's sensitivity -dP/dy / P) of a fixed-coupon bond.
 
@@ -1717,7 +1717,7 @@ economics_finance_ai999x.solve('bond_duration', face=1000, coupon_rate=0.0, year
 
 <a id="bond_convexity"></a>
 
-### Convexity of a bond — `bond_convexity`
+### Convexity of a bond: `bond_convexity`
 
 The convexity $(1/P)$ $d^{2P}/dy^{2}$ of a fixed-coupon bond, in years squared.
 
@@ -1768,7 +1768,7 @@ economics_finance_ai999x.solve('bond_convexity', face=100, coupon_rate=0.0, year
 
 <a id="zero_coupon_bond"></a>
 
-### Price of a zero-coupon bond — `zero_coupon_bond`
+### Price of a zero-coupon bond: `zero_coupon_bond`
 
 Price of a bond that pays only its face value at maturity, at a yield with a stated compounding.
 
@@ -1821,7 +1821,7 @@ economics_finance_ai999x.solve('zero_coupon_bond', face=1000, ytm=0.05, years=10
 
 <a id="bond_price_change"></a>
 
-### Bond price change from duration and convexity — `bond_price_change`
+### Bond price change from duration and convexity, `bond_price_change`
 
 The price change of a bond for a change in its yield: duration estimate, duration-plus-convexity estimate and the exact change by repricing.
 
@@ -1871,7 +1871,7 @@ economics_finance_ai999x.solve('bond_price_change', face=1000, coupon_rate=0.05,
 
 <a id="forward_rate"></a>
 
-### Implied forward rate from spot rates — `forward_rate`
+### Implied forward rate from spot rates: `forward_rate`
 
 The annually compounded forward rate between t1 and t2 implied by the spot rates for t1 and t2.
 
@@ -1917,7 +1917,7 @@ economics_finance_ai999x.solve('forward_rate', spot_rate_1=0.05, maturity_1=2, s
 
 <a id="gordon_growth"></a>
 
-### Dividend discount model (Gordon growth) — `gordon_growth`
+### Dividend discount model (Gordon growth): `gordon_growth`
 
 Value of a share whose dividend grows at a constant rate forever: $P_{0} = D_{1} / (r - g)$.
 
@@ -1967,7 +1967,7 @@ economics_finance_ai999x.solve('gordon_growth', next_dividend=3, required_return
 
 <a id="two_stage_ddm"></a>
 
-### Two-stage dividend discount model — `two_stage_ddm`
+### Two-stage dividend discount model: `two_stage_ddm`
 
 Share value when dividends grow at a high rate for n years and at a stable rate forever after.
 
@@ -2016,7 +2016,7 @@ economics_finance_ai999x.solve('two_stage_ddm', dividend=2, high_growth=0.15, hi
 
 <a id="gordon_implied_return"></a>
 
-### Required return implied by the Gordon model — `gordon_implied_return`
+### Required return implied by the Gordon model, `gordon_implied_return`
 
 The return investors require given a share price and a constant dividend growth rate: $r = D_{1} / P_{0} + g.$
 
@@ -2064,7 +2064,7 @@ economics_finance_ai999x.solve('gordon_implied_return', price=40, next_dividend=
 
 <a id="capm"></a>
 
-### Capital asset pricing model — `capm`
+### Capital asset pricing model: `capm`
 
 Expected return of an asset from its beta: E[R] = rf + beta (E[Rm] - rf) (the security market line).
 
@@ -2111,7 +2111,7 @@ economics_finance_ai999x.solve('capm', risk_free=0.02, beta=0.0, market_return=0
 
 <a id="wacc"></a>
 
-### Weighted average cost of capital — `wacc`
+### Weighted average cost of capital: `wacc`
 
 WACC = E/V re + D/V rd $(1 - t)$: the after-tax cost of a firm's capital at market-value weights.
 
@@ -2160,7 +2160,7 @@ economics_finance_ai999x.solve('wacc', equity_value=600, debt_value=400, cost_of
 
 <a id="beta_regression"></a>
 
-### Beta of an asset from return series — `beta_regression`
+### Beta of an asset from return series: `beta_regression`
 
 Beta (and alpha, correlation, R^2) of an asset from paired asset and market returns: the slope of the ordinary least-squares regression of asset on market returns.
 
@@ -2209,7 +2209,7 @@ economics_finance_ai999x.solve('beta_regression', asset_returns=[0.02, 0.04, 0.0
 
 <a id="sharpe_ratio"></a>
 
-### Sharpe ratio — `sharpe_ratio`
+### Sharpe ratio: `sharpe_ratio`
 
 Mean excess return per unit of total risk, from a return series (sample standard deviation, n - 1); annualized by sqrt(periods per year).
 
@@ -2257,7 +2257,7 @@ economics_finance_ai999x.solve('sharpe_ratio', returns=[0.01, 0.03], risk_free=0
 
 <a id="sortino_ratio"></a>
 
-### Sortino ratio — `sortino_ratio`
+### Sortino ratio: `sortino_ratio`
 
 Mean return above a target per unit of downside deviation sqrt(mean(min(0, R - T)^2)) over ALL observations.
 
@@ -2298,7 +2298,7 @@ economics_finance_ai999x.solve('sortino_ratio', returns='0.05, 0.02, -0.01, 0.04
 
 <a id="treynor_jensen"></a>
 
-### Treynor ratio and Jensen's alpha — `treynor_jensen`
+### Treynor ratio and Jensen's alpha: `treynor_jensen`
 
 Excess return per unit of beta (Treynor) and the return above the CAPM prediction (Jensen's alpha), from paired portfolio and market returns and a constant risk-free rate per period.
 
@@ -2341,7 +2341,7 @@ economics_finance_ai999x.solve('treynor_jensen', portfolio_returns='0.03, -0.01,
 
 <a id="information_ratio"></a>
 
-### Information ratio and tracking error — `information_ratio`
+### Information ratio and tracking error: `information_ratio`
 
 Mean active return (portfolio - benchmark) per unit of tracking error (sample sd of active returns).
 
@@ -2381,7 +2381,7 @@ economics_finance_ai999x.solve('information_ratio', portfolio_returns='0.03, 0.0
 
 <a id="portfolio_return_risk"></a>
 
-### Portfolio expected return and risk — `portfolio_return_risk`
+### Portfolio expected return and risk: `portfolio_return_risk`
 
 Expected return w'mu, variance w'Sigma w and standard deviation of a portfolio from its weights, expected returns and covariance matrix.
 
@@ -2429,7 +2429,7 @@ economics_finance_ai999x.solve('portfolio_return_risk', weights=[1.0], expected_
 
 <a id="two_asset_portfolio"></a>
 
-### Two-asset portfolio return and risk — `two_asset_portfolio`
+### Two-asset portfolio return and risk: `two_asset_portfolio`
 
 Expected return and standard deviation of a portfolio of two assets from the weight, means, standard deviations and correlation.
 
@@ -2488,7 +2488,7 @@ economics_finance_ai999x.solve('two_asset_portfolio', weight_1=0.5, return_1=0.1
 
 <a id="min_variance_two_asset"></a>
 
-### Minimum-variance portfolio of two assets — `min_variance_two_asset`
+### Minimum-variance portfolio of two assets: `min_variance_two_asset`
 
 The weights of two assets that minimise the portfolio variance (short sales allowed), and that variance's sd.
 
@@ -2535,7 +2535,7 @@ economics_finance_ai999x.solve('min_variance_two_asset', sd_1=0.2, sd_2=0.2, cor
 
 <a id="global_min_variance"></a>
 
-### Global minimum-variance portfolio — `global_min_variance`
+### Global minimum-variance portfolio: `global_min_variance`
 
 Weights (adding up to 1, short sales allowed) of the portfolio with the smallest variance, from a covariance matrix: $w = Sigma^{-1}$ 1 / (1' $Sigma^{-1}$ 1).
 
@@ -2588,7 +2588,7 @@ economics_finance_ai999x.solve('global_min_variance', covariance=[[0.04, 0.0], [
 
 <a id="tangency_portfolio"></a>
 
-### Tangency (maximum Sharpe ratio) portfolio — `tangency_portfolio`
+### Tangency (maximum Sharpe ratio) portfolio: `tangency_portfolio`
 
 Weights of the risky portfolio with the highest Sharpe ratio (short sales allowed): w proportional to $Sigma^{-1}$ (mu - rf).
 
@@ -2631,7 +2631,7 @@ economics_finance_ai999x.solve('tangency_portfolio', expected_returns='0.1, 0.15
 
 <a id="mean_returns"></a>
 
-### Arithmetic and geometric mean return — `mean_returns`
+### Arithmetic and geometric mean return: `mean_returns`
 
 Arithmetic mean, geometric (compound) mean and cumulative return of a series of periodic returns.
 
@@ -2676,7 +2676,7 @@ economics_finance_ai999x.solve('mean_returns', returns=[0.5, -0.5])
 
 <a id="scenario_return"></a>
 
-### Expected return and risk from scenarios — `scenario_return`
+### Expected return and risk from scenarios: `scenario_return`
 
 Expected return, variance and standard deviation of an asset whose return depends on scenarios with given probabilities.
 
@@ -2717,7 +2717,7 @@ economics_finance_ai999x.solve('scenario_return', probabilities='0.3, 0.5, 0.2',
 
 <a id="historical_var"></a>
 
-### Historical value at risk and expected shortfall — `historical_var`
+### Historical value at risk and expected shortfall, `historical_var`
 
 VaR and CVaR (expected shortfall) by historical simulation: with k = ceil(n (1 - confidence)), VaR is minus the k-th smallest return and CVaR minus the mean of the k smallest, times the portfolio value.
 
@@ -2764,7 +2764,7 @@ economics_finance_ai999x.solve('historical_var', returns=[0.01, -0.02, 0.03, -0.
 
 <a id="parametric_var"></a>
 
-### Parametric (normal) value at risk and expected shortfall — `parametric_var`
+### Parametric (normal) value at risk and expected shortfall, `parametric_var`
 
 VaR and CVaR of normally distributed returns with a mean and standard deviation per period, scaled to a horizon by mean x h and sd x sqrt(h).
 
@@ -2818,7 +2818,7 @@ economics_finance_ai999x.solve('parametric_var', mean=0.0, std_dev=0.02, confide
 
 <a id="max_drawdown"></a>
 
-### Maximum drawdown — `max_drawdown`
+### Maximum drawdown: `max_drawdown`
 
 The largest fall from a running peak to a later trough, as a fraction of the peak.
 
@@ -2861,7 +2861,7 @@ economics_finance_ai999x.solve('max_drawdown', prices=[100, 101, 102])
 
 <a id="portfolio_var"></a>
 
-### Portfolio value at risk (variance-covariance) — `portfolio_var`
+### Portfolio value at risk (variance-covariance), `portfolio_var`
 
 Zero-mean normal VaR of a portfolio from its weights and the covariance matrix of periodic returns, with the undiversified VaR (sum of the assets' own VaRs) and the diversification benefit.
 
@@ -2905,7 +2905,7 @@ economics_finance_ai999x.solve('portfolio_var', weights='0.6, 0.4', covariance='
 
 <a id="black_scholes"></a>
 
-### Black-Scholes option prices — `black_scholes`
+### Black-Scholes option prices: `black_scholes`
 
 Prices of European call and put options on an asset with a continuous dividend yield (Black-Scholes-Merton).
 
@@ -2962,7 +2962,7 @@ economics_finance_ai999x.solve('black_scholes', spot=50, strike=55, time=0.5, ra
 
 <a id="bs_greeks"></a>
 
-### Black-Scholes Greeks — `bs_greeks`
+### Black-Scholes Greeks: `bs_greeks`
 
 Delta, gamma, vega, theta and rho of European calls and puts (Black-Scholes-Merton, continuous dividend yield). Vega per 1.00 of volatility, theta per year, rho per 1.00 of rate.
 
@@ -3016,7 +3016,7 @@ economics_finance_ai999x.solve('bs_greeks', spot=50, strike=55, time=0.5, rate=0
 
 <a id="implied_volatility"></a>
 
-### Implied volatility — `implied_volatility`
+### Implied volatility: `implied_volatility`
 
 The volatility at which the Black-Scholes price of a European call or put equals its market price.
 
@@ -3067,7 +3067,7 @@ economics_finance_ai999x.solve('implied_volatility', option_price=6.5, spot=50, 
 
 <a id="put_call_parity"></a>
 
-### Put-call parity — `put_call_parity`
+### Put-call parity: `put_call_parity`
 
 The price of a European put from the call with the same strike and expiry: $P = C - S$ $e^{-qT} + K$ $e^{-rT}$.
 
@@ -3112,7 +3112,7 @@ economics_finance_ai999x.solve('put_call_parity', call_price=10.450583572185565,
 
 <a id="binomial_option"></a>
 
-### Binomial option price (Cox-Ross-Rubinstein) — `binomial_option`
+### Binomial option price (Cox-Ross-Rubinstein), `binomial_option`
 
 European call or put price on an n-step Cox-Ross-Rubinstein tree (u = e^(sigma sqrt(dt)), d = 1/u), with the delta of the first step.
 
@@ -3169,7 +3169,7 @@ economics_finance_ai999x.solve('binomial_option', spot=100, strike=100, time=1, 
 
 <a id="forward_price"></a>
 
-### Forward price with cost of carry — `forward_price`
+### Forward price with cost of carry: `forward_price`
 
 No-arbitrage forward price of an asset with a continuous income yield q and storage cost u: S e^((r + u - q) T).
 
@@ -3217,7 +3217,7 @@ economics_finance_ai999x.solve('forward_price', spot=100, rate=0.05, time=0)
 
 <a id="forward_price_dividends"></a>
 
-### Forward price with known dividends — `forward_price_dividends`
+### Forward price with known dividends: `forward_price_dividends`
 
 Forward price of a stock paying known cash dividends before delivery: F = (S - PV(dividends)) $e^{rT}$.
 
@@ -3260,7 +3260,7 @@ economics_finance_ai999x.solve('forward_price_dividends', spot=50, rate=0.05, ti
 
 <a id="survival_probability"></a>
 
-### Survival and death probabilities from a life table — `survival_probability`
+### Survival and death probabilities from a life table, `survival_probability`
 
 t p_x (survive t years), t q_x (die within t years) and t|u q_x (survive t years, then die within the next u years) from one-year mortality rates.
 
@@ -3307,7 +3307,7 @@ economics_finance_ai999x.solve('survival_probability', mortality_rates=[0.1, 0.2
 
 <a id="life_expectancy"></a>
 
-### Life expectancy from a life table — `life_expectancy`
+### Life expectancy from a life table: `life_expectancy`
 
 Curtate expectation of life e_x = sum_{$k \geq 1$} k p_x (whole years lived) and the complete expectation $e_x + 1/2$ (deaths uniform within each year).
 
@@ -3351,7 +3351,7 @@ economics_finance_ai999x.solve('life_expectancy', mortality_rates=[1.0])
 
 <a id="whole_life_insurance"></a>
 
-### Whole life insurance (net single premium) — `whole_life_insurance`
+### Whole life insurance (net single premium): `whole_life_insurance`
 
 Actuarial present value A_x of a benefit paid at the end of the year of death, whenever it occurs.
 
@@ -3399,7 +3399,7 @@ economics_finance_ai999x.solve('whole_life_insurance', mortality_rates=[1.0], in
 
 <a id="term_insurance"></a>
 
-### Term life insurance (net single premium) — `term_insurance`
+### Term life insurance (net single premium): `term_insurance`
 
 Actuarial present value of a benefit paid at the end of the year of death if death occurs within n years.
 
@@ -3444,7 +3444,7 @@ economics_finance_ai999x.solve('term_insurance', mortality_rates='0.01, 0.02, 0.
 
 <a id="life_annuity_due"></a>
 
-### Whole life annuity-due — `life_annuity_due`
+### Whole life annuity-due: `life_annuity_due`
 
 Actuarial present value of a payment at the start of every year while the person is alive.
 
@@ -3492,7 +3492,7 @@ economics_finance_ai999x.solve('life_annuity_due', mortality_rates=[1.0], intere
 
 <a id="temporary_annuity_due"></a>
 
-### Temporary life annuity-due — `temporary_annuity_due`
+### Temporary life annuity-due: `temporary_annuity_due`
 
 Actuarial present value of up to n annual payments at the start of each year while alive.
 
@@ -3536,7 +3536,7 @@ economics_finance_ai999x.solve('temporary_annuity_due', mortality_rates='0.01, 0
 
 <a id="net_premium_whole_life"></a>
 
-### Net annual premium for whole life insurance — `net_premium_whole_life`
+### Net annual premium for whole life insurance, `net_premium_whole_life`
 
 The level annual net premium, paid at the start of each year while alive, for a whole life benefit (equivalence principle): $P = B$ A_x / a-due_x.
 
@@ -3581,7 +3581,7 @@ economics_finance_ai999x.solve('net_premium_whole_life', mortality_rates='0.1, 0
 
 <a id="endowment_insurance"></a>
 
-### Endowment insurance — `endowment_insurance`
+### Endowment insurance: `endowment_insurance`
 
 Actuarial present value of a benefit paid at the end of the year of death within n years, or at year n if alive then (term insurance + pure endowment).
 
@@ -3627,7 +3627,7 @@ economics_finance_ai999x.solve('endowment_insurance', mortality_rates='0.01, 0.0
 
 <a id="arc_price_elasticity"></a>
 
-### Price elasticity of demand (midpoint) — `arc_price_elasticity`
+### Price elasticity of demand (midpoint): `arc_price_elasticity`
 
 Arc (midpoint) price elasticity of demand between two price-quantity points, and whether demand is elastic, inelastic or unit elastic there.
 
@@ -3652,9 +3652,9 @@ $$
 - **Assumes:** prices and quantities > 0; the two prices differ
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![elastic, inelastic, unit elastic or perfectly inelastic (classification) over price_1 (first price) from 1 to 100 and quantity_1 (quantity demanded at price 1) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned — elastic: 330 cells, inelastic: 321 cells](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/arc-price-elasticity-decision)
+![elastic, inelastic, unit elastic or perfectly inelastic (classification) over price_1 (first price) from 1 to 100 and quantity_1 (quantity demanded at price 1) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, elastic: 330 cells, inelastic: 321 cells](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/arc-price-elasticity-decision)
 
-*elastic, inelastic, unit elastic or perfectly inelastic (classification) over price_1 (first price) from 1 to 100 and quantity_1 (quantity demanded at price 1) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned — elastic: 330 cells, inelastic: 321 cells. Other inputs as in the worked example: price_2 = 12, quantity_2 = 80. Marked: the worked example, price_1 = 10, quantity_1 = 100 → elastic.*
+*elastic, inelastic, unit elastic or perfectly inelastic (classification) over price_1 (first price) from 1 to 100 and quantity_1 (quantity demanded at price 1) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, elastic: 330 cells, inelastic: 321 cells. Other inputs as in the worked example: price_2 = 12, quantity_2 = 80. Marked: the worked example, price_1 = 10, quantity_1 = 100 → elastic.*
 
 ![elasticity ((dQ / mean Q) / (dP / mean P)) against price_1 (first price) from 1 to 11](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/arc-price-elasticity-curve)
 
@@ -3679,7 +3679,7 @@ economics_finance_ai999x.solve('arc_price_elasticity', price_1=10, quantity_1=12
 
 <a id="income_elasticity"></a>
 
-### Income elasticity of demand (midpoint) — `income_elasticity`
+### Income elasticity of demand (midpoint): `income_elasticity`
 
 Midpoint income elasticity of demand and the good's type (inferior, necessity, luxury).
 
@@ -3703,9 +3703,9 @@ $$
 - **Assumes:** incomes and quantities > 0; the incomes differ
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![inferior, necessity or luxury (classification) over income_1 (first income) from 4000 to 400000 and income_2 (second income) from 5000 to 500000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned — inferior good: 300 cells, normal good (luxury): 31 cells, normal good (necessity): 320 cells](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-elasticity-decision)
+![inferior, necessity or luxury (classification) over income_1 (first income) from 4000 to 400000 and income_2 (second income) from 5000 to 500000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, inferior good: 300 cells, normal good (luxury): 31 cells, normal good (necessity): 320 cells](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-elasticity-decision)
 
-*inferior, necessity or luxury (classification) over income_1 (first income) from 4000 to 400000 and income_2 (second income) from 5000 to 500000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned — inferior good: 300 cells, normal good (luxury): 31 cells, normal good (necessity): 320 cells. Other inputs as in the worked example: quantity_1 = 10, quantity_2 = 13. Marked: the worked example, income_1 = 40000, income_2 = 50000 → normal good (luxury).*
+*inferior, necessity or luxury (classification) over income_1 (first income) from 4000 to 400000 and income_2 (second income) from 5000 to 500000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, inferior good: 300 cells, normal good (luxury): 31 cells, normal good (necessity): 320 cells. Other inputs as in the worked example: quantity_1 = 10, quantity_2 = 13. Marked: the worked example, income_1 = 40000, income_2 = 50000 → normal good (luxury).*
 
 ![elasticity ((dQ / mean Q) / (dI / mean I)) against income_1 (first income) from 20000 to 49333](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-elasticity-curve)
 
@@ -3724,7 +3724,7 @@ economics_finance_ai999x.solve('income_elasticity', income_1=40000, quantity_1=1
 
 <a id="cross_price_elasticity"></a>
 
-### Cross-price elasticity of demand (midpoint) — `cross_price_elasticity`
+### Cross-price elasticity of demand (midpoint), `cross_price_elasticity`
 
 Midpoint cross-price elasticity: response of the quantity of good A to the price of good B; positive = substitutes, negative = complements.
 
@@ -3750,7 +3750,7 @@ $$
 
 ![substitutes, complements or independent (relationship) over price_other_1 (first price of the other good) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cross-price-elasticity-decision)
 
-*substitutes, complements or independent (relationship) over price_other_1 (first price of the other good) from 0.2 to 20 and quantity_1 (quantity of this good at that price) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned — complements: 324 cells, substitutes: 327 cells. Other inputs as in the worked example: price_other_2 = 2.5, quantity_2 = 120. Marked: the worked example, price_other_1 = 2, quantity_1 = 100 → substitutes.*
+*substitutes, complements or independent (relationship) over price_other_1 (first price of the other good) from 0.2 to 20 and quantity_1 (quantity of this good at that price) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, complements: 324 cells, substitutes: 327 cells. Other inputs as in the worked example: price_other_2 = 2.5, quantity_2 = 120. Marked: the worked example, price_other_1 = 2, quantity_1 = 100 → substitutes.*
 
 ![elasticity ((dQa / mean Qa) / (dPb / mean Pb)) against price_other_1 (first price of the other good) from 1 to 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cross-price-elasticity-curve)
 
@@ -3770,7 +3770,7 @@ economics_finance_ai999x.solve('cross_price_elasticity', price_other_1=2, quanti
 
 <a id="point_elasticity"></a>
 
-### Point elasticity of a linear demand curve — `point_elasticity`
+### Point elasticity of a linear demand curve: `point_elasticity`
 
 Quantity, point price elasticity and revenue on the linear demand curve $Q = a - b$ P at a price, and the revenue-maximising price.
 
@@ -3813,7 +3813,7 @@ economics_finance_ai999x.solve('point_elasticity', demand_intercept=100, demand_
 
 <a id="market_equilibrium"></a>
 
-### Market equilibrium and surplus (linear curves) — `market_equilibrium`
+### Market equilibrium and surplus (linear curves), `market_equilibrium`
 
 Equilibrium price and quantity of $Qd = a - bP$ and $Qs = c + dP$, with consumer, producer and total surplus (producer surplus counted at prices >= 0).
 
@@ -3867,7 +3867,7 @@ economics_finance_ai999x.solve('market_equilibrium', demand_intercept=100, deman
 
 <a id="per_unit_tax"></a>
 
-### Per-unit tax incidence (linear curves) — `per_unit_tax`
+### Per-unit tax incidence (linear curves): `per_unit_tax`
 
 Effect of a per-unit tax on $Qd = a - bP$, $Qs = c + dP$: quantity, price paid by buyers and kept by sellers, tax revenue, deadweight loss and the buyers' share of the burden.
 
@@ -3914,7 +3914,7 @@ economics_finance_ai999x.solve('per_unit_tax', demand_intercept=100, demand_slop
 
 <a id="monopoly"></a>
 
-### Monopoly profit maximization — `monopoly`
+### Monopoly profit maximization: `monopoly`
 
 Profit-maximising quantity and price of a monopoly facing $P = A - BQ$ with cost $F + cQ + eQ^{2}$, its profit, Lerner index and the deadweight loss against marginal-cost pricing.
 
@@ -3965,7 +3965,7 @@ economics_finance_ai999x.solve('monopoly', price_intercept=100, price_slope=1, m
 
 <a id="cournot"></a>
 
-### Cournot duopoly equilibrium — `cournot`
+### Cournot duopoly equilibrium: `cournot`
 
 Quantities, price and profits of two firms choosing quantities simultaneously against $P = A - B$(q1 + q2) with constant marginal costs.
 
@@ -4010,7 +4010,7 @@ economics_finance_ai999x.solve('cournot', price_intercept=100, price_slope=1, co
 
 <a id="stackelberg"></a>
 
-### Stackelberg duopoly equilibrium — `stackelberg`
+### Stackelberg duopoly equilibrium: `stackelberg`
 
 Quantities, price and profits when a leader chooses its quantity first and the follower best-responds, against $P = A - B$(qL + qF) with constant marginal costs.
 
@@ -4054,7 +4054,7 @@ economics_finance_ai999x.solve('stackelberg', price_intercept=100, price_slope=1
 
 <a id="break_even"></a>
 
-### Break-even and target-profit volume — `break_even`
+### Break-even and target-profit volume: `break_even`
 
 Units to sell to cover fixed costs (and reach a target profit): Q = (F + target) / (p - v).
 
@@ -4103,7 +4103,7 @@ economics_finance_ai999x.solve('break_even', fixed_costs=10000, price=50, variab
 
 <a id="cobb_douglas_demand"></a>
 
-### Utility-maximising demand (Cobb-Douglas) — `cobb_douglas_demand`
+### Utility-maximising demand (Cobb-Douglas): `cobb_douglas_demand`
 
 The bundle that maximises $U = x^{\alpha}$ $y^{\beta}$ subject to px x + py $y = M.$
 
@@ -4152,7 +4152,7 @@ economics_finance_ai999x.solve('cobb_douglas_demand', alpha=0.3, beta=0.7, incom
 
 <a id="gdp_deflator"></a>
 
-### Nominal GDP, real GDP and the GDP deflator — `gdp_deflator`
+### Nominal GDP, real GDP and the GDP deflator, `gdp_deflator`
 
 Nominal GDP (current prices), real GDP (base-year prices), the GDP deflator, inflation since the base year and real growth, from the prices and quantities of the goods produced.
 
@@ -4197,7 +4197,7 @@ economics_finance_ai999x.solve('gdp_deflator', base_prices='2, 5', base_quantiti
 
 <a id="price_indices"></a>
 
-### Laspeyres, Paasche and Fisher price indices — `price_indices`
+### Laspeyres, Paasche and Fisher price indices, `price_indices`
 
 Price indices (base = 100) of a basket: Laspeyres (base-year quantities, the CPI method), Paasche (current quantities) and Fisher (their geometric mean).
 
@@ -4239,7 +4239,7 @@ economics_finance_ai999x.solve('price_indices', base_prices='2, 5', base_quantit
 
 <a id="fisher_real_rate"></a>
 
-### Real interest rate (Fisher equation) — `fisher_real_rate`
+### Real interest rate (Fisher equation): `fisher_real_rate`
 
 The exact real rate $(1 + i)/(1 + pi) - 1$ and the approximation i - pi.
 
@@ -4284,7 +4284,7 @@ economics_finance_ai999x.solve('fisher_real_rate', nominal_rate=0.1, inflation_r
 
 <a id="inflation_adjustment"></a>
 
-### Inflation from a price index series — `inflation_adjustment`
+### Inflation from a price index series: `inflation_adjustment`
 
 Total and average annual (geometric) inflation from consecutive price levels (CPI), and the value of an amount in the last period's money expressed in first-period money.
 
@@ -4330,7 +4330,7 @@ economics_finance_ai999x.solve('inflation_adjustment', price_levels=[100, 121])
 
 <a id="money_multiplier"></a>
 
-### Money multiplier — `money_multiplier`
+### Money multiplier: `money_multiplier`
 
 Simple deposit multiplier $1/rr$ and the money multiplier $(1 + c)/(rr + c)$ with a currency-deposit ratio c, and the money supply from the monetary base.
 
@@ -4377,7 +4377,7 @@ economics_finance_ai999x.solve('money_multiplier', reserve_ratio=0.2)
 
 <a id="spending_multiplier"></a>
 
-### Keynesian spending multiplier — `spending_multiplier`
+### Keynesian spending multiplier: `spending_multiplier`
 
 Government-spending multiplier 1/(1 - mpc(1 - t) + m), the lump-sum tax multiplier and the change in output from a change in spending.
 
@@ -4425,7 +4425,7 @@ economics_finance_ai999x.solve('spending_multiplier', mpc=0.75)
 
 <a id="solow_steady_state"></a>
 
-### Solow model steady state — `solow_steady_state`
+### Solow model steady state: `solow_steady_state`
 
 Steady-state capital, output and consumption per effective worker in the Solow model with $y = A$ $k^{\alpha}$, and the golden-rule saving rate and capital.
 
@@ -4477,7 +4477,7 @@ economics_finance_ai999x.solve('solow_steady_state', saving_rate=0.25, populatio
 
 <a id="ols_simple"></a>
 
-### Simple linear regression (OLS) — `ols_simple`
+### Simple linear regression (OLS): `ols_simple`
 
 Ordinary least squares fit $y = a + b$ x: slope, intercept, $R^{2}$ and the standard error of the slope.
 
@@ -4525,7 +4525,7 @@ economics_finance_ai999x.solve('ols_simple', x=[1, 2, 3], y=[3, 5, 7])
 
 <a id="multiple_regression"></a>
 
-### Multiple linear regression (OLS) — `multiple_regression`
+### Multiple linear regression (OLS): `multiple_regression`
 
 Least-squares coefficients of $y = b_{0} + b_{1}$ $x_{1} + ... + bk$ xk (intercept added), $R^{2}$ and adjusted $R^{2.}$
 
@@ -4571,7 +4571,7 @@ economics_finance_ai999x.solve('multiple_regression', X=[[1], [2], [3], [4]], y=
 
 <a id="log_log_elasticity"></a>
 
-### Constant elasticity from a log-log regression — `log_log_elasticity`
+### Constant elasticity from a log-log regression, `log_log_elasticity`
 
 The price elasticity estimated as the slope of ln Q on ln P (constant-elasticity demand $Q = A$ P^e).
 
@@ -4617,7 +4617,7 @@ economics_finance_ai999x.solve('log_log_elasticity', prices=[2, 3, 5, 7], quanti
 
 <a id="gini_coefficient"></a>
 
-### Gini coefficient — `gini_coefficient`
+### Gini coefficient: `gini_coefficient`
 
 Gini coefficient of a list of incomes (population formula: mean absolute difference / twice the mean; 0 = equality, (n-1)/n = one person has everything).
 
@@ -4665,7 +4665,7 @@ economics_finance_ai999x.solve('gini_coefficient', incomes=[0, 0, 0, 10])
 
 <a id="herfindahl_index"></a>
 
-### Herfindahl-Hirschman index and concentration ratio — `herfindahl_index`
+### Herfindahl-Hirschman index and concentration ratio, `herfindahl_index`
 
 Market concentration from the firms' shares or sales (normalized to shares): HHI on the $0-10$,000 scale, the four-firm concentration ratio and the equivalent number of equal-sized firms.
 
@@ -4711,7 +4711,7 @@ economics_finance_ai999x.solve('herfindahl_index', market_shares=[1, 1, 1, 1, 1]
 
 <a id="durbin_watson"></a>
 
-### Durbin-Watson statistic — `durbin_watson`
+### Durbin-Watson statistic: `durbin_watson`
 
 Durbin-Watson statistic of regression residuals in time order (about 2: no first-order autocorrelation; toward 0: positive; toward 4: negative).
 
@@ -4754,7 +4754,7 @@ economics_finance_ai999x.solve('durbin_watson', residuals=[1, 1])
 
 <a id="correlation"></a>
 
-### Correlation and covariance of two series — `correlation`
+### Correlation and covariance of two series: `correlation`
 
 Pearson correlation and sample covariance $(n - 1)$ of two paired series, such as the returns of two assets.
 

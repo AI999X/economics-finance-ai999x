@@ -1,4 +1,4 @@
-# economics-finance: the Economics and Finance program — user guide
+# economics-finance: the Economics and Finance program, user guide
 
 **economics-finance-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
@@ -17,63 +17,63 @@ Economics and Finance covers time value of money, loans and annuities, bonds, st
 
 ## 1. Get it
 
-Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Economics and Finance | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-economics-finance-1.4.0-windows-x86_64.zip |
-| Desktop app: Economics and Finance | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-economics-finance-1.4.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: Economics and Finance | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-economics-finance-1.5.0-windows-x86_64.zip |
+| Desktop app: Economics and Finance | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-economics-finance-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Economics and Finance in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-economics-finance-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-economics-finance.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Economics and Finance in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-economics-finance-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-economics-finance.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-economics-finance-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-economics-finance-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-economics-finance-1.4.0-linux-x86_64.tar.gz
-./ai999x-economics-finance-1.4.0-linux-x86_64/ai999x-economics-finance
+tar xzf ai999x-economics-finance-1.5.0-linux-x86_64.tar.gz
+./ai999x-economics-finance-1.5.0-linux-x86_64/ai999x-economics-finance
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
-./ai999x-1.4.0-linux-x86_64/ai999x
+tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
+./ai999x-1.5.0-linux-x86_64/ai999x
 ```
 
-### Command line — Linux
+### Command line: Linux
 
 The bundle holds one program per model; `economics-finance` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 economics-finance --version
 ```
 
-### Command line — Windows (PowerShell)
+### Command line: Windows (PowerShell)
 
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 economics-finance --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ economics-finance --version
-economics-finance-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)
+economics-finance-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
 ```
 
 ### 2.2 Ask in words
@@ -204,35 +204,7 @@ $ economics-finance solve loan_payment principal=200000.0 annual_rate=0.06
 NEEDS_INPUT: loan_payment needs years (term of the loan in years). Example: solve('loan_payment', principal=200000, annual_rate=0.06, years=30).
 ```
 
-### 2.9 Draw the figures
-
-The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```shell
-$ economics-finance figures loan_payment principal=200000.0 annual_rate=0.06 years=30.0 --out .
-[
-  {
-    "slug": "loan-payment-bars",
-    "title": "Loan term: payment against total interest",
-    "caption": "A loan of 200000 at 6 % repaid over 10, 15, 20, 25, 30 years: the payment and the total interest returned by the model for each term (stacked on the principal). Longer terms lower the payment and raise the interest; 30 years pays 1199 a period and 231676 interest in all. Your inputs: principal = 200000.0, annual_rate = 0.06, years = 30.0.",
-    "file": ".\\loan-payment-bars.svg"
-  },
-  {
-    "slug": "loan-payment-live-1",
-    "title": "Level payment per period as nominal annual interest rate (decimal), compoun... varies",
-    "caption": "Level payment per period as annual_rate runs from 0.015 to 0.105, every other input as you entered it (41 solutions). Marked: your annual_rate = 0.06 gives payment = 1199. Your inputs: principal = 200000.0, annual_rate = 0.06, years = 30.0.",
-    "file": ".\\loan-payment-live-1.svg"
-  },
-  {
-    "slug": "loan-payment-live-2",
-    "title": "Level payment per period as term of the loan in years varies",
-    "caption": "Level payment per period as years runs from 7.5 to 52.5, every other input as you entered it (9 solutions). Values in this range where the inputs admit no answer (44 of 53) are left out. Marked: your years = 30 gives payment = 1199. Your inputs: principal = 200000.0, annual_rate = 0.06, years = 30.0.",
-    "file": ".\\loan-payment-live-2.svg"
-  }
-]
-```
-
-### 2.10 Many questions at once
+### 2.9 Many questions at once
 
 One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | economics-finance batch
 
@@ -305,30 +277,6 @@ answers = [json.loads(line) for line in out.splitlines()]
 
 `economics-finance figures <capability> name=value ... --out DIR` draws the live figures for those inputs and writes each as an SVG file into DIR (an existing folder); without `--out` the SVG text comes back as JSON. The desktop app and the model page draw the same figures as soon as you press Compute.
 
-```shell
-$ economics-finance figures loan_payment principal=200000.0 annual_rate=0.06 years=30.0 --out .
-[
-  {
-    "slug": "loan-payment-bars",
-    "title": "Loan term: payment against total interest",
-    "caption": "A loan of 200000 at 6 % repaid over 10, 15, 20, 25, 30 years: the payment and the total interest returned by the model for each term (stacked on the principal). Longer terms lower the payment and raise the interest; 30 years pays 1199 a period and 231676 interest in all. Your inputs: principal = 200000.0, annual_rate = 0.06, years = 30.0.",
-    "file": ".\\loan-payment-bars.svg"
-  },
-  {
-    "slug": "loan-payment-live-1",
-    "title": "Level payment per period as nominal annual interest rate (decimal), compoun... varies",
-    "caption": "Level payment per period as annual_rate runs from 0.015 to 0.105, every other input as you entered it (41 solutions). Marked: your annual_rate = 0.06 gives payment = 1199. Your inputs: principal = 200000.0, annual_rate = 0.06, years = 30.0.",
-    "file": ".\\loan-payment-live-1.svg"
-  },
-  {
-    "slug": "loan-payment-live-2",
-    "title": "Level payment per period as term of the loan in years varies",
-    "caption": "Level payment per period as years runs from 7.5 to 52.5, every other input as you entered it (9 solutions). Values in this range where the inputs admit no answer (44 of 53) are left out. Marked: your years = 30 gives payment = 1199. Your inputs: principal = 200000.0, annual_rate = 0.06, years = 30.0.",
-    "file": ".\\loan-payment-live-2.svg"
-  }
-]
-```
-
 ## 7. In a web page or Node.js: WebAssembly
 
 The same model is a WebAssembly module, `economics_finance_ai999x.wasm` (https://www.ai999x.com/compute/rust/economics_finance_ai999x.wasm), with a small loader, `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js). It runs in a browser, a Web Worker or Node.js, with no server.
@@ -352,7 +300,7 @@ By topic. For each: what it does, what it needs and gives, when it applies, and 
 
 <a id="endowment_insurance"></a>
 
-#### Endowment insurance — `endowment_insurance`
+#### Endowment insurance: `endowment_insurance`
 
 Actuarial present value of a benefit paid at the end of the year of death within n years, or at year n if alive then (term insurance + pure endowment).
 
@@ -362,13 +310,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | — |
-| `interest_rate` | in | annual effective interest rate (decimal) | — |
-| `term` | in | term n in years | — |
-| `benefit` | in | benefit amount (default 1) (optional) | — |
-| `apv` | out | B (A^1_{x:n} + nE_x) | — |
-| `term_part` | out | B A^1_{x:n} | — |
-| `pure_endowment` | out | B v^n n p_x | — |
+| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | - |
+| `interest_rate` | in | annual effective interest rate (decimal) | - |
+| `term` | in | term n in years | - |
+| `benefit` | in | benefit amount (default 1) (optional) | - |
+| `apv` | out | B (A^1_{x:n} + nE_x) | - |
+| `term_part` | out | B A^1_{x:n} | - |
+| `pure_endowment` | out | B v^n n p_x | - |
 
 **Applies when:** 1 <= term <= number of rates.
 
@@ -387,7 +335,7 @@ pure_endowment = 836.6291392
 
 <a id="life_expectancy"></a>
 
-#### Life expectancy from a life table — `life_expectancy`
+#### Life expectancy from a life table: `life_expectancy`
 
 Curtate expectation of life e_x = sum_{k>=1} k p_x (whole years lived) and the complete expectation e_x + 1/2 (deaths uniform within each year).
 
@@ -397,9 +345,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | — |
-| `curtate` | out | curtate expectation of life e_x | — |
-| `complete` | out | complete expectation e_x + 0.5 (UDD) | — |
+| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | - |
+| `curtate` | out | curtate expectation of life e_x | - |
+| `complete` | out | complete expectation e_x + 0.5 (UDD) | - |
 
 **Applies when:** the table ends with q = 1.
 
@@ -415,7 +363,7 @@ complete = 2.282
 
 <a id="net_premium_whole_life"></a>
 
-#### Net annual premium for whole life insurance — `net_premium_whole_life`
+#### Net annual premium for whole life insurance, `net_premium_whole_life`
 
 The level annual net premium, paid at the start of each year while alive, for a whole life benefit (equivalence principle): P = B A_x / a-due_x.
 
@@ -425,12 +373,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | — |
-| `interest_rate` | in | annual effective interest rate (decimal) | — |
-| `benefit` | in | benefit amount (default 1) (optional) | — |
-| `premium` | out | net annual premium B A_x / a-due_x | — |
-| `insurance_apv` | out | B A_x | — |
-| `annuity_due` | out | a-due_x | — |
+| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | - |
+| `interest_rate` | in | annual effective interest rate (decimal) | - |
+| `benefit` | in | benefit amount (default 1) (optional) | - |
+| `premium` | out | net annual premium B A_x / a-due_x | - |
+| `insurance_apv` | out | B A_x | - |
+| `annuity_due` | out | a-due_x | - |
 
 **Applies when:** the table ends with q = 1; 0 < interest_rate < 1.
 
@@ -449,7 +397,7 @@ annuity_due = 2.646258503
 
 <a id="survival_probability"></a>
 
-#### Survival and death probabilities from a life table — `survival_probability`
+#### Survival and death probabilities from a life table, `survival_probability`
 
 t p_x (survive t years), t q_x (die within t years) and t|u q_x (survive t years, then die within the next u years) from one-year mortality rates.
 
@@ -459,12 +407,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | — |
-| `years` | in | number of years t | — |
-| `deferred_years` | in | u, the length of the death window after t (default 1) (optional) | — |
-| `survival` | out | t p_x = prod (1 - q) | — |
-| `death_probability` | out | t q_x = 1 - t p_x | — |
-| `deferred_death_probability` | out | t\|u q_x = t p_x - (t+u) p_x | — |
+| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | - |
+| `years` | in | number of years t | - |
+| `deferred_years` | in | u, the length of the death window after t (default 1) (optional) | - |
+| `survival` | out | t p_x = prod (1 - q) | - |
+| `death_probability` | out | t q_x = 1 - t p_x | - |
+| `deferred_death_probability` | out | t\|u q_x = t p_x - (t+u) p_x | - |
 
 **Applies when:** 0 <= q <= 1; t + u <= number of rates.
 
@@ -481,7 +429,7 @@ deferred_death_probability = 0.0470547
 
 <a id="temporary_annuity_due"></a>
 
-#### Temporary life annuity-due — `temporary_annuity_due`
+#### Temporary life annuity-due: `temporary_annuity_due`
 
 Actuarial present value of up to n annual payments at the start of each year while alive.
 
@@ -491,11 +439,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | — |
-| `interest_rate` | in | annual effective interest rate (decimal) | — |
-| `term` | in | term n in years | — |
-| `payment` | in | annual payment (default 1) (optional) | — |
-| `apv` | out | P sum_{k<n} v^k k p_x | — |
+| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | - |
+| `interest_rate` | in | annual effective interest rate (decimal) | - |
+| `term` | in | term n in years | - |
+| `payment` | in | annual payment (default 1) (optional) | - |
+| `apv` | out | P sum_{k<n} v^k k p_x | - |
 
 **Applies when:** 1 <= term <= number of rates.
 
@@ -512,7 +460,7 @@ apv = 2848.927515
 
 <a id="term_insurance"></a>
 
-#### Term life insurance (net single premium) — `term_insurance`
+#### Term life insurance (net single premium): `term_insurance`
 
 Actuarial present value of a benefit paid at the end of the year of death if death occurs within n years.
 
@@ -522,11 +470,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | — |
-| `interest_rate` | in | annual effective interest rate (decimal) | — |
-| `term` | in | term n in years | — |
-| `benefit` | in | benefit amount (default 1) (optional) | — |
-| `apv` | out | B A^1_{x:n} = B sum_{k<n} v^(k+1) k p_x q_x+k | — |
+| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | - |
+| `interest_rate` | in | annual effective interest rate (decimal) | - |
+| `term` | in | term n in years | - |
+| `benefit` | in | benefit amount (default 1) (optional) | - |
+| `apv` | out | B A^1_{x:n} = B sum_{k<n} v^(k+1) k p_x q_x+k | - |
 
 **Applies when:** 1 <= term <= number of rates.
 
@@ -543,7 +491,7 @@ apv = 5379.672565
 
 <a id="life_annuity_due"></a>
 
-#### Whole life annuity-due — `life_annuity_due`
+#### Whole life annuity-due: `life_annuity_due`
 
 Actuarial present value of a payment at the start of every year while the person is alive.
 
@@ -553,10 +501,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | — |
-| `interest_rate` | in | annual effective interest rate (decimal) | — |
-| `payment` | in | annual payment (default 1) (optional) | — |
-| `apv` | out | P a-due_x = P sum v^k k p_x | — |
+| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | - |
+| `interest_rate` | in | annual effective interest rate (decimal) | - |
+| `payment` | in | annual payment (default 1) (optional) | - |
+| `apv` | out | P a-due_x = P sum v^k k p_x | - |
 
 **Applies when:** the table ends with q = 1; -1 < interest_rate < 1.
 
@@ -573,7 +521,7 @@ apv = 2646.258503
 
 <a id="whole_life_insurance"></a>
 
-#### Whole life insurance (net single premium) — `whole_life_insurance`
+#### Whole life insurance (net single premium): `whole_life_insurance`
 
 Actuarial present value A_x of a benefit paid at the end of the year of death, whenever it occurs.
 
@@ -583,10 +531,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | — |
-| `interest_rate` | in | annual effective interest rate (decimal) | — |
-| `benefit` | in | benefit amount (default 1) (optional) | — |
-| `apv` | out | B A_x = B sum v^(k+1) k p_x q_x+k | — |
+| `mortality_rates` | in | one-year death probabilities q_x, q_x+1, ... from the current age | - |
+| `interest_rate` | in | annual effective interest rate (decimal) | - |
+| `benefit` | in | benefit amount (default 1) (optional) | - |
+| `apv` | out | B A_x = B sum v^(k+1) k p_x q_x+k | - |
 
 **Applies when:** the table ends with q = 1; -1 < interest_rate < 1.
 
@@ -605,7 +553,7 @@ apv = 873.9876903
 
 <a id="bond_price_change"></a>
 
-#### Bond price change from duration and convexity — `bond_price_change`
+#### Bond price change from duration and convexity, `bond_price_change`
 
 The price change of a bond for a change in its yield: duration estimate, duration-plus-convexity estimate and the exact change by repricing.
 
@@ -615,17 +563,17 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `face` | in | face (par) value repaid at maturity | — |
-| `coupon_rate` | in | annual coupon rate (decimal) | — |
-| `years` | in | years to maturity (a whole number of coupon periods) | — |
-| `ytm` | in | current yield to maturity, nominal annual | — |
-| `yield_change` | in | change in the yield (decimal; +1% = 0.01, 25 basis points = 0.0025) | — |
-| `frequency` | in | coupons per year (2 = semiannual, default) (optional) | — |
-| `duration_estimate` | out | -D_mod P dy | — |
-| `duration_convexity_estimate` | out | -D_mod P dy + C P dy^2 / 2 | — |
-| `actual_change` | out | exact change by repricing | — |
-| `new_price` | out | price at the new yield | — |
-| `price` | out | price now | — |
+| `face` | in | face (par) value repaid at maturity | - |
+| `coupon_rate` | in | annual coupon rate (decimal) | - |
+| `years` | in | years to maturity (a whole number of coupon periods) | - |
+| `ytm` | in | current yield to maturity, nominal annual | - |
+| `yield_change` | in | change in the yield (decimal; +1% = 0.01, 25 basis points = 0.0025) | - |
+| `frequency` | in | coupons per year (2 = semiannual, default) (optional) | - |
+| `duration_estimate` | out | -D_mod P dy | - |
+| `duration_convexity_estimate` | out | -D_mod P dy + C P dy^2 / 2 | - |
+| `actual_change` | out | exact change by repricing | - |
+| `new_price` | out | price at the new yield | - |
+| `price` | out | price now | - |
 
 **Applies when:** face > 0; 0 <= coupon_rate < 1; the old and new yields between -100% and 100%; |yield_change| < 50%.
 
@@ -649,7 +597,7 @@ price = 925.6126257
 
 <a id="bond_price"></a>
 
-#### Bond price from its yield — `bond_price`
+#### Bond price from its yield: `bond_price`
 
 Price of a fixed-coupon bond on a coupon date from its yield to maturity, with the current yield.
 
@@ -659,14 +607,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `face` | in | face (par) value repaid at maturity | — |
-| `coupon_rate` | in | annual coupon rate (decimal) | — |
-| `years` | in | years to maturity (a whole number of coupon periods) | — |
-| `ytm` | in | yield to maturity, nominal annual, compounded at the coupon frequency | — |
-| `frequency` | in | coupons per year (2 = semiannual, default) (optional) | — |
-| `price` | out | bond price | — |
-| `current_yield` | out | annual coupon / price | — |
-| `coupon` | out | coupon per period | — |
+| `face` | in | face (par) value repaid at maturity | - |
+| `coupon_rate` | in | annual coupon rate (decimal) | - |
+| `years` | in | years to maturity (a whole number of coupon periods) | - |
+| `ytm` | in | yield to maturity, nominal annual, compounded at the coupon frequency | - |
+| `frequency` | in | coupons per year (2 = semiannual, default) (optional) | - |
+| `price` | out | bond price | - |
+| `current_yield` | out | annual coupon / price | - |
+| `coupon` | out | coupon per period | - |
 
 **Applies when:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number, years at most 1000.
 
@@ -687,7 +635,7 @@ coupon = 25
 
 <a id="bond_convexity"></a>
 
-#### Convexity of a bond — `bond_convexity`
+#### Convexity of a bond: `bond_convexity`
 
 The convexity (1/P) d^2P/dy^2 of a fixed-coupon bond, in years squared.
 
@@ -697,13 +645,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `face` | in | face (par) value repaid at maturity | — |
-| `coupon_rate` | in | annual coupon rate (decimal) | — |
-| `years` | in | years to maturity (a whole number of coupon periods) | — |
-| `ytm` | in | yield to maturity, nominal annual, compounded at the coupon frequency | — |
-| `frequency` | in | coupons per year (2 = semiannual, default) (optional) | — |
-| `convexity` | out | convexity (1/P) d2P/dy2, years^2 | — |
-| `price` | out | bond price | — |
+| `face` | in | face (par) value repaid at maturity | - |
+| `coupon_rate` | in | annual coupon rate (decimal) | - |
+| `years` | in | years to maturity (a whole number of coupon periods) | - |
+| `ytm` | in | yield to maturity, nominal annual, compounded at the coupon frequency | - |
+| `frequency` | in | coupons per year (2 = semiannual, default) (optional) | - |
+| `convexity` | out | convexity (1/P) d2P/dy2, years^2 | - |
+| `price` | out | bond price | - |
 
 **Applies when:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number, years at most 1000.
 
@@ -723,7 +671,7 @@ price = 925.6126257
 
 <a id="forward_rate"></a>
 
-#### Implied forward rate from spot rates — `forward_rate`
+#### Implied forward rate from spot rates: `forward_rate`
 
 The annually compounded forward rate between t1 and t2 implied by the spot rates for t1 and t2.
 
@@ -733,11 +681,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `spot_rate_1` | in | spot rate to maturity t1 (annual compounding) | — |
-| `maturity_1` | in | first maturity t1 in years | — |
-| `spot_rate_2` | in | spot rate to maturity t2 (annual compounding) | — |
-| `maturity_2` | in | second maturity t2 > t1 in years | — |
-| `forward_rate` | out | forward rate f(t1, t2), annual compounding | — |
+| `spot_rate_1` | in | spot rate to maturity t1 (annual compounding) | - |
+| `maturity_1` | in | first maturity t1 in years | - |
+| `spot_rate_2` | in | spot rate to maturity t2 (annual compounding) | - |
+| `maturity_2` | in | second maturity t2 > t1 in years | - |
+| `forward_rate` | out | forward rate f(t1, t2), annual compounding | - |
 
 **Applies when:** -1 < spot rates < 1; 0 <= t1 < t2.
 
@@ -756,7 +704,7 @@ forward_rate = 0.06009615385
 
 <a id="bond_duration"></a>
 
-#### Macaulay and modified duration of a bond — `bond_duration`
+#### Macaulay and modified duration of a bond: `bond_duration`
 
 The Macaulay duration (PV-weighted average time to the cash flows, years) and the modified duration (the price's sensitivity -dP/dy / P) of a fixed-coupon bond.
 
@@ -766,14 +714,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `face` | in | face (par) value repaid at maturity | — |
-| `coupon_rate` | in | annual coupon rate (decimal) | — |
-| `years` | in | years to maturity (a whole number of coupon periods) | — |
-| `ytm` | in | yield to maturity, nominal annual, compounded at the coupon frequency | — |
-| `frequency` | in | coupons per year (2 = semiannual, default) (optional) | — |
-| `macaulay_duration` | out | Macaulay duration in years | — |
-| `modified_duration` | out | modified duration = Macaulay / (1 + y/m) | — |
-| `price` | out | bond price | — |
+| `face` | in | face (par) value repaid at maturity | - |
+| `coupon_rate` | in | annual coupon rate (decimal) | - |
+| `years` | in | years to maturity (a whole number of coupon periods) | - |
+| `ytm` | in | yield to maturity, nominal annual, compounded at the coupon frequency | - |
+| `frequency` | in | coupons per year (2 = semiannual, default) (optional) | - |
+| `macaulay_duration` | out | Macaulay duration in years | - |
+| `modified_duration` | out | modified duration = Macaulay / (1 + y/m) | - |
+| `price` | out | bond price | - |
 
 **Applies when:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number, years at most 1000.
 
@@ -794,7 +742,7 @@ price = 925.6126257
 
 <a id="zero_coupon_bond"></a>
 
-#### Price of a zero-coupon bond — `zero_coupon_bond`
+#### Price of a zero-coupon bond: `zero_coupon_bond`
 
 Price of a bond that pays only its face value at maturity, at a yield with a stated compounding.
 
@@ -804,12 +752,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `face` | in | face value paid at maturity | — |
-| `ytm` | in | yield (decimal), with the stated compounding | — |
-| `years` | in | years to maturity | — |
-| `compounding` | in | annual (default), semiannual, quarterly, monthly or continuous (optional) | — |
-| `price` | out | price F x discount factor | — |
-| `discount_factor` | out | (1 + y/m)^(-m t) or e^(-y t) | — |
+| `face` | in | face value paid at maturity | - |
+| `ytm` | in | yield (decimal), with the stated compounding | - |
+| `years` | in | years to maturity | - |
+| `compounding` | in | annual (default), semiannual, quarterly, monthly or continuous (optional) | - |
+| `price` | out | price F x discount factor | - |
+| `discount_factor` | out | (1 + y/m)^(-m t) or e^(-y t) | - |
 
 **Applies when:** face > 0; -1 < ytm < 1; years >= 0.
 
@@ -829,7 +777,7 @@ discount_factor = 0.6102709429
 
 <a id="bond_ytm"></a>
 
-#### Yield to maturity of a bond — `bond_ytm`
+#### Yield to maturity of a bond: `bond_ytm`
 
 The yield to maturity (nominal annual, compounded at the coupon frequency) that equates the bond's price to the present value of its coupons and face value.
 
@@ -839,13 +787,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `price` | in | bond price (clean = dirty on a coupon date) | — |
-| `face` | in | face (par) value repaid at maturity | — |
-| `coupon_rate` | in | annual coupon rate (decimal) | — |
-| `years` | in | years to maturity (a whole number of coupon periods) | — |
-| `frequency` | in | coupons per year (2 = semiannual, default) (optional) | — |
-| `ytm` | out | yield to maturity, nominal annual | — |
-| `current_yield` | out | annual coupon / price | — |
+| `price` | in | bond price (clean = dirty on a coupon date) | - |
+| `face` | in | face (par) value repaid at maturity | - |
+| `coupon_rate` | in | annual coupon rate (decimal) | - |
+| `years` | in | years to maturity (a whole number of coupon periods) | - |
+| `frequency` | in | coupons per year (2 = semiannual, default) (optional) | - |
+| `ytm` | out | yield to maturity, nominal annual | - |
+| `current_yield` | out | annual coupon / price | - |
 
 **Applies when:** price > 0; face > 0; 0 <= coupon_rate < 1; years x frequency a whole number, years at most 1000; a yield between -50% and 100% per period.
 
@@ -867,7 +815,7 @@ current_yield = 0.05401843109
 
 <a id="discounted_payback"></a>
 
-#### Discounted payback period — `discounted_payback`
+#### Discounted payback period: `discounted_payback`
 
 Time until the cumulative DISCOUNTED cash flow turns non-negative (linear within the period).
 
@@ -877,9 +825,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `rate` | in | discount rate per period (decimal) | — |
-| `cash_flows` | in | cash flows [CF0 < 0, CF1, ..., CFn > 0] | — |
-| `discounted_payback` | out | discounted payback period in periods | — |
+| `rate` | in | discount rate per period (decimal) | - |
+| `cash_flows` | in | cash flows [CF0 < 0, CF1, ..., CFn > 0] | - |
+| `discounted_payback` | out | discounted payback period in periods | - |
 
 **Applies when:** CF0 < 0; every later cash flow > 0; recovered within the flows; -1 < rate < 1.
 
@@ -895,7 +843,7 @@ discounted_payback = 3.154
 
 <a id="equivalent_annual_annuity"></a>
 
-#### Equivalent annual annuity — `equivalent_annual_annuity`
+#### Equivalent annual annuity: `equivalent_annual_annuity`
 
 The level payment over the project's life with the same NPV (for comparing projects of unequal lives).
 
@@ -905,10 +853,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `rate` | in | discount rate per period (decimal) | — |
-| `cash_flows` | in | cash flows [CF0, CF1, ..., CFn] | — |
-| `eaa` | out | equivalent annual annuity NPV r / (1 - (1 + r)^-n) | — |
-| `npv` | out | net present value | — |
+| `rate` | in | discount rate per period (decimal) | - |
+| `cash_flows` | in | cash flows [CF0, CF1, ..., CFn] | - |
+| `eaa` | out | equivalent annual annuity NPV r / (1 - (1 + r)^-n) | - |
+| `npv` | out | net present value | - |
 
 **Applies when:** -1 < rate < 1; at least two cash flows.
 
@@ -925,7 +873,7 @@ npv = -21.03681443
 
 <a id="irr"></a>
 
-#### Internal rate of return — `irr`
+#### Internal rate of return: `irr`
 
 The discount rate at which the NPV of [CF0, ..., CFn] is zero; given only when it is unique (the cash flows change sign exactly once).
 
@@ -935,8 +883,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `cash_flows` | in | cash flows [CF0, CF1, ..., CFn], CF0 at time 0 | — |
-| `irr` | out | internal rate of return per period | — |
+| `cash_flows` | in | cash flows [CF0, CF1, ..., CFn], CF0 at time 0 | - |
+| `irr` | out | internal rate of return per period | - |
 
 **Applies when:** the cash flows change sign exactly once (otherwise the IRR is not unique and none is given).
 
@@ -951,7 +899,7 @@ irr = 0.08896339469
 
 <a id="mirr"></a>
 
-#### Modified internal rate of return — `mirr`
+#### Modified internal rate of return: `mirr`
 
 MIRR: outflows discounted at the finance rate, inflows compounded to the end at the reinvestment rate.
 
@@ -961,12 +909,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `cash_flows` | in | cash flows [CF0, ..., CFn], CF0 at time 0 | — |
-| `finance_rate` | in | finance rate for outflows (decimal) | — |
-| `reinvest_rate` | in | reinvestment rate for inflows (decimal) | — |
-| `mirr` | out | modified IRR per period | — |
-| `terminal_value` | out | inflows compounded to period n | — |
-| `pv_outflows` | out | present value of the outflows | — |
+| `cash_flows` | in | cash flows [CF0, ..., CFn], CF0 at time 0 | - |
+| `finance_rate` | in | finance rate for outflows (decimal) | - |
+| `reinvest_rate` | in | reinvestment rate for inflows (decimal) | - |
+| `mirr` | out | modified IRR per period | - |
+| `terminal_value` | out | inflows compounded to period n | - |
+| `pv_outflows` | out | present value of the outflows | - |
 
 **Applies when:** at least one inflow and one outflow; -1 < rates < 1.
 
@@ -985,7 +933,7 @@ pv_outflows = 1000
 
 <a id="npv"></a>
 
-#### Net present value — `npv`
+#### Net present value: `npv`
 
 NPV of cash flows [CF0, CF1, ..., CFn] (CF0 now, CFt at the end of period t) at a discount rate per period.
 
@@ -995,9 +943,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `rate` | in | discount rate per period (decimal) | — |
-| `cash_flows` | in | cash flows [CF0, CF1, ..., CFn], CF0 at time 0 | — |
-| `npv` | out | net present value | — |
+| `rate` | in | discount rate per period (decimal) | - |
+| `cash_flows` | in | cash flows [CF0, CF1, ..., CFn], CF0 at time 0 | - |
+| `npv` | out | net present value | - |
 
 **Applies when:** -1 < rate < 1; at least two cash flows.
 
@@ -1013,7 +961,7 @@ npv = -21.03681443
 
 <a id="crossover_rate"></a>
 
-#### NPV crossover rate of two projects — `crossover_rate`
+#### NPV crossover rate of two projects: `crossover_rate`
 
 The discount rate at which two projects have equal NPV (the IRR of the difference A - B); given only when it is unique.
 
@@ -1023,10 +971,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `cash_flows_a` | in | cash flows of project A [CF0, ..., CFn] | — |
-| `cash_flows_b` | in | cash flows of project B, same periods | — |
-| `crossover_rate` | out | rate at which NPV(A) = NPV(B) | — |
-| `npv_at_crossover` | out | the common NPV at that rate | — |
+| `cash_flows_a` | in | cash flows of project A [CF0, ..., CFn] | - |
+| `cash_flows_b` | in | cash flows of project B, same periods | - |
+| `crossover_rate` | out | rate at which NPV(A) = NPV(B) | - |
+| `npv_at_crossover` | out | the common NPV at that rate | - |
 
 **Applies when:** equal lengths; the difference A - B changes sign exactly once.
 
@@ -1042,7 +990,7 @@ npv_at_crossover = -32.65306122
 
 <a id="payback_period"></a>
 
-#### Payback period — `payback_period`
+#### Payback period: `payback_period`
 
 Time until the cumulative cash flow turns non-negative, interpolating linearly within the period (cash arriving evenly during the period).
 
@@ -1052,8 +1000,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `cash_flows` | in | cash flows [CF0 < 0, CF1, ..., CFn > 0] | — |
-| `payback` | out | payback period in periods | — |
+| `cash_flows` | in | cash flows [CF0 < 0, CF1, ..., CFn > 0] | - |
+| `payback` | out | payback period in periods | - |
 
 **Applies when:** CF0 < 0; every later cash flow > 0; the investment is recovered within the flows.
 
@@ -1068,7 +1016,7 @@ payback = 2.6
 
 <a id="profitability_index"></a>
 
-#### Profitability index — `profitability_index`
+#### Profitability index: `profitability_index`
 
 PV of the future cash flows divided by the initial investment (benefit-cost ratio).
 
@@ -1078,11 +1026,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `rate` | in | discount rate per period (decimal) | — |
-| `cash_flows` | in | cash flows [CF0 < 0, CF1, ..., CFn] | — |
-| `profitability_index` | out | PV(CF1..CFn) / \|CF0\| | — |
-| `pv_future` | out | PV of CF1..CFn | — |
-| `npv` | out | net present value | — |
+| `rate` | in | discount rate per period (decimal) | - |
+| `cash_flows` | in | cash flows [CF0 < 0, CF1, ..., CFn] | - |
+| `profitability_index` | out | PV(CF1..CFn) / \|CF0\| | - |
+| `pv_future` | out | PV of CF1..CFn | - |
+| `npv` | out | net present value | - |
 
 **Applies when:** CF0 < 0; -1 < rate < 1.
 
@@ -1102,7 +1050,7 @@ npv = -21.03681443
 
 <a id="log_log_elasticity"></a>
 
-#### Constant elasticity from a log-log regression — `log_log_elasticity`
+#### Constant elasticity from a log-log regression, `log_log_elasticity`
 
 The price elasticity estimated as the slope of ln Q on ln P (constant-elasticity demand Q = A P^e).
 
@@ -1112,11 +1060,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `prices` | in | observed prices | — |
-| `quantities` | in | quantities at those prices | — |
-| `elasticity` | out | slope of ln Q on ln P | — |
-| `intercept` | out | ln A | — |
-| `r_squared` | out | R^2 of the log-log fit | — |
+| `prices` | in | observed prices | - |
+| `quantities` | in | quantities at those prices | - |
+| `elasticity` | out | slope of ln Q on ln P | - |
+| `intercept` | out | ln A | - |
+| `r_squared` | out | R^2 of the log-log fit | - |
 
 **Applies when:** positive values; prices not all equal.
 
@@ -1133,7 +1081,7 @@ r_squared = 1
 
 <a id="correlation"></a>
 
-#### Correlation and covariance of two series — `correlation`
+#### Correlation and covariance of two series: `correlation`
 
 Pearson correlation and sample covariance (n - 1) of two paired series, such as the returns of two assets.
 
@@ -1143,11 +1091,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | first series | — |
-| `y` | in | second series | — |
-| `correlation` | out | Pearson r | — |
-| `covariance` | out | sample covariance | — |
-| `r_squared` | out | r^2 | — |
+| `x` | in | first series | - |
+| `y` | in | second series | - |
+| `correlation` | out | Pearson r | - |
+| `covariance` | out | sample covariance | - |
+| `r_squared` | out | r^2 | - |
 
 **Applies when:** same length, at least 3; neither series constant.
 
@@ -1164,7 +1112,7 @@ r_squared = 0.6
 
 <a id="durbin_watson"></a>
 
-#### Durbin-Watson statistic — `durbin_watson`
+#### Durbin-Watson statistic: `durbin_watson`
 
 Durbin-Watson statistic of regression residuals in time order (about 2: no first-order autocorrelation; toward 0: positive; toward 4: negative).
 
@@ -1174,8 +1122,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `residuals` | in | regression residuals in time order | — |
-| `durbin_watson` | out | sum (e_t - e_t-1)^2 / sum e_t^2 | — |
+| `residuals` | in | regression residuals in time order | - |
+| `durbin_watson` | out | sum (e_t - e_t-1)^2 / sum e_t^2 | - |
 
 **Applies when:** residuals not all zero.
 
@@ -1190,7 +1138,7 @@ durbin_watson = 2.727272727
 
 <a id="multiple_regression"></a>
 
-#### Multiple linear regression (OLS) — `multiple_regression`
+#### Multiple linear regression (OLS): `multiple_regression`
 
 Least-squares coefficients of y = b0 + b1 x1 + ... + bk xk (intercept added), R^2 and adjusted R^2.
 
@@ -1200,11 +1148,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `X` | in | regressor matrix, one row per observation, one column per variable (no constant column) | — |
-| `y` | in | dependent variable, one value per row of X | — |
-| `coefficients` | out | [b0 (intercept), b1, ..., bk] | — |
-| `r_squared` | out | 1 - SSR/SST | — |
-| `adj_r_squared` | out | 1 - (1 - R^2)(n - 1)/(n - k - 1) | — |
+| `X` | in | regressor matrix, one row per observation, one column per variable (no constant column) | - |
+| `y` | in | dependent variable, one value per row of X | - |
+| `coefficients` | out | [b0 (intercept), b1, ..., bk] | - |
+| `r_squared` | out | 1 - SSR/SST | - |
+| `adj_r_squared` | out | 1 - (1 - R^2)(n - 1)/(n - k - 1) | - |
 
 **Applies when:** one row of X per value of y; n > k + 1; columns not collinear; y not constant.
 
@@ -1221,7 +1169,7 @@ adj_r_squared = 1
 
 <a id="ols_simple"></a>
 
-#### Simple linear regression (OLS) — `ols_simple`
+#### Simple linear regression (OLS): `ols_simple`
 
 Ordinary least squares fit y = a + b x: slope, intercept, R^2 and the standard error of the slope.
 
@@ -1231,13 +1179,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | explanatory variable values | — |
-| `y` | in | dependent variable values | — |
-| `slope` | out | b = S_xy / S_xx | — |
-| `intercept` | out | a = mean y - b mean x | — |
-| `r_squared` | out | 1 - SSR/SST | — |
-| `slope_std_error` | out | sqrt(SSR/(n - 2) / S_xx) | — |
-| `n` | out | observations | — |
+| `x` | in | explanatory variable values | - |
+| `y` | in | dependent variable values | - |
+| `slope` | out | b = S_xy / S_xx | - |
+| `intercept` | out | a = mean y - b mean x | - |
+| `r_squared` | out | 1 - SSR/SST | - |
+| `slope_std_error` | out | sqrt(SSR/(n - 2) / S_xx) | - |
+| `n` | out | observations | - |
 
 **Applies when:** same number of x and y, at least 3; neither variable constant.
 
@@ -1258,7 +1206,7 @@ n = 5
 
 <a id="loan_cumulative_interest"></a>
 
-#### Cumulative interest of a loan — `loan_cumulative_interest`
+#### Cumulative interest of a loan: `loan_cumulative_interest`
 
 Total interest paid and principal repaid over the first k payments of an amortizing loan.
 
@@ -1268,13 +1216,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `principal` | in | amount borrowed | — |
-| `annual_rate` | in | nominal annual interest rate (decimal), compounded at the payment frequency | — |
-| `years` | in | term of the loan in years | — |
-| `payments_made` | in | number of payments counted (the first k) | — |
-| `payments_per_year` | in | payments per year (12 = monthly, default) (optional) | — |
-| `cumulative_interest` | out | interest paid in payments 1..k | — |
-| `principal_repaid` | out | principal repaid in payments 1..k | — |
+| `principal` | in | amount borrowed | - |
+| `annual_rate` | in | nominal annual interest rate (decimal), compounded at the payment frequency | - |
+| `years` | in | term of the loan in years | - |
+| `payments_made` | in | number of payments counted (the first k) | - |
+| `payments_per_year` | in | payments per year (12 = monthly, default) (optional) | - |
+| `cumulative_interest` | out | interest paid in payments 1..k | - |
+| `principal_repaid` | out | principal repaid in payments 1..k | - |
 
 **Applies when:** principal > 0; 0 <= annual_rate < 1; 1 <= payments_made <= number of payments.
 
@@ -1293,7 +1241,7 @@ principal_repaid = 2456.023425
 
 <a id="loan_payment_split"></a>
 
-#### Interest and principal in a loan payment — `loan_payment_split`
+#### Interest and principal in a loan payment: `loan_payment_split`
 
 How payment number k of an amortizing loan splits into interest and principal repayment.
 
@@ -1303,14 +1251,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `principal` | in | amount borrowed | — |
-| `annual_rate` | in | nominal annual interest rate (decimal), compounded at the payment frequency | — |
-| `years` | in | term of the loan in years | — |
-| `payment_number` | in | which payment (1 = the first) | — |
-| `payments_per_year` | in | payments per year (12 = monthly, default) (optional) | — |
-| `interest_part` | out | interest in payment k | — |
-| `principal_part` | out | principal repaid by payment k | — |
-| `payment` | out | level payment | — |
+| `principal` | in | amount borrowed | - |
+| `annual_rate` | in | nominal annual interest rate (decimal), compounded at the payment frequency | - |
+| `years` | in | term of the loan in years | - |
+| `payment_number` | in | which payment (1 = the first) | - |
+| `payments_per_year` | in | payments per year (12 = monthly, default) (optional) | - |
+| `interest_part` | out | interest in payment k | - |
+| `principal_part` | out | principal repaid by payment k | - |
+| `payment` | out | level payment | - |
 
 **Applies when:** principal > 0; 0 <= annual_rate < 1; 1 <= payment_number <= number of payments.
 
@@ -1330,7 +1278,7 @@ payment = 1199.10105
 
 <a id="loan_payment"></a>
 
-#### Loan payment (amortizing loan) — `loan_payment`
+#### Loan payment (amortizing loan): `loan_payment`
 
 The level payment that repays a loan over its term, with the total paid and the total interest.
 
@@ -1340,14 +1288,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `principal` | in | amount borrowed | — |
-| `annual_rate` | in | nominal annual interest rate (decimal), compounded at the payment frequency | — |
-| `years` | in | term of the loan in years | — |
-| `payments_per_year` | in | payments per year (12 = monthly, default) (optional) | — |
-| `payment` | out | level payment per period | — |
-| `number_of_payments` | out | number of payments n = years x m | — |
-| `total_paid` | out | payment x n | — |
-| `total_interest` | out | total paid - principal | — |
+| `principal` | in | amount borrowed | - |
+| `annual_rate` | in | nominal annual interest rate (decimal), compounded at the payment frequency | - |
+| `years` | in | term of the loan in years | - |
+| `payments_per_year` | in | payments per year (12 = monthly, default) (optional) | - |
+| `payment` | out | level payment per period | - |
+| `number_of_payments` | out | number of payments n = years x m | - |
+| `total_paid` | out | payment x n | - |
+| `total_interest` | out | total paid - principal | - |
 
 **Applies when:** principal > 0; 0 <= annual_rate < 1; years x payments_per_year a whole number, years at most 1000.
 
@@ -1368,7 +1316,7 @@ total_interest = 231676.3781
 
 <a id="number_of_periods"></a>
 
-#### Number of payments to repay a loan — `number_of_periods`
+#### Number of payments to repay a loan: `number_of_periods`
 
 How many periodic payments repay a present value at a rate per period (a fractional answer means the last payment is smaller).
 
@@ -1378,11 +1326,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `present_value` | in | amount borrowed (present value) | — |
-| `payment` | in | payment per period | — |
-| `rate` | in | interest rate per period (decimal) | — |
-| `timing` | in | 'ordinary' (end of each period, default) or 'due' (beginning) (optional) | — |
-| `periods` | out | number of periods n (may be fractional) | — |
+| `present_value` | in | amount borrowed (present value) | - |
+| `payment` | in | payment per period | - |
+| `rate` | in | interest rate per period (decimal) | - |
+| `timing` | in | 'ordinary' (end of each period, default) or 'due' (beginning) (optional) | - |
+| `periods` | out | number of periods n (may be fractional) | - |
 
 **Applies when:** present_value > 0; payment > 0; 0 < rate < 1; payment larger than the interest of one period.
 
@@ -1400,7 +1348,7 @@ periods = 22.42574188
 
 <a id="loan_balance"></a>
 
-#### Remaining balance of a loan — `loan_balance`
+#### Remaining balance of a loan: `loan_balance`
 
 The balance still owed on an amortizing loan after k level payments.
 
@@ -1410,13 +1358,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `principal` | in | amount borrowed | — |
-| `annual_rate` | in | nominal annual interest rate (decimal), compounded at the payment frequency | — |
-| `years` | in | term of the loan in years | — |
-| `payments_made` | in | number of payments already made | — |
-| `payments_per_year` | in | payments per year (12 = monthly, default) (optional) | — |
-| `balance` | out | balance owed after k payments | — |
-| `payment` | out | level payment per period | — |
+| `principal` | in | amount borrowed | - |
+| `annual_rate` | in | nominal annual interest rate (decimal), compounded at the payment frequency | - |
+| `years` | in | term of the loan in years | - |
+| `payments_made` | in | number of payments already made | - |
+| `payments_per_year` | in | payments per year (12 = monthly, default) (optional) | - |
+| `balance` | out | balance owed after k payments | - |
+| `payment` | out | level payment per period | - |
 
 **Applies when:** principal > 0; 0 <= annual_rate < 1; 0 <= payments_made <= number of payments.
 
@@ -1437,7 +1385,7 @@ payment = 1199.10105
 
 <a id="inflation_adjustment"></a>
 
-#### Inflation from a price index series — `inflation_adjustment`
+#### Inflation from a price index series: `inflation_adjustment`
 
 Total and average annual (geometric) inflation from consecutive price levels (CPI), and the value of an amount in the last period's money expressed in first-period money.
 
@@ -1447,11 +1395,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `price_levels` | in | price index levels in consecutive periods (e.g. CPI each year) | — |
-| `amount` | in | an amount in last-period money to deflate (optional) (optional) | — |
-| `total_inflation` | out | P_last / P_first - 1 | — |
-| `average_inflation` | out | (P_last/P_first)^(1/n) - 1 | — |
-| `real_value` | out | amount x P_first / P_last | — |
+| `price_levels` | in | price index levels in consecutive periods (e.g. CPI each year) | - |
+| `amount` | in | an amount in last-period money to deflate (optional) (optional) | - |
+| `total_inflation` | out | P_last / P_first - 1 | - |
+| `average_inflation` | out | (P_last/P_first)^(1/n) - 1 | - |
+| `real_value` | out | amount x P_first / P_last | - |
 
 **Applies when:** price levels > 0.
 
@@ -1469,7 +1417,7 @@ real_value = 933.5324869
 
 <a id="spending_multiplier"></a>
 
-#### Keynesian spending multiplier — `spending_multiplier`
+#### Keynesian spending multiplier: `spending_multiplier`
 
 Government-spending multiplier 1/(1 - mpc(1 - t) + m), the lump-sum tax multiplier and the change in output from a change in spending.
 
@@ -1479,13 +1427,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `mpc` | in | marginal propensity to consume | — |
-| `tax_rate` | in | proportional income tax rate (default 0) (optional) | — |
-| `import_propensity` | in | marginal propensity to import (default 0) (optional) | — |
-| `spending_change` | in | change in government spending (optional) (optional) | — |
-| `spending_multiplier` | out | 1/(1 - mpc(1 - t) + m) | — |
-| `tax_multiplier` | out | -mpc x multiplier | — |
-| `output_change` | out | multiplier x spending change | — |
+| `mpc` | in | marginal propensity to consume | - |
+| `tax_rate` | in | proportional income tax rate (default 0) (optional) | - |
+| `import_propensity` | in | marginal propensity to import (default 0) (optional) | - |
+| `spending_change` | in | change in government spending (optional) (optional) | - |
+| `spending_multiplier` | out | 1/(1 - mpc(1 - t) + m) | - |
+| `tax_multiplier` | out | -mpc x multiplier | - |
+| `output_change` | out | multiplier x spending change | - |
 
 **Applies when:** 0 < mpc < 1; 0 <= mpc(1 - t) - m < 1.
 
@@ -1506,7 +1454,7 @@ output_change = 200
 
 <a id="price_indices"></a>
 
-#### Laspeyres, Paasche and Fisher price indices — `price_indices`
+#### Laspeyres, Paasche and Fisher price indices, `price_indices`
 
 Price indices (base = 100) of a basket: Laspeyres (base-year quantities, the CPI method), Paasche (current quantities) and Fisher (their geometric mean).
 
@@ -1516,13 +1464,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `base_prices` | in | prices in the base year | — |
-| `base_quantities` | in | quantities in the base year | — |
-| `current_prices` | in | prices in the current year | — |
-| `current_quantities` | in | quantities in the current year | — |
-| `laspeyres` | out | 100 sum p1 q0 / sum p0 q0 | — |
-| `paasche` | out | 100 sum p1 q1 / sum p0 q1 | — |
-| `fisher` | out | sqrt(L P) | — |
+| `base_prices` | in | prices in the base year | - |
+| `base_quantities` | in | quantities in the base year | - |
+| `current_prices` | in | prices in the current year | - |
+| `current_quantities` | in | quantities in the current year | - |
+| `laspeyres` | out | 100 sum p1 q0 / sum p0 q0 | - |
+| `paasche` | out | 100 sum p1 q1 / sum p0 q1 | - |
+| `fisher` | out | sqrt(L P) | - |
 
 **Applies when:** one price and quantity per good; prices > 0.
 
@@ -1539,7 +1487,7 @@ fisher = 135.6465997
 
 <a id="money_multiplier"></a>
 
-#### Money multiplier — `money_multiplier`
+#### Money multiplier: `money_multiplier`
 
 Simple deposit multiplier 1/rr and the money multiplier (1 + c)/(rr + c) with a currency-deposit ratio c, and the money supply from the monetary base.
 
@@ -1549,12 +1497,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `reserve_ratio` | in | reserve ratio (decimal) | — |
-| `currency_ratio` | in | currency-to-deposit ratio (default 0) (optional) | — |
-| `monetary_base` | in | monetary base (optional) (optional) | — |
-| `simple_multiplier` | out | 1/rr | — |
-| `money_multiplier` | out | (1 + c)/(rr + c) | — |
-| `money_supply` | out | multiplier x base | — |
+| `reserve_ratio` | in | reserve ratio (decimal) | - |
+| `currency_ratio` | in | currency-to-deposit ratio (default 0) (optional) | - |
+| `monetary_base` | in | monetary base (optional) (optional) | - |
+| `simple_multiplier` | out | 1/rr | - |
+| `money_multiplier` | out | (1 + c)/(rr + c) | - |
+| `money_supply` | out | multiplier x base | - |
 
 **Applies when:** 0 < reserve_ratio <= 1; currency_ratio >= 0.
 
@@ -1574,7 +1522,7 @@ money_supply = 4000
 
 <a id="gdp_deflator"></a>
 
-#### Nominal GDP, real GDP and the GDP deflator — `gdp_deflator`
+#### Nominal GDP, real GDP and the GDP deflator, `gdp_deflator`
 
 Nominal GDP (current prices), real GDP (base-year prices), the GDP deflator, inflation since the base year and real growth, from the prices and quantities of the goods produced.
 
@@ -1584,15 +1532,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `base_prices` | in | prices in the base year | — |
-| `base_quantities` | in | quantities in the base year | — |
-| `current_prices` | in | prices in the current year | — |
-| `current_quantities` | in | quantities in the current year | — |
-| `nominal_gdp` | out | sum p1 q1 | — |
-| `real_gdp` | out | sum p0 q1 | — |
-| `deflator` | out | 100 x nominal / real | — |
-| `inflation` | out | deflator/100 - 1 (since the base year) | — |
-| `real_growth` | out | real GDP / base-year GDP - 1 | — |
+| `base_prices` | in | prices in the base year | - |
+| `base_quantities` | in | quantities in the base year | - |
+| `current_prices` | in | prices in the current year | - |
+| `current_quantities` | in | quantities in the current year | - |
+| `nominal_gdp` | out | sum p1 q1 | - |
+| `real_gdp` | out | sum p0 q1 | - |
+| `deflator` | out | 100 x nominal / real | - |
+| `inflation` | out | deflator/100 - 1 (since the base year) | - |
+| `real_growth` | out | real GDP / base-year GDP - 1 | - |
 
 **Applies when:** one price and quantity per good; prices > 0.
 
@@ -1611,7 +1559,7 @@ real_growth = 0.2
 
 <a id="fisher_real_rate"></a>
 
-#### Real interest rate (Fisher equation) — `fisher_real_rate`
+#### Real interest rate (Fisher equation): `fisher_real_rate`
 
 The exact real rate (1 + i)/(1 + pi) - 1 and the approximation i - pi.
 
@@ -1621,10 +1569,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `nominal_rate` | in | nominal interest rate (decimal) | — |
-| `inflation_rate` | in | inflation rate (decimal) | — |
-| `real_rate` | out | (1 + i)/(1 + pi) - 1 | — |
-| `approximate_real_rate` | out | i - pi | — |
+| `nominal_rate` | in | nominal interest rate (decimal) | - |
+| `inflation_rate` | in | inflation rate (decimal) | - |
+| `real_rate` | out | (1 + i)/(1 + pi) - 1 | - |
+| `approximate_real_rate` | out | i - pi | - |
 
 **Applies when:** -1 < rates < 1.
 
@@ -1642,7 +1590,7 @@ approximate_real_rate = 0.05
 
 <a id="solow_steady_state"></a>
 
-#### Solow model steady state — `solow_steady_state`
+#### Solow model steady state: `solow_steady_state`
 
 Steady-state capital, output and consumption per effective worker in the Solow model with y = A k^alpha, and the golden-rule saving rate and capital.
 
@@ -1652,17 +1600,17 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `saving_rate` | in | saving rate s (decimal) | — |
-| `population_growth` | in | population growth n (decimal) | — |
-| `depreciation` | in | depreciation rate (decimal) | — |
-| `alpha` | in | capital share alpha in y = A k^alpha | — |
-| `technology_growth` | in | technology growth g (default 0) (optional) | — |
-| `productivity` | in | total factor productivity A (default 1) (optional) | — |
-| `capital` | out | k* = (sA/(n + g + delta))^(1/(1 - alpha)) | — |
-| `output` | out | y* = A k*^alpha | — |
-| `consumption` | out | (1 - s) y* | — |
-| `golden_rule_saving` | out | alpha | — |
-| `golden_rule_capital` | out | (alpha A/(n + g + delta))^(1/(1 - alpha)) | — |
+| `saving_rate` | in | saving rate s (decimal) | - |
+| `population_growth` | in | population growth n (decimal) | - |
+| `depreciation` | in | depreciation rate (decimal) | - |
+| `alpha` | in | capital share alpha in y = A k^alpha | - |
+| `technology_growth` | in | technology growth g (default 0) (optional) | - |
+| `productivity` | in | total factor productivity A (default 1) (optional) | - |
+| `capital` | out | k* = (sA/(n + g + delta))^(1/(1 - alpha)) | - |
+| `output` | out | y* = A k*^alpha | - |
+| `consumption` | out | (1 - s) y* | - |
+| `golden_rule_saving` | out | alpha | - |
+| `golden_rule_capital` | out | (alpha A/(n + g + delta))^(1/(1 - alpha)) | - |
 
 **Applies when:** 0 < s, alpha < 1; n + g + delta > 0.
 
@@ -1687,7 +1635,7 @@ golden_rule_capital = 9.966176578
 
 <a id="break_even"></a>
 
-#### Break-even and target-profit volume — `break_even`
+#### Break-even and target-profit volume: `break_even`
 
 Units to sell to cover fixed costs (and reach a target profit): Q = (F + target) / (p - v).
 
@@ -1697,14 +1645,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `fixed_costs` | in | total fixed costs | — |
-| `price` | in | selling price per unit | — |
-| `variable_cost` | in | variable cost per unit | — |
-| `target_profit` | in | target profit (default 0: break-even) (optional) | — |
-| `quantity` | out | units (F + target)/(p - v) | — |
-| `revenue` | out | p Q | — |
-| `contribution_margin` | out | p - v per unit | — |
-| `contribution_margin_ratio` | out | (p - v)/p | — |
+| `fixed_costs` | in | total fixed costs | - |
+| `price` | in | selling price per unit | - |
+| `variable_cost` | in | variable cost per unit | - |
+| `target_profit` | in | target profit (default 0: break-even) (optional) | - |
+| `quantity` | out | units (F + target)/(p - v) | - |
+| `revenue` | out | p Q | - |
+| `contribution_margin` | out | p - v per unit | - |
+| `contribution_margin_ratio` | out | (p - v)/p | - |
 
 **Applies when:** price > variable cost; fixed costs >= 0.
 
@@ -1725,7 +1673,7 @@ contribution_margin_ratio = 0.4
 
 <a id="cournot"></a>
 
-#### Cournot duopoly equilibrium — `cournot`
+#### Cournot duopoly equilibrium: `cournot`
 
 Quantities, price and profits of two firms choosing quantities simultaneously against P = A - B(q1 + q2) with constant marginal costs.
 
@@ -1735,15 +1683,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `price_intercept` | in | A in the inverse demand P = A - B Q | — |
-| `price_slope` | in | B in P = A - B Q (B > 0) | — |
-| `cost_1` | in | marginal cost of firm 1 | — |
-| `cost_2` | in | marginal cost of firm 2 | — |
-| `q1` | out | (A - 2c1 + c2)/(3B) | — |
-| `q2` | out | (A - 2c2 + c1)/(3B) | — |
-| `price` | out | A - B(q1 + q2) | — |
-| `profit_1` | out | (P - c1) q1 | — |
-| `profit_2` | out | (P - c2) q2 | — |
+| `price_intercept` | in | A in the inverse demand P = A - B Q | - |
+| `price_slope` | in | B in P = A - B Q (B > 0) | - |
+| `cost_1` | in | marginal cost of firm 1 | - |
+| `cost_2` | in | marginal cost of firm 2 | - |
+| `q1` | out | (A - 2c1 + c2)/(3B) | - |
+| `q2` | out | (A - 2c2 + c1)/(3B) | - |
+| `price` | out | A - B(q1 + q2) | - |
+| `profit_1` | out | (P - c1) q1 | - |
+| `profit_2` | out | (P - c2) q2 | - |
 
 **Applies when:** B > 0; both equilibrium quantities positive.
 
@@ -1766,7 +1714,7 @@ profit_2 = 900
 
 <a id="cross_price_elasticity"></a>
 
-#### Cross-price elasticity of demand (midpoint) — `cross_price_elasticity`
+#### Cross-price elasticity of demand (midpoint), `cross_price_elasticity`
 
 Midpoint cross-price elasticity: response of the quantity of good A to the price of good B; positive = substitutes, negative = complements.
 
@@ -1776,12 +1724,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `price_other_1` | in | first price of the other good | — |
-| `quantity_1` | in | quantity of this good at that price | — |
-| `price_other_2` | in | second price of the other good | — |
-| `quantity_2` | in | quantity of this good at the second price | — |
-| `elasticity` | out | (dQa / mean Qa) / (dPb / mean Pb) | — |
-| `relationship` | out | substitutes, complements or independent | — |
+| `price_other_1` | in | first price of the other good | - |
+| `quantity_1` | in | quantity of this good at that price | - |
+| `price_other_2` | in | second price of the other good | - |
+| `quantity_2` | in | quantity of this good at the second price | - |
+| `elasticity` | out | (dQa / mean Qa) / (dPb / mean Pb) | - |
+| `relationship` | out | substitutes, complements or independent | - |
 
 **Applies when:** prices and quantities > 0; the prices differ.
 
@@ -1801,7 +1749,7 @@ relationship = substitutes
 
 <a id="gini_coefficient"></a>
 
-#### Gini coefficient — `gini_coefficient`
+#### Gini coefficient: `gini_coefficient`
 
 Gini coefficient of a list of incomes (population formula: mean absolute difference / twice the mean; 0 = equality, (n-1)/n = one person has everything).
 
@@ -1811,8 +1759,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `incomes` | in | incomes (or wealth) of the people or households | — |
-| `gini` | out | sum (2i - n - 1) x_(i) / (n sum x) | — |
+| `incomes` | in | incomes (or wealth) of the people or households | - |
+| `gini` | out | sum (2i - n - 1) x_(i) / (n sum x) | - |
 
 **Applies when:** incomes >= 0 with a positive total.
 
@@ -1827,7 +1775,7 @@ gini = 0.35
 
 <a id="herfindahl_index"></a>
 
-#### Herfindahl-Hirschman index and concentration ratio — `herfindahl_index`
+#### Herfindahl-Hirschman index and concentration ratio, `herfindahl_index`
 
 Market concentration from the firms' shares or sales (normalized to shares): HHI on the 0-10,000 scale, the four-firm concentration ratio and the equivalent number of equal-sized firms.
 
@@ -1837,11 +1785,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `market_shares` | in | market shares (in %) or sales of each firm | — |
-| `hhi` | out | 10,000 x sum of squared shares | — |
-| `hhi_fraction` | out | sum of squared shares (0-1) | — |
-| `cr4` | out | combined share of the four largest firms, % | — |
-| `equivalent_firms` | out | 1 / HHI (fraction) | — |
+| `market_shares` | in | market shares (in %) or sales of each firm | - |
+| `hhi` | out | 10,000 x sum of squared shares | - |
+| `hhi_fraction` | out | sum of squared shares (0-1) | - |
+| `cr4` | out | combined share of the four largest firms, % | - |
+| `equivalent_firms` | out | 1 / HHI (fraction) | - |
 
 **Applies when:** shares or sales >= 0 with a positive total.
 
@@ -1859,7 +1807,7 @@ equivalent_firms = 3.333333333
 
 <a id="income_elasticity"></a>
 
-#### Income elasticity of demand (midpoint) — `income_elasticity`
+#### Income elasticity of demand (midpoint): `income_elasticity`
 
 Midpoint income elasticity of demand and the good's type (inferior, necessity, luxury).
 
@@ -1869,12 +1817,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `income_1` | in | first income | — |
-| `quantity_1` | in | quantity at income 1 | — |
-| `income_2` | in | second income | — |
-| `quantity_2` | in | quantity at income 2 | — |
-| `elasticity` | out | (dQ / mean Q) / (dI / mean I) | — |
-| `classification` | out | inferior, necessity or luxury | — |
+| `income_1` | in | first income | - |
+| `quantity_1` | in | quantity at income 1 | - |
+| `income_2` | in | second income | - |
+| `quantity_2` | in | quantity at income 2 | - |
+| `elasticity` | out | (dQ / mean Q) / (dI / mean I) | - |
+| `classification` | out | inferior, necessity or luxury | - |
 
 **Applies when:** incomes and quantities > 0; the incomes differ.
 
@@ -1894,7 +1842,7 @@ classification = normal good (luxury)
 
 <a id="market_equilibrium"></a>
 
-#### Market equilibrium and surplus (linear curves) — `market_equilibrium`
+#### Market equilibrium and surplus (linear curves), `market_equilibrium`
 
 Equilibrium price and quantity of Qd = a - bP and Qs = c + dP, with consumer, producer and total surplus (producer surplus counted at prices >= 0).
 
@@ -1904,15 +1852,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `demand_intercept` | in | a in Qd = a - bP | — |
-| `demand_slope` | in | b in Qd = a - bP (b > 0) | — |
-| `supply_intercept` | in | c in Qs = c + dP | — |
-| `supply_slope` | in | d in Qs = c + dP (d > 0) | — |
-| `price` | out | equilibrium price (a - c)/(b + d) | — |
-| `quantity` | out | equilibrium quantity | — |
-| `consumer_surplus` | out | Q^2 / (2b) | — |
-| `producer_surplus` | out | area above supply, below P | — |
-| `total_surplus` | out | CS + PS | — |
+| `demand_intercept` | in | a in Qd = a - bP | - |
+| `demand_slope` | in | b in Qd = a - bP (b > 0) | - |
+| `supply_intercept` | in | c in Qs = c + dP | - |
+| `supply_slope` | in | d in Qs = c + dP (d > 0) | - |
+| `price` | out | equilibrium price (a - c)/(b + d) | - |
+| `quantity` | out | equilibrium quantity | - |
+| `consumer_surplus` | out | Q^2 / (2b) | - |
+| `producer_surplus` | out | area above supply, below P | - |
+| `total_surplus` | out | CS + PS | - |
 
 **Applies when:** b, d > 0; positive equilibrium price and quantity.
 
@@ -1935,7 +1883,7 @@ total_surplus = 1350
 
 <a id="monopoly"></a>
 
-#### Monopoly profit maximization — `monopoly`
+#### Monopoly profit maximization: `monopoly`
 
 Profit-maximising quantity and price of a monopoly facing P = A - BQ with cost F + cQ + eQ^2, its profit, Lerner index and the deadweight loss against marginal-cost pricing.
 
@@ -1945,16 +1893,16 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `price_intercept` | in | A in the inverse demand P = A - B Q | — |
-| `price_slope` | in | B in P = A - B Q (B > 0) | — |
-| `marginal_cost` | in | c, the constant part of marginal cost | — |
-| `fixed_cost` | in | fixed cost F (default 0) (optional) | — |
-| `cost_quadratic` | in | e in the cost F + cQ + eQ^2 (default 0) (optional) | — |
-| `quantity` | out | Q* where MR = MC | — |
-| `price` | out | A - B Q* | — |
-| `profit` | out | P Q - cost | — |
-| `lerner_index` | out | (P - MC)/P | — |
-| `deadweight_loss` | out | loss against P = MC | — |
+| `price_intercept` | in | A in the inverse demand P = A - B Q | - |
+| `price_slope` | in | B in P = A - B Q (B > 0) | - |
+| `marginal_cost` | in | c, the constant part of marginal cost | - |
+| `fixed_cost` | in | fixed cost F (default 0) (optional) | - |
+| `cost_quadratic` | in | e in the cost F + cQ + eQ^2 (default 0) (optional) | - |
+| `quantity` | out | Q* where MR = MC | - |
+| `price` | out | A - B Q* | - |
+| `profit` | out | P Q - cost | - |
+| `lerner_index` | out | (P - MC)/P | - |
+| `deadweight_loss` | out | loss against P = MC | - |
 
 **Applies when:** A > c >= 0; B > 0; F, e >= 0.
 
@@ -1976,7 +1924,7 @@ deadweight_loss = 400
 
 <a id="per_unit_tax"></a>
 
-#### Per-unit tax incidence (linear curves) — `per_unit_tax`
+#### Per-unit tax incidence (linear curves): `per_unit_tax`
 
 Effect of a per-unit tax on Qd = a - bP, Qs = c + dP: quantity, price paid by buyers and kept by sellers, tax revenue, deadweight loss and the buyers' share of the burden.
 
@@ -1986,17 +1934,17 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `demand_intercept` | in | a in Qd = a - bP | — |
-| `demand_slope` | in | b in Qd = a - bP (b > 0) | — |
-| `supply_intercept` | in | c in Qs = c + dP | — |
-| `supply_slope` | in | d in Qs = c + dP (d > 0) | — |
-| `tax` | in | tax per unit | — |
-| `quantity` | out | quantity with the tax | — |
-| `buyer_price` | out | price paid by buyers | — |
-| `seller_price` | out | buyer price - tax | — |
-| `tax_revenue` | out | t Q | — |
-| `deadweight_loss` | out | t (Q0 - Qt) / 2 | — |
-| `buyer_share` | out | share of the tax borne by buyers d/(b+d) | — |
+| `demand_intercept` | in | a in Qd = a - bP | - |
+| `demand_slope` | in | b in Qd = a - bP (b > 0) | - |
+| `supply_intercept` | in | c in Qs = c + dP | - |
+| `supply_slope` | in | d in Qs = c + dP (d > 0) | - |
+| `tax` | in | tax per unit | - |
+| `quantity` | out | quantity with the tax | - |
+| `buyer_price` | out | price paid by buyers | - |
+| `seller_price` | out | buyer price - tax | - |
+| `tax_revenue` | out | t Q | - |
+| `deadweight_loss` | out | t (Q0 - Qt) / 2 | - |
+| `buyer_share` | out | share of the tax borne by buyers d/(b+d) | - |
 
 **Applies when:** b, d > 0; tax > 0; positive quantity and seller price with the tax.
 
@@ -2021,7 +1969,7 @@ In the worked example, demand_intercept = 100, demand_slope = 2, supply_intercep
 
 <a id="point_elasticity"></a>
 
-#### Point elasticity of a linear demand curve — `point_elasticity`
+#### Point elasticity of a linear demand curve: `point_elasticity`
 
 Quantity, point price elasticity and revenue on the linear demand curve Q = a - b P at a price, and the revenue-maximising price.
 
@@ -2031,13 +1979,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `demand_intercept` | in | a in Q = a - bP | — |
-| `demand_slope` | in | b in Q = a - bP (b > 0) | — |
-| `price` | in | price at which to evaluate | — |
-| `quantity` | out | Q = a - bP | — |
-| `elasticity` | out | -b P / Q | — |
-| `revenue` | out | P Q | — |
-| `revenue_maximizing_price` | out | a / (2b) | — |
+| `demand_intercept` | in | a in Q = a - bP | - |
+| `demand_slope` | in | b in Q = a - bP (b > 0) | - |
+| `price` | in | price at which to evaluate | - |
+| `quantity` | out | Q = a - bP | - |
+| `elasticity` | out | -b P / Q | - |
+| `revenue` | out | P Q | - |
+| `revenue_maximizing_price` | out | a / (2b) | - |
 
 **Applies when:** a, b, P > 0; Q = a - bP > 0.
 
@@ -2058,7 +2006,7 @@ revenue_maximizing_price = 25
 
 <a id="arc_price_elasticity"></a>
 
-#### Price elasticity of demand (midpoint) — `arc_price_elasticity`
+#### Price elasticity of demand (midpoint): `arc_price_elasticity`
 
 Arc (midpoint) price elasticity of demand between two price-quantity points, and whether demand is elastic, inelastic or unit elastic there.
 
@@ -2068,13 +2016,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `price_1` | in | first price | — |
-| `quantity_1` | in | quantity demanded at price 1 | — |
-| `price_2` | in | second price | — |
-| `quantity_2` | in | quantity demanded at price 2 | — |
-| `elasticity` | out | (dQ / mean Q) / (dP / mean P) | — |
-| `abs_elasticity` | out | \|elasticity\| | — |
-| `classification` | out | elastic, inelastic, unit elastic or perfectly inelastic | — |
+| `price_1` | in | first price | - |
+| `quantity_1` | in | quantity demanded at price 1 | - |
+| `price_2` | in | second price | - |
+| `quantity_2` | in | quantity demanded at price 2 | - |
+| `elasticity` | out | (dQ / mean Q) / (dP / mean P) | - |
+| `abs_elasticity` | out | \|elasticity\| | - |
+| `classification` | out | elastic, inelastic, unit elastic or perfectly inelastic | - |
 
 **Applies when:** prices and quantities > 0; the two prices differ.
 
@@ -2095,7 +2043,7 @@ classification = elastic
 
 <a id="stackelberg"></a>
 
-#### Stackelberg duopoly equilibrium — `stackelberg`
+#### Stackelberg duopoly equilibrium: `stackelberg`
 
 Quantities, price and profits when a leader chooses its quantity first and the follower best-responds, against P = A - B(qL + qF) with constant marginal costs.
 
@@ -2105,15 +2053,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `price_intercept` | in | A in the inverse demand P = A - B Q | — |
-| `price_slope` | in | B in P = A - B Q (B > 0) | — |
-| `cost_leader` | in | marginal cost of the leader | — |
-| `cost_follower` | in | marginal cost of the follower | — |
-| `q_leader` | out | (A - 2cL + cF)/(2B) | — |
-| `q_follower` | out | (A - cF - B qL)/(2B) | — |
-| `price` | out | market price | — |
-| `profit_leader` | out | leader's profit | — |
-| `profit_follower` | out | follower's profit | — |
+| `price_intercept` | in | A in the inverse demand P = A - B Q | - |
+| `price_slope` | in | B in P = A - B Q (B > 0) | - |
+| `cost_leader` | in | marginal cost of the leader | - |
+| `cost_follower` | in | marginal cost of the follower | - |
+| `q_leader` | out | (A - 2cL + cF)/(2B) | - |
+| `q_follower` | out | (A - cF - B qL)/(2B) | - |
+| `price` | out | market price | - |
+| `profit_leader` | out | leader's profit | - |
+| `profit_follower` | out | follower's profit | - |
 
 **Applies when:** B > 0; both quantities positive.
 
@@ -2136,7 +2084,7 @@ profit_follower = 506.25
 
 <a id="cobb_douglas_demand"></a>
 
-#### Utility-maximising demand (Cobb-Douglas) — `cobb_douglas_demand`
+#### Utility-maximising demand (Cobb-Douglas): `cobb_douglas_demand`
 
 The bundle that maximises U = x^alpha y^beta subject to px x + py y = M.
 
@@ -2146,15 +2094,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `alpha` | in | exponent of good x | — |
-| `beta` | in | exponent of good y | — |
-| `income` | in | income (budget) | — |
-| `price_x` | in | price of good x | — |
-| `price_y` | in | price of good y | — |
-| `x` | out | alpha/(alpha+beta) M/px | — |
-| `y` | out | beta/(alpha+beta) M/py | — |
-| `utility` | out | x^alpha y^beta | — |
-| `share_x` | out | budget share of x | — |
+| `alpha` | in | exponent of good x | - |
+| `beta` | in | exponent of good y | - |
+| `income` | in | income (budget) | - |
+| `price_x` | in | price of good x | - |
+| `price_y` | in | price of good y | - |
+| `x` | out | alpha/(alpha+beta) M/px | - |
+| `y` | out | beta/(alpha+beta) M/py | - |
+| `utility` | out | x^alpha y^beta | - |
+| `share_x` | out | budget share of x | - |
 
 **Applies when:** alpha, beta, income, prices > 0.
 
@@ -2179,7 +2127,7 @@ share_x = 0.3
 
 <a id="mean_returns"></a>
 
-#### Arithmetic and geometric mean return — `mean_returns`
+#### Arithmetic and geometric mean return: `mean_returns`
 
 Arithmetic mean, geometric (compound) mean and cumulative return of a series of periodic returns.
 
@@ -2189,10 +2137,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `returns` | in | periodic returns (decimals) | — |
-| `arithmetic_mean` | out | sum R / n | — |
-| `geometric_mean` | out | (prod (1 + R))^(1/n) - 1 | — |
-| `cumulative_return` | out | prod (1 + R) - 1 | — |
+| `returns` | in | periodic returns (decimals) | - |
+| `arithmetic_mean` | out | sum R / n | - |
+| `geometric_mean` | out | (prod (1 + R))^(1/n) - 1 | - |
+| `cumulative_return` | out | prod (1 + R) - 1 | - |
 
 **Applies when:** each return between -100% and 100%.
 
@@ -2209,7 +2157,7 @@ cumulative_return = 0.254
 
 <a id="beta_regression"></a>
 
-#### Beta of an asset from return series — `beta_regression`
+#### Beta of an asset from return series: `beta_regression`
 
 Beta (and alpha, correlation, R^2) of an asset from paired asset and market returns: the slope of the ordinary least-squares regression of asset on market returns.
 
@@ -2219,12 +2167,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `asset_returns` | in | returns of the asset (decimals), one per period | — |
-| `market_returns` | in | returns of the market in the same periods | — |
-| `beta` | out | cov(asset, market) / var(market) | — |
-| `alpha` | out | intercept mean(asset) - beta mean(market) | — |
-| `correlation` | out | correlation of asset and market | — |
-| `r_squared` | out | share of variance explained | — |
+| `asset_returns` | in | returns of the asset (decimals), one per period | - |
+| `market_returns` | in | returns of the market in the same periods | - |
+| `beta` | out | cov(asset, market) / var(market) | - |
+| `alpha` | out | intercept mean(asset) - beta mean(market) | - |
+| `correlation` | out | correlation of asset and market | - |
+| `r_squared` | out | share of variance explained | - |
 
 **Applies when:** same number of observations, at least 3; returns between -100% and 100%; neither series constant.
 
@@ -2242,7 +2190,7 @@ r_squared = 0.9918208857
 
 <a id="scenario_return"></a>
 
-#### Expected return and risk from scenarios — `scenario_return`
+#### Expected return and risk from scenarios: `scenario_return`
 
 Expected return, variance and standard deviation of an asset whose return depends on scenarios with given probabilities.
 
@@ -2252,11 +2200,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `probabilities` | in | probability of each scenario (adding up to 1) | — |
-| `returns` | in | return in each scenario (decimals) | — |
-| `expected_return` | out | sum p R | — |
-| `variance` | out | sum p (R - E)^2 | — |
-| `std_dev` | out | sqrt(variance) | — |
+| `probabilities` | in | probability of each scenario (adding up to 1) | - |
+| `returns` | in | return in each scenario (decimals) | - |
+| `expected_return` | out | sum p R | - |
+| `variance` | out | sum p (R - E)^2 | - |
+| `std_dev` | out | sqrt(variance) | - |
 
 **Applies when:** one probability per return; probabilities >= 0 adding up to 1.
 
@@ -2273,7 +2221,7 @@ std_dev = 0.1228820573
 
 <a id="global_min_variance"></a>
 
-#### Global minimum-variance portfolio — `global_min_variance`
+#### Global minimum-variance portfolio: `global_min_variance`
 
 Weights (adding up to 1, short sales allowed) of the portfolio with the smallest variance, from a covariance matrix: w = Sigma^-1 1 / (1' Sigma^-1 1).
 
@@ -2283,10 +2231,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `covariance` | in | covariance matrix of the asset returns | — |
-| `weights` | out | minimum-variance weights (list) | — |
-| `variance` | out | portfolio variance | — |
-| `std_dev` | out | portfolio sd | — |
+| `covariance` | in | covariance matrix of the asset returns | - |
+| `weights` | out | minimum-variance weights (list) | - |
+| `variance` | out | portfolio variance | - |
+| `std_dev` | out | portfolio sd | - |
 
 **Applies when:** covariance symmetric and positive definite.
 
@@ -2303,7 +2251,7 @@ std_dev = 0.1601984601
 
 <a id="information_ratio"></a>
 
-#### Information ratio and tracking error — `information_ratio`
+#### Information ratio and tracking error: `information_ratio`
 
 Mean active return (portfolio - benchmark) per unit of tracking error (sample sd of active returns).
 
@@ -2313,11 +2261,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `portfolio_returns` | in | portfolio returns (decimals) | — |
-| `benchmark_returns` | in | benchmark returns in the same periods | — |
-| `information_ratio` | out | mean active / tracking error | — |
-| `tracking_error` | out | sample sd of active returns | — |
-| `mean_active_return` | out | mean of portfolio - benchmark | — |
+| `portfolio_returns` | in | portfolio returns (decimals) | - |
+| `benchmark_returns` | in | benchmark returns in the same periods | - |
+| `information_ratio` | out | mean active / tracking error | - |
+| `tracking_error` | out | sample sd of active returns | - |
+| `mean_active_return` | out | mean of portfolio - benchmark | - |
 
 **Applies when:** same number of observations, at least 2; active returns not constant.
 
@@ -2334,7 +2282,7 @@ mean_active_return = 0.00625
 
 <a id="min_variance_two_asset"></a>
 
-#### Minimum-variance portfolio of two assets — `min_variance_two_asset`
+#### Minimum-variance portfolio of two assets: `min_variance_two_asset`
 
 The weights of two assets that minimise the portfolio variance (short sales allowed), and that variance's sd.
 
@@ -2344,12 +2292,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `sd_1` | in | standard deviation of asset 1 (decimal) | — |
-| `sd_2` | in | standard deviation of asset 2 (decimal) | — |
-| `correlation` | in | correlation between the assets (-1..1) | — |
-| `weight_1` | out | w1 = (s2^2 - rho s1 s2) / (s1^2 + s2^2 - 2 rho s1 s2) | — |
-| `weight_2` | out | 1 - w1 | — |
-| `std_dev` | out | standard deviation of the minimum-variance portfolio | — |
+| `sd_1` | in | standard deviation of asset 1 (decimal) | - |
+| `sd_2` | in | standard deviation of asset 2 (decimal) | - |
+| `correlation` | in | correlation between the assets (-1..1) | - |
+| `weight_1` | out | w1 = (s2^2 - rho s1 s2) / (s1^2 + s2^2 - 2 rho s1 s2) | - |
+| `weight_2` | out | 1 - w1 | - |
+| `std_dev` | out | standard deviation of the minimum-variance portfolio | - |
 
 **Applies when:** sd_1, sd_2 > 0; -1 <= correlation <= 1; not (correlation = 1 and sd_1 = sd_2).
 
@@ -2369,7 +2317,7 @@ std_dev = 0.1737912248
 
 <a id="portfolio_return_risk"></a>
 
-#### Portfolio expected return and risk — `portfolio_return_risk`
+#### Portfolio expected return and risk: `portfolio_return_risk`
 
 Expected return w'mu, variance w'Sigma w and standard deviation of a portfolio from its weights, expected returns and covariance matrix.
 
@@ -2379,12 +2327,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `weights` | in | portfolio weights, adding up to 1 (negative = short) | — |
-| `expected_returns` | in | expected return of each asset (decimals) | — |
-| `covariance` | in | covariance matrix of the returns [[s11, s12], [s21, s22]] | — |
-| `expected_return` | out | w' mu | — |
-| `variance` | out | w' Sigma w | — |
-| `std_dev` | out | sqrt(variance) | — |
+| `weights` | in | portfolio weights, adding up to 1 (negative = short) | - |
+| `expected_returns` | in | expected return of each asset (decimals) | - |
+| `covariance` | in | covariance matrix of the returns [[s11, s12], [s21, s22]] | - |
+| `expected_return` | out | w' mu | - |
+| `variance` | out | w' Sigma w | - |
+| `std_dev` | out | sqrt(variance) | - |
 
 **Applies when:** one weight, return and row per asset; weights add up to 1; covariance symmetric, positive semidefinite.
 
@@ -2401,7 +2349,7 @@ std_dev = 0.1779887637
 
 <a id="sharpe_ratio"></a>
 
-#### Sharpe ratio — `sharpe_ratio`
+#### Sharpe ratio: `sharpe_ratio`
 
 Mean excess return per unit of total risk, from a return series (sample standard deviation, n - 1); annualized by sqrt(periods per year).
 
@@ -2411,13 +2359,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `returns` | in | periodic returns (decimals) | — |
-| `risk_free` | in | risk-free rate per period (decimal, default 0) (optional) | — |
-| `periods_per_year` | in | periods per year for annualizing (12 monthly, 252 daily; default 1) (optional) | — |
-| `sharpe` | out | (mean - rf) / sd per period | — |
-| `annualized_sharpe` | out | sharpe x sqrt(periods per year) | — |
-| `mean_excess_return` | out | mean - rf | — |
-| `std_dev` | out | sample standard deviation | — |
+| `returns` | in | periodic returns (decimals) | - |
+| `risk_free` | in | risk-free rate per period (decimal, default 0) (optional) | - |
+| `periods_per_year` | in | periods per year for annualizing (12 monthly, 252 daily; default 1) (optional) | - |
+| `sharpe` | out | (mean - rf) / sd per period | - |
+| `annualized_sharpe` | out | sharpe x sqrt(periods per year) | - |
+| `mean_excess_return` | out | mean - rf | - |
+| `std_dev` | out | sample standard deviation | - |
 
 **Applies when:** at least 2 returns, not all equal; returns between -100% and 100%.
 
@@ -2436,7 +2384,7 @@ std_dev = 0.02645751311
 
 <a id="sortino_ratio"></a>
 
-#### Sortino ratio — `sortino_ratio`
+#### Sortino ratio: `sortino_ratio`
 
 Mean return above a target per unit of downside deviation sqrt(mean(min(0, R - T)^2)) over ALL observations.
 
@@ -2446,11 +2394,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `returns` | in | periodic returns (decimals) | — |
-| `target` | in | target (minimum acceptable) return per period (default 0) (optional) | — |
-| `sortino` | out | (mean - T) / downside deviation | — |
-| `downside_deviation` | out | sqrt(sum min(0, R - T)^2 / n) | — |
-| `mean_return` | out | mean return | — |
+| `returns` | in | periodic returns (decimals) | - |
+| `target` | in | target (minimum acceptable) return per period (default 0) (optional) | - |
+| `sortino` | out | (mean - T) / downside deviation | - |
+| `downside_deviation` | out | sqrt(sum min(0, R - T)^2 / n) | - |
+| `mean_return` | out | mean return | - |
 
 **Applies when:** at least 2 returns; at least one return below the target.
 
@@ -2467,7 +2415,7 @@ mean_return = 0.014
 
 <a id="tangency_portfolio"></a>
 
-#### Tangency (maximum Sharpe ratio) portfolio — `tangency_portfolio`
+#### Tangency (maximum Sharpe ratio) portfolio: `tangency_portfolio`
 
 Weights of the risky portfolio with the highest Sharpe ratio (short sales allowed): w proportional to Sigma^-1 (mu - rf).
 
@@ -2477,13 +2425,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `expected_returns` | in | expected returns of the assets (decimals) | — |
-| `covariance` | in | covariance matrix of the returns | — |
-| `risk_free` | in | risk-free rate (decimal) | — |
-| `weights` | out | tangency weights (list, add up to 1) | — |
-| `expected_return` | out | portfolio expected return | — |
-| `std_dev` | out | portfolio sd | — |
-| `sharpe` | out | (E - rf) / sd | — |
+| `expected_returns` | in | expected returns of the assets (decimals) | - |
+| `covariance` | in | covariance matrix of the returns | - |
+| `risk_free` | in | risk-free rate (decimal) | - |
+| `weights` | out | tangency weights (list, add up to 1) | - |
+| `expected_return` | out | portfolio expected return | - |
+| `std_dev` | out | portfolio sd | - |
+| `sharpe` | out | (E - rf) / sd | - |
 
 **Applies when:** covariance positive definite; 1' Sigma^-1 (mu - rf) > 0.
 
@@ -2502,7 +2450,7 @@ sharpe = 0.5070214069
 
 <a id="treynor_jensen"></a>
 
-#### Treynor ratio and Jensen's alpha — `treynor_jensen`
+#### Treynor ratio and Jensen's alpha: `treynor_jensen`
 
 Excess return per unit of beta (Treynor) and the return above the CAPM prediction (Jensen's alpha), from paired portfolio and market returns and a constant risk-free rate per period.
 
@@ -2512,14 +2460,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `portfolio_returns` | in | portfolio returns (decimals) per period | — |
-| `market_returns` | in | market returns in the same periods | — |
-| `risk_free` | in | risk-free rate per period (decimal, default 0) (optional) | — |
-| `beta` | out | beta of the portfolio | — |
-| `treynor` | out | (mean Rp - rf) / beta | — |
-| `jensen_alpha` | out | mean Rp - [rf + beta (mean Rm - rf)] | — |
-| `mean_portfolio_return` | out | mean Rp | — |
-| `mean_market_return` | out | mean Rm | — |
+| `portfolio_returns` | in | portfolio returns (decimals) per period | - |
+| `market_returns` | in | market returns in the same periods | - |
+| `risk_free` | in | risk-free rate per period (decimal, default 0) (optional) | - |
+| `beta` | out | beta of the portfolio | - |
+| `treynor` | out | (mean Rp - rf) / beta | - |
+| `jensen_alpha` | out | mean Rp - [rf + beta (mean Rm - rf)] | - |
+| `mean_portfolio_return` | out | mean Rp | - |
+| `mean_market_return` | out | mean Rm | - |
 
 **Applies when:** same number of observations, at least 3; market returns not constant; beta not 0.
 
@@ -2539,7 +2487,7 @@ mean_market_return = 0.01
 
 <a id="two_asset_portfolio"></a>
 
-#### Two-asset portfolio return and risk — `two_asset_portfolio`
+#### Two-asset portfolio return and risk: `two_asset_portfolio`
 
 Expected return and standard deviation of a portfolio of two assets from the weight, means, standard deviations and correlation.
 
@@ -2549,16 +2497,16 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `weight_1` | in | weight of asset 1 (asset 2 gets 1 - w1) | — |
-| `return_1` | in | expected return of asset 1 (decimal) | — |
-| `return_2` | in | expected return of asset 2 (decimal) | — |
-| `sd_1` | in | standard deviation of asset 1 (decimal) | — |
-| `sd_2` | in | standard deviation of asset 2 (decimal) | — |
-| `correlation` | in | correlation between the two assets (-1..1) | — |
-| `expected_return` | out | w1 r1 + w2 r2 | — |
-| `std_dev` | out | portfolio standard deviation | — |
-| `variance` | out | portfolio variance | — |
-| `weight_2` | out | 1 - w1 | — |
+| `weight_1` | in | weight of asset 1 (asset 2 gets 1 - w1) | - |
+| `return_1` | in | expected return of asset 1 (decimal) | - |
+| `return_2` | in | expected return of asset 2 (decimal) | - |
+| `sd_1` | in | standard deviation of asset 1 (decimal) | - |
+| `sd_2` | in | standard deviation of asset 2 (decimal) | - |
+| `correlation` | in | correlation between the two assets (-1..1) | - |
+| `expected_return` | out | w1 r1 + w2 r2 | - |
+| `std_dev` | out | portfolio standard deviation | - |
+| `variance` | out | portfolio variance | - |
+| `weight_2` | out | 1 - w1 | - |
 
 **Applies when:** -1 <= correlation <= 1; standard deviations >= 0.
 
@@ -2584,7 +2532,7 @@ weight_2 = 0.4
 
 <a id="historical_var"></a>
 
-#### Historical value at risk and expected shortfall — `historical_var`
+#### Historical value at risk and expected shortfall, `historical_var`
 
 VaR and CVaR (expected shortfall) by historical simulation: with k = ceil(n (1 - confidence)), VaR is minus the k-th smallest return and CVaR minus the mean of the k smallest, times the portfolio value.
 
@@ -2594,12 +2542,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `returns` | in | historical returns (decimals) | — |
-| `confidence` | in | confidence level (0.95 = 95%) | — |
-| `portfolio_value` | in | portfolio value (default 1: VaR as a fraction) (optional) | — |
-| `var` | out | value at risk (a positive number is a loss) | — |
-| `cvar` | out | expected shortfall (mean loss beyond VaR) | — |
-| `tail_observations` | out | k, the number of returns in the tail | — |
+| `returns` | in | historical returns (decimals) | - |
+| `confidence` | in | confidence level (0.95 = 95%) | - |
+| `portfolio_value` | in | portfolio value (default 1: VaR as a fraction) (optional) | - |
+| `var` | out | value at risk (a positive number is a loss) | - |
+| `cvar` | out | expected shortfall (mean loss beyond VaR) | - |
+| `tail_observations` | out | k, the number of returns in the tail | - |
 
 **Applies when:** at least 2 returns; 0.5 < confidence < 1; portfolio_value > 0.
 
@@ -2617,7 +2565,7 @@ tail_observations = 2
 
 <a id="max_drawdown"></a>
 
-#### Maximum drawdown — `max_drawdown`
+#### Maximum drawdown: `max_drawdown`
 
 The largest fall from a running peak to a later trough, as a fraction of the peak.
 
@@ -2627,8 +2575,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `prices` | in | price or portfolio value series in time order | — |
-| `max_drawdown` | out | max over t of 1 - P_t / max_{s<=t} P_s | — |
+| `prices` | in | price or portfolio value series in time order | - |
+| `max_drawdown` | out | max over t of 1 - P_t / max_{s<=t} P_s | - |
 
 **Applies when:** prices > 0; at least 2.
 
@@ -2643,7 +2591,7 @@ max_drawdown = 0.3333333333
 
 <a id="parametric_var"></a>
 
-#### Parametric (normal) value at risk and expected shortfall — `parametric_var`
+#### Parametric (normal) value at risk and expected shortfall, `parametric_var`
 
 VaR and CVaR of normally distributed returns with a mean and standard deviation per period, scaled to a horizon by mean x h and sd x sqrt(h).
 
@@ -2653,14 +2601,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `mean` | in | mean return per period (decimal) | — |
-| `std_dev` | in | standard deviation of returns per period (decimal) | — |
-| `confidence` | in | confidence level (0.95 = 95%) | — |
-| `horizon` | in | horizon in periods (default 1) (optional) | — |
-| `portfolio_value` | in | portfolio value (default 1) (optional) | — |
-| `var` | out | value at risk V (z sd sqrt(h) - mean h) | — |
-| `cvar` | out | expected shortfall V (sd sqrt(h) phi(z)/(1 - c) - mean h) | — |
-| `z` | out | standard normal quantile at the confidence level | — |
+| `mean` | in | mean return per period (decimal) | - |
+| `std_dev` | in | standard deviation of returns per period (decimal) | - |
+| `confidence` | in | confidence level (0.95 = 95%) | - |
+| `horizon` | in | horizon in periods (default 1) (optional) | - |
+| `portfolio_value` | in | portfolio value (default 1) (optional) | - |
+| `var` | out | value at risk V (z sd sqrt(h) - mean h) | - |
+| `cvar` | out | expected shortfall V (sd sqrt(h) phi(z)/(1 - c) - mean h) | - |
+| `z` | out | standard normal quantile at the confidence level | - |
 
 **Applies when:** 0 < std_dev < 5; 0.5 < confidence < 1; horizon > 0; returns normally distributed.
 
@@ -2682,7 +2630,7 @@ z = 2.326347874
 
 <a id="portfolio_var"></a>
 
-#### Portfolio value at risk (variance-covariance) — `portfolio_var`
+#### Portfolio value at risk (variance-covariance), `portfolio_var`
 
 Zero-mean normal VaR of a portfolio from its weights and the covariance matrix of periodic returns, with the undiversified VaR (sum of the assets' own VaRs) and the diversification benefit.
 
@@ -2692,15 +2640,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `weights` | in | portfolio weights (fractions of the portfolio value) | — |
-| `covariance` | in | covariance matrix of periodic returns | — |
-| `confidence` | in | confidence level (0.99 = 99%) | — |
-| `portfolio_value` | in | portfolio value (default 1) (optional) | — |
-| `horizon` | in | horizon in periods (default 1) (optional) | — |
-| `var` | out | z sqrt(w'Sigma w) sqrt(h) V | — |
-| `portfolio_sd` | out | sqrt(w'Sigma w) per period | — |
-| `undiversified_var` | out | z sqrt(h) V sum \|w_i\| sigma_i | — |
-| `diversification_benefit` | out | undiversified - portfolio VaR | — |
+| `weights` | in | portfolio weights (fractions of the portfolio value) | - |
+| `covariance` | in | covariance matrix of periodic returns | - |
+| `confidence` | in | confidence level (0.99 = 99%) | - |
+| `portfolio_value` | in | portfolio value (default 1) (optional) | - |
+| `horizon` | in | horizon in periods (default 1) (optional) | - |
+| `var` | out | z sqrt(w'Sigma w) sqrt(h) V | - |
+| `portfolio_sd` | out | sqrt(w'Sigma w) per period | - |
+| `undiversified_var` | out | z sqrt(h) V sum \|w_i\| sigma_i | - |
+| `diversification_benefit` | out | undiversified - portfolio VaR | - |
 
 **Applies when:** one weight per row of the covariance; covariance symmetric positive semidefinite; 0.5 < confidence < 1.
 
@@ -2722,7 +2670,7 @@ diversification_benefit = 14425.97078
 
 <a id="capm"></a>
 
-#### Capital asset pricing model — `capm`
+#### Capital asset pricing model: `capm`
 
 Expected return of an asset from its beta: E[R] = rf + beta (E[Rm] - rf) (the security market line).
 
@@ -2732,12 +2680,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `risk_free` | in | risk-free rate (decimal) | — |
-| `beta` | in | beta of the asset | — |
-| `market_return` | in | expected market return (decimal) | — |
-| `expected_return` | out | expected (required) return | — |
-| `market_risk_premium` | out | rm - rf | — |
-| `risk_premium` | out | beta (rm - rf) | — |
+| `risk_free` | in | risk-free rate (decimal) | - |
+| `beta` | in | beta of the asset | - |
+| `market_return` | in | expected market return (decimal) | - |
+| `expected_return` | out | expected (required) return | - |
+| `market_risk_premium` | out | rm - rf | - |
+| `risk_premium` | out | beta (rm - rf) | - |
 
 **Applies when:** -1 < risk_free < 1; -1 < market_return < 1.
 
@@ -2757,7 +2705,7 @@ risk_premium = 0.072
 
 <a id="gordon_growth"></a>
 
-#### Dividend discount model (Gordon growth) — `gordon_growth`
+#### Dividend discount model (Gordon growth): `gordon_growth`
 
 Value of a share whose dividend grows at a constant rate forever: P0 = D1 / (r - g).
 
@@ -2767,13 +2715,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `required_return` | in | required return on equity (decimal) | — |
-| `growth` | in | constant dividend growth rate (decimal) | — |
-| `dividend` | in | dividend just paid D0 (give this OR next_dividend) (optional) | — |
-| `next_dividend` | in | dividend expected one year from now D1 (give this OR dividend) (optional) | — |
-| `price` | out | share value P0 = D1 / (r - g) | — |
-| `next_dividend` | out | D1 = D0 (1 + g) | — |
-| `dividend_yield` | out | D1 / P0 = r - g | — |
+| `required_return` | in | required return on equity (decimal) | - |
+| `growth` | in | constant dividend growth rate (decimal) | - |
+| `dividend` | in | dividend just paid D0 (give this OR next_dividend) (optional) | - |
+| `next_dividend` | in | dividend expected one year from now D1 (give this OR dividend) (optional) | - |
+| `price` | out | share value P0 = D1 / (r - g) | - |
+| `next_dividend` | out | D1 = D0 (1 + g) | - |
+| `dividend_yield` | out | D1 / P0 = r - g | - |
 
 **Applies when:** 0 < required_return < 1; growth < required_return; exactly one of dividend (D0), next_dividend (D1).
 
@@ -2793,7 +2741,7 @@ dividend_yield = 0.06
 
 <a id="gordon_implied_return"></a>
 
-#### Required return implied by the Gordon model — `gordon_implied_return`
+#### Required return implied by the Gordon model, `gordon_implied_return`
 
 The return investors require given a share price and a constant dividend growth rate: r = D1 / P0 + g.
 
@@ -2803,13 +2751,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `price` | in | current share price | — |
-| `growth` | in | constant dividend growth rate (decimal) | — |
-| `dividend` | in | dividend just paid D0 (give this OR next_dividend) (optional) | — |
-| `next_dividend` | in | dividend expected one year from now D1 (give this OR dividend) (optional) | — |
-| `required_return` | out | implied required return D1/P0 + g | — |
-| `dividend_yield` | out | D1 / P0 | — |
-| `next_dividend` | out | D1 | — |
+| `price` | in | current share price | - |
+| `growth` | in | constant dividend growth rate (decimal) | - |
+| `dividend` | in | dividend just paid D0 (give this OR next_dividend) (optional) | - |
+| `next_dividend` | in | dividend expected one year from now D1 (give this OR dividend) (optional) | - |
+| `required_return` | out | implied required return D1/P0 + g | - |
+| `dividend_yield` | out | D1 / P0 | - |
+| `next_dividend` | out | D1 | - |
 
 **Applies when:** price > 0; exactly one of dividend (D0), next_dividend (D1); dividend > 0.
 
@@ -2829,7 +2777,7 @@ next_dividend = 2.08
 
 <a id="two_stage_ddm"></a>
 
-#### Two-stage dividend discount model — `two_stage_ddm`
+#### Two-stage dividend discount model: `two_stage_ddm`
 
 Share value when dividends grow at a high rate for n years and at a stable rate forever after.
 
@@ -2839,15 +2787,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `dividend` | in | dividend just paid D0 | — |
-| `high_growth` | in | growth rate in the first stage (decimal) | — |
-| `high_growth_years` | in | number of years of high growth | — |
-| `stable_growth` | in | growth rate forever after (decimal) | — |
-| `required_return` | in | required return on equity (decimal) | — |
-| `price` | out | share value | — |
-| `terminal_value` | out | value at year n of the dividends after n | — |
-| `pv_terminal` | out | present value of the terminal value | — |
-| `pv_high_growth_dividends` | out | present value of D1..Dn | — |
+| `dividend` | in | dividend just paid D0 | - |
+| `high_growth` | in | growth rate in the first stage (decimal) | - |
+| `high_growth_years` | in | number of years of high growth | - |
+| `stable_growth` | in | growth rate forever after (decimal) | - |
+| `required_return` | in | required return on equity (decimal) | - |
+| `price` | out | share value | - |
+| `terminal_value` | out | value at year n of the dividends after n | - |
+| `pv_terminal` | out | present value of the terminal value | - |
+| `pv_high_growth_dividends` | out | present value of D1..Dn | - |
 
 **Applies when:** dividend > 0; stable_growth < required_return; high_growth_years a whole number >= 1.
 
@@ -2869,7 +2817,7 @@ pv_high_growth_dividends = 11.44915004
 
 <a id="wacc"></a>
 
-#### Weighted average cost of capital — `wacc`
+#### Weighted average cost of capital: `wacc`
 
 WACC = E/V re + D/V rd (1 - t): the after-tax cost of a firm's capital at market-value weights.
 
@@ -2879,15 +2827,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `equity_value` | in | market value of equity | — |
-| `debt_value` | in | market value of debt | — |
-| `cost_of_equity` | in | cost of equity (decimal) | — |
-| `cost_of_debt` | in | pre-tax cost of debt (decimal) | — |
-| `tax_rate` | in | corporate tax rate (decimal) | — |
-| `wacc` | out | weighted average cost of capital | — |
-| `after_tax_cost_of_debt` | out | rd (1 - t) | — |
-| `equity_weight` | out | E / V | — |
-| `debt_weight` | out | D / V | — |
+| `equity_value` | in | market value of equity | - |
+| `debt_value` | in | market value of debt | - |
+| `cost_of_equity` | in | cost of equity (decimal) | - |
+| `cost_of_debt` | in | pre-tax cost of debt (decimal) | - |
+| `tax_rate` | in | corporate tax rate (decimal) | - |
+| `wacc` | out | weighted average cost of capital | - |
+| `after_tax_cost_of_debt` | out | rd (1 - t) | - |
+| `equity_weight` | out | E / V | - |
+| `debt_weight` | out | D / V | - |
 
 **Applies when:** equity_value, debt_value >= 0 and not both 0; 0 <= tax_rate < 0.99.
 
@@ -2912,7 +2860,7 @@ debt_weight = 0.4
 
 <a id="binomial_option"></a>
 
-#### Binomial option price (Cox-Ross-Rubinstein) — `binomial_option`
+#### Binomial option price (Cox-Ross-Rubinstein), `binomial_option`
 
 European call or put price on an n-step Cox-Ross-Rubinstein tree (u = e^(sigma sqrt(dt)), d = 1/u), with the delta of the first step.
 
@@ -2922,18 +2870,18 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `spot` | in | price of the underlying now | — |
-| `strike` | in | strike (exercise) price | — |
-| `time` | in | time to expiry in years | — |
-| `rate` | in | risk-free rate, continuously compounded (decimal) | — |
-| `volatility` | in | volatility of the underlying, annual (decimal) | — |
-| `steps` | in | number of time steps of the tree | — |
-| `option_type` | in | call (default) or put (optional) | — |
-| `dividend_yield` | in | continuous dividend yield (decimal, default 0) (optional) | — |
-| `price` | out | option price at time 0 | — |
-| `delta` | out | (V_u - V_d) / (S u - S d) | — |
-| `up_factor` | out | u | — |
-| `probability_up` | out | risk-neutral p = (e^((r-q)dt) - d)/(u - d) | — |
+| `spot` | in | price of the underlying now | - |
+| `strike` | in | strike (exercise) price | - |
+| `time` | in | time to expiry in years | - |
+| `rate` | in | risk-free rate, continuously compounded (decimal) | - |
+| `volatility` | in | volatility of the underlying, annual (decimal) | - |
+| `steps` | in | number of time steps of the tree | - |
+| `option_type` | in | call (default) or put (optional) | - |
+| `dividend_yield` | in | continuous dividend yield (decimal, default 0) (optional) | - |
+| `price` | out | option price at time 0 | - |
+| `delta` | out | (V_u - V_d) / (S u - S d) | - |
+| `up_factor` | out | u | - |
+| `probability_up` | out | risk-neutral p = (e^((r-q)dt) - d)/(u - d) | - |
 
 **Applies when:** European exercise; 1 <= steps <= 1000; 0 < p < 1.
 
@@ -2956,7 +2904,7 @@ probability_up = 0.5437765964
 
 <a id="bs_greeks"></a>
 
-#### Black-Scholes Greeks — `bs_greeks`
+#### Black-Scholes Greeks: `bs_greeks`
 
 Delta, gamma, vega, theta and rho of European calls and puts (Black-Scholes-Merton, continuous dividend yield). Vega per 1.00 of volatility, theta per year, rho per 1.00 of rate.
 
@@ -2966,20 +2914,20 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `spot` | in | price of the underlying now | — |
-| `strike` | in | strike (exercise) price | — |
-| `time` | in | time to expiry in years | — |
-| `rate` | in | risk-free rate, continuously compounded (decimal) | — |
-| `volatility` | in | volatility of the underlying, annual (decimal) | — |
-| `dividend_yield` | in | continuous dividend yield (decimal, default 0) (optional) | — |
-| `call_delta` | out | dC/dS | — |
-| `put_delta` | out | dP/dS | — |
-| `gamma` | out | d2V/dS2 (call = put) | — |
-| `vega` | out | dV/dsigma (call = put) | — |
-| `call_theta` | out | -dC/dT per year | — |
-| `put_theta` | out | -dP/dT per year | — |
-| `call_rho` | out | dC/dr | — |
-| `put_rho` | out | dP/dr | — |
+| `spot` | in | price of the underlying now | - |
+| `strike` | in | strike (exercise) price | - |
+| `time` | in | time to expiry in years | - |
+| `rate` | in | risk-free rate, continuously compounded (decimal) | - |
+| `volatility` | in | volatility of the underlying, annual (decimal) | - |
+| `dividend_yield` | in | continuous dividend yield (decimal, default 0) (optional) | - |
+| `call_delta` | out | dC/dS | - |
+| `put_delta` | out | dP/dS | - |
+| `gamma` | out | d2V/dS2 (call = put) | - |
+| `vega` | out | dV/dsigma (call = put) | - |
+| `call_theta` | out | -dC/dT per year | - |
+| `put_theta` | out | -dP/dT per year | - |
+| `call_rho` | out | dC/dr | - |
+| `put_rho` | out | dP/dr | - |
 
 **Applies when:** spot, strike, time > 0; 0 < volatility < 5.
 
@@ -3006,7 +2954,7 @@ In the worked example, spot = 100, strike = 100, time = 1, rate = 0.05, volatili
 
 <a id="black_scholes"></a>
 
-#### Black-Scholes option prices — `black_scholes`
+#### Black-Scholes option prices: `black_scholes`
 
 Prices of European call and put options on an asset with a continuous dividend yield (Black-Scholes-Merton).
 
@@ -3016,16 +2964,16 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `spot` | in | price of the underlying now | — |
-| `strike` | in | strike (exercise) price | — |
-| `time` | in | time to expiry in years | — |
-| `rate` | in | risk-free rate, continuously compounded (decimal) | — |
-| `volatility` | in | volatility of the underlying, annual (decimal) | — |
-| `dividend_yield` | in | continuous dividend yield (decimal, default 0) (optional) | — |
-| `call` | out | European call price | — |
-| `put` | out | European put price | — |
-| `d1` | out | d1 | — |
-| `d2` | out | d2 = d1 - sigma sqrt(T) | — |
+| `spot` | in | price of the underlying now | - |
+| `strike` | in | strike (exercise) price | - |
+| `time` | in | time to expiry in years | - |
+| `rate` | in | risk-free rate, continuously compounded (decimal) | - |
+| `volatility` | in | volatility of the underlying, annual (decimal) | - |
+| `dividend_yield` | in | continuous dividend yield (decimal, default 0) (optional) | - |
+| `call` | out | European call price | - |
+| `put` | out | European put price | - |
+| `d1` | out | d1 | - |
+| `d2` | out | d2 = d1 - sigma sqrt(T) | - |
 
 **Applies when:** spot, strike, time > 0; 0 < volatility < 5; European exercise; lognormal prices.
 
@@ -3048,7 +2996,7 @@ d2 = 0.15
 
 <a id="forward_price"></a>
 
-#### Forward price with cost of carry — `forward_price`
+#### Forward price with cost of carry: `forward_price`
 
 No-arbitrage forward price of an asset with a continuous income yield q and storage cost u: S e^((r + u - q) T).
 
@@ -3058,13 +3006,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `spot` | in | spot price now | — |
-| `rate` | in | risk-free rate, continuously compounded (decimal) | — |
-| `time` | in | time to delivery in years | — |
-| `dividend_yield` | in | continuous income or convenience yield (decimal, default 0) (optional) | — |
-| `storage_cost` | in | continuous storage cost rate (decimal, default 0) (optional) | — |
-| `forward` | out | forward price | — |
-| `cost_of_carry` | out | r + u - q | — |
+| `spot` | in | spot price now | - |
+| `rate` | in | risk-free rate, continuously compounded (decimal) | - |
+| `time` | in | time to delivery in years | - |
+| `dividend_yield` | in | continuous income or convenience yield (decimal, default 0) (optional) | - |
+| `storage_cost` | in | continuous storage cost rate (decimal, default 0) (optional) | - |
+| `forward` | out | forward price | - |
+| `cost_of_carry` | out | r + u - q | - |
 
 **Applies when:** spot > 0; time >= 0; rates as continuously compounded decimals.
 
@@ -3084,7 +3032,7 @@ cost_of_carry = 0.03
 
 <a id="forward_price_dividends"></a>
 
-#### Forward price with known dividends — `forward_price_dividends`
+#### Forward price with known dividends: `forward_price_dividends`
 
 Forward price of a stock paying known cash dividends before delivery: F = (S - PV(dividends)) e^(rT).
 
@@ -3094,13 +3042,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `spot` | in | stock price now | — |
-| `rate` | in | risk-free rate, continuously compounded (decimal) | — |
-| `time` | in | time to delivery in years | — |
-| `dividends` | in | cash dividends (list) | — |
-| `dividend_times` | in | time of each dividend in years (list) | — |
-| `forward` | out | forward price | — |
-| `pv_dividends` | out | present value of the dividends | — |
+| `spot` | in | stock price now | - |
+| `rate` | in | risk-free rate, continuously compounded (decimal) | - |
+| `time` | in | time to delivery in years | - |
+| `dividends` | in | cash dividends (list) | - |
+| `dividend_times` | in | time of each dividend in years (list) | - |
+| `forward` | out | forward price | - |
+| `pv_dividends` | out | present value of the dividends | - |
 
 **Applies when:** 0 < each dividend time <= time; PV(dividends) < spot.
 
@@ -3119,7 +3067,7 @@ pv_dividends = 1.463079164
 
 <a id="implied_volatility"></a>
 
-#### Implied volatility — `implied_volatility`
+#### Implied volatility: `implied_volatility`
 
 The volatility at which the Black-Scholes price of a European call or put equals its market price.
 
@@ -3129,15 +3077,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `option_price` | in | market price of the option | — |
-| `spot` | in | price of the underlying now | — |
-| `strike` | in | strike (exercise) price | — |
-| `time` | in | time to expiry in years | — |
-| `rate` | in | risk-free rate, continuously compounded (decimal) | — |
-| `dividend_yield` | in | continuous dividend yield (decimal, default 0) (optional) | — |
-| `option_type` | in | call (default) or put (optional) | — |
-| `volatility` | out | implied volatility, annual | — |
-| `vega` | out | vega at that volatility | — |
+| `option_price` | in | market price of the option | - |
+| `spot` | in | price of the underlying now | - |
+| `strike` | in | strike (exercise) price | - |
+| `time` | in | time to expiry in years | - |
+| `rate` | in | risk-free rate, continuously compounded (decimal) | - |
+| `dividend_yield` | in | continuous dividend yield (decimal, default 0) (optional) | - |
+| `option_type` | in | call (default) or put (optional) | - |
+| `volatility` | out | implied volatility, annual | - |
+| `vega` | out | vega at that volatility | - |
 
 **Applies when:** price within the no-arbitrage bounds; implied volatility between 0.01% and 500%; not too far from the money.
 
@@ -3158,7 +3106,7 @@ vega = 37.52388148
 
 <a id="put_call_parity"></a>
 
-#### Put-call parity — `put_call_parity`
+#### Put-call parity: `put_call_parity`
 
 The price of a European put from the call with the same strike and expiry: P = C - S e^(-qT) + K e^(-rT).
 
@@ -3168,15 +3116,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `call_price` | in | price of the European call | — |
-| `spot` | in | price of the underlying now | — |
-| `strike` | in | strike (exercise) price | — |
-| `time` | in | time to expiry in years | — |
-| `rate` | in | risk-free rate, continuously compounded (decimal) | — |
-| `dividend_yield` | in | continuous dividend yield (decimal, default 0) (optional) | — |
-| `put_price` | out | European put price | — |
-| `pv_strike` | out | K e^(-rT) | — |
-| `pv_spot` | out | S e^(-qT) | — |
+| `call_price` | in | price of the European call | - |
+| `spot` | in | price of the underlying now | - |
+| `strike` | in | strike (exercise) price | - |
+| `time` | in | time to expiry in years | - |
+| `rate` | in | risk-free rate, continuously compounded (decimal) | - |
+| `dividend_yield` | in | continuous dividend yield (decimal, default 0) (optional) | - |
+| `put_price` | out | European put price | - |
+| `pv_strike` | out | K e^(-rT) | - |
+| `pv_spot` | out | S e^(-qT) | - |
 
 **Applies when:** European options, same strike and expiry; call within the no-arbitrage bounds.
 
@@ -3200,7 +3148,7 @@ pv_spot = 100
 
 <a id="cagr"></a>
 
-#### Compound annual growth rate — `cagr`
+#### Compound annual growth rate: `cagr`
 
 The constant annual growth rate that takes a beginning value to an ending value over a number of years.
 
@@ -3210,11 +3158,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `begin_value` | in | value at the start | — |
-| `end_value` | in | value at the end | — |
-| `years` | in | number of years | — |
-| `cagr` | out | compound annual growth rate (end/begin)^(1/t) - 1 | — |
-| `total_growth` | out | end/begin - 1 | — |
+| `begin_value` | in | value at the start | - |
+| `end_value` | in | value at the end | - |
+| `years` | in | number of years | - |
+| `cagr` | out | compound annual growth rate (end/begin)^(1/t) - 1 | - |
+| `total_growth` | out | end/begin - 1 | - |
 
 **Applies when:** begin_value > 0; end_value > 0; years > 0.
 
@@ -3233,7 +3181,7 @@ total_growth = 1
 
 <a id="compound_interest"></a>
 
-#### Compound interest — `compound_interest`
+#### Compound interest: `compound_interest`
 
 Future amount of a sum invested at a nominal annual rate compounded m times a year: A = P (1 + r/m)^(m t).
 
@@ -3243,12 +3191,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `principal` | in | amount invested now | — |
-| `rate` | in | nominal annual interest rate (decimal; 5% = 0.05) | — |
-| `years` | in | time in years | — |
-| `periods_per_year` | in | compounding periods per year (1 annual, 12 monthly, 365 daily) (optional) | — |
-| `amount` | out | future amount A | — |
-| `interest` | out | compound interest earned A - P | — |
+| `principal` | in | amount invested now | - |
+| `rate` | in | nominal annual interest rate (decimal; 5% = 0.05) | - |
+| `years` | in | time in years | - |
+| `periods_per_year` | in | compounding periods per year (1 annual, 12 monthly, 365 daily) (optional) | - |
+| `amount` | out | future amount A | - |
+| `interest` | out | compound interest earned A - P | - |
 
 **Applies when:** principal > 0; -1 < rate < 1; years >= 0; periods_per_year a whole number >= 1.
 
@@ -3267,7 +3215,7 @@ interest = 102.5
 
 <a id="continuous_compounding"></a>
 
-#### Continuous compounding — `continuous_compounding`
+#### Continuous compounding: `continuous_compounding`
 
 Future amount of a sum growing at a continuously compounded annual rate: A = P e^(r t).
 
@@ -3277,11 +3225,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `principal` | in | amount invested now | — |
-| `rate` | in | continuously compounded annual rate (decimal) | — |
-| `years` | in | time in years | — |
-| `amount` | out | future amount P e^(r t) | — |
-| `interest` | out | interest earned | — |
+| `principal` | in | amount invested now | - |
+| `rate` | in | continuously compounded annual rate (decimal) | - |
+| `years` | in | time in years | - |
+| `amount` | out | future amount P e^(r t) | - |
+| `interest` | out | interest earned | - |
 
 **Applies when:** principal > 0; -1 < rate < 1; years >= 0.
 
@@ -3300,7 +3248,7 @@ interest = 648.7212707
 
 <a id="doubling_time"></a>
 
-#### Doubling time — `doubling_time`
+#### Doubling time: `doubling_time`
 
 How many periods an amount compounding at r per period takes to double, with the rule-of-72 estimate.
 
@@ -3310,9 +3258,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `rate` | in | interest or growth rate per period (decimal) | — |
-| `periods` | out | exact doubling time ln 2 / ln(1 + r) | — |
-| `rule_of_72` | out | rule-of-72 estimate 72 / (100 r) | — |
+| `rate` | in | interest or growth rate per period (decimal) | - |
+| `periods` | out | exact doubling time ln 2 / ln(1 + r) | - |
+| `rule_of_72` | out | rule-of-72 estimate 72 / (100 r) | - |
 
 **Applies when:** 0 < rate < 1.
 
@@ -3329,7 +3277,7 @@ rule_of_72 = 12
 
 <a id="effective_annual_rate"></a>
 
-#### Effective annual rate — `effective_annual_rate`
+#### Effective annual rate: `effective_annual_rate`
 
 The effective annual rate (annual percentage yield) of a nominal rate compounded m times a year.
 
@@ -3339,10 +3287,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `rate` | in | nominal annual rate (decimal) | — |
-| `periods_per_year` | in | compounding periods per year | — |
-| `effective_rate` | out | effective annual rate (1 + r/m)^m - 1 | — |
-| `periodic_rate` | out | rate per period r/m | — |
+| `rate` | in | nominal annual rate (decimal) | - |
+| `periods_per_year` | in | compounding periods per year | - |
+| `effective_rate` | out | effective annual rate (1 + r/m)^m - 1 | - |
+| `periodic_rate` | out | rate per period r/m | - |
 
 **Applies when:** -1 < rate < 1; periods_per_year a whole number >= 1.
 
@@ -3359,7 +3307,7 @@ periodic_rate = 0.005
 
 <a id="future_value_annuity"></a>
 
-#### Future value of an annuity — `future_value_annuity`
+#### Future value of an annuity: `future_value_annuity`
 
 The accumulated value after n periods of equal payments, ordinary (end of period) or due (beginning).
 
@@ -3369,11 +3317,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `payment` | in | payment per period | — |
-| `rate` | in | interest rate per period (decimal) | — |
-| `periods` | in | number of payments | — |
-| `timing` | in | 'ordinary' (end of each period, default) or 'due' (beginning) (optional) | — |
-| `future_value` | out | accumulated value at the end of period n | — |
+| `payment` | in | payment per period | - |
+| `rate` | in | interest rate per period (decimal) | - |
+| `periods` | in | number of payments | - |
+| `timing` | in | 'ordinary' (end of each period, default) or 'due' (beginning) (optional) | - |
+| `future_value` | out | accumulated value at the end of period n | - |
 
 **Applies when:** -1 < rate < 1; periods a whole number >= 1; timing ordinary or due.
 
@@ -3391,7 +3339,7 @@ future_value = 1257.789254
 
 <a id="annuity_rate"></a>
 
-#### Interest rate of an annuity — `annuity_rate`
+#### Interest rate of an annuity: `annuity_rate`
 
 The rate per period at which n equal payments are worth a given present value (bisection; the rate is unique because the present value falls as the rate rises).
 
@@ -3401,11 +3349,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `present_value` | in | present value (amount borrowed or price paid) | — |
-| `payment` | in | payment per period | — |
-| `periods` | in | number of payments | — |
-| `timing` | in | 'ordinary' (end of each period, default) or 'due' (beginning) (optional) | — |
-| `rate` | out | interest rate per period | — |
+| `present_value` | in | present value (amount borrowed or price paid) | - |
+| `payment` | in | payment per period | - |
+| `periods` | in | number of payments | - |
+| `timing` | in | 'ordinary' (end of each period, default) or 'due' (beginning) (optional) | - |
+| `rate` | out | interest rate per period | - |
 
 **Applies when:** present_value > 0; payment > 0; periods a whole number >= 1; the rate lies between -99% and 99%.
 
@@ -3423,7 +3371,7 @@ rate = 0.02184401908
 
 <a id="nominal_rate"></a>
 
-#### Nominal rate from an effective rate — `nominal_rate`
+#### Nominal rate from an effective rate: `nominal_rate`
 
 The nominal annual rate (APR) compounded m times a year that gives a stated effective annual rate.
 
@@ -3433,10 +3381,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `effective_rate` | in | effective annual rate (decimal) | — |
-| `periods_per_year` | in | compounding periods per year | — |
-| `nominal_rate` | out | nominal annual rate m((1 + EAR)^(1/m) - 1) | — |
-| `periodic_rate` | out | rate per period | — |
+| `effective_rate` | in | effective annual rate (decimal) | - |
+| `periods_per_year` | in | compounding periods per year | - |
+| `nominal_rate` | out | nominal annual rate m((1 + EAR)^(1/m) - 1) | - |
+| `periodic_rate` | out | rate per period | - |
 
 **Applies when:** -1 < effective_rate < 1; periods_per_year a whole number >= 1.
 
@@ -3453,7 +3401,7 @@ periodic_rate = 0.00643403011
 
 <a id="growing_annuity"></a>
 
-#### Present and future value of a growing annuity — `growing_annuity`
+#### Present and future value of a growing annuity, `growing_annuity`
 
 n payments at the end of each period, the first C1, each growing at g per period.
 
@@ -3463,12 +3411,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `first_payment` | in | first payment (end of period 1) | — |
-| `rate` | in | discount rate per period (decimal) | — |
-| `growth` | in | growth rate per period (decimal) | — |
-| `periods` | in | number of payments | — |
-| `present_value` | out | value today | — |
-| `future_value` | out | value at the end of period n | — |
+| `first_payment` | in | first payment (end of period 1) | - |
+| `rate` | in | discount rate per period (decimal) | - |
+| `growth` | in | growth rate per period (decimal) | - |
+| `periods` | in | number of payments | - |
+| `present_value` | out | value today | - |
+| `future_value` | out | value at the end of period n | - |
 
 **Applies when:** -1 < rate < 1; -1 < growth < 1; periods a whole number >= 1.
 
@@ -3487,7 +3435,7 @@ future_value = 16300.17236
 
 <a id="growing_perpetuity"></a>
 
-#### Present value of a growing perpetuity — `growing_perpetuity`
+#### Present value of a growing perpetuity: `growing_perpetuity`
 
 The value today of payments that start at C one period from now and grow at g per period forever: C / (r - g).
 
@@ -3497,10 +3445,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `first_payment` | in | payment one period from now | — |
-| `rate` | in | discount rate per period (decimal) | — |
-| `growth` | in | growth rate per period (decimal) | — |
-| `present_value` | out | value today C1 / (r - g) | — |
+| `first_payment` | in | payment one period from now | - |
+| `rate` | in | discount rate per period (decimal) | - |
+| `growth` | in | growth rate per period (decimal) | - |
+| `present_value` | out | value today C1 / (r - g) | - |
 
 **Applies when:** 0 < rate < 1; growth < rate.
 
@@ -3518,7 +3466,7 @@ present_value = 2000
 
 <a id="perpetuity"></a>
 
-#### Present value of a perpetuity — `perpetuity`
+#### Present value of a perpetuity: `perpetuity`
 
 The value today of an equal payment every period forever: PV = C / r (C / r + C if payments start now).
 
@@ -3528,10 +3476,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `payment` | in | payment per period | — |
-| `rate` | in | discount rate per period (decimal) | — |
-| `timing` | in | 'ordinary' (first payment in one period, default) or 'due' (first payment now) (optional) | — |
-| `present_value` | out | value today | — |
+| `payment` | in | payment per period | - |
+| `rate` | in | discount rate per period (decimal) | - |
+| `timing` | in | 'ordinary' (first payment in one period, default) or 'due' (first payment now) (optional) | - |
+| `present_value` | out | value today | - |
 
 **Applies when:** 0 < rate < 1.
 
@@ -3548,7 +3496,7 @@ present_value = 2000
 
 <a id="present_value"></a>
 
-#### Present value of a single sum — `present_value`
+#### Present value of a single sum: `present_value`
 
 What a single amount received after n periods is worth today at a rate per period: PV = FV / (1 + r)^n.
 
@@ -3558,11 +3506,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `future_value` | in | amount received in the future | — |
-| `rate` | in | discount rate per period (decimal) | — |
-| `periods` | in | number of periods until the amount is received | — |
-| `present_value` | out | value today FV (1 + r)^-n | — |
-| `discount_factor` | out | (1 + r)^-n | — |
+| `future_value` | in | amount received in the future | - |
+| `rate` | in | discount rate per period (decimal) | - |
+| `periods` | in | number of periods until the amount is received | - |
+| `present_value` | out | value today FV (1 + r)^-n | - |
+| `discount_factor` | out | (1 + r)^-n | - |
 
 **Applies when:** -1 < rate < 1; periods >= 0.
 
@@ -3581,7 +3529,7 @@ discount_factor = 0.6139132535
 
 <a id="present_value_annuity"></a>
 
-#### Present value of an annuity — `present_value_annuity`
+#### Present value of an annuity: `present_value_annuity`
 
 The value today of n equal payments, ordinary (end of period) or due (beginning).
 
@@ -3591,11 +3539,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `payment` | in | payment per period | — |
-| `rate` | in | interest rate per period (decimal) | — |
-| `periods` | in | number of payments | — |
-| `timing` | in | 'ordinary' (end of each period, default) or 'due' (beginning) (optional) | — |
-| `present_value` | out | value today of the payments | — |
+| `payment` | in | payment per period | - |
+| `rate` | in | interest rate per period (decimal) | - |
+| `periods` | in | number of payments | - |
+| `timing` | in | 'ordinary' (end of each period, default) or 'due' (beginning) (optional) | - |
+| `present_value` | out | value today of the payments | - |
 
 **Applies when:** -1 < rate < 1; periods a whole number >= 1; timing ordinary or due.
 
@@ -3613,7 +3561,7 @@ present_value = 772.1734929
 
 <a id="simple_interest"></a>
 
-#### Simple interest — `simple_interest`
+#### Simple interest: `simple_interest`
 
 Interest and final amount when interest is earned on the principal only: I = P r t.
 
@@ -3623,11 +3571,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `principal` | in | amount invested or borrowed | — |
-| `rate` | in | annual simple interest rate (decimal; 5% = 0.05) | — |
-| `years` | in | time in years | — |
-| `interest` | out | simple interest earned P r t | — |
-| `amount` | out | principal plus interest | — |
+| `principal` | in | amount invested or borrowed | - |
+| `rate` | in | annual simple interest rate (decimal; 5% = 0.05) | - |
+| `years` | in | time in years | - |
+| `interest` | out | simple interest earned P r t | - |
+| `amount` | out | principal plus interest | - |
 
 **Applies when:** principal > 0; 0 <= rate < 1; years >= 0.
 
@@ -3646,7 +3594,7 @@ amount = 1150
 
 <a id="sinking_fund"></a>
 
-#### Sinking fund payment — `sinking_fund`
+#### Sinking fund payment: `sinking_fund`
 
 The equal payment per period that accumulates to a target amount after n periods.
 
@@ -3656,11 +3604,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `future_value` | in | target amount | — |
-| `rate` | in | interest rate per period (decimal) | — |
-| `periods` | in | number of payments | — |
-| `timing` | in | 'ordinary' (end of each period, default) or 'due' (beginning) (optional) | — |
-| `payment` | out | payment per period | — |
+| `future_value` | in | target amount | - |
+| `rate` | in | interest rate per period (decimal) | - |
+| `periods` | in | number of payments | - |
+| `timing` | in | 'ordinary' (end of each period, default) or 'due' (beginning) (optional) | - |
+| `payment` | out | payment per period | - |
 
 **Applies when:** future_value > 0; -1 < rate < 1; periods a whole number >= 1.
 
@@ -3676,4 +3624,4 @@ payment = 1846.271135
 
 **What the worked example means:** This calculation determines the equal payment per period needed to accumulate a target amount. Given a future value of 10000, an interest rate of 0.04, and 5 periods, the result is a payment of 1846.27. If payments are made at the beginning of each period, this amount is adjusted accordingly.
 
-Questions and reports: support@ai999x.com. AI999X — The Future Is Self-Improving.
+Questions and reports: support@ai999x.com. AI999X, The Future Is Self-Improving.
