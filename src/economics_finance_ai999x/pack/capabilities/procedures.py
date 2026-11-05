@@ -88,6 +88,9 @@ def _vec(name, xs, n_min=1):
 
 
 def _periods_of(years, per_year, name="years"):
+    # a life of millions of years is a typing slip, not a bond or loan: refusing it keeps every answer instant (a
+    # 26-million-year bond paid twice a year was 52 million cash flows: minutes of work, more memory than a browser has)
+    _need(years <= 1000, f"{name} must be at most 1000")
     n = years * per_year
     _need(abs(n - round(n)) <= 1e-9 * max(1.0, abs(n)) and round(n) >= 1,
           f"{name} times the number of payments per year must be a whole number of periods (at least 1)")
@@ -706,7 +709,7 @@ _add("loan_payment", name="Loan payment (amortizing loan)", topic="loans and ann
      inputs=_loan_inputs(),
      outputs=[_o("payment", "level payment per period"), _o("number_of_payments", "number of payments n = years x m"),
               _o("total_paid", "payment x n"), _o("total_interest", "total paid - principal")],
-     primary="payment", conditions=["principal > 0", "0 <= annual_rate < 1", "years x payments_per_year a whole number"],
+     primary="payment", conditions=["principal > 0", "0 <= annual_rate < 1", "years x payments_per_year a whole number, years at most 1000"],
      method="PMT = P i / (1 - (1 + i)^-n), i = annual rate / m, n = years x m", latex=r"PMT = \frac{P\,i}{1 - (1+i)^{-n}}",
      run=loan_payment, reference=_ref_loan,
      wrong=lambda principal, annual_rate, years, payments_per_year=12: (lambda n: (lambda p: {
@@ -1466,7 +1469,7 @@ _add("bond_price", name="Bond price from its yield", topic="bonds / pricing",
      inputs=_bond_inputs(extra_back=[_i("ytm", "yield to maturity, nominal annual, compounded at the coupon frequency",
                                         "yield", "yield to maturity", "y", "market yield", "required yield")]),
      outputs=[_o("price", "bond price"), _o("current_yield", "annual coupon / price"), _o("coupon", "coupon per period")],
-     primary="price", conditions=["face > 0", "0 <= coupon_rate < 1", "-1 < ytm < 1", "years x frequency a whole number"],
+     primary="price", conditions=["face > 0", "0 <= coupon_rate < 1", "-1 < ytm < 1", "years x frequency a whole number, years at most 1000"],
      method="P = C (1 - (1 + y/m)^-N)/(y/m) + F (1 + y/m)^-N, C = F c / m, N = years x m",
      latex=r"P = \sum_{k=1}^{N} \frac{C}{(1 + y/m)^{k}} + \frac{F}{(1 + y/m)^{N}}", run=bond_price,
      reference=lambda face, coupon_rate, ytm, years, frequency=2: (lambda p: {"price": p, "current_yield": face * coupon_rate / p})(
@@ -1536,7 +1539,7 @@ _add("bond_ytm", name="Yield to maturity of a bond", topic="bonds / yields",
              "price to the present value of its coupons and face value.",
      inputs=_bond_inputs(extra_front=[_i("price", "bond price (clean = dirty on a coupon date)", "bond price", "market price", "p")]),
      outputs=[_o("ytm", "yield to maturity, nominal annual"), _o("current_yield", "annual coupon / price")], primary="ytm",
-     conditions=["price > 0", "face > 0", "0 <= coupon_rate < 1", "years x frequency a whole number",
+     conditions=["price > 0", "face > 0", "0 <= coupon_rate < 1", "years x frequency a whole number, years at most 1000",
                  "a yield between -50% and 100% per period"],
      method="bisection on P(y) = price (P falls as y rises, so the yield is unique)",
      latex=r"\text{price} = \sum_{k=1}^{N} \frac{C}{(1 + y/m)^{k}} + \frac{F}{(1 + y/m)^{N}}", run=bond_ytm, reference=_ref_ytm,
@@ -1593,7 +1596,7 @@ _add("bond_duration", name="Macaulay and modified duration of a bond", topic="bo
                                         "yield", "yield to maturity", "y")]),
      outputs=[_o("macaulay_duration", "Macaulay duration in years"), _o("modified_duration", "modified duration = Macaulay / (1 + y/m)"),
               _o("price", "bond price")], primary="macaulay_duration",
-     conditions=["face > 0", "0 <= coupon_rate < 1", "-1 < ytm < 1", "years x frequency a whole number"],
+     conditions=["face > 0", "0 <= coupon_rate < 1", "-1 < ytm < 1", "years x frequency a whole number, years at most 1000"],
      method="D_mac = sum (k/m) PV_k / P; D_mod = D_mac / (1 + y/m)",
      latex=r"D_{mac} = \frac{1}{P}\sum_{k=1}^{N} \frac{k}{m}\,\frac{CF_k}{(1 + y/m)^{k}},\quad D_{mod} = \frac{D_{mac}}{1 + y/m}",
      run=bond_duration, reference=_ref_duration,
@@ -1633,7 +1636,7 @@ _add("bond_convexity", name="Convexity of a bond", topic="bonds / interest-rate 
      inputs=_bond_inputs(extra_back=[_i("ytm", "yield to maturity, nominal annual, compounded at the coupon frequency",
                                         "yield", "yield to maturity", "y")]),
      outputs=[_o("convexity", "convexity (1/P) d2P/dy2, years^2"), _o("price", "bond price")], primary="convexity",
-     conditions=["face > 0", "0 <= coupon_rate < 1", "-1 < ytm < 1", "years x frequency a whole number"],
+     conditions=["face > 0", "0 <= coupon_rate < 1", "-1 < ytm < 1", "years x frequency a whole number, years at most 1000"],
      method="C = sum CF_k k (k + 1) (1 + y/m)^-(k+2) / (m^2 P)",
      latex=r"C = \frac{1}{P\,m^{2}} \sum_{k=1}^{N} \frac{k(k+1)\,CF_k}{(1 + y/m)^{k+2}}", run=bond_convexity, reference=_ref_convexity,
      wrong=lambda face, coupon_rate, ytm, years, frequency=2: (lambda o: dict(o, convexity=math.fsum(

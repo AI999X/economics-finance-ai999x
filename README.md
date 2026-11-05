@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/AI999X/economics-finance-ai999x/actions/workflows/ci.yml/badge.svg)](https://github.com/AI999X/economics-finance-ai999x/actions/workflows/ci.yml) [![PyPI](https://img.shields.io/pypi/v/economics-finance-ai999x)](https://pypi.org/project/economics-finance-ai999x/) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)](https://huggingface.co/AI999X/economics-finance-ai999x)
 
-**[Install](https://pypi.org/project/economics-finance-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/economics-finance-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/economics-finance-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
+**[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/economics-finance-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/economics-finance-ai999x/)** · **[Guides](https://huggingface.co/AI999X/economics-finance-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/economics-finance-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
 License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
 
@@ -12,7 +12,298 @@ economics-finance-ai999x is an offline, deterministic Python solver that answers
 
 **economics-finance-ai999x** is a compact, deterministic economics and finance engine for Python. It reads a question in plain English (or a typed call), picks a certified economics and finance capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions — or an honest refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
 
-[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-support%20development-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/ibnuljaiffarabi) ![License](https://img.shields.io/badge/license-Apache--2.0-blue) ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue) ![Offline](https://img.shields.io/badge/runs-offline%20on%20CPU-green)
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-support%20development-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/ibnuljaiffarabi) ![License](https://img.shields.io/badge/license-Apache--2.0-blue) ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue) ![Offline](https://img.shields.io/badge/runs-offline%20on%20CPU-green) ![Rust](https://img.shields.io/badge/Rust-Windows%20%7C%20Linux%20%7C%20WebAssembly-orange)
+
+**Run it your way.** economics-finance-ai999x comes as the AI999X desktop app and as the command-line program `economics-finance` for Windows and Linux, runs in your browser as WebAssembly, and installs as a Python package. The desktop app, the command line and the browser run the same compiled Rust program on your own device: offline, no Python needed.
+
+## Get it
+
+| Way to run it | For | Get it |
+|---|---|---|
+| **AI999X Economics and Finance desktop app** 1.2.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-economics-finance-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.2.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-linux-x86_64.tar.gz) |
+| **Command line** (`economics-finance`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) |
+| **In your browser** | any device — nothing to install | [Compute on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#try) |
+| **Python** | Python 3.10+ | `pip install economics-finance-ai999x` |
+
+Checksums: [SHA256SUMS](https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS) · every version: [https://www.ai999x.com/downloads/desktop/latest/](https://www.ai999x.com/downloads/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
+
+## Rust versions
+
+Economics and Finance also comes as native programs compiled from Rust, version 1.2.0 of the AI999X desktop app and command line: they run offline on your computer and need no Python. Each file is in this repository's `rust/` folder, on the [GitHub release v1.0.3](https://github.com/AI999X/economics-finance-ai999x/releases/tag/v1.0.3) and on the website.
+
+| Program | System | File | Size | Download | Use |
+|---|---|---|---|---|---|
+| Desktop app (Economics and Finance) | Windows x86-64 | `ai999x-economics-finance-1.2.0-windows-x86_64.zip` | 7.3 MB | [Hub](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/rust/ai999x-economics-finance-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/economics-finance-ai999x/releases/download/v1.0.3/ai999x-economics-finance-1.2.0-windows-x86_64.zip) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-economics-finance-1.2.0-windows-x86_64.zip) | unzip, then double-click `ai999x-economics-finance.exe` (no installer) |
+| Desktop app (Economics and Finance) | Linux x86-64 | `ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz` | 8.2 MB | [Hub](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/rust/ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/economics-finance-ai999x/releases/download/v1.0.3/ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz) | extract, then run `./ai999x-economics-finance` (X11 or Wayland desktop) |
+| Command line (`economics-finance`) | Windows x86-64 | `ai999x-economics-finance-cli-1.2.0-windows-x86_64.zip` | 3.0 MB | [Hub](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/rust/ai999x-economics-finance-cli-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/economics-finance-ai999x/releases/download/v1.0.3/ai999x-economics-finance-cli-1.2.0-windows-x86_64.zip) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) | unzip, then `economics-finance.exe ask "<question>"` or `economics-finance.exe solve <capability> name=value` |
+| Command line (`economics-finance`) | Linux x86-64 | `ai999x-economics-finance-cli-1.2.0-linux-x86_64.tar.gz` | 2.9 MB | [Hub](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/rust/ai999x-economics-finance-cli-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/economics-finance-ai999x/releases/download/v1.0.3/ai999x-economics-finance-cli-1.2.0-linux-x86_64.tar.gz) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) | extract, then `./economics-finance ask "<question>"` or `./economics-finance solve <capability> name=value` |
+
+The command-line archive holds `economics-finance` with a README of its commands and examples, the licence and the notice. Checksums: [`rust/SHA256SUMS`](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/rust/SHA256SUMS) (`sha256sum -c SHA256SUMS`).
+
+## Quick start
+
+### Desktop app
+
+Download **AI999X Economics and Finance** for your system (above), unpack it and start it; type a question in words or pick a capability, fill in the form and press Compute. Figures and an explanation of the answer appear beside it. The AI999X desktop app has the same, with Economics and Finance among all AI999X models.
+
+Linux, from a terminal:
+
+```bash
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+tar xzf ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz
+./ai999x-economics-finance-1.2.0-linux-x86_64/ai999x-economics-finance
+```
+
+### Command line
+
+Linux:
+
+```bash
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.2.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.2.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+economics-finance --version
+```
+
+Windows (PowerShell):
+
+```powershell
+$F = "ai999x-cli-1.2.0-windows-x86_64.zip"
+Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/$F" -OutFile $F
+Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS" -OutFile SHA256SUMS
+(Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
+Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.2.0-windows-x86_64"; $env:Path += ";$D"
+[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
+economics-finance --version
+```
+
+Every command below was run as shown; the text under it is what the program printed.
+
+**Ask in words** — Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.
+
+```console
+$ economics-finance ask "Find the monthly payment on a loan with principal = 200000, annual rate = 6%, years = 30."
+Read as: Loan payment (amortizing loan)
+payment = 1199.10105
+number_of_payments = 360
+total_paid = 431676.3781
+total_interest = 231676.3781
+  by: Loan payment (amortizing loan)  (PMT = P i / (1 - (1 + i)^-n), i = annual rate / m, n = years x m)
+  annual_rate = 0.06
+  principal = 200000
+  years = 30
+  assumes: principal > 0; 0 <= annual_rate < 1; years x payments_per_year a whole number, years at most 1000
+```
+
+**What a capability needs** — The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.
+
+```console
+$ economics-finance info loan_payment
+Loan payment (amortizing loan)
+  PMT = P i / (1 - (1 + i)^-n), i = annual rate / m, n = years x m
+  in   principal amount borrowed [1]
+  in   annual_rate nominal annual interest rate (decimal), compounded at the payment frequency [1]
+  in   years    term of the loan in years [1]
+  in   payments_per_year payments per year (12 = monthly, default) (integer) [1]
+  out  payment  level payment per period [1]
+  out  number_of_payments number of payments n = years x m [1]
+  out  total_paid payment x n [1]
+  out  total_interest total paid - principal [1]
+```
+
+**Solve** — Inputs as name=value, each with any unit of the right kind. The answer lists every output, the method used, each input converted to SI, and the conditions the answer assumes.
+
+```console
+$ economics-finance solve loan_payment principal=200000.0 annual_rate=0.06 years=30.0
+payment = 1199.10105
+number_of_payments = 360
+total_paid = 431676.3781
+total_interest = 231676.3781
+  by: Loan payment (amortizing loan)  (PMT = P i / (1 - (1 + i)^-n), i = annual rate / m, n = years x m)
+  principal = 200000
+  annual_rate = 0.06
+  years = 30
+  assumes: principal > 0; 0 <= annual_rate < 1; years x payments_per_year a whole number, years at most 1000
+```
+
+**Draw the figures** — The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
+
+```console
+$ economics-finance figures loan_payment principal=200000.0 annual_rate=0.06 years=30.0 --out .
+[
+  {
+    "slug": "loan-payment-live-1",
+    "title": "Level payment per period as nominal annual interest rate (decimal), compoun... varies",
+    "caption": "Level payment per period as annual_rate runs from 0.015 to 0.105, every other input as you entered it (41 solutions). Marked: your annual_rate = 0.06 gives payment = 1199. Your inputs: principal = 200000.0, annual_rate = 0.06, years = 30.0.",
+    "file": "./loan-payment-live-1.svg"
+  },
+  {
+    "slug": "loan-payment-live-2",
+    "title": "Level payment per period as term of the loan in years varies",
+    "caption": "Level payment per period as years runs from 7.5 to 52.5, every other input as you entered it (9 solutions). Values in this range where the inputs admit no answer (44 of 53) are left out. Marked: your years = 30 gives payment = 1199. Your inputs: principal = 200000.0, annual_rate = 0.06, years = 30.0.",
+    "file": "./loan-payment-live-2.svg"
+  }
+]
+```
+
+**Many questions at once** — One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | economics-finance batch
+
+`cases.jsonl`:
+
+```json
+{"key": "loan_payment", "inputs": {"principal": 200000.0, "annual_rate": 0.06, "years": 30.0}}
+{"key": "irr", "inputs": {"cash_flows": "[-1000, 300, 400, 500]"}}
+```
+
+```console
+$ economics-finance batch < cases.jsonl
+{"outcome":"SOLVED","message":"","value":1199.1010503055138,"unit":"","solved_for":"payment","si":[["principal",200000.0],["annual_rate",0.06],["years",30.0]],"values":[["payment",1199.1010503055138,""],["number_of_payments",360,""],["total_paid",431676.378109985,""],["total_interest",231676.37810998497,""]],"target":"payment","phrase":"level payment per period","assumptions":["principal > 0","0 <= annual_rate < 1","years x payments_per_year a whole number, years at most 1000"],"name":"Loan payment (amortizing loan)","equation":"PMT = P i / (1 - (1 + i)^-n), i = annual rate / m, n = years x m"}
+{"outcome":"SOLVED","message":"","value":0.08896339469334996,"unit":"","solved_for":"irr","values":[["irr",0.08896339469334996,""]],"target":"irr","phrase":"internal rate of return per period","assumptions":["the cash flows change sign exactly once (otherwise the IRR is not unique and none is given)"],"name":"Internal rate of return","equation":"bisection on v = 1/(1 + r) for the unique positive root of sum CFt v^t, Newton polishing"}
+```
+
+### In your browser
+
+Open [Economics and Finance on ai999x.com](https://www.ai999x.com/models/economics-finance-ai999x/#try), choose a capability and press **Compute**: the model runs on your own device as WebAssembly; nothing is sent anywhere. Change any input (any unit of the right kind) and the answer, its explanation and the figures follow.
+
+In your own page: `economics_finance_ai999x.wasm` and the loader `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js).
+
+### Python
+
+```bash
+pip install economics-finance-ai999x
+```
+
+## Worked examples in every form
+
+The same worked example from the command line, from Python and in the browser. Each command-line output is what the program printed.
+
+### Endowment insurance
+
+Actuarial present value of a benefit paid at the end of the year of death within n years, or at year n if alive then (term insurance + pure endowment).
+
+Command line:
+
+```console
+$ economics-finance solve endowment_insurance "mortality_rates=[0.01, 0.02, 0.03]" interest_rate=0.04 term=3 benefit=1000
+apv = 890.4258648
+term_part = 53.79672565
+pure_endowment = 836.6291392
+  by: Endowment insurance  (A_{x:n} = A^1_{x:n} + v^n n p_x)
+  interest_rate = 0.04
+  benefit = 1000
+  assumes: 1 <= term <= number of rates
+```
+
+Python:
+
+```python
+import economics_finance_ai999x as m
+
+a = m.solve("endowment_insurance", mortality_rates=[0.01, 0.02, 0.03], interest_rate="0.04", term="3", benefit="1000")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-endowment_insurance) and press **Compute in your browser**.
+
+_What this means:_ This calculation determines the actuarial present value of an endowment insurance policy. It combines the value of a term insurance benefit, which pays out upon death within the specified term, with a pure endowment benefit, which pays out if the insured survives to the end of the term. The total present value of 890.426 reflects these two components based on the provided mortality rates, interest rate, term length, and benefit amount.
+
+### Life expectancy from a life table
+
+Curtate expectation of life e_x = sum_{k>=1} k p_x (whole years lived) and the complete expectation e_x + 1/2 (deaths uniform within each year).
+
+Command line:
+
+```console
+$ economics-finance solve life_expectancy "mortality_rates=[0.1, 0.3, 0.6, 1]"
+curtate = 1.782
+complete = 2.282
+  by: Life expectancy from a life table  (e_x = sum_{k=1}^{n} k p_x)
+  assumes: the table ends with q = 1
+```
+
+Python:
+
+```python
+import economics_finance_ai999x as m
+
+a = m.solve("life_expectancy", mortality_rates=[0.1, 0.3, 0.6, 1])
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-life_expectancy) and press **Compute in your browser**.
+
+_What this means:_ This calculation determines the average number of future years a person at a specific age is expected to live using the provided mortality rates. The curtate expectation counts only whole years lived and equals 1.782. The complete expectation adjusts this figure by adding half a year to account for deaths occurring uniformly within each year interval, resulting in 2.282. These values serve as fundamental metrics for assessing longevity risk and planning insurance or retirement products based on current survival probabilities.
+
+### Net annual premium for whole life insurance
+
+The level annual net premium, paid at the start of each year while alive, for a whole life benefit (equivalence principle): P = B A_x / a-due_x.
+
+Command line:
+
+```console
+$ economics-finance solve net_premium_whole_life "mortality_rates=[0.1, 0.3, 0.6, 1]" interest_rate=0.05 benefit=1000
+premium = 330.2729832
+insurance_apv = 873.9876903
+annuity_due = 2.646258503
+  by: Net annual premium for whole life insurance  (equivalence principle: P a-due_x = B A_x)
+  interest_rate = 0.05
+  benefit = 1000
+  assumes: the table ends with q = 1; 0 < interest_rate < 1
+```
+
+Python:
+
+```python
+import economics_finance_ai999x as m
+
+a = m.solve("net_premium_whole_life", mortality_rates=[0.1, 0.3, 0.6, 1], interest_rate="0.05", benefit="1000")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-net_premium_whole_life) and press **Compute in your browser**.
+
+_What this means:_ This calculation finds the level annual net premium for whole life insurance, which is 330.273. It applies the equivalence principle by balancing the present value of the death benefit against the present value of premiums paid while alive. The result uses an annual effective interest rate of 0.05 and mortality rates starting at age [0.1, 0.3, 0.6, 1]. The computed present value of the benefit is 873.988, and the present value of the annuity due is 2.64626.
+
+### Survival and death probabilities from a life table
+
+t p_x (survive t years), t q_x (die within t years) and t|u q_x (survive t years, then die within the next u years) from one-year mortality rates.
+
+Command line:
+
+```console
+$ economics-finance solve survival_probability "mortality_rates=[0.01, 0.02, 0.03, 0.05]" years=3
+survival = 0.941094
+death_probability = 0.058906
+deferred_death_probability = 0.0470547
+  by: Survival and death probabilities from a life table  (t p_x = prod_{k<t} (1 - q_{x+k}))
+  assumes: 0 <= q <= 1; t + u <= number of rates
+```
+
+Python:
+
+```python
+import economics_finance_ai999x as m
+
+a = m.solve("survival_probability", mortality_rates=[0.01, 0.02, 0.03, 0.05], years="3")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-survival_probability) and press **Compute in your browser**.
+
+_What this means:_ This calculation determines the likelihood of surviving a specific duration based on annual mortality rates. Using the provided one-year death probabilities, the model computes the cumulative survival chance for 3 years as 0.941094. Consequently, the probability of dying within this period is derived as 0.058906. If a deferred window is specified, the probability of surviving the initial term and then dying in the subsequent interval is calculated as 0.0470547. These values reflect the aggregate risk profile defined by the input mortality data.
+
+## Documentation
+
+- **Rust user guide** — the command line, every capability with a command and what it printed: [PDF](https://huggingface.co/AI999X/economics-finance-ai999x/blob/main/docs/economics_finance_ai999x_rust_guide.pdf) · [Markdown](https://huggingface.co/AI999X/economics-finance-ai999x/blob/main/docs/economics_finance_ai999x_rust_guide.md)
+- **Python guide** — every capability with a Python example: [PDF](https://huggingface.co/AI999X/economics-finance-ai999x/blob/main/docs/economics_finance_ai999x_capabilities.pdf) · [Markdown](https://huggingface.co/AI999X/economics-finance-ai999x/blob/main/docs/economics_finance_ai999x_capabilities.md)
+- **Desktop app & command line** — downloads, install, ask and search, figures, offline use, checksums: https://www.ai999x.com/desktop-cli/
+- **Model page** — compute in your browser, every capability explained: https://www.ai999x.com/models/economics-finance-ai999x/
 
 ## Highlights
 
@@ -20,6 +311,7 @@ economics-finance-ai999x is an offline, deterministic Python solver that answers
 - **Zero wrong answers by design.** Seven explicit outcomes — SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR — never a silent guess. Every one of its 384 documented answers is reproduced exactly on every tested platform.
 - **Plain-English questions and a guaranteed typed interface.** `ask()` reads documented question forms; `solve(capability_id, **inputs)` always solves a supported task with valid inputs.
 - **Explains itself.** Steps, formulas in LaTeX, units, assumptions and the model used, ready for notebooks, tutoring apps and homework checkers.
+- **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `economics-finance` command line for Windows and Linux, and WebAssembly on the model page — no Python, no network.
 - **Small and portable.** Pure Python (sympy, mpmath); identical answers on Windows and Linux (Python 3.10, 3.11, 3.12, 3.13, 3.14).
 - **Coverage:** time value of money, loans and annuities, bonds, stocks and options, portfolio theory, risk measures, actuarial mathematics, microeconomics, macroeconomics and econometrics.
 
@@ -38,7 +330,7 @@ economics-finance-ai999x is an offline, deterministic Python solver that answers
 | Creator / engineer | Ibnul Jaif Farabi |
 | Organization | AI999X |
 
-## Quickstart
+## Python quick start
 
 ```bash
 pip install economics-finance-ai999x
@@ -61,7 +353,7 @@ economics_finance.ask("Who created you?").message
 # -> economics-finance-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `economics-finance-ai999x "<question>"`, `economics-finance-ai999x --capabilities`. The outputs above were produced by running this exact code on economics-finance-ai999x 1.0.3.
+The Python package also installs a Python command, `economics-finance-ai999x "<question>"`; for the native program use `economics-finance` (above). The outputs above were produced by running this exact code on economics-finance-ai999x 1.0.3.
 
 ## Find the right capability, and draw it
 
@@ -83,7 +375,7 @@ economics_finance.search("Solve x^2 - 5x + 6 = 0", k=2)
 
 Capabilities are certified before they ship: each must reproduce hand-worked reference cases, reject a deliberately wrong variant (a control), and leave every benchmark answer unchanged.
 
-## Worked examples
+## Python worked examples, with their steps
 
 Each question was put to `economics-finance-ai999x`; the answer is the one it returned, with the steps it took.
 
