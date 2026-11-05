@@ -4,7 +4,7 @@
 
 **[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/economics-finance-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/economics-finance-ai999x/)** · **[Guides](https://huggingface.co/AI999X/economics-finance-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/economics-finance-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.1.0
 
 Field: **Economics & Finance** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -20,26 +20,13 @@ economics-finance-ai999x is an offline, deterministic Python solver that answers
 
 | Way to run it | For | Get it |
 |---|---|---|
-| **AI999X Economics and Finance desktop app** 1.2.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-economics-finance-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz) |
-| **AI999X desktop app** 1.2.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-linux-x86_64.tar.gz) |
-| **Command line** (`economics-finance`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) |
+| **AI999X Economics and Finance desktop app** 1.4.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-economics-finance-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-economics-finance-1.4.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.4.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz) |
+| **Command line** (`economics-finance`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz) |
 | **In your browser** | any device — nothing to install | [Compute on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#try) |
 | **Python** | Python 3.10+ | `pip install economics-finance-ai999x` |
 
-Checksums: [SHA256SUMS](https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS) · every version: [https://www.ai999x.com/downloads/desktop/latest/](https://www.ai999x.com/downloads/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
-
-## Rust versions
-
-Economics and Finance also comes as native programs compiled from Rust, version 1.2.0 of the AI999X desktop app and command line: they run offline on your computer and need no Python. Each file is in this repository's `rust/` folder, on the [GitHub release v1.0.3](https://github.com/AI999X/economics-finance-ai999x/releases/tag/v1.0.3) and on the website.
-
-| Program | System | File | Size | Download | Use |
-|---|---|---|---|---|---|
-| Desktop app (Economics and Finance) | Windows x86-64 | `ai999x-economics-finance-1.2.0-windows-x86_64.zip` | 7.3 MB | [Hub](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/rust/ai999x-economics-finance-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/economics-finance-ai999x/releases/download/v1.0.3/ai999x-economics-finance-1.2.0-windows-x86_64.zip) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-economics-finance-1.2.0-windows-x86_64.zip) | unzip, then double-click `ai999x-economics-finance.exe` (no installer) |
-| Desktop app (Economics and Finance) | Linux x86-64 | `ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz` | 8.2 MB | [Hub](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/rust/ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/economics-finance-ai999x/releases/download/v1.0.3/ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz) | extract, then run `./ai999x-economics-finance` (X11 or Wayland desktop) |
-| Command line (`economics-finance`) | Windows x86-64 | `ai999x-economics-finance-cli-1.2.0-windows-x86_64.zip` | 3.0 MB | [Hub](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/rust/ai999x-economics-finance-cli-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/economics-finance-ai999x/releases/download/v1.0.3/ai999x-economics-finance-cli-1.2.0-windows-x86_64.zip) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) | unzip, then `economics-finance.exe ask "<question>"` or `economics-finance.exe solve <capability> name=value` |
-| Command line (`economics-finance`) | Linux x86-64 | `ai999x-economics-finance-cli-1.2.0-linux-x86_64.tar.gz` | 2.9 MB | [Hub](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/rust/ai999x-economics-finance-cli-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/economics-finance-ai999x/releases/download/v1.0.3/ai999x-economics-finance-cli-1.2.0-linux-x86_64.tar.gz) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) | extract, then `./economics-finance ask "<question>"` or `./economics-finance solve <capability> name=value` |
-
-The command-line archive holds `economics-finance` with a README of its commands and examples, the licence and the notice. Checksums: [`rust/SHA256SUMS`](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/rust/SHA256SUMS) (`sha256sum -c SHA256SUMS`).
+Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
 
 ## Quick start
 
@@ -50,11 +37,11 @@ Download **AI999X Economics and Finance** for your system (above), unpack it and
 Linux, from a terminal:
 
 ```bash
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-economics-finance-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz
-./ai999x-economics-finance-1.2.0-linux-x86_64/ai999x-economics-finance
+tar xzf ai999x-economics-finance-1.4.0-linux-x86_64.tar.gz
+./ai999x-economics-finance-1.4.0-linux-x86_64/ai999x-economics-finance
 ```
 
 ### Command line
@@ -62,23 +49,23 @@ tar xzf ai999x-economics-finance-1.2.0-linux-x86_64.tar.gz
 Linux:
 
 ```bash
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.2.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.2.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 economics-finance --version
 ```
 
 Windows (PowerShell):
 
 ```powershell
-$F = "ai999x-cli-1.2.0-windows-x86_64.zip"
-Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/$F" -OutFile $F
-Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.2.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 economics-finance --version
 ```
@@ -130,26 +117,6 @@ total_interest = 231676.3781
   annual_rate = 0.06
   years = 30
   assumes: principal > 0; 0 <= annual_rate < 1; years x payments_per_year a whole number, years at most 1000
-```
-
-**Draw the figures** — The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```console
-$ economics-finance figures loan_payment principal=200000.0 annual_rate=0.06 years=30.0 --out .
-[
-  {
-    "slug": "loan-payment-live-1",
-    "title": "Level payment per period as nominal annual interest rate (decimal), compoun... varies",
-    "caption": "Level payment per period as annual_rate runs from 0.015 to 0.105, every other input as you entered it (41 solutions). Marked: your annual_rate = 0.06 gives payment = 1199. Your inputs: principal = 200000.0, annual_rate = 0.06, years = 30.0.",
-    "file": "./loan-payment-live-1.svg"
-  },
-  {
-    "slug": "loan-payment-live-2",
-    "title": "Level payment per period as term of the loan in years varies",
-    "caption": "Level payment per period as years runs from 7.5 to 52.5, every other input as you entered it (9 solutions). Values in this range where the inputs admit no answer (44 of 53) are left out. Marked: your years = 30 gives payment = 1199. Your inputs: principal = 200000.0, annual_rate = 0.06, years = 30.0.",
-    "file": "./loan-payment-live-2.svg"
-  }
-]
 ```
 
 **Many questions at once** — One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | economics-finance batch
@@ -319,7 +286,7 @@ _What this means:_ This calculation determines the likelihood of surviving a spe
 
 | Property | Value |
 |---|---|
-| Package | `economics-finance-ai999x` 1.0.3 (import `economics_finance_ai999x`) |
+| Package | `economics-finance-ai999x` 1.1.0 (import `economics_finance_ai999x`) |
 | Type | Deterministic neuro-symbolic economics and finance engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 96 certified procedures |
 | Knowledge pack | version 1.0.1 |
@@ -353,7 +320,7 @@ economics_finance.ask("Who created you?").message
 # -> economics-finance-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-The Python package also installs a Python command, `economics-finance-ai999x "<question>"`; for the native program use `economics-finance` (above). The outputs above were produced by running this exact code on economics-finance-ai999x 1.0.3.
+The Python package also installs a Python command, `economics-finance-ai999x "<question>"`; for the native program use `economics-finance` (above). The outputs above were produced by running this exact code on economics-finance-ai999x 1.1.0.
 
 ## Find the right capability, and draw it
 
@@ -514,10 +481,10 @@ _The global minimum-variance portfolio of three assets with the covariance matri
 ## Citation
 
 ```bibtex
-@software{economics_finance_ai999x_1_0_3,
+@software{economics_finance_ai999x_1_1_0,
   title  = {economics-finance-ai999x: an offline, verified economics and finance solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.3},
+  year   = {2026}, version = {1.1.0},
   url    = {https://huggingface.co/AI999X/economics-finance-ai999x}
 }
 ```
