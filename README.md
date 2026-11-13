@@ -4,11 +4,11 @@
 
 **[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/economics-finance-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/economics-finance-ai999x/)** · **[Guides](https://huggingface.co/AI999X/economics-finance-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/economics-finance-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.5.0
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.6.0
 
 Field: **Economics & Finance** · Tasks: Question Answering
 
-economics-finance-ai999x is an offline, deterministic economics and finance solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers economics and finance questions with verified results from 96 certified capabilities, gives 384 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
+economics-finance-ai999x is an offline, deterministic economics and finance solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers economics and finance questions with verified results from 105 certified capabilities, gives 453 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
 
 **economics-finance-ai999x** reads a question in plain English (or a typed call), picks a certified economics and finance capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions, or a refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
 
@@ -20,13 +20,13 @@ economics-finance-ai999x is an offline, deterministic economics and finance solv
 
 | Way to run it | For | Get it |
 |---|---|---|
-| **AI999X Economics and Finance desktop app** 1.5.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-economics-finance-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-economics-finance-1.5.0-linux-x86_64.tar.gz) |
-| **AI999X desktop app** 1.5.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz) |
-| **Command line** (`economics-finance`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz) |
+| **AI999X Economics and Finance desktop app** 1.6.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-economics-finance-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-economics-finance-1.6.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.6.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz) |
+| **Command line** (`economics-finance`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz) |
 | **In your browser** | any device. Nothing to install | [Compute on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#try) |
 | **Python** | Python 3.10+ | `pip install economics-finance-ai999x` |
 
-Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
+Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
 
 ## Quick start
 
@@ -37,11 +37,11 @@ Download **AI999X Economics and Finance** for your system (above), unpack it and
 Linux, from a terminal:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-economics-finance-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-economics-finance-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-economics-finance-1.5.0-linux-x86_64.tar.gz
-./ai999x-economics-finance-1.5.0-linux-x86_64/ai999x-economics-finance
+tar xzf ai999x-economics-finance-1.6.0-linux-x86_64.tar.gz
+./ai999x-economics-finance-1.6.0-linux-x86_64/ai999x-economics-finance
 ```
 
 ### Command line
@@ -49,23 +49,23 @@ tar xzf ai999x-economics-finance-1.5.0-linux-x86_64.tar.gz
 Linux:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 economics-finance --version
 ```
 
 Windows (PowerShell):
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 economics-finance --version
 ```
@@ -150,21 +150,32 @@ pip install economics-finance-ai999x
 
 The same worked example from the command line, from Python and in the browser. Each command-line output is what the program printed.
 
-### Endowment insurance
+### Financial ratio analysis with the DuPont return on equity
 
-Actuarial present value of a benefit paid at the end of the year of death within n years, or at year n if alive then (term insurance + pure endowment).
+Liquidity (current, quick), solvency (debt ratio, debt to equity), efficiency (asset turnover) and profitability (net margin, ROA, ROE) ratios from balance-sheet and income-statement items, with ROE broken into its DuPont factors: margin x asset turnover x equity multiplier.
 
 Command line:
 
 ```console
-$ economics-finance solve endowment_insurance "mortality_rates=[0.01, 0.02, 0.03]" interest_rate=0.04 term=3 benefit=1000
-apv = 890.4258648
-term_part = 53.79672565
-pure_endowment = 836.6291392
-  by: Endowment insurance  (A_{x:n} = A^1_{x:n} + v^n n p_x)
-  interest_rate = 0.04
-  benefit = 1000
-  assumes: 1 <= term <= number of rates
+$ economics-finance solve financial_ratios sales=500000 net_income=40000 total_assets=400000 total_equity=160000 current_assets=150000 current_liabilities=100000 inventory=60000
+current_ratio = 1.5
+quick_ratio = 0.9
+debt_ratio = 0.6
+debt_to_equity = 1.5
+net_profit_margin = 0.08
+asset_turnover = 1.25
+equity_multiplier = 2.5
+roa = 0.1
+roe = 0.25
+  by: Financial ratio analysis with the DuPont return on equity  (ratios of the stated items; liabilities = assets - equity; ROE = (NI/S)(S/TA)(TA/E))
+  sales = 500000
+  net_income = 40000
+  total_assets = 400000
+  total_equity = 160000
+  current_assets = 150000
+  current_liabilities = 100000
+  inventory = 60000
+  assumes: sales, total assets, equity, current liabilities > 0; equity <= total assets; inventory <= current assets <= total assets; current liabilities <= total assets - equity
 ```
 
 Python:
@@ -172,26 +183,37 @@ Python:
 ```python
 import economics_finance_ai999x as m
 
-a = m.solve("endowment_insurance", mortality_rates=[0.01, 0.02, 0.03], interest_rate="0.04", term="3", benefit="1000")
+a = m.solve("financial_ratios", sales="500000", net_income="40000", total_assets="400000", total_equity="160000", current_assets="150000", current_liabilities="100000", inventory="60000")
 print(a.values or (a.value, a.unit))
 ```
 
-Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-endowment_insurance) and press **Compute in your browser**.
+Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-financial_ratios) and press **Compute in your browser**.
 
-_What this means:_ This calculation determines the actuarial present value of an endowment insurance policy. It combines the value of a term insurance benefit, which pays out upon death within the specified term, with a pure endowment benefit, which pays out if the insured survives to the end of the term. The total present value of 890.426 reflects these two components based on the provided mortality rates, interest rate, term length, and benefit amount.
+### Inventory costing: FIFO, LIFO and weighted average
 
-### Life expectancy from a life table
-
-Curtate expectation of life e_x = sum_{k>=1} k p_x (whole years lived) and the complete expectation e_x + 1/2 (deaths uniform within each year).
+Cost of goods sold and ending inventory under FIFO, LIFO and the weighted average cost (periodic system) from the cost layers of the period and the units sold, with the gross margin when a selling price is given.
 
 Command line:
 
 ```console
-$ economics-finance solve life_expectancy "mortality_rates=[0.1, 0.3, 0.6, 1]"
-curtate = 1.782
-complete = 2.282
-  by: Life expectancy from a life table  (e_x = sum_{k=1}^{n} k p_x)
-  assumes: the table ends with q = 1
+$ economics-finance solve inventory_costing "layer_units=[100, 200, 150]" "layer_costs=[10, 12, 14]" units_sold=300 selling_price=20
+units_available = 450
+cost_of_goods_available = 5500
+fifo_cogs = 3400
+fifo_ending_inventory = 2100
+lifo_cogs = 3900
+lifo_ending_inventory = 1600
+average_unit_cost = 12.22222222
+average_cogs = 3666.666667
+average_ending_inventory = 1833.333333
+sales_revenue = 6000
+fifo_gross_margin = 2600
+lifo_gross_margin = 2100
+average_gross_margin = 2333.333333
+  by: Inventory costing: FIFO, LIFO and weighted average  (periodic system: FIFO takes the units sold from the first layers, LIFO from the last; weighted average cost = sum(units x cost) / sum(units); ending inventory = the units left at their costs)
+  units_sold = 300
+  selling_price = 20
+  assumes: one unit cost per layer; units of each layer > 0; unit costs >= 0; 0 <= units sold <= units available; selling price >= 0
 ```
 
 Python:
@@ -199,29 +221,41 @@ Python:
 ```python
 import economics_finance_ai999x as m
 
-a = m.solve("life_expectancy", mortality_rates=[0.1, 0.3, 0.6, 1])
+a = m.solve("inventory_costing", layer_units=[100, 200, 150], layer_costs=[10, 12, 14], units_sold="300", selling_price="20")
 print(a.values or (a.value, a.unit))
 ```
 
-Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-life_expectancy) and press **Compute in your browser**.
+Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-inventory_costing) and press **Compute in your browser**.
 
-_What this means:_ This calculation determines the average number of future years a person at a specific age is expected to live using the provided mortality rates. The curtate expectation counts only whole years lived and equals 1.782. The complete expectation adjusts this figure by adding half a year to account for deaths occurring uniformly within each year interval, resulting in 2.282. These values serve as fundamental metrics for assessing longevity risk and planning insurance or retirement products based on current survival probabilities.
+### Overhead variances: variable spending and efficiency, fixed budget and volume
 
-### Net annual premium for whole life insurance
-
-The level annual net premium, paid at the start of each year while alive, for a whole life benefit (equivalence principle): P = B A_x / a-due_x.
+The four overhead variances of a standard costing system with overhead applied on hours: variable overhead spending and efficiency, fixed overhead budget (spending) and volume, and the total over- or under-applied overhead, each marked favourable or unfavourable.
 
 Command line:
 
 ```console
-$ economics-finance solve net_premium_whole_life "mortality_rates=[0.1, 0.3, 0.6, 1]" interest_rate=0.05 benefit=1000
-premium = 330.2729832
-insurance_apv = 873.9876903
-annuity_due = 2.646258503
-  by: Net annual premium for whole life insurance  (equivalence principle: P a-due_x = B A_x)
-  interest_rate = 0.05
-  benefit = 1000
-  assumes: the table ends with q = 1; 0 < interest_rate < 1
+$ economics-finance solve overhead_cost_variances variable_overhead_rate=2 actual_variable_overhead=9000 actual_hours=4200 standard_hours=4000 budgeted_fixed_overhead=12000 actual_fixed_overhead=12500 denominator_hours=5000
+variable_spending_variance = 600
+variable_efficiency_variance = 400
+fixed_budget_variance = 500
+fixed_volume_variance = 2400
+total_overhead_variance = 3900
+fixed_overhead_rate = 2.4
+applied_overhead = 17600
+variable_spending_type = unfavourable
+variable_efficiency_type = unfavourable
+fixed_budget_type = unfavourable
+fixed_volume_type = unfavourable
+total_type = unfavourable
+  by: Overhead variances: variable spending and efficiency, fixed budget and volume  (spending = AVOH - AH VR; efficiency = VR (AH - SH); budget = AFOH - BFOH; volume = BFOH (DH - SH)/DH; total = AVOH + AFOH - SH (VR + BFOH/DH))
+  variable_overhead_rate = 2
+  actual_variable_overhead = 9000
+  actual_hours = 4200
+  standard_hours = 4000
+  budgeted_fixed_overhead = 12000
+  actual_fixed_overhead = 12500
+  denominator_hours = 5000
+  assumes: amounts, rates and hours >= 0; denominator hours > 0
 ```
 
 Python:
@@ -229,27 +263,33 @@ Python:
 ```python
 import economics_finance_ai999x as m
 
-a = m.solve("net_premium_whole_life", mortality_rates=[0.1, 0.3, 0.6, 1], interest_rate="0.05", benefit="1000")
+a = m.solve("overhead_cost_variances", variable_overhead_rate="2", actual_variable_overhead="9000", actual_hours="4200", standard_hours="4000", budgeted_fixed_overhead="12000", actual_fixed_overhead="12500", denominator_hours="5000")
 print(a.values or (a.value, a.unit))
 ```
 
-Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-net_premium_whole_life) and press **Compute in your browser**.
+Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-overhead_cost_variances) and press **Compute in your browser**.
 
-_What this means:_ This calculation finds the level annual net premium for whole life insurance, which is 330.273. It applies the equivalence principle by balancing the present value of the death benefit against the present value of premiums paid while alive. The result uses an annual effective interest rate of 0.05 and mortality rates starting at age [0.1, 0.3, 0.6, 1]. The computed present value of the benefit is 873.988, and the present value of the annuity due is 2.64626.
+### Standard-cost variances: materials price and quantity, labour rate and efficiency
 
-### Survival and death probabilities from a life table
-
-t p_x (survive t years), t q_x (die within t years) and t|u q_x (survive t years, then die within the next u years) from one-year mortality rates.
+Price (labour: rate) and quantity (labour: efficiency) variances of direct materials or direct labour from standard and actual prices and quantities, each marked favourable or unfavourable.
 
 Command line:
 
 ```console
-$ economics-finance solve survival_probability "mortality_rates=[0.01, 0.02, 0.03, 0.05]" years=3
-survival = 0.941094
-death_probability = 0.058906
-deferred_death_probability = 0.0470547
-  by: Survival and death probabilities from a life table  (t p_x = prod_{k<t} (1 - q_{x+k}))
-  assumes: 0 <= q <= 1; t + u <= number of rates
+$ economics-finance solve direct_cost_variances standard_price=4 standard_quantity=2000 actual_price=4.2 actual_quantity=2100
+price_variance = 420
+quantity_variance = 400
+total_variance = 820
+price_variance_type = unfavourable
+quantity_variance_type = unfavourable
+total_variance_type = unfavourable
+standard_cost_allowed = 8000
+  by: Standard-cost variances: materials price and quantity, labour rate and efficiency  (PV = QP (AP - SP), QV = SP (AQ - SQ), total = PV + QV; positive = unfavourable)
+  standard_price = 4
+  standard_quantity = 2000
+  actual_price = 4.2
+  actual_quantity = 2100
+  assumes: standard price and standard quantity > 0; actual price, actual quantity and quantity purchased >= 0
 ```
 
 Python:
@@ -257,13 +297,11 @@ Python:
 ```python
 import economics_finance_ai999x as m
 
-a = m.solve("survival_probability", mortality_rates=[0.01, 0.02, 0.03, 0.05], years="3")
+a = m.solve("direct_cost_variances", standard_price="4", standard_quantity="2000", actual_price="4.2", actual_quantity="2100")
 print(a.values or (a.value, a.unit))
 ```
 
-Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-survival_probability) and press **Compute in your browser**.
-
-_What this means:_ This calculation determines the likelihood of surviving a specific duration based on annual mortality rates. Using the provided one-year death probabilities, the model computes the cumulative survival chance for 3 years as 0.941094. Consequently, the probability of dying within this period is derived as 0.058906. If a deferred window is specified, the probability of surviving the initial term and then dying in the subsequent interval is calculated as 0.0470547. These values reflect the aggregate risk profile defined by the input mortality data.
+Browser: [open this capability on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#cap-direct_cost_variances) and press **Compute in your browser**.
 
 ## Documentation
 
@@ -275,7 +313,7 @@ _What this means:_ This calculation determines the likelihood of surviving a spe
 ## Highlights
 
 - **Verified, not generated.** Every answer is computed by a certified economics and finance capability and checked (substituted back, dimension-checked or compared with an independent computation) before it is returned.
-- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 384 documented answers is reproduced exactly on every tested platform.
+- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 453 documented answers is reproduced exactly on every tested platform.
 - **Plain-English questions and a guaranteed typed interface.** `ask()` reads documented question forms; `solve(capability_id, **inputs)` always solves a supported task with valid inputs.
 - **Explains itself.** Steps, formulas in LaTeX, units, assumptions and the model used, ready for notebooks, tutoring apps and homework checkers.
 - **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `economics-finance` command line for Windows and Linux, and WebAssembly on the model page, no Python, no network.
@@ -286,11 +324,11 @@ _What this means:_ This calculation determines the likelihood of surviving a spe
 
 | Property | Value |
 |---|---|
-| Package | `economics-finance-ai999x` 1.5.0 (import `economics_finance_ai999x`) |
+| Package | `economics-finance-ai999x` 1.6.0 (import `economics_finance_ai999x`) |
 | Type | Deterministic neuro-symbolic economics and finance engine (rule-based reading + certified symbolic capabilities) |
-| Capabilities | 96 certified procedures |
+| Capabilities | 105 certified procedures |
 | Knowledge pack | version 1.0.1 |
-| Golden answers | 384 documented answers, identical on every tested platform |
+| Golden answers | 453 documented answers, identical on every tested platform |
 | Platforms tested | Windows (Python 3.13), Linux x86-64 (Python 3.10, 3.11, 3.12, 3.13, 3.14) |
 | Runtime | CPU only, offline; no GPU, no network, no API key |
 | License | Apache-2.0 |
@@ -320,7 +358,7 @@ economics_finance.ask("Who created you?").message
 # -> economics-finance-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-The Python package also installs a Python command, `economics-finance-ai999x "<question>"`; for the native program use `economics-finance` (above). The outputs above were produced by running this exact code on economics-finance-ai999x 1.5.0.
+The Python package also installs a Python command, `economics-finance-ai999x "<question>"`; for the native program use `economics-finance` (above). The outputs above were produced by running this exact code on economics-finance-ai999x 1.6.0.
 
 ## How every answer is verified
 
@@ -395,15 +433,15 @@ Each question was put to `economics-finance-ai999x`; the answer is the one it re
 
 </details>
 
-**Endowment insurance** · _Actuarial mathematics_
+**Standard-cost variances: materials price and quantity, labour rate and efficiency** · _Accounting_
 
-> Find the endowment insurance value with mortality rates = [0.01, 0.02, 0.03], interest rate = 4%, term = 3, benefit = 1000.
+> Find the materials price and quantity variances with standard price = 4, standard quantity = 2000, actual price = 4.2, actual quantity = 2100.
 
-→ **apv = 890.4258648, term_part = 53.79672565, pure_endowment = 836.6291392**
+→ **price_variance = 420, quantity_variance = 400, total_variance = 820, price_variance_type = unfavourable, quantity_variance_type = unfavourable, total_variance_type = unfavourable, standard_cost_allowed = 8000**
 
 <details><summary>Steps</summary>
 
-- Endowment insurance: mortality_rates = [0.01, 0.02, 0.03], interest_rate = 0.04, term = 3, benefit = 1000 → apv = 890.4258648, term_part = 53.79672565, pure_endowment = 836.6291392
+- Standard-cost variances: materials price and quantity, labour rate and efficiency: standard_price = 4, standard_quantity = 2000, actual_price = 4.2, actual_quantity = 2100 → price_variance = 420, quantity_variance = 400, total_variance = 820, price_variance_type = unfavourable, quantity_variance_type = unfavourable, total_variance_type = unfavourable, standard_cost_allowed = 8000
 
 </details>
 
@@ -449,9 +487,9 @@ _The global minimum-variance portfolio of three assets with the covariance matri
 
 ## Capabilities
 
-96 certified procedures. A few of them:
+105 certified procedures. A few of them:
 
-- **Procedures:** Arithmetic and geometric mean return; Beta of an asset from return series; Binomial option price (Cox-Ross-Rubinstein); Black-Scholes Greeks; Black-Scholes option prices; Bond price change from duration and convexity; Bond price from its yield; Break-even and target-profit volume; Capital asset pricing model; Compound annual growth rate; Compound interest; Constant elasticity from a log-log regression; Continuous compounding; Convexity of a bond; Correlation and covariance of two series; Cournot duopoly equilibrium; Cross-price elasticity of demand (midpoint); Cumulative interest of a loan; Discounted payback period; Dividend discount model (Gordon growth); Doubling time; Durbin-Watson statistic; Effective annual rate; Endowment insurance …
+- **Procedures:** Arithmetic and geometric mean return; Beta of an asset from return series; Binomial option price (Cox-Ross-Rubinstein); Black-Scholes Greeks; Black-Scholes option prices; Bond price change from duration and convexity; Bond price from its yield; Break-even and target-profit volume; Capital asset pricing model; Comparative advantage and opportunity cost; Compound annual growth rate; Compound interest; Constant elasticity from a log-log regression; Continuous compounding; Convexity of a bond; Correlation and covariance of two series; Cost curves, best output and shutdown of a competitive firm; Cournot duopoly equilibrium; Credit card finance charge (average daily balance); Cross-price elasticity of demand (midpoint); Cumulative interest of a loan; Discounted payback period; Dividend discount model (Gordon growth); Doubling time …
 
 `economics_finance_ai999x.templates()` lists every question form `ask()` reads; the capability guide (PDF, every example executed) is included in this repository.
 
@@ -470,10 +508,10 @@ _The global minimum-variance portfolio of three assets with the covariance matri
 ## Citation
 
 ```bibtex
-@software{economics_finance_ai999x_1_5_0,
+@software{economics_finance_ai999x_1_6_0,
   title  = {economics-finance-ai999x: an offline, verified economics and finance solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.5.0},
+  year   = {2026}, version = {1.6.0},
   url    = {https://huggingface.co/AI999X/economics-finance-ai999x}
 }
 ```
@@ -490,7 +528,7 @@ Created and engineered by **Ibnul Jaif Farabi** · **[AI999X](https://huggingfac
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/economics-finance-ai999x/) (`pip install .` builds it). Releases are tagged `v1.5.0`; the [GitHub release](https://github.com/AI999X/economics-finance-ai999x/releases/tag/v1.5.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/economics-finance-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.0`; the [GitHub release](https://github.com/AI999X/economics-finance-ai999x/releases/tag/v1.6.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 

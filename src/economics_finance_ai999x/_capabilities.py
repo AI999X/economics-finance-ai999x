@@ -15,7 +15,7 @@ def _bind(product) -> None:
     _P = product
 
 
-CapabilityId = Literal["annuity_rate", "arc_price_elasticity", "beta_regression", "binomial_option", "black_scholes", "bond_convexity", "bond_duration", "bond_price", "bond_price_change", "bond_ytm", "break_even", "bs_greeks", "cagr", "capm", "cobb_douglas_demand", "compound_interest", "continuous_compounding", "correlation", "cournot", "cross_price_elasticity", "crossover_rate", "discounted_payback", "doubling_time", "durbin_watson", "effective_annual_rate", "endowment_insurance", "equivalent_annual_annuity", "fisher_real_rate", "forward_price", "forward_price_dividends", "forward_rate", "future_value_annuity", "gdp_deflator", "gini_coefficient", "global_min_variance", "gordon_growth", "gordon_implied_return", "growing_annuity", "growing_perpetuity", "herfindahl_index", "historical_var", "implied_volatility", "income_elasticity", "inflation_adjustment", "information_ratio", "irr", "life_annuity_due", "life_expectancy", "loan_balance", "loan_cumulative_interest", "loan_payment", "loan_payment_split", "log_log_elasticity", "market_equilibrium", "max_drawdown", "mean_returns", "min_variance_two_asset", "mirr", "money_multiplier", "monopoly", "multiple_regression", "net_premium_whole_life", "nominal_rate", "npv", "number_of_periods", "ols_simple", "parametric_var", "payback_period", "per_unit_tax", "perpetuity", "point_elasticity", "portfolio_return_risk", "portfolio_var", "present_value", "present_value_annuity", "price_indices", "profitability_index", "put_call_parity", "scenario_return", "sharpe_ratio", "simple_interest", "sinking_fund", "solow_steady_state", "sortino_ratio", "spending_multiplier", "stackelberg", "survival_probability", "tangency_portfolio", "temporary_annuity_due", "term_insurance", "treynor_jensen", "two_asset_portfolio", "two_stage_ddm", "wacc", "whole_life_insurance", "zero_coupon_bond"]
+CapabilityId = Literal["annuity_rate", "arc_price_elasticity", "beta_regression", "binomial_option", "black_scholes", "bond_convexity", "bond_duration", "bond_price", "bond_price_change", "bond_ytm", "break_even", "bs_greeks", "cagr", "capm", "cobb_douglas_demand", "comparative_advantage", "competitive_firm_cost_curves", "compound_interest", "continuous_compounding", "correlation", "cournot", "credit_card_finance_charge", "cross_price_elasticity", "crossover_rate", "direct_cost_variances", "discounted_payback", "doubling_time", "durbin_watson", "effective_annual_rate", "endowment_insurance", "equivalent_annual_annuity", "financial_ratios", "fisher_real_rate", "forward_price", "forward_price_dividends", "forward_rate", "future_value_annuity", "gdp_deflator", "gini_coefficient", "global_min_variance", "gordon_growth", "gordon_implied_return", "growing_annuity", "growing_perpetuity", "herfindahl_index", "historical_var", "implied_volatility", "income_elasticity", "income_tax", "inflation_adjustment", "information_ratio", "inventory_costing", "irr", "life_annuity_due", "life_expectancy", "loan_balance", "loan_cumulative_interest", "loan_payment", "loan_payment_split", "log_log_elasticity", "market_equilibrium", "max_drawdown", "mean_returns", "min_variance_two_asset", "mirr", "money_multiplier", "monopoly", "multiple_regression", "net_premium_whole_life", "nominal_rate", "npv", "number_of_periods", "ols_simple", "overhead_cost_variances", "parametric_var", "payback_period", "per_unit_tax", "perpetuity", "point_elasticity", "portfolio_return_risk", "portfolio_var", "present_value", "present_value_annuity", "price_indices", "profitability_index", "put_call_parity", "scenario_return", "sharpe_ratio", "simple_interest", "sinking_fund", "solow_steady_state", "sortino_ratio", "spending_multiplier", "stackelberg", "survival_probability", "tangency_portfolio", "temporary_annuity_due", "term_insurance", "treynor_jensen", "two_asset_portfolio", "two_stage_ddm", "unemployment_rate", "wacc", "whole_life_insurance", "zero_coupon_bond"]
 
 
 def solve(find: CapabilityId | str, given: dict | None = None, conditions=(), *, target: str | None = None, **inputs):
@@ -251,6 +251,34 @@ def cobb_douglas_demand(alpha=None, beta=None, income=None, price_x=None, price_
     given = {k: v for k, v in dict(alpha=alpha, beta=beta, income=income, price_x=price_x, price_y=price_y).items() if v is not None}
     return _P.solve("cobb_douglas_demand", **given)
 
+def comparative_advantage(a_good_x=None, a_good_y=None, b_good_x=None, b_good_y=None, basis=None):
+    """Comparative advantage and opportunity cost. Opportunity costs of two goods in two countries from output per worker (or hours per unit), who has the absolute and the comparative advantage in each good, and the range of terms of trade that benefits both.
+    Formula: OC_X^{A} = \\frac{y_A}{x_A}\\ \\text{(output)}\\quad\\text{or}\\quad \\frac{h_{X,A}}{h_{Y,A}}\\ \\text{(hours)},\\qquad \\min(OC_X^{A}, OC_X^{B}) \\le p_X \\le \\max(OC_X^{A}, OC_X^{B})
+    Inputs:
+        a_good_x: country A, good X: output per worker (basis output) or hours per unit (basis hours)
+        a_good_y: country A, good Y: output per worker or hours per unit
+        b_good_x: country B, good X: output per worker or hours per unit
+        b_good_y: country B, good Y: output per worker or hours per unit
+        basis: 'output' (units made per worker or hour) or 'hours' (hours needed per unit)
+    Outputs: opportunity_cost_x_a (country A's opportunity cost of X, in units of Y), opportunity_cost_y_a (country A's opportunity cost of Y, in units of X), opportunity_cost_x_b (country B's opportunity cost of X, in units of Y), opportunity_cost_y_b (country B's opportunity cost of Y, in units of X), comparative_advantage_x (who should specialise in X: country A, country B or neither), comparative_advantage_y (who should specialise in Y: country A, country B or neither), absolute_advantage_x (who is more productive in X: country A, country B or equal), absolute_advantage_y (who is more productive in Y: country A, country B or equal), terms_low (lowest mutually beneficial price of X, in units of Y), terms_high (highest mutually beneficial price of X, in units of Y)
+    See also: help("comparative_advantage")
+    """
+    given = {k: v for k, v in dict(a_good_x=a_good_x, a_good_y=a_good_y, b_good_x=b_good_x, b_good_y=b_good_y, basis=basis).items() if v is not None}
+    return _P.solve("comparative_advantage", **given)
+
+def competitive_firm_cost_curves(quantities=None, total_costs=None, price=None):
+    """Cost curves, best output and shutdown of a competitive firm. Fixed, average fixed, average variable, average total and marginal cost from a total cost table, and the price-taking firm's profit-maximising output, its profit, the shutdown price (minimum AVC) and the break-even price (minimum ATC).
+    Formula: \\mathrm{AVC} = \\frac{TC - FC}{Q},\\quad \\mathrm{MC} = \\frac{\\Delta TC}{\\Delta Q},\\quad Q^{*} = \\arg\\max_{Q}\\,(PQ - TC(Q))
+    Inputs:
+        quantities: output levels of the table, starting at 0 and increasing
+        total_costs: total cost at each output level (the first is the fixed cost)
+        price: market price the firm takes as given
+    Outputs: fixed_cost (total cost at output 0), average_fixed_cost (AFC = FC / Q for each output > 0), average_variable_cost (AVC = (TC - FC) / Q for each output > 0), average_total_cost (ATC = TC / Q for each output > 0), marginal_cost (MC = change in TC / change in Q for each step of the table), best_output (profit-maximising output in the table (0 = shut down)), profit (profit P Q - TC at the best output (negative = loss)), shutdown_price (minimum AVC: below it the firm produces nothing), break_even_price (minimum ATC: the price at which the best profit is zero), decision (produce or shut down)
+    See also: help("competitive_firm_cost_curves")
+    """
+    given = {k: v for k, v in dict(quantities=quantities, total_costs=total_costs, price=price).items() if v is not None}
+    return _P.solve("competitive_firm_cost_curves", **given)
+
 def compound_interest(principal=None, rate=None, years=None, periods_per_year=None):
     """Compound interest. Future amount of a sum invested at a nominal annual rate compounded m times a year: A = P (1 + r/m)^(m t).
     Formula: A = P\\left(1 + \\frac{r}{m}\\right)^{m t}
@@ -304,6 +332,22 @@ def cournot(price_intercept=None, price_slope=None, cost_1=None, cost_2=None):
     given = {k: v for k, v in dict(price_intercept=price_intercept, price_slope=price_slope, cost_1=cost_1, cost_2=cost_2).items() if v is not None}
     return _P.solve("cournot", **given)
 
+def credit_card_finance_charge(opening_balance=None, apr=None, billing_days=None, rate_basis=None, transaction_days=None, transaction_amounts=None):
+    """Credit card finance charge (average daily balance). Average daily balance of a credit card billing cycle and the finance charge on it, from the opening balance and the dated purchases and payments of the cycle.
+    Formula: \\overline{B} = \\frac{1}{D}\\sum_{d=1}^{D} B_d,\\qquad FC = \\overline{B}\\cdot\\frac{\\mathrm{APR}\\,D}{365}\\ \\text{or}\\ \\overline{B}\\cdot\\frac{\\mathrm{APR}}{12}
+    Inputs:
+        opening_balance: balance owed at the start of the cycle (previous balance)
+        apr: annual percentage rate of the card (decimal; 18% = 0.18)
+        billing_days: number of days in the billing cycle
+        rate_basis: 'daily' (APR/365 for each day of the cycle) or 'monthly' (APR/12)
+        transaction_days: day of the cycle (1 = first day) of each purchase or payment (optional)
+        transaction_amounts: amount of each transaction: purchases positive, payments negative (optional)
+    Outputs: average_daily_balance (mean of the end-of-day balances over the cycle), finance_charge (interest charged for the cycle: ADB x cycle rate), cycle_rate (rate applied for the cycle (APR x days / 365, or APR / 12)), closing_balance (balance at the end of the cycle before the finance charge), new_balance (closing balance plus the finance charge)
+    See also: help("credit_card_finance_charge")
+    """
+    given = {k: v for k, v in dict(opening_balance=opening_balance, apr=apr, billing_days=billing_days, rate_basis=rate_basis, transaction_days=transaction_days, transaction_amounts=transaction_amounts).items() if v is not None}
+    return _P.solve("credit_card_finance_charge", **given)
+
 def cross_price_elasticity(price_other_1=None, quantity_1=None, price_other_2=None, quantity_2=None):
     """Cross-price elasticity of demand (midpoint). Midpoint cross-price elasticity: response of the quantity of good A to the price of good B; positive = substitutes, negative = complements.
     Formula: E_{AB} = \\frac{\\Delta Q_A/\\bar Q_A}{\\Delta P_B/\\bar P_B}
@@ -329,6 +373,21 @@ def crossover_rate(cash_flows_a=None, cash_flows_b=None):
     """
     given = {k: v for k, v in dict(cash_flows_a=cash_flows_a, cash_flows_b=cash_flows_b).items() if v is not None}
     return _P.solve("crossover_rate", **given)
+
+def direct_cost_variances(standard_price=None, standard_quantity=None, actual_price=None, actual_quantity=None, quantity_purchased=None):
+    """Standard-cost variances: materials price and quantity, labour rate and efficiency. Price (labour: rate) and quantity (labour: efficiency) variances of direct materials or direct labour from standard and actual prices and quantities, each marked favourable or unfavourable.
+    Formula: PV = Q_P\\,(AP - SP),\\qquad QV = SP\\,(AQ - SQ)
+    Inputs:
+        standard_price: standard price per unit of input (labour: standard wage rate per hour)
+        standard_quantity: standard quantity allowed for the actual output (labour: standard hours allowed)
+        actual_price: actual price paid per unit of input (labour: actual wage rate)
+        actual_quantity: actual quantity used (labour: actual hours worked)
+        quantity_purchased: quantity purchased (materials; default: the quantity used) (optional)
+    Outputs: price_variance (price (rate) variance QP (AP - SP); positive = unfavourable), quantity_variance (quantity (efficiency) variance SP (AQ - SQ); positive = unfavourable), total_variance (price variance + quantity variance), price_variance_type (favourable, unfavourable or none), quantity_variance_type (favourable, unfavourable or none), total_variance_type (favourable, unfavourable or none), standard_cost_allowed (standard cost of the actual output SQ x SP)
+    See also: help("direct_cost_variances")
+    """
+    given = {k: v for k, v in dict(standard_price=standard_price, standard_quantity=standard_quantity, actual_price=actual_price, actual_quantity=actual_quantity, quantity_purchased=quantity_purchased).items() if v is not None}
+    return _P.solve("direct_cost_variances", **given)
 
 def discounted_payback(rate=None, cash_flows=None):
     """Discounted payback period. Time until the cumulative DISCOUNTED cash flow turns non-negative (linear within the period).
@@ -401,6 +460,23 @@ def equivalent_annual_annuity(rate=None, cash_flows=None):
     """
     given = {k: v for k, v in dict(rate=rate, cash_flows=cash_flows).items() if v is not None}
     return _P.solve("equivalent_annual_annuity", **given)
+
+def financial_ratios(sales=None, net_income=None, total_assets=None, total_equity=None, current_assets=None, current_liabilities=None, inventory=None):
+    """Financial ratio analysis with the DuPont return on equity. Liquidity (current, quick), solvency (debt ratio, debt to equity), efficiency (asset turnover) and profitability (net margin, ROA, ROE) ratios from balance-sheet and income-statement items, with ROE broken into its DuPont factors: margin x asset turnover x equity multiplier.
+    Formula: \\mathrm{ROE} = \\frac{NI}{E} = \\frac{NI}{S}\\cdot\\frac{S}{TA}\\cdot\\frac{TA}{E},\\qquad\\text{current} = \\frac{CA}{CL},\\quad \\text{quick} = \\frac{CA - \\mathrm{Inv}}{CL}
+    Inputs:
+        sales: net sales (revenue) of the period
+        net_income: net income (negative for a loss)
+        total_assets: total assets
+        total_equity: total shareholders' equity (positive, at most total assets)
+        current_assets: current assets
+        current_liabilities: current liabilities (positive)
+        inventory: inventory (part of current assets)
+    Outputs: current_ratio (current assets / current liabilities), quick_ratio ((current assets - inventory) / current liabilities), debt_ratio (total liabilities / total assets), debt_to_equity (total liabilities / total equity), net_profit_margin (net income / sales (DuPont factor 1)), asset_turnover (sales / total assets (DuPont factor 2)), equity_multiplier (total assets / total equity (DuPont factor 3)), roa (return on assets: net income / total assets), roe (return on equity: net income / equity = margin x turnover x multiplier)
+    See also: help("financial_ratios")
+    """
+    given = {k: v for k, v in dict(sales=sales, net_income=net_income, total_assets=total_assets, total_equity=total_equity, current_assets=current_assets, current_liabilities=current_liabilities, inventory=inventory).items() if v is not None}
+    return _P.solve("financial_ratios", **given)
 
 def fisher_real_rate(nominal_rate=None, inflation_rate=None):
     """Real interest rate (Fisher equation). The exact real rate (1 + i)/(1 + pi) - 1 and the approximation i - pi.
@@ -618,6 +694,19 @@ def income_elasticity(income_1=None, quantity_1=None, income_2=None, quantity_2=
     given = {k: v for k, v in dict(income_1=income_1, quantity_1=quantity_1, income_2=income_2, quantity_2=quantity_2).items() if v is not None}
     return _P.solve("income_elasticity", **given)
 
+def income_tax(taxable_income=None, bracket_thresholds=None, bracket_rates=None):
+    """Income tax from progressive brackets. Tax owed on a taxable income under a progressive bracket table, with the marginal and the effective (average) tax rate.
+    Formula: T(x) = \\sum_{k} r_k\\,\\big(\\min(x, t_{k+1}) - t_k\\big)^{+},\\qquad \\text{effective rate} = \\frac{T(x)}{x}
+    Inputs:
+        taxable_income: taxable income (after deductions)
+        bracket_thresholds: lower bound of each bracket, starting at 0, increasing
+        bracket_rates: tax rate of each bracket (decimals or percentages)
+    Outputs: tax (tax owed: each bracket's rate on the income inside it), marginal_rate (rate on the next unit of income), effective_rate (tax / taxable income), after_tax_income (taxable income minus the tax)
+    See also: help("income_tax")
+    """
+    given = {k: v for k, v in dict(taxable_income=taxable_income, bracket_thresholds=bracket_thresholds, bracket_rates=bracket_rates).items() if v is not None}
+    return _P.solve("income_tax", **given)
+
 def inflation_adjustment(price_levels=None, amount=None):
     """Inflation from a price index series. Total and average annual (geometric) inflation from consecutive price levels (CPI), and the value of an amount in the last period's money expressed in first-period money.
     Formula: \\bar\\pi = \\left(\\frac{P_n}{P_0}\\right)^{1/n} - 1
@@ -641,6 +730,20 @@ def information_ratio(portfolio_returns=None, benchmark_returns=None):
     """
     given = {k: v for k, v in dict(portfolio_returns=portfolio_returns, benchmark_returns=benchmark_returns).items() if v is not None}
     return _P.solve("information_ratio", **given)
+
+def inventory_costing(layer_units=None, layer_costs=None, units_sold=None, selling_price=None):
+    """Inventory costing: FIFO, LIFO and weighted average. Cost of goods sold and ending inventory under FIFO, LIFO and the weighted average cost (periodic system) from the cost layers of the period and the units sold, with the gross margin when a selling price is given.
+    Formula: \\bar c = \\frac{\\sum_k u_k c_k}{\\sum_k u_k},\\qquad \\mathrm{COGS} + \\mathrm{EI} = \\sum_k u_k c_k
+    Inputs:
+        layer_units: units in each cost layer, in order of acquisition (beginning inventory first)
+        layer_costs: unit cost of each layer, in the same order
+        units_sold: units sold in the period
+        selling_price: selling price per unit (optional: gives sales revenue and gross margins) (optional)
+    Outputs: units_available (units available for sale), cost_of_goods_available (cost of goods available for sale), fifo_cogs (cost of goods sold, FIFO (oldest layers sold first)), fifo_ending_inventory (ending inventory, FIFO (newest layers left)), lifo_cogs (cost of goods sold, LIFO (newest layers sold first)), lifo_ending_inventory (ending inventory, LIFO (oldest layers left)), average_unit_cost (weighted average unit cost: goods available / units available), average_cogs (cost of goods sold at the weighted average cost), average_ending_inventory (ending inventory at the weighted average cost), sales_revenue (selling price x units sold (with a selling price)), fifo_gross_margin (sales revenue - FIFO cost of goods sold), lifo_gross_margin (sales revenue - LIFO cost of goods sold), average_gross_margin (sales revenue - weighted average cost of goods sold)
+    See also: help("inventory_costing")
+    """
+    given = {k: v for k, v in dict(layer_units=layer_units, layer_costs=layer_costs, units_sold=units_sold, selling_price=selling_price).items() if v is not None}
+    return _P.solve("inventory_costing", **given)
 
 def irr(cash_flows=None):
     """Internal rate of return. The discount rate at which the NPV of [CF0, ..., CFn] is zero; given only when it is unique (the cash flows change sign exactly once).
@@ -912,6 +1015,23 @@ def ols_simple(x=None, y=None):
     """
     given = {k: v for k, v in dict(x=x, y=y).items() if v is not None}
     return _P.solve("ols_simple", **given)
+
+def overhead_cost_variances(variable_overhead_rate=None, actual_variable_overhead=None, actual_hours=None, standard_hours=None, budgeted_fixed_overhead=None, actual_fixed_overhead=None, denominator_hours=None):
+    """Overhead variances: variable spending and efficiency, fixed budget and volume. The four overhead variances of a standard costing system with overhead applied on hours: variable overhead spending and efficiency, fixed overhead budget (spending) and volume, and the total over- or under-applied overhead, each marked favourable or unfavourable.
+    Formula: \\text{spending} = \\mathrm{AVOH} - AH\\cdot VR,\\quad \\text{efficiency} = VR\\,(AH - SH),\\quad \\text{volume} = \\mathrm{BFOH} - SH\\cdot\\frac{\\mathrm{BFOH}}{DH}
+    Inputs:
+        variable_overhead_rate: standard variable overhead rate per hour
+        actual_variable_overhead: actual variable overhead cost
+        actual_hours: actual hours of the allocation base
+        standard_hours: standard hours allowed for the actual output
+        budgeted_fixed_overhead: budgeted fixed overhead
+        actual_fixed_overhead: actual fixed overhead cost
+        denominator_hours: denominator hours on which the fixed overhead rate was set (positive)
+    Outputs: variable_spending_variance (actual variable overhead - AH x VR), variable_efficiency_variance (VR (AH - SH)), fixed_budget_variance (actual fixed overhead - budgeted fixed overhead), fixed_volume_variance (budgeted fixed overhead - SH x FR), total_overhead_variance (actual overhead - applied overhead (sum of the four)), fixed_overhead_rate (FR = budgeted fixed overhead / denominator hours), applied_overhead (SH x (VR + FR)), variable_spending_type (favourable, unfavourable or none), variable_efficiency_type (favourable, unfavourable or none), fixed_budget_type (favourable, unfavourable or none), fixed_volume_type (favourable, unfavourable or none), total_type (favourable (over-applied), unfavourable (under-applied) or none)
+    See also: help("overhead_cost_variances")
+    """
+    given = {k: v for k, v in dict(variable_overhead_rate=variable_overhead_rate, actual_variable_overhead=actual_variable_overhead, actual_hours=actual_hours, standard_hours=standard_hours, budgeted_fixed_overhead=budgeted_fixed_overhead, actual_fixed_overhead=actual_fixed_overhead, denominator_hours=denominator_hours).items() if v is not None}
+    return _P.solve("overhead_cost_variances", **given)
 
 def parametric_var(mean=None, std_dev=None, confidence=None, horizon=None, portfolio_value=None):
     """Parametric (normal) value at risk and expected shortfall. VaR and CVaR of normally distributed returns with a mean and standard deviation per period, scaled to a horizon by mean x h and sd x sqrt(h).
@@ -1283,6 +1403,19 @@ def two_stage_ddm(dividend=None, high_growth=None, high_growth_years=None, stabl
     given = {k: v for k, v in dict(dividend=dividend, high_growth=high_growth, high_growth_years=high_growth_years, stable_growth=stable_growth, required_return=required_return).items() if v is not None}
     return _P.solve("two_stage_ddm", **given)
 
+def unemployment_rate(employed=None, unemployed=None, working_age_population=None):
+    """Unemployment rate and labour-force participation. Labour force, unemployment rate, and (with the working-age population) the labour-force participation rate, the employment-population ratio and the number not in the labour force.
+    Formula: u = \\frac{U}{E + U},\\qquad \\text{participation} = \\frac{E + U}{N}
+    Inputs:
+        employed: number of employed people
+        unemployed: number of unemployed people (without work and looking for it)
+        working_age_population: working-age (adult) population (optional) (optional)
+    Outputs: labour_force (employed + unemployed), unemployment_rate (unemployed / labour force), participation_rate (labour force / working-age population), employment_population_ratio (employed / working-age population), not_in_labour_force (working-age population - labour force)
+    See also: help("unemployment_rate")
+    """
+    given = {k: v for k, v in dict(employed=employed, unemployed=unemployed, working_age_population=working_age_population).items() if v is not None}
+    return _P.solve("unemployment_rate", **given)
+
 def wacc(equity_value=None, debt_value=None, cost_of_equity=None, cost_of_debt=None, tax_rate=None):
     """Weighted average cost of capital. WACC = E/V re + D/V rd (1 - t): the after-tax cost of a firm's capital at market-value weights.
     Formula: \\mathrm{WACC} = \\frac{E}{V} r_e + \\frac{D}{V} r_d (1 - t)
@@ -1326,4 +1459,4 @@ def zero_coupon_bond(face=None, ytm=None, years=None, compounding=None):
     return _P.solve("zero_coupon_bond", **given)
 
 
-__all__ = ["CapabilityId", "solve", "help", "annuity_rate", "arc_price_elasticity", "beta_regression", "binomial_option", "black_scholes", "bond_convexity", "bond_duration", "bond_price", "bond_price_change", "bond_ytm", "break_even", "bs_greeks", "cagr", "capm", "cobb_douglas_demand", "compound_interest", "continuous_compounding", "correlation", "cournot", "cross_price_elasticity", "crossover_rate", "discounted_payback", "doubling_time", "durbin_watson", "effective_annual_rate", "endowment_insurance", "equivalent_annual_annuity", "fisher_real_rate", "forward_price", "forward_price_dividends", "forward_rate", "future_value_annuity", "gdp_deflator", "gini_coefficient", "global_min_variance", "gordon_growth", "gordon_implied_return", "growing_annuity", "growing_perpetuity", "herfindahl_index", "historical_var", "implied_volatility", "income_elasticity", "inflation_adjustment", "information_ratio", "irr", "life_annuity_due", "life_expectancy", "loan_balance", "loan_cumulative_interest", "loan_payment", "loan_payment_split", "log_log_elasticity", "market_equilibrium", "max_drawdown", "mean_returns", "min_variance_two_asset", "mirr", "money_multiplier", "monopoly", "multiple_regression", "net_premium_whole_life", "nominal_rate", "npv", "number_of_periods", "ols_simple", "parametric_var", "payback_period", "per_unit_tax", "perpetuity", "point_elasticity", "portfolio_return_risk", "portfolio_var", "present_value", "present_value_annuity", "price_indices", "profitability_index", "put_call_parity", "scenario_return", "sharpe_ratio", "simple_interest", "sinking_fund", "solow_steady_state", "sortino_ratio", "spending_multiplier", "stackelberg", "survival_probability", "tangency_portfolio", "temporary_annuity_due", "term_insurance", "treynor_jensen", "two_asset_portfolio", "two_stage_ddm", "wacc", "whole_life_insurance", "zero_coupon_bond"]
+__all__ = ["CapabilityId", "solve", "help", "annuity_rate", "arc_price_elasticity", "beta_regression", "binomial_option", "black_scholes", "bond_convexity", "bond_duration", "bond_price", "bond_price_change", "bond_ytm", "break_even", "bs_greeks", "cagr", "capm", "cobb_douglas_demand", "comparative_advantage", "competitive_firm_cost_curves", "compound_interest", "continuous_compounding", "correlation", "cournot", "credit_card_finance_charge", "cross_price_elasticity", "crossover_rate", "direct_cost_variances", "discounted_payback", "doubling_time", "durbin_watson", "effective_annual_rate", "endowment_insurance", "equivalent_annual_annuity", "financial_ratios", "fisher_real_rate", "forward_price", "forward_price_dividends", "forward_rate", "future_value_annuity", "gdp_deflator", "gini_coefficient", "global_min_variance", "gordon_growth", "gordon_implied_return", "growing_annuity", "growing_perpetuity", "herfindahl_index", "historical_var", "implied_volatility", "income_elasticity", "income_tax", "inflation_adjustment", "information_ratio", "inventory_costing", "irr", "life_annuity_due", "life_expectancy", "loan_balance", "loan_cumulative_interest", "loan_payment", "loan_payment_split", "log_log_elasticity", "market_equilibrium", "max_drawdown", "mean_returns", "min_variance_two_asset", "mirr", "money_multiplier", "monopoly", "multiple_regression", "net_premium_whole_life", "nominal_rate", "npv", "number_of_periods", "ols_simple", "overhead_cost_variances", "parametric_var", "payback_period", "per_unit_tax", "perpetuity", "point_elasticity", "portfolio_return_risk", "portfolio_var", "present_value", "present_value_annuity", "price_indices", "profitability_index", "put_call_parity", "scenario_return", "sharpe_ratio", "simple_interest", "sinking_fund", "solow_steady_state", "sortino_ratio", "spending_multiplier", "stackelberg", "survival_probability", "tangency_portfolio", "temporary_annuity_due", "term_insurance", "treynor_jensen", "two_asset_portfolio", "two_stage_ddm", "unemployment_rate", "wacc", "whole_life_insurance", "zero_coupon_bond"]

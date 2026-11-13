@@ -18,6 +18,9 @@ result.show()
 
 | topic | capabilities |
 |---|---|
+| Accounting / financial statement analysis | [Financial ratio analysis with the DuPont return on equity](#financial_ratios) |
+| Accounting / merchandising and inventory | [Inventory costing: FIFO, LIFO and weighted average](#inventory_costing) |
+| Accounting / standard costing and variances | [Standard-cost variances: materials price and quantity, labour rate and efficiency](#direct_cost_variances), [Overhead variances: variable spending and efficiency, fixed budget and volume](#overhead_cost_variances) |
 | Actuarial mathematics / life annuities | [Whole life annuity-due](#life_annuity_due), [Temporary life annuity-due](#temporary_annuity_due) |
 | Actuarial mathematics / life insurance | [Whole life insurance (net single premium)](#whole_life_insurance), [Term life insurance (net single premium)](#term_insurance), [Endowment insurance](#endowment_insurance) |
 | Actuarial mathematics / life tables | [Survival and death probabilities from a life table](#survival_probability), [Life expectancy from a life table](#life_expectancy) |
@@ -29,10 +32,13 @@ result.show()
 | Capital budgeting / discounted cash flow | [Net present value](#npv), [Internal rate of return](#irr), [Modified internal rate of return](#mirr), [Profitability index](#profitability_index), [Equivalent annual annuity](#equivalent_annual_annuity) |
 | Capital budgeting / payback | [Payback period](#payback_period), [Discounted payback period](#discounted_payback) |
 | Capital budgeting / project comparison | [NPV crossover rate of two projects](#crossover_rate) |
+| Consumer finance / credit cards | [Credit card finance charge (average daily balance)](#credit_card_finance_charge) |
+| Consumer finance / income tax | [Income tax from progressive brackets](#income_tax) |
 | Econometrics / association | [Correlation and covariance of two series](#correlation) |
 | Econometrics / demand estimation | [Constant elasticity from a log-log regression](#log_log_elasticity) |
 | Econometrics / diagnostics | [Durbin-Watson statistic](#durbin_watson) |
 | Econometrics / regression | [Simple linear regression (OLS)](#ols_simple), [Multiple linear regression (OLS)](#multiple_regression) |
+| International trade / comparative advantage | [Comparative advantage and opportunity cost](#comparative_advantage) |
 | Loans and annuities / amortization | [Loan payment (amortizing loan)](#loan_payment), [Number of payments to repay a loan](#number_of_periods), [Remaining balance of a loan](#loan_balance), [Interest and principal in a loan payment](#loan_payment_split), [Cumulative interest of a loan](#loan_cumulative_interest) |
 | Macroeconomics / aggregate demand | [Keynesian spending multiplier](#spending_multiplier) |
 | Macroeconomics / growth | [Solow model steady state](#solow_steady_state) |
@@ -40,12 +46,14 @@ result.show()
 | Macroeconomics / money and banking | [Money multiplier](#money_multiplier) |
 | Macroeconomics / national accounts | [Nominal GDP, real GDP and the GDP deflator](#gdp_deflator) |
 | Macroeconomics / price indices | [Laspeyres, Paasche and Fisher price indices](#price_indices) |
+| Macroeconomics / unemployment | [Unemployment rate and labour-force participation](#unemployment_rate) |
 | Microeconomics / consumer choice | [Utility-maximising demand (Cobb-Douglas)](#cobb_douglas_demand) |
 | Microeconomics / cost-volume-profit | [Break-even and target-profit volume](#break_even) |
 | Microeconomics / elasticity | [Price elasticity of demand (midpoint)](#arc_price_elasticity), [Income elasticity of demand (midpoint)](#income_elasticity), [Cross-price elasticity of demand (midpoint)](#cross_price_elasticity), [Point elasticity of a linear demand curve](#point_elasticity) |
 | Microeconomics / inequality | [Gini coefficient](#gini_coefficient) |
 | Microeconomics / market structure | [Monopoly profit maximization](#monopoly), [Herfindahl-Hirschman index and concentration ratio](#herfindahl_index) |
 | Microeconomics / oligopoly | [Cournot duopoly equilibrium](#cournot), [Stackelberg duopoly equilibrium](#stackelberg) |
+| Microeconomics / production costs and perfect competition | [Cost curves, best output and shutdown of a competitive firm](#competitive_firm_cost_curves) |
 | Microeconomics / supply and demand | [Market equilibrium and surplus (linear curves)](#market_equilibrium) |
 | Microeconomics / taxation | [Per-unit tax incidence (linear curves)](#per_unit_tax) |
 | Portfolio theory / mean-variance | [Portfolio expected return and risk](#portfolio_return_risk), [Two-asset portfolio return and risk](#two_asset_portfolio), [Minimum-variance portfolio of two assets](#min_variance_two_asset), [Global minimum-variance portfolio](#global_min_variance), [Tangency (maximum Sharpe ratio) portfolio](#tangency_portfolio) |
@@ -203,6 +211,15 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 | herfindahl_index | Herfindahl-Hirschman index and concentration ratio | market_shares | hhi, hhi_fraction, cr4, equivalent_firms |
 | durbin_watson | Durbin-Watson statistic | residuals | durbin_watson |
 | correlation | Correlation and covariance of two series | x, y | correlation, covariance, r_squared |
+| credit_card_finance_charge | Credit card finance charge (average daily balance) | opening_balance, apr, billing_days, rate_basis, transaction_days, transaction_amounts | average_daily_balance, finance_charge, cycle_rate, closing_balance, new_balance |
+| income_tax | Income tax from progressive brackets | taxable_income, bracket_thresholds, bracket_rates | tax, marginal_rate, effective_rate, after_tax_income |
+| financial_ratios | Financial ratio analysis with the DuPont return on equity | sales, net_income, total_assets, total_equity, current_assets, current_liabilities, inventory | current_ratio, quick_ratio, debt_ratio, debt_to_equity, net_profit_margin, asset_turnover, equity_multiplier, roa, roe |
+| inventory_costing | Inventory costing: FIFO, LIFO and weighted average | layer_units, layer_costs, units_sold, selling_price | units_available, cost_of_goods_available, fifo_cogs, fifo_ending_inventory, lifo_cogs, lifo_ending_inventory, average_unit_cost, average_cogs, average_ending_inventory, sales_revenue, fifo_gross_margin, lifo_gross_margin, average_gross_margin |
+| competitive_firm_cost_curves | Cost curves, best output and shutdown of a competitive firm | quantities, total_costs, price | fixed_cost, average_fixed_cost, average_variable_cost, average_total_cost, marginal_cost, best_output, profit, shutdown_price, break_even_price, decision |
+| direct_cost_variances | Standard-cost variances: materials price and quantity, labour rate and efficiency | standard_price, standard_quantity, actual_price, actual_quantity, quantity_purchased | price_variance, quantity_variance, total_variance, price_variance_type, quantity_variance_type, total_variance_type, standard_cost_allowed |
+| overhead_cost_variances | Overhead variances: variable spending and efficiency, fixed budget and volume | variable_overhead_rate, actual_variable_overhead, actual_hours, standard_hours, budgeted_fixed_overhead, actual_fixed_overhead, denominator_hours | variable_spending_variance, variable_efficiency_variance, fixed_budget_variance, fixed_volume_variance, total_overhead_variance, fixed_overhead_rate, applied_overhead, variable_spending_type, variable_efficiency_type, fixed_budget_type, fixed_volume_type, total_type |
+| unemployment_rate | Unemployment rate and labour-force participation | employed, unemployed, working_age_population | labour_force, unemployment_rate, participation_rate, employment_population_ratio, not_in_labour_force |
+| comparative_advantage | Comparative advantage and opportunity cost | a_good_x, a_good_y, b_good_x, b_good_y, basis | opportunity_cost_x_a, opportunity_cost_y_a, opportunity_cost_x_b, opportunity_cost_y_b, comparative_advantage_x, comparative_advantage_y, absolute_advantage_x, absolute_advantage_y, terms_low, terms_high |
 
 <a id="simple_interest"></a>
 
@@ -625,7 +642,7 @@ $$
 | `total_interest` | total paid - principal |
 
 - **Method:** PMT = P $i / (1 - (1 + i)^{-n})$, i = annual rate / m, n = years x m
-- **Assumes:** principal > 0; 0 <= annual_rate < 1; years x payments_per_year a whole number
+- **Assumes:** principal > 0; 0 <= annual_rate < 1; years x payments_per_year a whole number, years at most 1000
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
 ![A loan of 200000 at 6 % repaid over 10 to 30 years: the payment and the total interest returned by the package for each term (stacked on the principal)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-bars)
@@ -1583,7 +1600,7 @@ $$
 | `coupon` | coupon per period |
 
 - **Method:** $P = C$ $(1 - (1 + y/m)^{-N})/(y/m) + F$ $(1 + y/m)^{-N}$, $C = F$ c / m, N = years x m
-- **Assumes:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number
+- **Assumes:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number, years at most 1000
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
 ![The cash flows of a 10-year bond with face 1000 and a 5 % coupon paid 2 time(s) a year, bought at the price the package returns for a yield of 6 %: 925](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-price-timeline)
@@ -1637,7 +1654,7 @@ $$
 | `current_yield` | annual coupon / price |
 
 - **Method:** bisection on P(y) = price (P falls as y rises, so the yield is unique)
-- **Assumes:** price > 0; face > 0; 0 <= coupon_rate < 1; years x frequency a whole number; a yield between -50% and 100% per period
+- **Assumes:** price > 0; face > 0; 0 <= coupon_rate < 1; years x frequency a whole number, years at most 1000; a yield between -50% and 100% per period
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
 ![The price of a 5-year bond (face 1000, coupon 6 %) at 41 yields, each a run of the package's bond price; the yield to maturity is where that curve meets the stated market price 1000](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-ytm-curve)
@@ -1687,7 +1704,7 @@ $$
 | `price` | bond price |
 
 - **Method:** D_mac = sum (k/m) PV_k / P; D_mod = D_mac / (1 + y/m)
-- **Assumes:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number
+- **Assumes:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number, years at most 1000
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
 ![Each payment of a 10-year bond (coupon 25 per period, face 1000) at its present value at the yield 6 % (runs of the package's present value; they sum to the returned price 925](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-duration-stems)
@@ -1739,7 +1756,7 @@ $$
 | `price` | bond price |
 
 - **Method:** C = sum CF_k k $(k + 1)$ $(1 + y/m)$^-(k+2) / (m^2 P)
-- **Assumes:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number
+- **Assumes:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number, years at most 1000
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
 ![Convexity of bonds yielding 6 % against maturity, for coupons 0, 5 % and 10 % (30 runs of the package each): longer and lower-coupon bonds curve more](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-convexity-curve)
@@ -4797,3 +4814,567 @@ economics_finance_ai999x.solve('correlation', x=[1, 2, 3], y=[6, 4, 2])
 |---|---|---|
 | Find the correlation with x = [1, 2, 3, 4, 5], y = [2, 4, 5, 4, 5]. | SOLVED | correlation = 0.774597, covariance = 1.5, r_squared = 0.6 |
 | Find the correlation with x = [1, 1, 1], y = [6, 4, 2]. | INVALID_INPUT | Correlation and covariance of two series: neither variable may be constant. |
+
+<a id="credit_card_finance_charge"></a>
+
+### Credit card finance charge (average daily balance), `credit_card_finance_charge`
+
+Average daily balance of a credit card billing cycle and the finance charge on it, from the opening balance and the dated purchases and payments of the cycle.
+
+$$
+\overline{B} = \frac{1}{D}\sum_{d=1}^{D} B_d,\qquad FC = \overline{B}\cdot\frac{\mathrm{APR}\,D}{365}\ \text{or}\ \overline{B}\cdot\frac{\mathrm{APR}}{12}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `opening_balance` | balance owed at the start of the cycle (previous balance) |  |
+| `apr` | annual percentage rate of the card (decimal; 18% = 0.18) |  |
+| `billing_days` | number of days in the billing cycle |  |
+| `rate_basis` | 'daily' (APR/365 for each day of the cycle) or 'monthly' (APR/12) |  |
+| `transaction_days` | day of the cycle (1 = first day) of each purchase or payment |  |
+| `transaction_amounts` | amount of each transaction: purchases positive, payments negative |  |
+
+| output | meaning |
+|---|---|
+| `average_daily_balance` | mean of the end-of-day balances over the cycle |
+| `finance_charge` | interest charged for the cycle: ADB x cycle rate |
+| `cycle_rate` | rate applied for the cycle (APR x days / 365, or APR / 12) |
+| `closing_balance` | balance at the end of the cycle before the finance charge |
+| `new_balance` | closing balance plus the finance charge |
+
+- **Method:** ADB = (D B0 + sum a_k $(D - d_k + 1)$) / D; finance charge = ADB x APR x $D / 365$ (daily) or ADB x APR / 12 (monthly)
+- **Assumes:** opening_balance >= 0; 0 <= apr < 1; billing_days a whole number 1..366; rate_basis daily or monthly; transaction days whole numbers 1..billing_days, one per amount; the balance never becomes negative
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![finance_charge (interest charged for the cycle: ADB x cycle rate) against opening_balance (balance owed at the start of the cycle (previous balance)) from 750 to 2250](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/credit-card-finance-charge-curve)
+
+*finance_charge (interest charged for the cycle: ADB x cycle rate) against opening_balance (balance owed at the start of the cycle (previous balance)) from 750 to 2250. One curve for each value of apr (annual percentage rate of the card (decimal; 18% = 0.18)): 0.18, 0.26, 0.74. Other inputs as in the worked example: billing_days = 30, rate_basis = daily, transaction_days = 11, 21, transaction_amounts = -500, 200. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, opening_balance = 1500, finance_charge = 18.2466.*
+
+```python
+economics_finance_ai999x.solve('credit_card_finance_charge', opening_balance=1500, apr=0.18, billing_days=30, rate_basis='daily', transaction_days='11, 21', transaction_amounts='-500, 200')
+# -> average_daily_balance = 1233.33, finance_charge = 18.2466, cycle_rate = 0.0147945, closing_balance = 1200, new_balance = 1218.25   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('credit_card_finance_charge', opening_balance=800, apr=0.21, billing_days=31, rate_basis='monthly', transaction_days=[16], transaction_amounts=[-300])
+# -> average_daily_balance = 645.161, finance_charge = 11.2903, cycle_rate = 0.0175, closing_balance = 500, new_balance = 511.29   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('credit_card_finance_charge', opening_balance=0, apr=0.24, billing_days=30, rate_basis='monthly', transaction_days=[1, 16], transaction_amounts=[300, 600])
+# -> average_daily_balance = 600, finance_charge = 12, cycle_rate = 0.02, closing_balance = 900, new_balance = 912   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the finance charge by the average daily balance method with opening balance = 1500, apr = 18%, billing days = 30, rate basis = daily, transaction days = [11, 21], transaction amounts = [-500, 200]. | SOLVED | average_daily_balance = 1233.33, finance_charge = 18.2466, cycle_rate = 0.0147945, closing_balance = 1200, new_balance = 1218.25 |
+| What is the credit card finance charge with previous balance = 800, annual percentage rate = 21%, days in the billing cycle = 31, basis = monthly, transaction days = [16], transaction amounts = [-300]? | SOLVED | average_daily_balance = 645.161, finance_charge = 11.2903, cycle_rate = 0.0175, closing_balance = 500, new_balance = 511.29 |
+| Find the average daily balance with opening balance = 800, apr = 21%, billing days = 31, rate basis = monthly. | SOLVED | average_daily_balance = 800, finance_charge = 14, cycle_rate = 0.0175, closing_balance = 800, new_balance = 814 |
+| Find the finance charge by the average daily balance method with opening balance = 1500, apr = 18%, billing days = 30, transaction days = [11], transaction amounts = [-500]. | NEEDS_INPUT | credit_card_finance_charge needs rate_basis ('daily' (APR/365 for each day of the cycle) or 'monthly' (APR/12)). Example |
+| Find the finance charge by the average daily balance method with opening balance = 1500, apr = 18%, billing days = 30, rate basis = daily, transaction days = [40], transaction amounts = [-500]. | INVALID_INPUT | Credit card finance charge (average daily balance): each transaction day must be a whole day of the cycle, from 1 to the |
+| Find the finance charge by the average daily balance method with opening balance = 100, apr = 18%, billing days = 30, rate basis = daily, transaction days = [5], transaction amounts = [-500]. | INVALID_INPUT | Credit card finance charge (average daily balance): the balance becomes negative (a credit balance): the average daily b |
+
+<a id="income_tax"></a>
+
+### Income tax from progressive brackets: `income_tax`
+
+Tax owed on a taxable income under a progressive bracket table, with the marginal and the effective (average) tax rate.
+
+$$
+T(x) = \sum_{k} r_k\,\big(\min(x, t_{k+1}) - t_k\big)^{+},\qquad \text{effective rate} = \frac{T(x)}{x}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `taxable_income` | taxable income (after deductions) |  |
+| `bracket_thresholds` | lower bound of each bracket, starting at 0, increasing |  |
+| `bracket_rates` | tax rate of each bracket (decimals or percentages) |  |
+
+| output | meaning |
+|---|---|
+| `tax` | tax owed: each bracket's rate on the income inside it |
+| `marginal_rate` | rate on the next unit of income |
+| `effective_rate` | tax / taxable income |
+| `after_tax_income` | taxable income minus the tax |
+
+- **Method:** tax = sum_k r_k (min(x, t_{$k+1$}) - t_k)^+; marginal = r_j with $t_j  \leq  x < t_${$j+1$}; effective = tax / x
+- **Assumes:** taxable_income > 0; first threshold 0, thresholds strictly increasing; one rate per threshold, 0 <= rate < 1
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The data bracket_thresholds (lower bound of each bracket, starting at 0, increasing) against bracket_rates (tax rate of each bracket (decimals or percentages)) as given in the worked example (3 points)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-tax-xy)
+
+*The data bracket_thresholds (lower bound of each bracket, starting at 0, increasing) against bracket_rates (tax rate of each bracket (decimals or percentages)) as given in the worked example (3 points). Also returned: tax = 10000, marginal_rate = 0.3, effective_rate = 0.2, after_tax_income = 40000. Other inputs: taxable_income = 50000.*
+
+![tax (tax owed: each bracket's rate on the income inside it) against taxable_income (taxable income (after deductions)) from 25000 to 75000](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-tax-curve)
+
+*tax (tax owed: each bracket's rate on the income inside it) against taxable_income (taxable income (after deductions)) from 25000 to 75000. Other inputs as in the worked example: bracket_thresholds = 0, 10000, 40000, bracket_rates = 0.1, 0.2, 0.3. 31 points computed by economics-finance-ai999x; marked: the worked example, taxable_income = 50000, tax = 10000.*
+
+```python
+economics_finance_ai999x.solve('income_tax', taxable_income=50000, bracket_thresholds='0, 10000, 40000', bracket_rates='0.1, 0.2, 0.3')
+# -> tax = 10000, marginal_rate = 0.3, effective_rate = 0.2, after_tax_income = 40000   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('income_tax', taxable_income=60000, bracket_thresholds=[0, 11600, 47150, 100525], bracket_rates=[0.1, 0.12, 0.22, 0.24])
+# -> tax = 8253, marginal_rate = 0.22, effective_rate = 0.13755, after_tax_income = 51747   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('income_tax', taxable_income=40000, bracket_thresholds=[0, 10000, 40000], bracket_rates=[0.1, 0.2, 0.3])
+# -> tax = 7000, marginal_rate = 0.3, effective_rate = 0.175, after_tax_income = 33000   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the income tax with taxable income = 50000, bracket thresholds = [0, 10000, 40000], bracket rates = [10%, 20%, 30%]. | SOLVED | tax = 10000, marginal_rate = 0.3, effective_rate = 0.2, after_tax_income = 40000 |
+| What is the tax owed with taxable income = 60000, thresholds = [0, 11600, 47150, 100525], rates = [10%, 12%, 22%, 24%]? | SOLVED | tax = 8253, marginal_rate = 0.22, effective_rate = 0.13755, after_tax_income = 51747 |
+| Find the income tax with taxable income = 50000, bracket thresholds = [0, 10000, 40000], bracket rates = [10, 20, 30]. | INVALID_INPUT | Income tax from progressive brackets: each bracket rate is a decimal from 0 to below 1 (write 22% or 0.22). |
+| Find the income tax with taxable income = 50000, bracket thresholds = [5000, 10000, 40000], bracket rates = [10%, 20%, 30%]. | INVALID_INPUT | Income tax from progressive brackets: the first bracket must start at 0. |
+| Find the income tax with taxable income = 50000, bracket rates = [10%, 20%, 30%]. | NEEDS_INPUT | income_tax needs bracket_thresholds (lower bound of each bracket, starting at 0, increasing). Example: solve('income_tax |
+
+<a id="financial_ratios"></a>
+
+### Financial ratio analysis with the DuPont return on equity, `financial_ratios`
+
+Liquidity (current, quick), solvency (debt ratio, debt to equity), efficiency (asset turnover) and profitability (net margin, ROA, ROE) ratios from balance-sheet and income-statement items, with ROE broken into its DuPont factors: margin x asset turnover x equity multiplier.
+
+$$
+\mathrm{ROE} = \frac{NI}{E} = \frac{NI}{S}\cdot\frac{S}{TA}\cdot\frac{TA}{E},\qquad\text{current} = \frac{CA}{CL},\quad \text{quick} = \frac{CA - \mathrm{Inv}}{CL}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `sales` | net sales (revenue) of the period |  |
+| `net_income` | net income (negative for a loss) |  |
+| `total_assets` | total assets |  |
+| `total_equity` | total shareholders' equity (positive, at most total assets) |  |
+| `current_assets` | current assets |  |
+| `current_liabilities` | current liabilities (positive) |  |
+| `inventory` | inventory (part of current assets) |  |
+
+| output | meaning |
+|---|---|
+| `current_ratio` | current assets / current liabilities |
+| `quick_ratio` | (current assets - inventory) / current liabilities |
+| `debt_ratio` | total liabilities / total assets |
+| `debt_to_equity` | total liabilities / total equity |
+| `net_profit_margin` | net income / sales (DuPont factor 1) |
+| `asset_turnover` | sales / total assets (DuPont factor 2) |
+| `equity_multiplier` | total assets / total equity (DuPont factor 3) |
+| `roa` | return on assets: net income / total assets |
+| `roe` | return on equity: net income / equity = margin x turnover x multiplier |
+
+- **Method:** ratios of the stated items; liabilities = assets - equity; ROE = (NI/S)(S/TA)(TA/E)
+- **Assumes:** sales, total assets, equity, current liabilities > 0; equity <= total assets; inventory <= current assets <= total assets; current liabilities <= total assets - equity
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![roe (return on equity: net income / equity = margin x turnover x multiplier) against total_equity (total shareholders' equity (positive, at most total assets)) from 80000 to 240000](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/financial-ratios-curve)
+
+*roe (return on equity: net income / equity = margin x turnover x multiplier) against total_equity (total shareholders' equity (positive, at most total assets)) from 80000 to 240000. One curve for each value of net_income (net income (negative for a loss)): 40000, 20000, 80000. Other inputs as in the worked example: sales = 500000, total_assets = 400000, current_assets = 150000, current_liabilities = 100000, inventory = 60000. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, total_equity = 160000, roe = 0.25.*
+
+```python
+economics_finance_ai999x.solve('financial_ratios', sales=500000, net_income=40000, total_assets=400000, total_equity=160000, current_assets=150000, current_liabilities=100000, inventory=60000)
+# -> current_ratio = 1.5, quick_ratio = 0.9, debt_ratio = 0.6, debt_to_equity = 1.5, net_profit_margin = 0.08, asset_turnover = 1.25, equity_multiplier = 2.5, roa = 0.1, roe = 0.25   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('financial_ratios', sales=2000000, net_income=150000, total_assets=1500000, total_equity=750000, current_assets=500000, current_liabilities=250000, inventory=200000)
+# -> current_ratio = 2, quick_ratio = 1.2, debt_ratio = 0.5, debt_to_equity = 1, net_profit_margin = 0.075, asset_turnover = 1.33333, equity_multiplier = 2, roa = 0.1, roe = 0.2   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('financial_ratios', sales=800000, net_income=-20000, total_assets=500000, total_equity=250000, current_assets=200000, current_liabilities=160000, inventory=80000)
+# -> current_ratio = 1.25, quick_ratio = 0.75, debt_ratio = 0.5, debt_to_equity = 1, net_profit_margin = -0.025, asset_turnover = 1.6, equity_multiplier = 2, roa = -0.04, roe = -0.08   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the financial ratios with sales = 500000, net income = 40000, total assets = 400000, total equity = 160000, current assets = 150000, current liabilities = 100000, inventory = 60000. | SOLVED | current_ratio = 1.5, quick_ratio = 0.9, debt_ratio = 0.6, debt_to_equity = 1.5, net_profit_margin = 0.08, asset_turnover = 1.25, equity_multiplier = 2.5, roa = 0.1, roe = 0.25 |
+| What is the DuPont return on equity with revenue = 2000000, net income = 150000, total assets = 1500000, equity = 750000, current assets = 500000, current liabilities = 250000, inventory = 200000? | SOLVED | current_ratio = 2, quick_ratio = 1.2, debt_ratio = 0.5, debt_to_equity = 1, net_profit_margin = 0.075, asset_turnover = 1.33333, equity_multiplier = 2, roa = 0.1, roe = 0.2 |
+| Find the financial ratios with sales = 500000, net income = 40000, total assets = 400000, total equity = 500000, current assets = 150000, current liabilities = 100000, inventory = 60000. | INVALID_INPUT | Financial ratio analysis with the DuPont return on equity: total equity cannot exceed total assets (the liabilities woul |
+| Find the financial ratios with sales = 500000, net income = 40000, total assets = 400000, total equity = 160000, current assets = 150000, current liabilities = 100000, inventory = 200000. | INVALID_INPUT | Financial ratio analysis with the DuPont return on equity: inventory is part of current assets and cannot exceed them. |
+| Find the financial ratios with sales = 500000, net income = 40000, total assets = 400000, total equity = 160000, current assets = 150000, current liabilities = 100000. | NEEDS_INPUT | financial_ratios needs inventory (inventory (part of current assets)). Example: solve('financial_ratios', sales=500000,  |
+
+<a id="inventory_costing"></a>
+
+### Inventory costing: FIFO, LIFO and weighted average, `inventory_costing`
+
+Cost of goods sold and ending inventory under FIFO, LIFO and the weighted average cost (periodic system) from the cost layers of the period and the units sold, with the gross margin when a selling price is given.
+
+$$
+\bar c = \frac{\sum_k u_k c_k}{\sum_k u_k},\qquad \mathrm{COGS} + \mathrm{EI} = \sum_k u_k c_k
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `layer_units` | units in each cost layer, in order of acquisition (beginning inventory first) |  |
+| `layer_costs` | unit cost of each layer, in the same order |  |
+| `units_sold` | units sold in the period |  |
+| `selling_price` | selling price per unit (optional: gives sales revenue and gross margins) |  |
+
+| output | meaning |
+|---|---|
+| `units_available` | units available for sale |
+| `cost_of_goods_available` | cost of goods available for sale |
+| `fifo_cogs` | cost of goods sold, FIFO (oldest layers sold first) |
+| `fifo_ending_inventory` | ending inventory, FIFO (newest layers left) |
+| `lifo_cogs` | cost of goods sold, LIFO (newest layers sold first) |
+| `lifo_ending_inventory` | ending inventory, LIFO (oldest layers left) |
+| `average_unit_cost` | weighted average unit cost: goods available / units available |
+| `average_cogs` | cost of goods sold at the weighted average cost |
+| `average_ending_inventory` | ending inventory at the weighted average cost |
+| `sales_revenue` | selling price x units sold (with a selling price) |
+| `fifo_gross_margin` | sales revenue - FIFO cost of goods sold |
+| `lifo_gross_margin` | sales revenue - LIFO cost of goods sold |
+| `average_gross_margin` | sales revenue - weighted average cost of goods sold |
+
+- **Method:** periodic system: FIFO takes the units sold from the first layers, LIFO from the last; weighted average cost = sum(units x cost) / sum(units); ending inventory = the units left at their costs
+- **Assumes:** one unit cost per layer; units of each layer > 0; unit costs >= 0; 0 <= units sold <= units available; selling price >= 0
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![fifo_cogs (cost of goods sold, FIFO (oldest layers sold first)) against units_sold (units sold in the period) from 150 to 450](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/inventory-costing-curve)
+
+*fifo_cogs (cost of goods sold, FIFO (oldest layers sold first)) against units_sold (units sold in the period) from 150 to 450. Other inputs as in the worked example: layer_units = [100, 200, 150], layer_costs = [10, 12, 14], selling_price = 20. 31 points computed by economics-finance-ai999x; marked: the worked example, units_sold = 300, fifo_cogs = 3400.*
+
+```python
+economics_finance_ai999x.solve('inventory_costing', layer_units=[100, 200, 150], layer_costs=[10, 12, 14], units_sold=300, selling_price=20)
+# -> units_available = 450, cost_of_goods_available = 5500, fifo_cogs = 3400, fifo_ending_inventory = 2100, lifo_cogs = 3900, lifo_ending_inventory = 1600, average_unit_cost = 12.2222, average_cogs = 3666.67, average_ending_inventory = 1833.33, sales_revenue = 6000, fifo_gross_margin = 2600, lifo_gross_margin = 2100, average_gross_margin = 2333.33   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('inventory_costing', layer_units='50, 50', layer_costs='4, 6', units_sold=50)
+# -> units_available = 100, cost_of_goods_available = 500, fifo_cogs = 200, fifo_ending_inventory = 300, lifo_cogs = 300, lifo_ending_inventory = 200, average_unit_cost = 5, average_cogs = 250, average_ending_inventory = 250   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the cost of goods sold by FIFO, LIFO and weighted average with layer units = [100, 200, 150], layer costs = [10, 12, 14], units sold = 300, selling price = 20. | SOLVED | units_available = 450, cost_of_goods_available = 5500, fifo_cogs = 3400, fifo_ending_inventory = 2100, lifo_cogs = 3900, lifo_ending_inventory = 1600, average_unit_cost = 12.2222, average_cogs = 3666.67, average_ending_inventory = 1833.33, sales_revenue = 6000, fifo_gross_margin = 2600, lifo_gross_margin = 2100, average_gross_margin = 2333.33 |
+| What is the ending inventory with layer units = [50, 50], layer costs = [4, 6], units sold = 50? | SOLVED | units_available = 100, cost_of_goods_available = 500, fifo_cogs = 200, fifo_ending_inventory = 300, lifo_cogs = 300, lifo_ending_inventory = 200, average_unit_cost = 5, average_cogs = 250, average_ending_inventory = 250 |
+| Find the cost of goods sold by FIFO, LIFO and weighted average with layer units = [100, 200, 150], layer costs = [10, 12, 14], units sold = 500. | INVALID_INPUT | Inventory costing: FIFO, LIFO and weighted average: more units were sold than were available for sale. |
+| Find the cost of goods sold by FIFO, LIFO and weighted average with layer units = [100, 200], layer costs = [10, 12, 14], units sold = 50. | INVALID_INPUT | Inventory costing: FIFO, LIFO and weighted average: give one unit cost for every layer. |
+| Find the cost of goods sold by FIFO, LIFO and weighted average with layer units = [100, 200, 150], layer costs = [10, 12, 14]. | NEEDS_INPUT | inventory_costing needs units_sold (units sold in the period). Example: solve('inventory_costing', layer_units=[100, 200 |
+
+<a id="competitive_firm_cost_curves"></a>
+
+### Cost curves, best output and shutdown of a competitive firm, `competitive_firm_cost_curves`
+
+Fixed, average fixed, average variable, average total and marginal cost from a total cost table, and the price-taking firm's profit-maximising output, its profit, the shutdown price (minimum AVC) and the break-even price (minimum ATC).
+
+$$
+\mathrm{AVC} = \frac{TC - FC}{Q},\quad \mathrm{MC} = \frac{\Delta TC}{\Delta Q},\quad Q^{*} = \arg\max_{Q}\,(PQ - TC(Q))
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `quantities` | output levels of the table, starting at 0 and increasing |  |
+| `total_costs` | total cost at each output level (the first is the fixed cost) |  |
+| `price` | market price the firm takes as given |  |
+
+| output | meaning |
+|---|---|
+| `fixed_cost` | total cost at output 0 |
+| `average_fixed_cost` | AFC = FC / Q for each output > 0 |
+| `average_variable_cost` | AVC = (TC - FC) / Q for each output > 0 |
+| `average_total_cost` | ATC = TC / Q for each output > 0 |
+| `marginal_cost` | MC = change in TC / change in Q for each step of the table |
+| `best_output` | profit-maximising output in the table (0 = shut down) |
+| `profit` | profit P Q - TC at the best output (negative = loss) |
+| `shutdown_price` | minimum AVC: below it the firm produces nothing |
+| `break_even_price` | minimum ATC: the price at which the best profit is zero |
+| `decision` | produce or shut down |
+
+- **Method:** AFC = FC/Q, AVC = (TC - FC)/Q, ATC = TC/Q, MC = dTC/dQ; best output = the row maximising P Q - TC (ties: larger output); shutdown price = min AVC, break-even price = min ATC
+- **Assumes:** at least 3 rows, one total cost per output; first output 0, outputs increasing; total costs non-negative and non-decreasing; price > 0
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![produce or shut down (decision) along price (market price the firm takes as given) from 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/competitive-firm-cost-curves-decision)
+
+*produce or shut down (decision) along price (market price the firm takes as given) from 1.6 to 160 (logarithmic axis): 81 runs of economics-finance-ai999x, each band coloured by the verdict returned (produce, shut down); it changes near price = 6.94416; the line is best_output (profit-maximising output in the table (0 = shut down)). Other inputs as in the worked example: quantities = [0, 1, 2, 3, 4, 5, 6], total_costs = [10, 18, 24, 32, 44, 60, 80]. Marked: the worked example, price = 16 → produce.*
+
+![AFC = FC / Q for each output > 0 (average_fixed_cost) returned by economics-finance-ai999x for the worked example, one value for each position in the list (6 values, first 10, last 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/competitive-firm-cost-curves-series)
+
+*AFC = FC / Q for each output > 0 (average_fixed_cost) returned by economics-finance-ai999x for the worked example, one value for each position in the list (6 values, first 10, last 1.66667, largest 10); with average_variable_cost (AVC = (TC - FC) / Q for each output > 0), average_total_cost (ATC = TC / Q for each output > 0). Inputs: quantities = [0, 1, 2, 3, 4, 5, 6], total_costs = [10, 18, 24, 32, 44, 60, 80], price = 16.*
+
+```python
+economics_finance_ai999x.solve('competitive_firm_cost_curves', quantities=[0, 1, 2, 3, 4, 5, 6], total_costs=[10, 18, 24, 32, 44, 60, 80], price=16)
+# -> fixed_cost = 10, average_fixed_cost = [10.0, 5.0, 3.3333333333333335, 2.5, 2.0, 1.6666666666666667], average_variable_cost = [8.0, 7.0, 7.333333333333333, 8.5, 10.0, 11.666666666666666], average_total_cost = [18.0, 12.0, 10.666666666666666, 11.0, 12.0, 13.333333333333334], marginal_cost = [8.0, 6.0, 8.0, 12.0, 16.0, 20.0], best_output = 5, profit = 20, shutdown_price = 7, break_even_price = 10.6667, decision = produce   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('competitive_firm_cost_curves', quantities=[0, 1, 2, 3, 4, 5, 6], total_costs=[10, 18, 24, 32, 44, 60, 80], price=6)
+# -> fixed_cost = 10, average_fixed_cost = [10.0, 5.0, 3.3333333333333335, 2.5, 2.0, 1.6666666666666667], average_variable_cost = [8.0, 7.0, 7.333333333333333, 8.5, 10.0, 11.666666666666666], average_total_cost = [18.0, 12.0, 10.666666666666666, 11.0, 12.0, 13.333333333333334], marginal_cost = [8.0, 6.0, 8.0, 12.0, 16.0, 20.0], best_output = 0, profit = -10, shutdown_price = 7, break_even_price = 10.6667, decision = shut down   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('competitive_firm_cost_curves', quantities='0, 1, 2, 3, 4, 5, 6', total_costs='10, 18, 24, 32, 44, 60, 80', price=9)
+# -> fixed_cost = 10, average_fixed_cost = [10.0, 5.0, 3.3333333333333335, 2.5, 2.0, 1.6666666666666667], average_variable_cost = [8.0, 7.0, 7.333333333333333, 8.5, 10.0, 11.666666666666666], average_total_cost = [18.0, 12.0, 10.666666666666666, 11.0, 12.0, 13.333333333333334], marginal_cost = [8.0, 6.0, 8.0, 12.0, 16.0, 20.0], best_output = 3, profit = -5, shutdown_price = 7, break_even_price = 10.6667, decision = produce   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the cost curves and shutdown point of a competitive firm with quantities = [0, 1, 2, 3, 4, 5, 6], total costs = [10, 18, 24, 32, 44, 60, 80], price = 16. | SOLVED | fixed_cost = 10, average_fixed_cost = [10.0, 5.0, 3.3333333333333335, 2.5, 2.0, 1.6666666666666667], average_variable_cost = [8.0, 7.0, 7.333333333333333, 8.5, 10.0, 11.666666666666666], average_total_cost = [18.0, 12.0, 10.666666666666666, 11.0, 12.0, 13.333333333333334], marginal_cost = [8.0, 6.0, 8.0, 12.0, 16.0, 20.0], best_output = 5, profit = 20, shutdown_price = 7, break_even_price = 10.6667, decision = produce |
+| Should a price taker shut down with quantities = [0, 1, 2, 3, 4, 5, 6], total costs = [10, 18, 24, 32, 44, 60, 80], price = 6? | SOLVED | fixed_cost = 10, average_fixed_cost = [10.0, 5.0, 3.3333333333333335, 2.5, 2.0, 1.6666666666666667], average_variable_cost = [8.0, 7.0, 7.333333333333333, 8.5, 10.0, 11.666666666666666], average_total_cost = [18.0, 12.0, 10.666666666666666, 11.0, 12.0, 13.333333333333334], marginal_cost = [8.0, 6.0, 8.0, 12.0, 16.0, 20.0], best_output = 0, profit = -10, shutdown_price = 7, break_even_price = 10.6667, decision = shut down |
+| Find the cost curves and shutdown point of a competitive firm with quantities = [0, 1, 2, 3, 4, 5, 6], total costs = [10, 18, 24, 32, 44, 60, 80], price = 9. | SOLVED | fixed_cost = 10, average_fixed_cost = [10.0, 5.0, 3.3333333333333335, 2.5, 2.0, 1.6666666666666667], average_variable_cost = [8.0, 7.0, 7.333333333333333, 8.5, 10.0, 11.666666666666666], average_total_cost = [18.0, 12.0, 10.666666666666666, 11.0, 12.0, 13.333333333333334], marginal_cost = [8.0, 6.0, 8.0, 12.0, 16.0, 20.0], best_output = 3, profit = -5, shutdown_price = 7, break_even_price = 10.6667, decision = produce |
+| Find the cost curves and shutdown point of a competitive firm with quantities = [1, 2, 3], total costs = [10, 18, 24], price = 16. | INVALID_INPUT | Cost curves, best output and shutdown of a competitive firm: the table starts at output 0 (its total cost is the fixed c |
+| Find the cost curves and shutdown point of a competitive firm with quantities = [0, 1, 2, 3], total costs = [10, 18, 15, 24], price = 16. | INVALID_INPUT | Cost curves, best output and shutdown of a competitive firm: total cost must not fall as output rises. |
+| Find the cost curves and shutdown point of a competitive firm with quantities = [0, 1, 2, 3], total costs = [10, 18, 24, 32]. | NEEDS_INPUT | competitive_firm_cost_curves needs price (market price the firm takes as given). Example: solve('competitive_firm_cost_c |
+
+<a id="direct_cost_variances"></a>
+
+### Standard-cost variances: materials price and quantity, labour rate and efficiency, `direct_cost_variances`
+
+Price (labour: rate) and quantity (labour: efficiency) variances of direct materials or direct labour from standard and actual prices and quantities, each marked favourable or unfavourable.
+
+$$
+PV = Q_P\,(AP - SP),\qquad QV = SP\,(AQ - SQ)
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `standard_price` | standard price per unit of input (labour: standard wage rate per hour) |  |
+| `standard_quantity` | standard quantity allowed for the actual output (labour: standard hours allowed) |  |
+| `actual_price` | actual price paid per unit of input (labour: actual wage rate) |  |
+| `actual_quantity` | actual quantity used (labour: actual hours worked) |  |
+| `quantity_purchased` | quantity purchased (materials; default: the quantity used) |  |
+
+| output | meaning |
+|---|---|
+| `price_variance` | price (rate) variance QP (AP - SP); positive = unfavourable |
+| `quantity_variance` | quantity (efficiency) variance SP (AQ - SQ); positive = unfavourable |
+| `total_variance` | price variance + quantity variance |
+| `price_variance_type` | favourable, unfavourable or none |
+| `quantity_variance_type` | favourable, unfavourable or none |
+| `total_variance_type` | favourable, unfavourable or none |
+| `standard_cost_allowed` | standard cost of the actual output SQ x SP |
+
+- **Method:** $PV = QP$ (AP - SP), $QV = SP$ (AQ - SQ), total = PV + QV; positive = unfavourable
+- **Assumes:** standard price and standard quantity > 0; actual price, actual quantity and quantity purchased >= 0
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![favourable, unfavourable or none (price_variance_type) over standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/direct-cost-variances-decision)
+
+*favourable, unfavourable or none (price_variance_type) over standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 0.4 to 40 and actual_price (actual price paid per unit of input (labour: actual wage rate)) from 0.42 to 42 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, favourable: 320 cells, unfavourable: 331 cells. Other inputs as in the worked example: standard_quantity = 2000, actual_quantity = 2100. Marked: the worked example, standard_price = 4, actual_price = 4.2 → unfavourable.*
+
+![total_variance (price variance + quantity variance) against standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 2 to 6](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/direct-cost-variances-curve)
+
+*total_variance (price variance + quantity variance) against standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 2 to 6. One curve for each value of actual_price (actual price paid per unit of input (labour: actual wage rate)): 4.2, 2.1, 8.4. Other inputs as in the worked example: standard_quantity = 2000, actual_quantity = 2100. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, standard_price = 4, total_variance = 820.*
+
+```python
+economics_finance_ai999x.solve('direct_cost_variances', standard_price=4, standard_quantity=2000, actual_price=4.2, actual_quantity=2100)
+# -> price_variance = 420, quantity_variance = 400, total_variance = 820, price_variance_type = unfavourable, quantity_variance_type = unfavourable, total_variance_type = unfavourable, standard_cost_allowed = 8000   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('direct_cost_variances', standard_price=20, standard_quantity=500, actual_price=21, actual_quantity=480)
+# -> price_variance = 480, quantity_variance = -400, total_variance = 80, price_variance_type = unfavourable, quantity_variance_type = favourable, total_variance_type = unfavourable, standard_cost_allowed = 10000   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('direct_cost_variances', standard_price=10, standard_quantity=900, actual_price=9.5, actual_quantity=950, quantity_purchased=1000)
+# -> price_variance = -500, quantity_variance = 500, total_variance = 0, price_variance_type = favourable, quantity_variance_type = unfavourable, total_variance_type = none, standard_cost_allowed = 9000   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the materials price and quantity variances with standard price = 4, standard quantity = 2000, actual price = 4.2, actual quantity = 2100. | SOLVED | price_variance = 420, quantity_variance = 400, total_variance = 820, price_variance_type = unfavourable, quantity_variance_type = unfavourable, total_variance_type = unfavourable, standard_cost_allowed = 8000 |
+| Find the labour rate and efficiency variances with standard rate = 20, standard hours = 500, actual rate = 21, actual hours = 480. | SOLVED | price_variance = 480, quantity_variance = -400, total_variance = 80, price_variance_type = unfavourable, quantity_variance_type = favourable, total_variance_type = unfavourable, standard_cost_allowed = 10000 |
+| Find the materials price and quantity variances with standard price = 10, standard quantity = 900, actual price = 9.5, actual quantity = 950, quantity purchased = 1000. | SOLVED | price_variance = -500, quantity_variance = 500, total_variance = 0, price_variance_type = favourable, quantity_variance_type = unfavourable, total_variance_type = none, standard_cost_allowed = 9000 |
+| Find the materials price and quantity variances with standard price = 4, standard quantity = 0, actual price = 4.2, actual quantity = 2100. | INVALID_INPUT | Standard-cost variances: materials price and quantity, labour rate and efficiency: standard_quantity must be positive. |
+| Find the materials price and quantity variances with standard price = 4, standard quantity = 2000, actual price = 4.2. | NEEDS_INPUT | direct_cost_variances needs actual_quantity (actual quantity used (labour: actual hours worked)). Example: solve('direct |
+
+<a id="overhead_cost_variances"></a>
+
+### Overhead variances: variable spending and efficiency, fixed budget and volume, `overhead_cost_variances`
+
+The four overhead variances of a standard costing system with overhead applied on hours: variable overhead spending and efficiency, fixed overhead budget (spending) and volume, and the total over- or under-applied overhead, each marked favourable or unfavourable.
+
+$$
+\text{spending} = \mathrm{AVOH} - AH\cdot VR,\quad \text{efficiency} = VR\,(AH - SH),\quad \text{volume} = \mathrm{BFOH} - SH\cdot\frac{\mathrm{BFOH}}{DH}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `variable_overhead_rate` | standard variable overhead rate per hour |  |
+| `actual_variable_overhead` | actual variable overhead cost |  |
+| `actual_hours` | actual hours of the allocation base |  |
+| `standard_hours` | standard hours allowed for the actual output |  |
+| `budgeted_fixed_overhead` | budgeted fixed overhead |  |
+| `actual_fixed_overhead` | actual fixed overhead cost |  |
+| `denominator_hours` | denominator hours on which the fixed overhead rate was set (positive) |  |
+
+| output | meaning |
+|---|---|
+| `variable_spending_variance` | actual variable overhead - AH x VR |
+| `variable_efficiency_variance` | VR (AH - SH) |
+| `fixed_budget_variance` | actual fixed overhead - budgeted fixed overhead |
+| `fixed_volume_variance` | budgeted fixed overhead - SH x FR |
+| `total_overhead_variance` | actual overhead - applied overhead (sum of the four) |
+| `fixed_overhead_rate` | FR = budgeted fixed overhead / denominator hours |
+| `applied_overhead` | SH x (VR + FR) |
+| `variable_spending_type` | favourable, unfavourable or none |
+| `variable_efficiency_type` | favourable, unfavourable or none |
+| `fixed_budget_type` | favourable, unfavourable or none |
+| `fixed_volume_type` | favourable, unfavourable or none |
+| `total_type` | favourable (over-applied), unfavourable (under-applied) or none |
+
+- **Method:** spending = AVOH - AH VR; efficiency = VR (AH - SH); budget = AFOH - BFOH; volume = BFOH (DH - SH)/DH; total = AVOH + AFOH - SH (VR + BFOH/DH)
+- **Assumes:** amounts, rates and hours >= 0; denominator hours > 0
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![favourable, unfavourable or none (variable_spending_type) over variable_overhead_rate (standard variable overhead rate per hour) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/overhead-cost-variances-decision)
+
+*favourable, unfavourable or none (variable_spending_type) over variable_overhead_rate (standard variable overhead rate per hour) from 0.2 to 20 and actual_variable_overhead (actual variable overhead cost) from 900 to 90000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, favourable: 320 cells, unfavourable: 331 cells. Other inputs as in the worked example: actual_hours = 4200, standard_hours = 4000, budgeted_fixed_overhead = 12000, actual_fixed_overhead = 12500, denominator_hours = 5000. Marked: the worked example, variable_overhead_rate = 2, actual_variable_overhead = 9000 → unfavourable.*
+
+![total_overhead_variance (actual overhead - applied overhead (sum of the four)) against denominator_hours (denominator hours on which the fixed overhead rate was set (positive)) from 500 to 50000 on a logarithmic axis](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/overhead-cost-variances-curve)
+
+*total_overhead_variance (actual overhead - applied overhead (sum of the four)) against denominator_hours (denominator hours on which the fixed overhead rate was set (positive)) from 500 to 50000 on a logarithmic axis. One curve for each value of standard_hours (standard hours allowed for the actual output): 4000, 2000, 8000. Other inputs as in the worked example: variable_overhead_rate = 2, actual_variable_overhead = 9000, actual_hours = 4200, budgeted_fixed_overhead = 12000, actual_fixed_overhead = 12500. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, denominator_hours = 5000, total_overhead_variance = 3900.*
+
+```python
+economics_finance_ai999x.solve('overhead_cost_variances', variable_overhead_rate=2, actual_variable_overhead=9000, actual_hours=4200, standard_hours=4000, budgeted_fixed_overhead=12000, actual_fixed_overhead=12500, denominator_hours=5000)
+# -> variable_spending_variance = 600, variable_efficiency_variance = 400, fixed_budget_variance = 500, fixed_volume_variance = 2400, total_overhead_variance = 3900, fixed_overhead_rate = 2.4, applied_overhead = 17600, variable_spending_type = unfavourable, variable_efficiency_type = unfavourable, fixed_budget_type = unfavourable, fixed_volume_type = unfavourable, total_type = unfavourable   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('overhead_cost_variances', variable_overhead_rate=1.5, actual_variable_overhead=5800, actual_hours=4000, standard_hours=4100, budgeted_fixed_overhead=8000, actual_fixed_overhead=7900, denominator_hours=4000)
+# -> variable_spending_variance = -200, variable_efficiency_variance = -150, fixed_budget_variance = -100, fixed_volume_variance = -200, total_overhead_variance = -650, fixed_overhead_rate = 2, applied_overhead = 14350, variable_spending_type = favourable, variable_efficiency_type = favourable, fixed_budget_type = favourable, fixed_volume_type = favourable, total_type = favourable   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the overhead variances with variable overhead rate = 2, actual variable overhead = 9000, actual hours = 4200, standard hours = 4000, budgeted fixed overhead = 12000, actual fixed overhead = 12500, denominator hours = 5000. | SOLVED | variable_spending_variance = 600, variable_efficiency_variance = 400, fixed_budget_variance = 500, fixed_volume_variance = 2400, total_overhead_variance = 3900, fixed_overhead_rate = 2.4, applied_overhead = 17600, variable_spending_type = unfavourable, variable_efficiency_type = unfavourable, fixed_budget_type = unfavourable, fixed_volume_type = unfavourable, total_type = unfavourable |
+| Find the overhead variances with variable overhead rate = 1.5, actual variable overhead = 5800, actual hours = 4000, standard hours = 4100, budgeted fixed overhead = 8000, actual fixed overhead = 7900, denominator hours = 4000. | SOLVED | variable_spending_variance = -200, variable_efficiency_variance = -150, fixed_budget_variance = -100, fixed_volume_variance = -200, total_overhead_variance = -650, fixed_overhead_rate = 2, applied_overhead = 14350, variable_spending_type = favourable, variable_efficiency_type = favourable, fixed_budget_type = favourable, fixed_volume_type = favourable, total_type = favourable |
+| Find the overhead variances with variable overhead rate = 2, actual variable overhead = 9000, actual hours = 4200, standard hours = 4000, budgeted fixed overhead = 12000, actual fixed overhead = 12500, denominator hours = 0. | INVALID_INPUT | Overhead variances: variable spending and efficiency, fixed budget and volume: denominator_hours must be positive. |
+| Find the overhead variances with variable overhead rate = 2, actual variable overhead = 9000, actual hours = 4200, standard hours = 4000, budgeted fixed overhead = 12000, actual fixed overhead = 12500. | NEEDS_INPUT | overhead_cost_variances needs denominator_hours (denominator hours on which the fixed overhead rate was set (positive)). |
+
+<a id="unemployment_rate"></a>
+
+### Unemployment rate and labour-force participation, `unemployment_rate`
+
+Labour force, unemployment rate, and (with the working-age population) the labour-force participation rate, the employment-population ratio and the number not in the labour force.
+
+$$
+u = \frac{U}{E + U},\qquad \text{participation} = \frac{E + U}{N}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `employed` | number of employed people |  |
+| `unemployed` | number of unemployed people (without work and looking for it) |  |
+| `working_age_population` | working-age (adult) population (optional) |  |
+
+| output | meaning |
+|---|---|
+| `labour_force` | employed + unemployed |
+| `unemployment_rate` | unemployed / labour force |
+| `participation_rate` | labour force / working-age population |
+| `employment_population_ratio` | employed / working-age population |
+| `not_in_labour_force` | working-age population - labour force |
+
+- **Method:** $LF = E + U$; $u = U / LF$; participation = LF / N; employment ratio = E / N
+- **Assumes:** employed, unemployed >= 0, labour force > 0; labour force <= working-age population
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![unemployment_rate (unemployed / labour force) against unemployed (number of unemployed people (without work and looking for it)) from 1 to 100 on a logarithmic axis](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/unemployment-rate-curve)
+
+*unemployment_rate (unemployed / labour force) against unemployed (number of unemployed people (without work and looking for it)) from 1 to 100 on a logarithmic axis. One curve for each value of employed (number of employed people): 150, 75. Other inputs as in the worked example: working_age_population = 250. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, unemployed = 10, unemployment_rate = 0.0625.*
+
+```python
+economics_finance_ai999x.solve('unemployment_rate', employed=150, unemployed=10, working_age_population=250)
+# -> labour_force = 160, unemployment_rate = 0.0625, participation_rate = 0.64, employment_population_ratio = 0.6, not_in_labour_force = 90   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('unemployment_rate', employed=9200, unemployed=800)
+# -> labour_force = 10000, unemployment_rate = 0.08   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the unemployment rate with employed = 150, unemployed = 10, working-age population = 250. | SOLVED | labour_force = 160, unemployment_rate = 0.0625, participation_rate = 0.64, employment_population_ratio = 0.6, not_in_labour_force = 90 |
+| What is the unemployment rate with number employed = 9200, number unemployed = 800? | SOLVED | labour_force = 10000, unemployment_rate = 0.08 |
+| Find the labour force participation rate with employed = 150, unemployed = 10, adult population = 250. | SOLVED | labour_force = 160, unemployment_rate = 0.0625, participation_rate = 0.64, employment_population_ratio = 0.6, not_in_labour_force = 90 |
+| Find the unemployment rate with employed = 150, unemployed = 10, working-age population = 100. | INVALID_INPUT | Unemployment rate and labour-force participation: the labour force cannot exceed the working-age population. |
+| Find the unemployment rate with employed = 150. | NEEDS_INPUT | unemployment_rate needs unemployed (number of unemployed people (without work and looking for it)). Example: solve('unem |
+
+<a id="comparative_advantage"></a>
+
+### Comparative advantage and opportunity cost, `comparative_advantage`
+
+Opportunity costs of two goods in two countries from output per worker (or hours per unit), who has the absolute and the comparative advantage in each good, and the range of terms of trade that benefits both.
+
+$$
+OC_X^{A} = \frac{y_A}{x_A}\ \text{(output)}\quad\text{or}\quad \frac{h_{X,A}}{h_{Y,A}}\ \text{(hours)},\qquad \min(OC_X^{A}, OC_X^{B}) \le p_X \le \max(OC_X^{A}, OC_X^{B})
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `a_good_x` | country A, good X: output per worker (basis output) or hours per unit (basis hours) |  |
+| `a_good_y` | country A, good Y: output per worker or hours per unit |  |
+| `b_good_x` | country B, good X: output per worker or hours per unit |  |
+| `b_good_y` | country B, good Y: output per worker or hours per unit |  |
+| `basis` | 'output' (units made per worker or hour) or 'hours' (hours needed per unit) |  |
+
+| output | meaning |
+|---|---|
+| `opportunity_cost_x_a` | country A's opportunity cost of X, in units of Y |
+| `opportunity_cost_y_a` | country A's opportunity cost of Y, in units of X |
+| `opportunity_cost_x_b` | country B's opportunity cost of X, in units of Y |
+| `opportunity_cost_y_b` | country B's opportunity cost of Y, in units of X |
+| `comparative_advantage_x` | who should specialise in X: country A, country B or neither |
+| `comparative_advantage_y` | who should specialise in Y: country A, country B or neither |
+| `absolute_advantage_x` | who is more productive in X: country A, country B or equal |
+| `absolute_advantage_y` | who is more productive in Y: country A, country B or equal |
+| `terms_low` | lowest mutually beneficial price of X, in units of Y |
+| `terms_high` | highest mutually beneficial price of X, in units of Y |
+
+- **Method:** output basis: OC of X = (Y per worker) / (X per worker); hours basis: OC of X = (hours per X) / (hours per Y); the lower OC of X has the comparative advantage in X; terms of trade between the two OCs
+- **Assumes:** all four numbers > 0; basis output or hours
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![who should specialise in X: country A, country B or neither (comparative_advantage_x) over a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/comparative-advantage-decision)
+
+*who should specialise in X: country A, country B or neither (comparative_advantage_x) over a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 0.6 to 60 and a_good_y (country A, good Y: output per worker or hours per unit) from 0.3 to 30 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, country A: 490 cells, country B: 161 cells. Other inputs as in the worked example: b_good_x = 1, b_good_y = 2, basis = output. Marked: the worked example, a_good_x = 6, a_good_y = 3 → country A.*
+
+![opportunity_cost_x_a (country A's opportunity cost of X, in units of Y) against a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 3 to 9](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/comparative-advantage-curve)
+
+*opportunity_cost_x_a (country A's opportunity cost of X, in units of Y) against a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 3 to 9. One curve for each value of a_good_y (country A, good Y: output per worker or hours per unit): 3, 1.5, 6. Other inputs as in the worked example: b_good_x = 1, b_good_y = 2, basis = output. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, a_good_x = 6, opportunity_cost_x_a = 0.5.*
+
+```python
+economics_finance_ai999x.solve('comparative_advantage', a_good_x=6, a_good_y=3, b_good_x=1, b_good_y=2, basis='output')
+# -> opportunity_cost_x_a = 0.5, opportunity_cost_y_a = 2, opportunity_cost_x_b = 2, opportunity_cost_y_b = 0.5, comparative_advantage_x = country A, comparative_advantage_y = country B, absolute_advantage_x = country A, absolute_advantage_y = country A, terms_low = 0.5, terms_high = 2   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('comparative_advantage', a_good_x=2, a_good_y=4, b_good_x=3, b_good_y=3, basis='hours')
+# -> opportunity_cost_x_a = 0.5, opportunity_cost_y_a = 2, opportunity_cost_x_b = 1, opportunity_cost_y_b = 1, comparative_advantage_x = country A, comparative_advantage_y = country B, absolute_advantage_x = country A, absolute_advantage_y = country B, terms_low = 0.5, terms_high = 1   (SOLVED)
+```
+
+```python
+economics_finance_ai999x.solve('comparative_advantage', a_good_x=4, a_good_y=2, b_good_x=2, b_good_y=1, basis='output')
+# -> opportunity_cost_x_a = 0.5, opportunity_cost_y_a = 2, opportunity_cost_x_b = 0.5, opportunity_cost_y_b = 2, comparative_advantage_x = neither, comparative_advantage_y = neither, absolute_advantage_x = country A, absolute_advantage_y = country A, terms_low = 0.5, terms_high = 0.5   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Find the comparative advantage with a good x = 6, a good y = 3, b good x = 1, b good y = 2, basis = output. | SOLVED | opportunity_cost_x_a = 0.5, opportunity_cost_y_a = 2, opportunity_cost_x_b = 2, opportunity_cost_y_b = 0.5, comparative_advantage_x = country A, comparative_advantage_y = country B, absolute_advantage_x = country A, absolute_advantage_y = country A, terms_low = 0.5, terms_high = 2 |
+| Find the opportunity cost with country a good x = 2, country a good y = 4, country b good x = 3, country b good y = 3, basis = hours. | SOLVED | opportunity_cost_x_a = 0.5, opportunity_cost_y_a = 2, opportunity_cost_x_b = 1, opportunity_cost_y_b = 1, comparative_advantage_x = country A, comparative_advantage_y = country B, absolute_advantage_x = country A, absolute_advantage_y = country B, terms_low = 0.5, terms_high = 1 |
+| Find the comparative advantage with a good x = 0, a good y = 3, b good x = 1, b good y = 2, basis = output. | INVALID_INPUT | Comparative advantage and opportunity cost: a_good_x must be positive. |
+| Find the comparative advantage with a good x = 6, a good y = 3, b good x = 1, b good y = 2. | NEEDS_INPUT | comparative_advantage needs basis ('output' (units made per worker or hour) or 'hours' (hours needed per unit)). Example |

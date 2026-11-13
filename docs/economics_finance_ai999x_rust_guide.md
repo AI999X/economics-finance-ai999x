@@ -1,8 +1,8 @@
 # economics-finance: the Economics and Finance program, user guide
 
-**economics-finance-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**economics-finance-ai999x 1.6.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
-Economics and Finance covers time value of money, loans and annuities, bonds, stocks and options, portfolio theory, risk measures, actuarial mathematics, microeconomics, macroeconomics and econometrics. This guide is about `economics-finance`, the model as a self-contained program for Windows and Linux: 96 capabilities in 12 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/economics-finance-ai999x/); the Python package (`pip install economics-finance-ai999x`) has its own guide. Every command output printed here is what the program printed.
+Economics and Finance covers time value of money, loans and annuities, bonds, stocks and options, portfolio theory, risk measures, actuarial mathematics, microeconomics, macroeconomics and econometrics. This guide is about `economics-finance`, the model as a self-contained program for Windows and Linux: 105 capabilities in 15 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/economics-finance-ai999x/); the Python package (`pip install economics-finance-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
 ## Contents
 
@@ -17,37 +17,37 @@ Economics and Finance covers time value of money, loans and annuities, bonds, st
 
 ## 1. Get it
 
-Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.6.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Economics and Finance | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-economics-finance-1.5.0-windows-x86_64.zip |
-| Desktop app: Economics and Finance | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-economics-finance-1.5.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: Economics and Finance | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-economics-finance-1.6.0-windows-x86_64.zip |
+| Desktop app: Economics and Finance | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-economics-finance-1.6.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Economics and Finance in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-economics-finance-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-economics-finance.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Economics and Finance in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-economics-finance-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-economics-finance.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-economics-finance-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-economics-finance-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-economics-finance-1.5.0-linux-x86_64.tar.gz
-./ai999x-economics-finance-1.5.0-linux-x86_64/ai999x-economics-finance
+tar xzf ai999x-economics-finance-1.6.0-linux-x86_64.tar.gz
+./ai999x-economics-finance-1.6.0-linux-x86_64/ai999x-economics-finance
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
-./ai999x-1.5.0-linux-x86_64/ai999x
+tar xzf ai999x-1.6.0-linux-x86_64.tar.gz
+./ai999x-1.6.0-linux-x86_64/ai999x
 ```
 
 ### Command line: Linux
@@ -55,11 +55,11 @@ tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
 The bundle holds one program per model; `economics-finance` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 economics-finance --version
 ```
 
@@ -68,12 +68,12 @@ economics-finance --version
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 economics-finance --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ economics-finance --version
-economics-finance-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
+economics-finance-ai999x 1.6.0 (Rust build, ax-engine 1.6.0)
 ```
 
 ### 2.2 Ask in words
@@ -131,7 +131,7 @@ loan_balance                         Remaining balance of a loan  (loans and ann
 sinking_fund                         Sinking fund payment  (time value of money / annuities)
 future_value_annuity                 Future value of an annuity  (time value of money / annuities)
 present_value_annuity                Present value of an annuity  (time value of money / annuities)
-… 6 more
+… 7 more
 ```
 
 ### 2.4 List the capabilities
@@ -148,7 +148,7 @@ black_scholes                            Black-Scholes option prices
 bond_convexity                           Convexity of a bond
 bond_duration                            Macaulay and modified duration of a bond
 bond_price                               Bond price from its yield
-… 88 more
+… 97 more
 ```
 
 ### 2.5 What a capability needs
@@ -295,6 +295,225 @@ The same model is a WebAssembly module, `economics_finance_ai999x.wasm` (https:/
 ## 8. Every capability
 
 By topic. For each: what it does, what it needs and gives, when it applies, and a command with what the program printed for it. `economics-finance info <id>` shows the same inputs and outputs in the terminal.
+
+### Accounting (4)
+
+<a id="financial_ratios"></a>
+
+#### Financial ratio analysis with the DuPont return on equity, `financial_ratios`
+
+Liquidity (current, quick), solvency (debt ratio, debt to equity), efficiency (asset turnover) and profitability (net margin, ROA, ROE) ratios from balance-sheet and income-statement items, with ROE broken into its DuPont factors: margin x asset turnover x equity multiplier.
+
+$$
+\mathrm{ROE} = \frac{NI}{E} = \frac{NI}{S}\cdot\frac{S}{TA}\cdot\frac{TA}{E},\qquad\text{current} = \frac{CA}{CL},\quad \text{quick} = \frac{CA - \mathrm{Inv}}{CL}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `sales` | in | net sales (revenue) of the period | - |
+| `net_income` | in | net income (negative for a loss) | - |
+| `total_assets` | in | total assets | - |
+| `total_equity` | in | total shareholders' equity (positive, at most total assets) | - |
+| `current_assets` | in | current assets | - |
+| `current_liabilities` | in | current liabilities (positive) | - |
+| `inventory` | in | inventory (part of current assets) | - |
+| `current_ratio` | out | current assets / current liabilities | - |
+| `quick_ratio` | out | (current assets - inventory) / current liabilities | - |
+| `debt_ratio` | out | total liabilities / total assets | - |
+| `debt_to_equity` | out | total liabilities / total equity | - |
+| `net_profit_margin` | out | net income / sales (DuPont factor 1) | - |
+| `asset_turnover` | out | sales / total assets (DuPont factor 2) | - |
+| `equity_multiplier` | out | total assets / total equity (DuPont factor 3) | - |
+| `roa` | out | return on assets: net income / total assets | - |
+| `roe` | out | return on equity: net income / equity = margin x turnover x multiplier | - |
+
+**Applies when:** sales, total assets, equity, current liabilities > 0; equity <= total assets; inventory <= current assets <= total assets; current liabilities <= total assets - equity.
+
+```shell
+$ economics-finance solve financial_ratios sales=500000 net_income=40000 total_assets=400000 total_equity=160000 current_assets=150000 current_liabilities=100000 inventory=60000
+current_ratio = 1.5
+quick_ratio = 0.9
+debt_ratio = 0.6
+debt_to_equity = 1.5
+net_profit_margin = 0.08
+asset_turnover = 1.25
+equity_multiplier = 2.5
+roa = 0.1
+roe = 0.25
+  by: Financial ratio analysis with the DuPont return on equity  (ratios of the stated items; liabilities = assets - equity; ROE = (NI/S)(S/TA)(TA/E))
+  sales = 500000
+  net_income = 40000
+  total_assets = 400000
+  total_equity = 160000
+  current_assets = 150000
+  current_liabilities = 100000
+  inventory = 60000
+  assumes: sales, total assets, equity, current liabilities > 0; equity <= total assets; inventory <= current assets <= total assets; current liabilities <= total assets - equity
+```
+
+In the worked example, sales = 500000, net_income = 40000, total_assets = 400000, total_equity = 160000, current_assets = 150000, current_liabilities = 100000, inventory = 60000 go through the equation above and give current_ratio = 1.5, quick_ratio = 0.9, debt_ratio = 0.6, debt_to_equity = 1.5. It applies only when sales, total assets, equity, current liabilities > 0; equity <= total assets; inventory <= current assets <= total assets; current liabilities <= total assets - equity: outside that it says what is wrong instead of returning a number.
+
+<a id="inventory_costing"></a>
+
+#### Inventory costing: FIFO, LIFO and weighted average, `inventory_costing`
+
+Cost of goods sold and ending inventory under FIFO, LIFO and the weighted average cost (periodic system) from the cost layers of the period and the units sold, with the gross margin when a selling price is given.
+
+$$
+\bar c = \frac{\sum_k u_k c_k}{\sum_k u_k},\qquad \mathrm{COGS} + \mathrm{EI} = \sum_k u_k c_k
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `layer_units` | in | units in each cost layer, in order of acquisition (beginning inventory first) | - |
+| `layer_costs` | in | unit cost of each layer, in the same order | - |
+| `units_sold` | in | units sold in the period | - |
+| `selling_price` | in | selling price per unit (optional: gives sales revenue and gross margins) (optional) | - |
+| `units_available` | out | units available for sale | - |
+| `cost_of_goods_available` | out | cost of goods available for sale | - |
+| `fifo_cogs` | out | cost of goods sold, FIFO (oldest layers sold first) | - |
+| `fifo_ending_inventory` | out | ending inventory, FIFO (newest layers left) | - |
+| `lifo_cogs` | out | cost of goods sold, LIFO (newest layers sold first) | - |
+| `lifo_ending_inventory` | out | ending inventory, LIFO (oldest layers left) | - |
+| `average_unit_cost` | out | weighted average unit cost: goods available / units available | - |
+| `average_cogs` | out | cost of goods sold at the weighted average cost | - |
+| `average_ending_inventory` | out | ending inventory at the weighted average cost | - |
+| `sales_revenue` | out | selling price x units sold (with a selling price) | - |
+| `fifo_gross_margin` | out | sales revenue - FIFO cost of goods sold | - |
+| `lifo_gross_margin` | out | sales revenue - LIFO cost of goods sold | - |
+| `average_gross_margin` | out | sales revenue - weighted average cost of goods sold | - |
+
+**Applies when:** one unit cost per layer; units of each layer > 0; unit costs >= 0; 0 <= units sold <= units available; selling price >= 0.
+
+```shell
+$ economics-finance solve inventory_costing "layer_units=[100, 200, 150]" "layer_costs=[10, 12, 14]" units_sold=300 selling_price=20
+units_available = 450
+cost_of_goods_available = 5500
+fifo_cogs = 3400
+fifo_ending_inventory = 2100
+lifo_cogs = 3900
+lifo_ending_inventory = 1600
+average_unit_cost = 12.22222222
+average_cogs = 3666.666667
+average_ending_inventory = 1833.333333
+sales_revenue = 6000
+fifo_gross_margin = 2600
+lifo_gross_margin = 2100
+average_gross_margin = 2333.333333
+  by: Inventory costing: FIFO, LIFO and weighted average  (periodic system: FIFO takes the units sold from the first layers, LIFO from the last; weighted average cost = sum(units x cost) / sum(units); ending inventory = the units left at their costs)
+  units_sold = 300
+  selling_price = 20
+  assumes: one unit cost per layer; units of each layer > 0; unit costs >= 0; 0 <= units sold <= units available; selling price >= 0
+```
+
+In the worked example, layer_units = [100, 200, 150], layer_costs = [10, 12, 14], units_sold = 300, selling_price = 20 go through the equation above and give units_available = 450, cost_of_goods_available = 5500, fifo_cogs = 3400, fifo_ending_inventory = 2100. It applies only when one unit cost per layer; units of each layer > 0; unit costs >= 0; 0 <= units sold <= units available; selling price >= 0: outside that it says what is wrong instead of returning a number.
+
+<a id="overhead_cost_variances"></a>
+
+#### Overhead variances: variable spending and efficiency, fixed budget and volume, `overhead_cost_variances`
+
+The four overhead variances of a standard costing system with overhead applied on hours: variable overhead spending and efficiency, fixed overhead budget (spending) and volume, and the total over- or under-applied overhead, each marked favourable or unfavourable.
+
+$$
+\text{spending} = \mathrm{AVOH} - AH\cdot VR,\quad \text{efficiency} = VR\,(AH - SH),\quad \text{volume} = \mathrm{BFOH} - SH\cdot\frac{\mathrm{BFOH}}{DH}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `variable_overhead_rate` | in | standard variable overhead rate per hour | - |
+| `actual_variable_overhead` | in | actual variable overhead cost | - |
+| `actual_hours` | in | actual hours of the allocation base | - |
+| `standard_hours` | in | standard hours allowed for the actual output | - |
+| `budgeted_fixed_overhead` | in | budgeted fixed overhead | - |
+| `actual_fixed_overhead` | in | actual fixed overhead cost | - |
+| `denominator_hours` | in | denominator hours on which the fixed overhead rate was set (positive) | - |
+| `variable_spending_variance` | out | actual variable overhead - AH x VR | - |
+| `variable_efficiency_variance` | out | VR (AH - SH) | - |
+| `fixed_budget_variance` | out | actual fixed overhead - budgeted fixed overhead | - |
+| `fixed_volume_variance` | out | budgeted fixed overhead - SH x FR | - |
+| `total_overhead_variance` | out | actual overhead - applied overhead (sum of the four) | - |
+| `fixed_overhead_rate` | out | FR = budgeted fixed overhead / denominator hours | - |
+| `applied_overhead` | out | SH x (VR + FR) | - |
+| `variable_spending_type` | out | favourable, unfavourable or none | - |
+| `variable_efficiency_type` | out | favourable, unfavourable or none | - |
+| `fixed_budget_type` | out | favourable, unfavourable or none | - |
+| `fixed_volume_type` | out | favourable, unfavourable or none | - |
+| `total_type` | out | favourable (over-applied), unfavourable (under-applied) or none | - |
+
+**Applies when:** amounts, rates and hours >= 0; denominator hours > 0.
+
+```shell
+$ economics-finance solve overhead_cost_variances variable_overhead_rate=2 actual_variable_overhead=9000 actual_hours=4200 standard_hours=4000 budgeted_fixed_overhead=12000 actual_fixed_overhead=12500 denominator_hours=5000
+variable_spending_variance = 600
+variable_efficiency_variance = 400
+fixed_budget_variance = 500
+fixed_volume_variance = 2400
+total_overhead_variance = 3900
+fixed_overhead_rate = 2.4
+applied_overhead = 17600
+variable_spending_type = unfavourable
+variable_efficiency_type = unfavourable
+fixed_budget_type = unfavourable
+fixed_volume_type = unfavourable
+total_type = unfavourable
+  by: Overhead variances: variable spending and efficiency, fixed budget and volume  (spending = AVOH - AH VR; efficiency = VR (AH - SH); budget = AFOH - BFOH; volume = BFOH (DH - SH)/DH; total = AVOH + AFOH - SH (VR + BFOH/DH))
+  variable_overhead_rate = 2
+  actual_variable_overhead = 9000
+  actual_hours = 4200
+  standard_hours = 4000
+  budgeted_fixed_overhead = 12000
+  actual_fixed_overhead = 12500
+  denominator_hours = 5000
+  assumes: amounts, rates and hours >= 0; denominator hours > 0
+```
+
+In the worked example, variable_overhead_rate = 2, actual_variable_overhead = 9000, actual_hours = 4200, standard_hours = 4000, budgeted_fixed_overhead = 12000, actual_fixed_overhead = 12500, denominator_hours = 5000 go through the equation above and give variable_spending_variance = 600, variable_efficiency_variance = 400, fixed_budget_variance = 500, fixed_volume_variance = 2400. It applies only when amounts, rates and hours >= 0; denominator hours > 0: outside that it says what is wrong instead of returning a number.
+
+<a id="direct_cost_variances"></a>
+
+#### Standard-cost variances: materials price and quantity, labour rate and efficiency, `direct_cost_variances`
+
+Price (labour: rate) and quantity (labour: efficiency) variances of direct materials or direct labour from standard and actual prices and quantities, each marked favourable or unfavourable.
+
+$$
+PV = Q_P\,(AP - SP),\qquad QV = SP\,(AQ - SQ)
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `standard_price` | in | standard price per unit of input (labour: standard wage rate per hour) | - |
+| `standard_quantity` | in | standard quantity allowed for the actual output (labour: standard hours allowed) | - |
+| `actual_price` | in | actual price paid per unit of input (labour: actual wage rate) | - |
+| `actual_quantity` | in | actual quantity used (labour: actual hours worked) | - |
+| `quantity_purchased` | in | quantity purchased (materials; default: the quantity used) (optional) | - |
+| `price_variance` | out | price (rate) variance QP (AP - SP); positive = unfavourable | - |
+| `quantity_variance` | out | quantity (efficiency) variance SP (AQ - SQ); positive = unfavourable | - |
+| `total_variance` | out | price variance + quantity variance | - |
+| `price_variance_type` | out | favourable, unfavourable or none | - |
+| `quantity_variance_type` | out | favourable, unfavourable or none | - |
+| `total_variance_type` | out | favourable, unfavourable or none | - |
+| `standard_cost_allowed` | out | standard cost of the actual output SQ x SP | - |
+
+**Applies when:** standard price and standard quantity > 0; actual price, actual quantity and quantity purchased >= 0.
+
+```shell
+$ economics-finance solve direct_cost_variances standard_price=4 standard_quantity=2000 actual_price=4.2 actual_quantity=2100
+price_variance = 420
+quantity_variance = 400
+total_variance = 820
+price_variance_type = unfavourable
+quantity_variance_type = unfavourable
+total_variance_type = unfavourable
+standard_cost_allowed = 8000
+  by: Standard-cost variances: materials price and quantity, labour rate and efficiency  (PV = QP (AP - SP), QV = SP (AQ - SQ), total = PV + QV; positive = unfavourable)
+  standard_price = 4
+  standard_quantity = 2000
+  actual_price = 4.2
+  actual_quantity = 2100
+  assumes: standard price and standard quantity > 0; actual price, actual quantity and quantity purchased >= 0
+```
+
+In the worked example, standard_price = 4, standard_quantity = 2000, actual_price = 4.2, actual_quantity = 2100 go through the equation above and give price_variance = 420, quantity_variance = 400, total_variance = 820, price_variance_type = unfavourable. It applies only when standard price and standard quantity > 0; actual price, actual quantity and quantity purchased >= 0: outside that it says what is wrong instead of returning a number.
 
 ### Actuarial mathematics (8)
 
@@ -1046,6 +1265,85 @@ npv = -21.03681443
 
 **What the worked example means:** This calculation determines the profitability index, which represents the ratio of the present value of future cash flows to the absolute value of the initial outlay. Discounting each subsequent cash flow at the rate of 0.1 and summing them to reach 978.963 compares this benefit against the cost embedded in [-1000, 300, 400, 500]. The resulting index of 0.978963 indicates how much value is generated for every unit of currency invested, serving as a key metric for assessing project efficiency.
 
+### Consumer finance (2)
+
+<a id="credit_card_finance_charge"></a>
+
+#### Credit card finance charge (average daily balance), `credit_card_finance_charge`
+
+Average daily balance of a credit card billing cycle and the finance charge on it, from the opening balance and the dated purchases and payments of the cycle.
+
+$$
+\overline{B} = \frac{1}{D}\sum_{d=1}^{D} B_d,\qquad FC = \overline{B}\cdot\frac{\mathrm{APR}\,D}{365}\ \text{or}\ \overline{B}\cdot\frac{\mathrm{APR}}{12}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `opening_balance` | in | balance owed at the start of the cycle (previous balance) | - |
+| `apr` | in | annual percentage rate of the card (decimal; 18% = 0.18) | - |
+| `billing_days` | in | number of days in the billing cycle | - |
+| `rate_basis` | in | 'daily' (APR/365 for each day of the cycle) or 'monthly' (APR/12) | - |
+| `transaction_days` | in | day of the cycle (1 = first day) of each purchase or payment (optional) | - |
+| `transaction_amounts` | in | amount of each transaction: purchases positive, payments negative (optional) | - |
+| `average_daily_balance` | out | mean of the end-of-day balances over the cycle | - |
+| `finance_charge` | out | interest charged for the cycle: ADB x cycle rate | - |
+| `cycle_rate` | out | rate applied for the cycle (APR x days / 365, or APR / 12) | - |
+| `closing_balance` | out | balance at the end of the cycle before the finance charge | - |
+| `new_balance` | out | closing balance plus the finance charge | - |
+
+**Applies when:** opening_balance >= 0; 0 <= apr < 1; billing_days a whole number 1..366; rate_basis daily or monthly; transaction days whole numbers 1..billing_days, one per amount; the balance never becomes negative.
+
+```shell
+$ economics-finance solve credit_card_finance_charge opening_balance=1500 apr=0.18 billing_days=30 rate_basis=daily "transaction_days=[11, 21]" "transaction_amounts=[-500, 200]"
+average_daily_balance = 1233.333333
+finance_charge = 18.24657534
+cycle_rate = 0.01479452055
+closing_balance = 1200
+new_balance = 1218.246575
+  by: Credit card finance charge (average daily balance)  (ADB = (D B0 + sum a_k (D - d_k + 1)) / D; finance charge = ADB x APR x D / 365 (daily) or ADB x APR / 12 (monthly))
+  opening_balance = 1500
+  apr = 0.18
+  rate_basis = daily
+  assumes: opening_balance >= 0; 0 <= apr < 1; billing_days a whole number 1..366; rate_basis daily or monthly; transaction days whole numbers 1..billing_days, one per amount; the balance never becomes negative
+```
+
+In the worked example, opening_balance = 1500, apr = 0.18, billing_days = 30, rate_basis = daily, transaction_days = [11, 21], transaction_amounts = [-500, 200] go through the equation above and give average_daily_balance = 1233.333333, finance_charge = 18.24657534, cycle_rate = 0.01479452055, closing_balance = 1200. It applies only when opening_balance >= 0; 0 <= apr < 1; billing_days a whole number 1..366; rate_basis daily or monthly; transaction days whole numbers 1..billing_days, one per amount; the balance never becomes negative: outside that it says what is wrong instead of returning a number.
+
+<a id="income_tax"></a>
+
+#### Income tax from progressive brackets: `income_tax`
+
+Tax owed on a taxable income under a progressive bracket table, with the marginal and the effective (average) tax rate.
+
+$$
+T(x) = \sum_{k} r_k\,\big(\min(x, t_{k+1}) - t_k\big)^{+},\qquad \text{effective rate} = \frac{T(x)}{x}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `taxable_income` | in | taxable income (after deductions) | - |
+| `bracket_thresholds` | in | lower bound of each bracket, starting at 0, increasing | - |
+| `bracket_rates` | in | tax rate of each bracket (decimals or percentages) | - |
+| `tax` | out | tax owed: each bracket's rate on the income inside it | - |
+| `marginal_rate` | out | rate on the next unit of income | - |
+| `effective_rate` | out | tax / taxable income | - |
+| `after_tax_income` | out | taxable income minus the tax | - |
+
+**Applies when:** taxable_income > 0; first threshold 0, thresholds strictly increasing; one rate per threshold, 0 <= rate < 1.
+
+```shell
+$ economics-finance solve income_tax taxable_income=50000 "bracket_thresholds=[0, 10000, 40000]" "bracket_rates=[0.1, 0.2, 0.3]"
+tax = 10000
+marginal_rate = 0.3
+effective_rate = 0.2
+after_tax_income = 40000
+  by: Income tax from progressive brackets  (tax = sum_k r_k (min(x, t_{k+1}) - t_k)^+; marginal = r_j with t_j <= x < t_{j+1}; effective = tax / x)
+  taxable_income = 50000
+  assumes: taxable_income > 0; first threshold 0, thresholds strictly increasing; one rate per threshold, 0 <= rate < 1
+```
+
+In the worked example, taxable_income = 50000, bracket_thresholds = [0, 10000, 40000], bracket_rates = [0.1, 0.2, 0.3] go through the equation above and give tax = 10000, marginal_rate = 0.3, effective_rate = 0.2, after_tax_income = 40000. It applies only when taxable_income > 0; first threshold 0, thresholds strictly increasing; one rate per threshold, 0 <= rate < 1: outside that it says what is wrong instead of returning a number.
+
 ### Econometrics (5)
 
 <a id="log_log_elasticity"></a>
@@ -1201,6 +1499,61 @@ n = 5
 ```
 
 **What the worked example means:** This calculation determines the best-fit straight line through the data using ordinary least squares. The slope, 1.99, indicates how much the dependent variable changes for each unit increase in the explanatory variable. The intercept, 0.05, shows the expected value of the dependent variable when the explanatory variable is zero. With 5 observations, the model explains 0.997305 of the variation in the dependent variable, while the standard error of the slope is 0.0597216.
+
+### International trade (1)
+
+<a id="comparative_advantage"></a>
+
+#### Comparative advantage and opportunity cost, `comparative_advantage`
+
+Opportunity costs of two goods in two countries from output per worker (or hours per unit), who has the absolute and the comparative advantage in each good, and the range of terms of trade that benefits both.
+
+$$
+OC_X^{A} = \frac{y_A}{x_A}\ \text{(output)}\quad\text{or}\quad \frac{h_{X,A}}{h_{Y,A}}\ \text{(hours)},\qquad \min(OC_X^{A}, OC_X^{B}) \le p_X \le \max(OC_X^{A}, OC_X^{B})
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `a_good_x` | in | country A, good X: output per worker (basis output) or hours per unit (basis hours) | - |
+| `a_good_y` | in | country A, good Y: output per worker or hours per unit | - |
+| `b_good_x` | in | country B, good X: output per worker or hours per unit | - |
+| `b_good_y` | in | country B, good Y: output per worker or hours per unit | - |
+| `basis` | in | 'output' (units made per worker or hour) or 'hours' (hours needed per unit) | - |
+| `opportunity_cost_x_a` | out | country A's opportunity cost of X, in units of Y | - |
+| `opportunity_cost_y_a` | out | country A's opportunity cost of Y, in units of X | - |
+| `opportunity_cost_x_b` | out | country B's opportunity cost of X, in units of Y | - |
+| `opportunity_cost_y_b` | out | country B's opportunity cost of Y, in units of X | - |
+| `comparative_advantage_x` | out | who should specialise in X: country A, country B or neither | - |
+| `comparative_advantage_y` | out | who should specialise in Y: country A, country B or neither | - |
+| `absolute_advantage_x` | out | who is more productive in X: country A, country B or equal | - |
+| `absolute_advantage_y` | out | who is more productive in Y: country A, country B or equal | - |
+| `terms_low` | out | lowest mutually beneficial price of X, in units of Y | - |
+| `terms_high` | out | highest mutually beneficial price of X, in units of Y | - |
+
+**Applies when:** all four numbers > 0; basis output or hours.
+
+```shell
+$ economics-finance solve comparative_advantage a_good_x=6 a_good_y=3 b_good_x=1 b_good_y=2 basis=output
+opportunity_cost_x_a = 0.5
+opportunity_cost_y_a = 2
+opportunity_cost_x_b = 2
+opportunity_cost_y_b = 0.5
+comparative_advantage_x = country A
+comparative_advantage_y = country B
+absolute_advantage_x = country A
+absolute_advantage_y = country A
+terms_low = 0.5
+terms_high = 2
+  by: Comparative advantage and opportunity cost  (output basis: OC of X = (Y per worker) / (X per worker); hours basis: OC of X = (hours per X) / (hours per Y); the lower OC of X has the comparative advantage in X; terms of trade between the two OCs)
+  a_good_x = 6
+  a_good_y = 3
+  b_good_x = 1
+  b_good_y = 2
+  basis = output
+  assumes: all four numbers > 0; basis output or hours
+```
+
+In the worked example, a_good_x = 6, a_good_y = 3, b_good_x = 1, b_good_y = 2, basis = output go through the equation above and give opportunity_cost_x_a = 0.5, opportunity_cost_y_a = 2, opportunity_cost_x_b = 2, opportunity_cost_y_b = 0.5. It applies only when all four numbers > 0; basis output or hours: outside that it says what is wrong instead of returning a number.
 
 ### Loans and annuities (5)
 
@@ -1381,7 +1734,7 @@ payment = 1199.10105
 
 **What the worked example means:** After 60 payments, the remaining balance is 186109, with a periodic payment of 1199.1.
 
-### Macroeconomics (7)
+### Macroeconomics (8)
 
 <a id="inflation_adjustment"></a>
 
@@ -1631,7 +1984,46 @@ golden_rule_capital = 9.966176578
 
 **What the worked example means:** Steady state capital per effective worker is 5.58431, yielding output of 1.67529 and consumption of 1.34023.
 
-### Microeconomics (13)
+<a id="unemployment_rate"></a>
+
+#### Unemployment rate and labour-force participation, `unemployment_rate`
+
+Labour force, unemployment rate, and (with the working-age population) the labour-force participation rate, the employment-population ratio and the number not in the labour force.
+
+$$
+u = \frac{U}{E + U},\qquad \text{participation} = \frac{E + U}{N}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `employed` | in | number of employed people | - |
+| `unemployed` | in | number of unemployed people (without work and looking for it) | - |
+| `working_age_population` | in | working-age (adult) population (optional) (optional) | - |
+| `labour_force` | out | employed + unemployed | - |
+| `unemployment_rate` | out | unemployed / labour force | - |
+| `participation_rate` | out | labour force / working-age population | - |
+| `employment_population_ratio` | out | employed / working-age population | - |
+| `not_in_labour_force` | out | working-age population - labour force | - |
+
+**Applies when:** employed, unemployed >= 0, labour force > 0; labour force <= working-age population.
+
+```shell
+$ economics-finance solve unemployment_rate employed=150 unemployed=10 working_age_population=250
+labour_force = 160
+unemployment_rate = 0.0625
+participation_rate = 0.64
+employment_population_ratio = 0.6
+not_in_labour_force = 90
+  by: Unemployment rate and labour-force participation  (LF = E + U; u = U / LF; participation = LF / N; employment ratio = E / N)
+  employed = 150
+  unemployed = 10
+  working_age_population = 250
+  assumes: employed, unemployed >= 0, labour force > 0; labour force <= working-age population
+```
+
+In the worked example, employed = 150, unemployed = 10, working_age_population = 250 go through the equation above and give labour_force = 160, unemployment_rate = 0.0625, participation_rate = 0.64, employment_population_ratio = 0.6. It applies only when employed, unemployed >= 0, labour force > 0; labour force <= working-age population: outside that it says what is wrong instead of returning a number.
+
+### Microeconomics (14)
 
 <a id="break_even"></a>
 
@@ -1670,6 +2062,53 @@ contribution_margin_ratio = 0.4
 ```
 
 **What the worked example means:** This calculation determines the break-even or target-profit volume by dividing total fixed costs plus the desired profit by the contribution margin per unit. With fixed costs of 10000, a selling price of 50, and variable costs of 30, each unit contributes 20 toward covering expenses. Consequently, the required sales volume is 500 units, generating total revenue of 25000. The contribution margin ratio stands at 0.4, indicating how much of each dollar of sales remains after covering variable costs.
+
+<a id="competitive_firm_cost_curves"></a>
+
+#### Cost curves, best output and shutdown of a competitive firm, `competitive_firm_cost_curves`
+
+Fixed, average fixed, average variable, average total and marginal cost from a total cost table, and the price-taking firm's profit-maximising output, its profit, the shutdown price (minimum AVC) and the break-even price (minimum ATC).
+
+$$
+\mathrm{AVC} = \frac{TC - FC}{Q},\quad \mathrm{MC} = \frac{\Delta TC}{\Delta Q},\quad Q^{*} = \arg\max_{Q}\,(PQ - TC(Q))
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `quantities` | in | output levels of the table, starting at 0 and increasing | - |
+| `total_costs` | in | total cost at each output level (the first is the fixed cost) | - |
+| `price` | in | market price the firm takes as given | - |
+| `fixed_cost` | out | total cost at output 0 | - |
+| `average_fixed_cost` | out | AFC = FC / Q for each output > 0 | - |
+| `average_variable_cost` | out | AVC = (TC - FC) / Q for each output > 0 | - |
+| `average_total_cost` | out | ATC = TC / Q for each output > 0 | - |
+| `marginal_cost` | out | MC = change in TC / change in Q for each step of the table | - |
+| `best_output` | out | profit-maximising output in the table (0 = shut down) | - |
+| `profit` | out | profit P Q - TC at the best output (negative = loss) | - |
+| `shutdown_price` | out | minimum AVC: below it the firm produces nothing | - |
+| `break_even_price` | out | minimum ATC: the price at which the best profit is zero | - |
+| `decision` | out | produce or shut down | - |
+
+**Applies when:** at least 3 rows, one total cost per output; first output 0, outputs increasing; total costs non-negative and non-decreasing; price > 0.
+
+```shell
+$ economics-finance solve competitive_firm_cost_curves "quantities=[0, 1, 2, 3, 4, 5, 6]" "total_costs=[10, 18, 24, 32, 44, 60, 80]" price=16
+fixed_cost = 10
+average_fixed_cost = [10.0,5.0,3.3333333333333335,2.5,2.0,1.6666666666666667]
+average_variable_cost = [8.0,7.0,7.333333333333333,8.5,10.0,11.666666666666666]
+average_total_cost = [18.0,12.0,10.666666666666666,11.0,12.0,13.333333333333334]
+marginal_cost = [8.0,6.0,8.0,12.0,16.0,20.0]
+best_output = 5
+profit = 20
+shutdown_price = 7
+break_even_price = 10.66666667
+decision = produce
+  by: Cost curves, best output and shutdown of a competitive firm  (AFC = FC/Q, AVC = (TC - FC)/Q, ATC = TC/Q, MC = dTC/dQ; best output = the row maximising P Q - TC (ties: larger output); shutdown price = min AVC, break-even price = min ATC)
+  price = 16
+  assumes: at least 3 rows, one total cost per output; first output 0, outputs increasing; total costs non-negative and non-decreasing; price > 0
+```
+
+In the worked example, quantities = [0, 1, 2, 3, 4, 5, 6], total_costs = [10, 18, 24, 32, 44, 60, 80], price = 16 go through the equation above and give fixed_cost = 10, average_fixed_cost = [10, 5, 3.333333333, 2.5, 2, 1.666666667], average_variable_cost = [8, 7, 7.333333333, 8.5, 10, 11.66666667], average_total_cost = [18, 12, 10.66666667, 11, 12, 13.33333333]. It applies only when at least 3 rows, one total cost per output; first output 0, outputs increasing; total costs non-negative and non-decreasing; price > 0: outside that it says what is wrong instead of returning a number.
 
 <a id="cournot"></a>
 

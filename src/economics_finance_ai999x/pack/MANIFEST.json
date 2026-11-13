@@ -1,5 +1,5 @@
 {
- "package": "1.5.0",
+ "package": "1.6.0",
  "pack": "1.0.1",
  "knowledge_db": null,
  "files": {
@@ -7,8 +7,8 @@
   "dictionary/terms.json": "b2d8da1d78769f517c23c6ea61c20fc6a48166102bca0adc66f36fb5f54d905d",
   "knowledge/relations.json": "c4d79fdacb079edfa0bbc6a59c41a2dad8e7b566a819fba2fc25f44829c86008",
   "knowledge/reference_cases.json": "7414a14e2c4202a7fae8cdd14e1a2ef7267f35a9665b0633001349c698d4e4e7",
-  "capabilities/procedures.py": "02a7b6f18babd7c552c6cf1f79538eec5c352ea04901fcdf85e0fa2b895483fc",
-  "capabilities/procedures_certified.json": "c5254c746147651c8e9ae6d0e5a585f710d2d58b0882257c51d8ce30c19fc600",
+  "capabilities/procedures.py": "1c0e0027dcd0dd28d38cef2b0efb6fd298d8743c77693b953bca7ef3482459be",
+  "capabilities/procedures_certified.json": "ca637fd1b3b98e505add62452b63aafafabcf3b1dd143da1a4652b7ab8992cd4",
   "economics_finance_knowledge_public.sqlite": "b791ba2f6e9e48843af9ff3a89b3debe1f5bd6c6e9c04d42325685d5ed30fd95"
  },
  "engine": [

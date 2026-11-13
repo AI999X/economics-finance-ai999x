@@ -4455,3 +4455,1269 @@ _add("correlation", name="Correlation and covariance of two series", topic="econ
                {"inputs": {"x": [1, 2, 3], "y": [6, 4, 2]}, "outputs": {"correlation": -1.0, "covariance": -2.0}}],
      questions=[{"q": "Find the correlation with x = [1, 2, 3, 4, 5], y = [2, 4, 5, 4, 5].", "outputs": {'correlation': 0.7745966692414834, 'covariance': 1.5, 'r_squared': 0.6000000000000001}},
                 {"q": "Find the correlation with x = [1, 1, 1], y = [6, 4, 2].", "outcome": "INVALID_INPUT"}])
+
+
+# =====================================================================================================================
+# CONSUMER FINANCE (credit cards, income tax)
+# =====================================================================================================================
+# Credit card convention: days of the billing cycle are numbered 1 .. billing_days; the opening (previous) balance
+# stands from day 1; a transaction dated day d is part of the balance at the end of day d and every later day
+# (a purchase or fee is positive, a payment or credit negative). The average daily balance is the mean of the
+# end-of-day balances over the cycle. The finance charge is ADB x APR x days / 365 ("daily" basis: a daily periodic
+# rate APR/365 for each day of the cycle) or ADB x APR / 12 ("monthly" basis): the basis is stated, never guessed.
+# A balance that becomes negative (a credit balance) is refused: the method charges a balance owed.
+def _cc_inputs(opening_balance, apr, billing_days, rate_basis, transaction_days, transaction_amounts):
+    B0 = _nonneg("opening_balance", opening_balance)
+    r = _rate("apr", apr, lo=-1e-300)
+    D = _int("billing_days", billing_days, 1, 366)
+    _need(rate_basis in ("daily", "monthly"),
+          "rate basis is 'daily' (APR/365 for each day of the cycle) or 'monthly' (APR/12)")
+    days = [] if transaction_days is None else _vec("transaction_days", transaction_days)
+    amts = [] if transaction_amounts is None else _vec("transaction_amounts", transaction_amounts)
+    _need(len(days) == len(amts), "transaction days and transaction amounts need the same number of entries")
+    out = []
+    for k in range(len(days)):
+        d = days[k]
+        _need(d == math.floor(d) and 1 <= d <= D,
+              "each transaction day must be a whole day of the cycle, from 1 to the number of billing days")
+        out.append(int(d))
+    cycle = r * D / 365.0 if rate_basis == "daily" else r / 12.0
+    return B0, D, out, amts, cycle
+
+
+def credit_card_finance_charge(opening_balance, apr, billing_days, rate_basis, transaction_days=None,
+                               transaction_amounts=None):
+    B0, D, days, amts, cycle = _cc_inputs(opening_balance, apr, billing_days, rate_basis, transaction_days,
+                                          transaction_amounts)
+    # the balance changes only on transaction days: check it at the end of each of them
+    for k in range(len(days)):
+        b = B0
+        for j in range(len(days)):
+            if days[j] <= days[k]:
+                b += amts[j]
+        _need(b >= -1e-9 * max(1.0, B0), "the balance becomes negative (a credit balance): the average daily "
+                                          "balance method charges a balance owed")
+    # each amount stands from its day to the end of the cycle: D - d + 1 days
+    total = D * B0
+    closing = B0
+    for k in range(len(days)):
+        total += amts[k] * (D - days[k] + 1)
+        closing += amts[k]
+    adb = total / D
+    fc = adb * cycle
+    return {"average_daily_balance": adb, "finance_charge": fc, "cycle_rate": cycle, "closing_balance": closing,
+            "new_balance": closing + fc}
+
+
+def _check_cc(opening_balance, apr, billing_days, rate_basis, transaction_days=None, transaction_amounts=None):
+    """Day by day: the end-of-day balance of every day of the cycle, summed."""
+    B0, D, days, amts, cycle = _cc_inputs(opening_balance, apr, billing_days, rate_basis, transaction_days,
+                                          transaction_amounts)
+    bal, total = B0, 0.0
+    for day in range(1, D + 1):
+        for k in range(len(days)):
+            if days[k] == day:
+                bal += amts[k]
+        total += bal
+    adb = total / D
+    fc = adb * cycle
+    return {"average_daily_balance": adb, "finance_charge": fc, "cycle_rate": cycle, "closing_balance": bal,
+            "new_balance": bal + fc}
+
+
+def _ref_cc(opening_balance, apr, billing_days, rate_basis, transaction_days=None, transaction_amounts=None):
+    import numpy as np                                     # cumulative sum of the daily changes, then the mean
+    D = int(billing_days)
+    change = np.zeros(D)
+    change[0] += opening_balance
+    for d, a in zip(list(transaction_days or []), list(transaction_amounts or [])):
+        change[int(d) - 1] += a
+    bal = np.cumsum(change)
+    adb = float(np.mean(bal))
+    rate = apr * D / 365.0 if rate_basis == "daily" else apr / 12.0
+    fc = adb * rate
+    return {"average_daily_balance": adb, "finance_charge": fc, "cycle_rate": rate, "closing_balance": float(bal[-1]),
+            "new_balance": float(bal[-1]) + fc}
+
+
+def _wrong_cc(opening_balance, apr, billing_days, rate_basis, transaction_days=None, transaction_amounts=None):
+    # the previous-balance method: the opening balance charged for the whole cycle
+    o = credit_card_finance_charge(opening_balance, apr, billing_days, rate_basis, transaction_days, transaction_amounts)
+    fc = float(opening_balance) * o["cycle_rate"]
+    return dict(o, average_daily_balance=float(opening_balance), finance_charge=fc, new_balance=o["closing_balance"] + fc)
+
+
+def _rand_cc(rng):
+    D = rng.choice([28, 29, 30, 31])
+    B0 = _u(rng, 100, 5000, 2)
+    n = rng.randint(1, 5)
+    days = sorted(rng.randint(1, D) for _ in range(n))
+    bal, amts = B0, []
+    for _ in days:
+        if rng.random() < 0.5:
+            a = _u(rng, 10, 800, 2)
+        else:
+            a = -round(rng.uniform(0.05, 0.5) * bal, 2)
+            if a == 0:
+                a = _u(rng, 10, 800, 2)
+        bal += a
+        amts.append(a)
+    return {"opening_balance": B0, "apr": _u(rng, 0.08, 0.3), "billing_days": D,
+            "rate_basis": rng.choice(["daily", "monthly"]), "transaction_days": days, "transaction_amounts": amts}
+
+
+_add("credit_card_finance_charge", name="Credit card finance charge (average daily balance)",
+     topic="consumer finance / credit cards",
+     purpose="Average daily balance of a credit card billing cycle and the finance charge on it, from the opening "
+             "balance and the dated purchases and payments of the cycle.",
+     inputs=[_i("opening_balance", "balance owed at the start of the cycle (previous balance)", "previous balance",
+                "starting balance", "beginning balance", "balance"),
+             _i("apr", "annual percentage rate of the card (decimal; 18% = 0.18)", "annual percentage rate", "annual rate",
+                "interest rate", "rate"),
+             _i("billing_days", "number of days in the billing cycle", "days in the billing cycle", "days in cycle",
+                "billing cycle days", "billing cycle", "cycle days", "days", type="integer", min=1),
+             _i("rate_basis", "'daily' (APR/365 for each day of the cycle) or 'monthly' (APR/12)", "basis",
+                "periodic rate", type="choice", choices=["daily", "monthly"],
+                syn={"day": "daily", "days": "daily", "month": "monthly", "months": "monthly"}),
+             _i("transaction_days", "day of the cycle (1 = first day) of each purchase or payment", "transaction day",
+                "days of the transactions", "posting days", type="vector", required=False),
+             _i("transaction_amounts", "amount of each transaction: purchases positive, payments negative",
+                "transaction amount", "amounts", "transactions", type="vector", required=False)],
+     outputs=[_o("average_daily_balance", "mean of the end-of-day balances over the cycle"),
+              _o("finance_charge", "interest charged for the cycle: ADB x cycle rate"),
+              _o("cycle_rate", "rate applied for the cycle (APR x days / 365, or APR / 12)"),
+              _o("closing_balance", "balance at the end of the cycle before the finance charge"),
+              _o("new_balance", "closing balance plus the finance charge")],
+     primary="finance_charge",
+     conditions=["opening_balance >= 0", "0 <= apr < 1", "billing_days a whole number 1..366",
+                 "rate_basis daily or monthly", "transaction days whole numbers 1..billing_days, one per amount",
+                 "the balance never becomes negative"],
+     method="ADB = (D B0 + sum a_k (D - d_k + 1)) / D; finance charge = ADB x APR x D / 365 (daily) or ADB x APR / 12 "
+            "(monthly)",
+     latex=r"\overline{B} = \frac{1}{D}\sum_{d=1}^{D} B_d,\qquad FC = \overline{B}\cdot\frac{\mathrm{APR}\,D}{365}"
+           r"\ \text{or}\ \overline{B}\cdot\frac{\mathrm{APR}}{12}",
+     run=credit_card_finance_charge, check=_check_cc, reference=_ref_cc, wrong=_wrong_cc, rand=_rand_cc,
+     triggers=["average daily balance", "finance charge", "credit card finance charge", "credit card interest",
+               "credit card"],
+     templates=["Find the finance charge by the average daily balance method with opening balance = 1500, apr = 18%, "
+                "billing days = 30, rate basis = daily, transaction days = [11, 21], transaction amounts = [-500, 200]."],
+     examples=[{"inputs": {"opening_balance": 1500, "apr": 0.18, "billing_days": 30, "rate_basis": "daily",
+                           "transaction_days": "11, 21", "transaction_amounts": "-500, 200"},
+                "outputs": {"average_daily_balance": 1233.3333333333333, "finance_charge": 18.246575342465754,
+                            "cycle_rate": 0.014794520547945205, "closing_balance": 1200.0,
+                            "new_balance": 1218.2465753424658}},
+               {"inputs": {"opening_balance": 800, "apr": 0.21, "billing_days": 31, "rate_basis": "monthly",
+                           "transaction_days": [16], "transaction_amounts": [-300]},
+                "outputs": {"average_daily_balance": 645.1612903225806, "finance_charge": 11.290322580645162,
+                            "cycle_rate": 0.0175, "closing_balance": 500.0, "new_balance": 511.2903225806452}},
+               {"inputs": {"opening_balance": 0, "apr": 0.24, "billing_days": 30, "rate_basis": "monthly",
+                           "transaction_days": [1, 16], "transaction_amounts": [300, 600]},
+                "outputs": {"average_daily_balance": 600.0, "finance_charge": 12.0, "cycle_rate": 0.02,
+                            "closing_balance": 900.0, "new_balance": 912.0}}],
+     questions=[{"q": "Find the finance charge by the average daily balance method with opening balance = 1500, apr = 18%, "
+                      "billing days = 30, rate basis = daily, transaction days = [11, 21], transaction amounts = [-500, 200].",
+                 "outputs": {"average_daily_balance": 1233.3333333333333, "finance_charge": 18.246575342465754}},
+                {"q": "What is the credit card finance charge with previous balance = 800, annual percentage rate = 21%, "
+                      "days in the billing cycle = 31, basis = monthly, transaction days = [16], transaction amounts = [-300]?",
+                 "outputs": {"finance_charge": 11.290322580645162, "new_balance": 511.2903225806452}},
+                {"q": "Find the average daily balance with opening balance = 800, apr = 21%, billing days = 31, rate basis = monthly.",
+                 "outputs": {"average_daily_balance": 800.0, "finance_charge": 14.0}},
+                {"q": "Find the finance charge by the average daily balance method with opening balance = 1500, apr = 18%, "
+                      "billing days = 30, transaction days = [11], transaction amounts = [-500].", "outcome": "NEEDS_INPUT"},
+                {"q": "Find the finance charge by the average daily balance method with opening balance = 1500, apr = 18%, "
+                      "billing days = 30, rate basis = daily, transaction days = [40], transaction amounts = [-500].",
+                 "outcome": "INVALID_INPUT"},
+                {"q": "Find the finance charge by the average daily balance method with opening balance = 100, apr = 18%, "
+                      "billing days = 30, rate basis = daily, transaction days = [5], transaction amounts = [-500].",
+                 "outcome": "INVALID_INPUT"}])
+
+
+# Income tax convention: bracket_thresholds are the lower bounds of the brackets (the first is 0, strictly increasing);
+# bracket_rates[k] applies to the part of taxable income between thresholds[k] and thresholds[k+1] (the last bracket
+# has no upper bound). The marginal rate is the rate of the NEXT unit of income: the bracket whose lower bound is the
+# largest one not above the income (an income exactly on a threshold has the higher bracket's marginal rate).
+def _tax_inputs(taxable_income, bracket_thresholds, bracket_rates):
+    x = _pos("taxable_income", taxable_income)
+    t = _vec("bracket_thresholds", bracket_thresholds, 1)
+    rs = _vec("bracket_rates", bracket_rates, 1)
+    _need(len(t) == len(rs), "bracket thresholds and bracket rates need the same number of entries")
+    _need(t[0] == 0, "the first bracket must start at 0")
+    for k in range(1, len(t)):
+        _need(t[k] > t[k - 1], "bracket thresholds must be strictly increasing")
+    for v in rs:
+        _need(0 <= v < 1, "each bracket rate is a decimal from 0 to below 1 (write 22% or 0.22)")
+    return x, t, rs
+
+
+def income_tax(taxable_income, bracket_thresholds, bracket_rates):
+    x, t, rs = _tax_inputs(taxable_income, bracket_thresholds, bracket_rates)
+    j = 0
+    for k in range(len(t)):
+        if t[k] <= x:
+            j = k
+    full = 0.0                                             # tax of every bracket below the top one, in full
+    for k in range(j):
+        full += rs[k] * (t[k + 1] - t[k])
+    tax = full + rs[j] * (x - t[j])
+    return {"tax": tax, "marginal_rate": rs[j], "effective_rate": tax / x, "after_tax_income": x - tax}
+
+
+def _check_income_tax(taxable_income, bracket_thresholds, bracket_rates):
+    """The income taxed in each bracket: min(income, upper) - lower where positive."""
+    x, t, rs = _tax_inputs(taxable_income, bracket_thresholds, bracket_rates)
+    tax, m = 0.0, rs[0]
+    for k in range(len(t)):
+        top = x if k == len(t) - 1 else min(x, t[k + 1])
+        if top > t[k]:
+            tax += rs[k] * (top - t[k])
+        if x >= t[k]:
+            m = rs[k]
+    return {"tax": tax, "marginal_rate": m, "effective_rate": tax / x, "after_tax_income": x - tax}
+
+
+def _ref_income_tax(taxable_income, bracket_thresholds, bracket_rates):
+    import numpy as np                                     # tax = integral of the marginal-rate step function
+    from scipy.integrate import quad
+    t = np.asarray(bracket_thresholds, dtype=float)
+    r = np.asarray(bracket_rates, dtype=float)
+    x = float(taxable_income)
+    step = lambda s: float(r[int(np.searchsorted(t, s, side="right")) - 1])
+    edges = [0.0] + [float(v) for v in t[1:] if v < x] + [x]
+    tax = sum(quad(step, a, b, limit=10)[0] for a, b in zip(edges, edges[1:]) if b > a)
+    m = float(r[int(np.searchsorted(t, x, side="right")) - 1])
+    return {"tax": tax, "marginal_rate": m, "effective_rate": tax / x, "after_tax_income": x - tax}
+
+
+def _wrong_income_tax(taxable_income, bracket_thresholds, bracket_rates):
+    # the whole income taxed at the marginal rate (the classic misreading of brackets)
+    o = income_tax(taxable_income, bracket_thresholds, bracket_rates)
+    x, m = float(taxable_income), o["marginal_rate"]
+    return dict(o, tax=m * x, effective_rate=m, after_tax_income=x - m * x)
+
+
+def _rand_income_tax(rng):
+    k = rng.randint(2, 6)
+    t, r = [0.0], [_u(rng, 0.0, 0.15, 3)]
+    for _ in range(k - 1):
+        t.append(t[-1] + round(rng.uniform(5000, 50000), -1))
+        r.append(round(min(0.69, r[-1] + rng.uniform(0.02, 0.1)), 3))
+    x = _u(rng, t[1] + 1000, t[-1] * 1.5 + 20000, 2)
+    return {"taxable_income": x, "bracket_thresholds": t, "bracket_rates": r}
+
+
+_add("income_tax", name="Income tax from progressive brackets", topic="consumer finance / income tax",
+     purpose="Tax owed on a taxable income under a progressive bracket table, with the marginal and the effective "
+             "(average) tax rate.",
+     inputs=[_i("taxable_income", "taxable income (after deductions)", "income", "taxable earnings"),
+             _i("bracket_thresholds", "lower bound of each bracket, starting at 0, increasing", "thresholds",
+                "bracket starts", "bracket lower bounds", "brackets", type="vector", min_length=1),
+             _i("bracket_rates", "tax rate of each bracket (decimals or percentages)", "rates", "tax rates",
+                "marginal rates", type="vector", min_length=1)],
+     outputs=[_o("tax", "tax owed: each bracket's rate on the income inside it"),
+              _o("marginal_rate", "rate on the next unit of income"),
+              _o("effective_rate", "tax / taxable income"),
+              _o("after_tax_income", "taxable income minus the tax")],
+     primary="tax",
+     conditions=["taxable_income > 0", "first threshold 0, thresholds strictly increasing",
+                 "one rate per threshold, 0 <= rate < 1"],
+     method="tax = sum_k r_k (min(x, t_{k+1}) - t_k)^+; marginal = r_j with t_j <= x < t_{j+1}; effective = tax / x",
+     latex=r"T(x) = \sum_{k} r_k\,\big(\min(x, t_{k+1}) - t_k\big)^{+},\qquad \text{effective rate} = \frac{T(x)}{x}",
+     run=income_tax, check=_check_income_tax, reference=_ref_income_tax, wrong=_wrong_income_tax, rand=_rand_income_tax,
+     triggers=["income tax", "tax owed", "tax brackets", "progressive tax", "marginal tax rate", "effective tax rate",
+               "tax bracket"],
+     templates=["Find the income tax with taxable income = 50000, bracket thresholds = [0, 10000, 40000], "
+                "bracket rates = [10%, 20%, 30%]."],
+     examples=[{"inputs": {"taxable_income": 50000, "bracket_thresholds": "0, 10000, 40000", "bracket_rates": "0.1, 0.2, 0.3"},
+                "outputs": {"tax": 10000.0, "marginal_rate": 0.3, "effective_rate": 0.2, "after_tax_income": 40000.0}},
+               {"inputs": {"taxable_income": 60000, "bracket_thresholds": [0, 11600, 47150, 100525],
+                           "bracket_rates": [0.1, 0.12, 0.22, 0.24]},
+                "outputs": {"tax": 8253.0, "marginal_rate": 0.22, "effective_rate": 0.13755, "after_tax_income": 51747.0}},
+               {"inputs": {"taxable_income": 40000, "bracket_thresholds": [0, 10000, 40000], "bracket_rates": [0.1, 0.2, 0.3]},
+                "outputs": {"tax": 7000.0, "marginal_rate": 0.3, "effective_rate": 0.175, "after_tax_income": 33000.0}}],
+     questions=[{"q": "Find the income tax with taxable income = 50000, bracket thresholds = [0, 10000, 40000], "
+                      "bracket rates = [10%, 20%, 30%].",
+                 "outputs": {"tax": 10000.0, "marginal_rate": 0.3, "effective_rate": 0.2}},
+                {"q": "What is the tax owed with taxable income = 60000, thresholds = [0, 11600, 47150, 100525], "
+                      "rates = [10%, 12%, 22%, 24%]?", "outputs": {"tax": 8253.0, "effective_rate": 0.13755}},
+                {"q": "Find the income tax with taxable income = 50000, bracket thresholds = [0, 10000, 40000], "
+                      "bracket rates = [10, 20, 30].", "outcome": "INVALID_INPUT"},
+                {"q": "Find the income tax with taxable income = 50000, bracket thresholds = [5000, 10000, 40000], "
+                      "bracket rates = [10%, 20%, 30%].", "outcome": "INVALID_INPUT"},
+                {"q": "Find the income tax with taxable income = 50000, bracket rates = [10%, 20%, 30%].",
+                 "outcome": "NEEDS_INPUT"}])
+
+
+# =====================================================================================================================
+# ACCOUNTING, COSTS AND MARKETS (financial ratios, inventory costing, cost curves, standard-cost variances,
+# unemployment, comparative advantage)
+# =====================================================================================================================
+# Shared conventions: money amounts carry no unit; a variance is signed actual minus standard (positive =
+# unfavourable: the actual cost is above the standard; negative = favourable; exactly 0 = none). A result that is 0
+# by arithmetic but carries rounding residue (below 1e-12 of its scale) is written as exactly 0. References compute in
+# exact decimal arithmetic from the decimals the user wrote (_exact), by a different arrangement of the definitions.
+def _exact(x):
+    from fractions import Fraction as Fr                  # references only: the written decimal, exactly
+    return Fr(repr(float(x)))
+
+
+def _snap(v, scale):
+    return 0.0 if abs(v) <= 1e-12 * scale else v
+
+
+def _fav(v):
+    if v > 0:
+        return "unfavourable"
+    if v < 0:
+        return "favourable"
+    return "none"
+
+
+# Financial ratios: balance-sheet items at one date, income-statement items for the period ending then (no averaging
+# of opening and closing balances). Total liabilities = total assets - total equity (the balance-sheet identity).
+def _ratio_inputs(sales, net_income, total_assets, total_equity, current_assets, current_liabilities, inventory):
+    S = _pos("sales", sales)
+    NI = _fin("net_income", net_income)
+    TA = _pos("total_assets", total_assets)
+    E = _pos("total_equity", total_equity)
+    CA = _nonneg("current_assets", current_assets)
+    CL = _pos("current_liabilities", current_liabilities)
+    INV = _nonneg("inventory", inventory)
+    _need(E <= TA, "total equity cannot exceed total assets (the liabilities would be negative)")
+    _need(CA <= TA, "current assets cannot exceed total assets")
+    _need(INV <= CA, "inventory is part of current assets and cannot exceed them")
+    _need(CL + E <= TA * (1 + 1e-12), "current liabilities cannot exceed total liabilities (total assets - equity)")
+    return S, NI, TA, E, CA, CL, INV
+
+
+def financial_ratios(sales, net_income, total_assets, total_equity, current_assets, current_liabilities, inventory):
+    S, NI, TA, E, CA, CL, INV = _ratio_inputs(sales, net_income, total_assets, total_equity, current_assets,
+                                              current_liabilities, inventory)
+    L = TA - E
+    return {"current_ratio": CA / CL, "quick_ratio": (CA - INV) / CL, "debt_ratio": L / TA, "debt_to_equity": L / E,
+            "net_profit_margin": NI / S, "asset_turnover": S / TA, "equity_multiplier": TA / E, "roa": NI / TA,
+            "roe": NI / E}
+
+
+def _ref_ratios(sales, net_income, total_assets, total_equity, current_assets, current_liabilities, inventory):
+    # exact decimals; ROA and ROE rebuilt from the DuPont factors (margin x turnover x leverage)
+    S, NI, TA, E = _exact(sales), _exact(net_income), _exact(total_assets), _exact(total_equity)
+    CA, CL, INV = _exact(current_assets), _exact(current_liabilities), _exact(inventory)
+    margin, turnover, mult = NI / S, S / TA, TA / E
+    debt_ratio = 1 - E / TA
+    out = {"current_ratio": CA / CL, "quick_ratio": CA / CL - INV / CL, "debt_ratio": debt_ratio,
+           "debt_to_equity": debt_ratio * mult, "net_profit_margin": margin, "asset_turnover": turnover,
+           "equity_multiplier": mult, "roa": margin * turnover, "roe": margin * turnover * mult}
+    return {k: float(v) for k, v in out.items()}
+
+
+def _rand_ratios(rng):
+    TA = _u(rng, 1e4, 1e7, 0)
+    E = round(TA * rng.uniform(0.2, 0.8))
+    CA = round(TA * rng.uniform(0.1, 0.6))
+    S = round(TA * rng.uniform(0.3, 3.0))
+    return {"sales": float(S), "net_income": float(round(S * rng.uniform(0.01, 0.2)) * rng.choice([1, 1, 1, -1])),
+            "total_assets": TA, "total_equity": float(E), "current_assets": float(CA),
+            "current_liabilities": float(round((TA - E) * rng.uniform(0.1, 0.9))),
+            "inventory": float(round(CA * rng.uniform(0.0, 0.7)))}
+
+
+_add("financial_ratios", name="Financial ratio analysis with the DuPont return on equity",
+     topic="accounting / financial statement analysis",
+     purpose="Liquidity (current, quick), solvency (debt ratio, debt to equity), efficiency (asset turnover) and "
+             "profitability (net margin, ROA, ROE) ratios from balance-sheet and income-statement items, with ROE "
+             "broken into its DuPont factors: margin x asset turnover x equity multiplier.",
+     inputs=[_i("sales", "net sales (revenue) of the period", "revenue", "net sales", "sales revenue", "total revenue"),
+             _i("net_income", "net income (negative for a loss)", "net profit", "profit", "earnings"),
+             _i("total_assets", "total assets", "assets"),
+             _i("total_equity", "total shareholders' equity (positive, at most total assets)", "equity",
+                "shareholders equity", "stockholders equity", "owners equity", "shareholders' equity",
+                "stockholders' equity"),
+             _i("current_assets", "current assets"),
+             _i("current_liabilities", "current liabilities (positive)"),
+             _i("inventory", "inventory (part of current assets)", "inventories")],
+     outputs=[_o("current_ratio", "current assets / current liabilities"),
+              _o("quick_ratio", "(current assets - inventory) / current liabilities"),
+              _o("debt_ratio", "total liabilities / total assets"),
+              _o("debt_to_equity", "total liabilities / total equity"),
+              _o("net_profit_margin", "net income / sales (DuPont factor 1)"),
+              _o("asset_turnover", "sales / total assets (DuPont factor 2)"),
+              _o("equity_multiplier", "total assets / total equity (DuPont factor 3)"),
+              _o("roa", "return on assets: net income / total assets"),
+              _o("roe", "return on equity: net income / equity = margin x turnover x multiplier")],
+     primary="roe",
+     conditions=["sales, total assets, equity, current liabilities > 0", "equity <= total assets",
+                 "inventory <= current assets <= total assets", "current liabilities <= total assets - equity"],
+     method="ratios of the stated items; liabilities = assets - equity; ROE = (NI/S)(S/TA)(TA/E)",
+     latex=r"\mathrm{ROE} = \frac{NI}{E} = \frac{NI}{S}\cdot\frac{S}{TA}\cdot\frac{TA}{E},\qquad"
+           r"\text{current} = \frac{CA}{CL},\quad \text{quick} = \frac{CA - \mathrm{Inv}}{CL}",
+     run=financial_ratios, reference=_ref_ratios,
+     wrong=lambda sales, net_income, total_assets, total_equity, current_assets, current_liabilities, inventory:
+         dict(financial_ratios(sales, net_income, total_assets, total_equity, current_assets, current_liabilities,
+                               inventory), roe=net_income / total_assets),
+     rand=_rand_ratios,
+     triggers=["financial ratios", "financial ratio analysis", "ratio analysis", "dupont", "dupont analysis",
+               "return on equity", "dupont return on equity"],
+     templates=["Find the financial ratios with sales = 500000, net income = 40000, total assets = 400000, "
+                "total equity = 160000, current assets = 150000, current liabilities = 100000, inventory = 60000."],
+     examples=[{"inputs": {"sales": 500000, "net_income": 40000, "total_assets": 400000, "total_equity": 160000,
+                           "current_assets": 150000, "current_liabilities": 100000, "inventory": 60000},
+                "outputs": {"current_ratio": 1.5, "quick_ratio": 0.9, "debt_ratio": 0.6, "debt_to_equity": 1.5,
+                            "net_profit_margin": 0.08, "asset_turnover": 1.25, "equity_multiplier": 2.5,
+                            "roa": 0.1, "roe": 0.25}},
+               {"inputs": {"sales": 2000000, "net_income": 150000, "total_assets": 1500000, "total_equity": 750000,
+                           "current_assets": 500000, "current_liabilities": 250000, "inventory": 200000},
+                "outputs": {"current_ratio": 2.0, "quick_ratio": 1.2, "debt_ratio": 0.5, "debt_to_equity": 1.0,
+                            "net_profit_margin": 0.075, "asset_turnover": 1.3333333333333333,
+                            "equity_multiplier": 2.0, "roa": 0.1, "roe": 0.2}},
+               {"inputs": {"sales": 800000, "net_income": -20000, "total_assets": 500000, "total_equity": 250000,
+                           "current_assets": 200000, "current_liabilities": 160000, "inventory": 80000},
+                "outputs": {"current_ratio": 1.25, "quick_ratio": 0.75, "debt_ratio": 0.5, "debt_to_equity": 1.0,
+                            "net_profit_margin": -0.025, "asset_turnover": 1.6, "equity_multiplier": 2.0,
+                            "roa": -0.04, "roe": -0.08}}],
+     questions=[{"q": "Find the financial ratios with sales = 500000, net income = 40000, total assets = 400000, "
+                      "total equity = 160000, current assets = 150000, current liabilities = 100000, inventory = 60000.",
+                 "outputs": {"current_ratio": 1.5, "quick_ratio": 0.9, "roe": 0.25}},
+                {"q": "What is the DuPont return on equity with revenue = 2000000, net income = 150000, "
+                      "total assets = 1500000, equity = 750000, current assets = 500000, current liabilities = 250000, "
+                      "inventory = 200000?",
+                 "outputs": {"net_profit_margin": 0.075, "asset_turnover": 1.3333333333333333,
+                             "equity_multiplier": 2.0, "roe": 0.2}},
+                {"q": "Find the financial ratios with sales = 500000, net income = 40000, total assets = 400000, "
+                      "total equity = 500000, current assets = 150000, current liabilities = 100000, inventory = 60000.",
+                 "outcome": "INVALID_INPUT"},
+                {"q": "Find the financial ratios with sales = 500000, net income = 40000, total assets = 400000, "
+                      "total equity = 160000, current assets = 150000, current liabilities = 100000, inventory = 200000.",
+                 "outcome": "INVALID_INPUT"},
+                {"q": "Find the financial ratios with sales = 500000, net income = 40000, total assets = 400000, "
+                      "total equity = 160000, current assets = 150000, current liabilities = 100000.",
+                 "outcome": "NEEDS_INPUT"}])
+
+
+# Inventory costing, periodic system: the cost layers are listed in order of acquisition (beginning inventory first);
+# the units sold in the period leave the oldest layers first (FIFO) or the newest first (LIFO), or at the weighted
+# average cost of all goods available (total cost / total units). Ending inventory = the units left at their layer
+# costs (computed from the layers themselves, so an inventory sold out is exactly 0).
+def _layers(layer_units, layer_costs, units_sold):
+    u = _vec("layer_units", layer_units)
+    c = _vec("layer_costs", layer_costs)
+    _need(len(u) == len(c), "give one unit cost for every layer")
+    total_u = 0.0
+    total_c = 0.0
+    for k in range(len(u)):
+        _need(u[k] > 0, "every layer needs a positive number of units")
+        _need(c[k] >= 0, "a unit cost must not be negative")
+        total_u += u[k]
+        total_c += u[k] * c[k]
+    q = _nonneg("units_sold", units_sold)
+    _need(q <= total_u * (1 + 1e-12), "more units were sold than were available for sale")
+    return u, c, total_u, total_c, q
+
+
+def _consume(u, c, q, order):
+    """(cost of goods sold, ending inventory) when the units sold leave the layers in this order of indices."""
+    left = q
+    cogs = 0.0
+    ending = 0.0
+    for k in order:
+        take = min(left, u[k])
+        cogs += take * c[k]
+        ending += (u[k] - take) * c[k]
+        left -= take
+    return cogs, ending
+
+
+def _inventory_out(total_u, total_c, q, fifo, lifo, selling_price):
+    avg = total_c / total_u
+    out = {"units_available": total_u, "cost_of_goods_available": total_c, "fifo_cogs": fifo[0],
+           "fifo_ending_inventory": fifo[1], "lifo_cogs": lifo[0], "lifo_ending_inventory": lifo[1],
+           "average_unit_cost": avg, "average_cogs": q * avg, "average_ending_inventory": (total_u - q) * avg}
+    if selling_price is not None:
+        p = _nonneg("selling_price", selling_price)
+        rev = p * q
+        out["sales_revenue"] = rev
+        out["fifo_gross_margin"] = rev - fifo[0]
+        out["lifo_gross_margin"] = rev - lifo[0]
+        out["average_gross_margin"] = rev - q * avg
+    return out
+
+
+def inventory_costing(layer_units, layer_costs, units_sold, selling_price=None):
+    u, c, total_u, total_c, q = _layers(layer_units, layer_costs, units_sold)
+    n = len(u)
+    first = []
+    last = []
+    for k in range(n):
+        first.append(k)
+        last.append(n - 1 - k)
+    return _inventory_out(total_u, total_c, q, _consume(u, c, q, first), _consume(u, c, q, last), selling_price)
+
+
+def _check_inventory(layer_units, layer_costs, units_sold, selling_price=None):
+    """Layer by layer from cumulative counts: FIFO sells the first q units, LIFO keeps the first (total - q)."""
+    u, c, total_u, total_c, q = _layers(layer_units, layer_costs, units_sold)
+    keep = total_u - q
+    cum = 0.0
+    f_cogs, f_end, l_cogs, l_end = 0.0, 0.0, 0.0, 0.0
+    for k in range(len(u)):
+        sold_k = min(max(q - cum, 0.0), u[k])
+        kept_k = min(max(keep - cum, 0.0), u[k])
+        f_cogs += sold_k * c[k]
+        f_end += (u[k] - sold_k) * c[k]
+        l_end += kept_k * c[k]
+        l_cogs += (u[k] - kept_k) * c[k]
+        cum += u[k]
+    return _inventory_out(total_u, total_c, q, (f_cogs, f_end), (l_cogs, l_end), selling_price)
+
+
+def _ref_inventory(layer_units, layer_costs, units_sold, selling_price=None):
+    import numpy as np                                     # the cumulative cost curve of the units, read by
+    u = np.asarray(layer_units, dtype=float)               # interpolation, forwards (oldest first) and backwards
+    c = np.asarray(layer_costs, dtype=float)
+    cu = np.concatenate([[0.0], np.cumsum(u)])
+    cc = np.concatenate([[0.0], np.cumsum(u * c)])
+    ru = np.concatenate([[0.0], np.cumsum(u[::-1])])
+    rc = np.concatenate([[0.0], np.cumsum((u * c)[::-1])])
+    q = float(units_sold)
+    left = float(cu[-1]) - q
+    avg = float(np.average(c, weights=u))
+    out = {"units_available": float(cu[-1]), "cost_of_goods_available": float(cc[-1]),
+           "fifo_cogs": float(np.interp(q, cu, cc)), "fifo_ending_inventory": float(np.interp(left, ru, rc)),
+           "lifo_cogs": float(np.interp(q, ru, rc)), "lifo_ending_inventory": float(np.interp(left, cu, cc)),
+           "average_unit_cost": avg, "average_cogs": q * avg, "average_ending_inventory": left * avg}
+    if selling_price is not None:
+        rev = float(selling_price) * q
+        out.update(sales_revenue=rev, fifo_gross_margin=rev - out["fifo_cogs"], lifo_gross_margin=rev - out["lifo_cogs"],
+                   average_gross_margin=rev - out["average_cogs"])
+    return out
+
+
+def _wrong_inventory(layer_units, layer_costs, units_sold, selling_price=None):
+    # the average cost taken as the plain mean of the layer costs (not weighted by units)
+    o = inventory_costing(layer_units, layer_costs, units_sold, selling_price)
+    avg = sum(float(x) for x in layer_costs) / len(layer_costs)
+    q = float(units_sold)
+    o = dict(o, average_unit_cost=avg, average_cogs=q * avg, average_ending_inventory=(o["units_available"] - q) * avg)
+    if selling_price is not None:
+        o["average_gross_margin"] = o["sales_revenue"] - q * avg
+    return o
+
+
+def _rand_inventory(rng):
+    n = rng.randint(2, 6)
+    u = [float(rng.randint(10, 500)) for _ in range(n)]
+    c = [_u(rng, 1, 100, 2) for _ in range(n)]
+    d = {"layer_units": u, "layer_costs": c, "units_sold": float(rng.randint(1, int(sum(u))))}
+    if rng.random() < 0.7:
+        d["selling_price"] = _u(rng, max(c), 2 * max(c) + 10, 2)
+    return d
+
+
+_add("inventory_costing", name="Inventory costing: FIFO, LIFO and weighted average",
+     topic="accounting / merchandising and inventory",
+     purpose="Cost of goods sold and ending inventory under FIFO, LIFO and the weighted average cost (periodic "
+             "system) from the cost layers of the period and the units sold, with the gross margin when a selling "
+             "price is given.",
+     inputs=[_i("layer_units", "units in each cost layer, in order of acquisition (beginning inventory first)",
+                "units", "purchase units", "units purchased", type="vector", min_length=1),
+             _i("layer_costs", "unit cost of each layer, in the same order", "unit costs", "purchase costs",
+                "costs per unit", type="vector", min_length=1),
+             _i("units_sold", "units sold in the period", "sold", "quantity sold", "units sold during the period"),
+             _i("selling_price", "selling price per unit (optional: gives sales revenue and gross margins)",
+                "sale price", "price per unit", "unit selling price", "price", required=False)],
+     outputs=[_o("units_available", "units available for sale"),
+              _o("cost_of_goods_available", "cost of goods available for sale"),
+              _o("fifo_cogs", "cost of goods sold, FIFO (oldest layers sold first)"),
+              _o("fifo_ending_inventory", "ending inventory, FIFO (newest layers left)"),
+              _o("lifo_cogs", "cost of goods sold, LIFO (newest layers sold first)"),
+              _o("lifo_ending_inventory", "ending inventory, LIFO (oldest layers left)"),
+              _o("average_unit_cost", "weighted average unit cost: goods available / units available"),
+              _o("average_cogs", "cost of goods sold at the weighted average cost"),
+              _o("average_ending_inventory", "ending inventory at the weighted average cost"),
+              _o("sales_revenue", "selling price x units sold (with a selling price)"),
+              _o("fifo_gross_margin", "sales revenue - FIFO cost of goods sold"),
+              _o("lifo_gross_margin", "sales revenue - LIFO cost of goods sold"),
+              _o("average_gross_margin", "sales revenue - weighted average cost of goods sold")],
+     primary="fifo_cogs",
+     conditions=["one unit cost per layer", "units of each layer > 0", "unit costs >= 0",
+                 "0 <= units sold <= units available", "selling price >= 0"],
+     method="periodic system: FIFO takes the units sold from the first layers, LIFO from the last; weighted average "
+            "cost = sum(units x cost) / sum(units); ending inventory = the units left at their costs",
+     latex=r"\bar c = \frac{\sum_k u_k c_k}{\sum_k u_k},\qquad \mathrm{COGS} + \mathrm{EI} = \sum_k u_k c_k",
+     run=inventory_costing, check=_check_inventory, reference=_ref_inventory, wrong=_wrong_inventory,
+     rand=_rand_inventory,
+     triggers=["inventory costing", "fifo", "lifo", "first-in first-out", "last-in first-out", "weighted average cost",
+               "weighted-average cost", "cost of goods sold", "ending inventory", "gross margin"],
+     templates=["Find the cost of goods sold by FIFO, LIFO and weighted average with layer units = [100, 200, 150], "
+                "layer costs = [10, 12, 14], units sold = 300, selling price = 20."],
+     examples=[{"inputs": {"layer_units": [100, 200, 150], "layer_costs": [10, 12, 14], "units_sold": 300,
+                           "selling_price": 20},
+                "outputs": {"units_available": 450.0, "cost_of_goods_available": 5500.0, "fifo_cogs": 3400.0,
+                            "fifo_ending_inventory": 2100.0, "lifo_cogs": 3900.0, "lifo_ending_inventory": 1600.0,
+                            "average_unit_cost": 12.222222222222221, "average_cogs": 3666.6666666666665,
+                            "average_ending_inventory": 1833.3333333333333, "sales_revenue": 6000.0,
+                            "fifo_gross_margin": 2600.0, "lifo_gross_margin": 2100.0,
+                            "average_gross_margin": 2333.3333333333335}},
+               {"inputs": {"layer_units": "50, 50", "layer_costs": "4, 6", "units_sold": 50},
+                "outputs": {"units_available": 100.0, "cost_of_goods_available": 500.0, "fifo_cogs": 200.0,
+                            "fifo_ending_inventory": 300.0, "lifo_cogs": 300.0, "lifo_ending_inventory": 200.0,
+                            "average_unit_cost": 5.0, "average_cogs": 250.0, "average_ending_inventory": 250.0}}],
+     questions=[{"q": "Find the cost of goods sold by FIFO, LIFO and weighted average with layer units = [100, 200, 150], "
+                      "layer costs = [10, 12, 14], units sold = 300, selling price = 20.",
+                 "outputs": {"fifo_cogs": 3400.0, "lifo_cogs": 3900.0, "average_cogs": 3666.6666666666665,
+                             "fifo_gross_margin": 2600.0}},
+                {"q": "What is the ending inventory with layer units = [50, 50], layer costs = [4, 6], units sold = 50?",
+                 "outputs": {"fifo_ending_inventory": 300.0, "lifo_ending_inventory": 200.0,
+                             "average_ending_inventory": 250.0}},
+                {"q": "Find the cost of goods sold by FIFO, LIFO and weighted average with layer units = [100, 200, 150], "
+                      "layer costs = [10, 12, 14], units sold = 500.", "outcome": "INVALID_INPUT"},
+                {"q": "Find the cost of goods sold by FIFO, LIFO and weighted average with layer units = [100, 200], "
+                      "layer costs = [10, 12, 14], units sold = 50.", "outcome": "INVALID_INPUT"},
+                {"q": "Find the cost of goods sold by FIFO, LIFO and weighted average with layer units = [100, 200, 150], "
+                      "layer costs = [10, 12, 14].", "outcome": "NEEDS_INPUT"}])
+
+
+# Cost curves of a price-taking firm from a total cost table: the first row is output 0, whose total cost is the fixed
+# cost. AFC, AVC and ATC are given for every row with output > 0; MC for each step between rows (change in total cost
+# / change in output). The best output is the row of the table with the largest profit P Q - TC, the row of output 0
+# included (that is shutting down: the loss is the fixed cost); profits equal to within 1e-12 of the table's scale are
+# a tie, and a tie goes to the larger output. Shutdown price = the minimum AVC of the table; break-even price = the
+# minimum ATC.
+def _cost_table(quantities, total_costs):
+    Q = _vec("quantities", quantities, 3)
+    C = _vec("total_costs", total_costs, 3)
+    _need(len(Q) == len(C), "give one total cost for every output level")
+    _need(Q[0] == 0, "the table starts at output 0 (its total cost is the fixed cost)")
+    _need(C[0] >= 0, "the fixed cost must not be negative")
+    for k in range(1, len(Q)):
+        _need(Q[k] > Q[k - 1], "output levels must increase")
+        _need(C[k] >= C[k - 1], "total cost must not fall as output rises")
+    return Q, C
+
+
+def competitive_firm_cost_curves(quantities, total_costs, price):
+    Q, C = _cost_table(quantities, total_costs)
+    P = _pos("price", price)
+    n = len(Q)
+    F = C[0]
+    afc, avc, atc, mc = [], [], [], []
+    for k in range(1, n):
+        afc.append(F / Q[k])
+        avc.append((C[k] - F) / Q[k])
+        atc.append(C[k] / Q[k])
+        mc.append((C[k] - C[k - 1]) / (Q[k] - Q[k - 1]))
+    profit = []
+    for k in range(n):
+        profit.append(P * Q[k] - C[k])
+    best = profit[0]
+    for k in range(1, n):
+        if profit[k] > best:
+            best = profit[k]
+    scale = P * Q[n - 1] + C[n - 1]
+    j = 0
+    for k in range(n):
+        if profit[k] >= best - 1e-12 * scale:
+            j = k
+    shut = avc[0]
+    even = atc[0]
+    for k in range(1, n - 1):
+        if avc[k] < shut:
+            shut = avc[k]
+        if atc[k] < even:
+            even = atc[k]
+    return {"fixed_cost": F, "average_fixed_cost": afc, "average_variable_cost": avc, "average_total_cost": atc,
+            "marginal_cost": mc, "best_output": Q[j], "profit": _snap(profit[j], scale),
+            "shutdown_price": shut, "break_even_price": even, "decision": "produce" if j > 0 else "shut down"}
+
+
+def _ref_cost_curves(quantities, total_costs, price):
+    # exact decimals; profit at each row as the fixed cost's loss plus the cumulative marginal profit of every step
+    Q = [_exact(v) for v in quantities]
+    C = [_exact(v) for v in total_costs]
+    P = _exact(price)
+    F = C[0]
+    profits = [-F]
+    for k in range(1, len(Q)):
+        profits.append(profits[-1] + P * (Q[k] - Q[k - 1]) - (C[k] - C[k - 1]))
+    top = max(profits)
+    j = max(k for k in range(len(Q)) if profits[k] == top)
+    avc = [(C[k] - F) / Q[k] for k in range(1, len(Q))]
+    atc = [C[k] / Q[k] for k in range(1, len(Q))]
+    return {"fixed_cost": float(F), "average_fixed_cost": [float(F / q) for q in Q[1:]],
+            "average_variable_cost": [float(v) for v in avc], "average_total_cost": [float(v) for v in atc],
+            "marginal_cost": [float((C[k] - C[k - 1]) / (Q[k] - Q[k - 1])) for k in range(1, len(Q))],
+            "best_output": float(Q[j]), "profit": float(profits[j]), "shutdown_price": float(min(avc)),
+            "break_even_price": float(min(atc)), "decision": "produce" if j > 0 else "shut down"}
+
+
+def _wrong_cost_curves(quantities, total_costs, price):
+    # average variable cost taken as total cost / output (the fixed cost not removed), so the shutdown price too
+    o = competitive_firm_cost_curves(quantities, total_costs, price)
+    return dict(o, average_variable_cost=list(o["average_total_cost"]), shutdown_price=o["break_even_price"])
+
+
+def _rand_cost_curves(rng):
+    n = rng.randint(4, 9)
+    Q = [0.0]
+    for _ in range(n - 1):
+        Q.append(Q[-1] + rng.randint(1, 5))
+    F = _u(rng, 10, 1000, 2)
+    a = _u(rng, 5, 50, 2)
+    c = _u(rng, 0.001, 0.05, 4)
+    b = -rng.uniform(0.2, 0.9) * math.sqrt(3 * a * c)      # MC = a + 2bQ + 3cQ^2 stays positive (U-shaped)
+    C = [round(F + a * q + b * q * q + c * q ** 3, 2) for q in Q]
+    avc = [(C[k] - C[0]) / Q[k] for k in range(1, n)]
+    mc = [(C[k] - C[k - 1]) / (Q[k] - Q[k - 1]) for k in range(1, n)]
+    return {"quantities": Q, "total_costs": C, "price": max(0.01, round(rng.uniform(0.7 * min(avc), 1.2 * max(mc)), 2))}
+
+
+_COST_TABLE = [0, 1, 2, 3, 4, 5, 6]
+_COST_TC = [10, 18, 24, 32, 44, 60, 80]
+_COST_COMMON = {"fixed_cost": 10.0,
+                "average_fixed_cost": [10.0, 5.0, 3.3333333333333335, 2.5, 2.0, 1.6666666666666667],
+                "average_variable_cost": [8.0, 7.0, 7.333333333333333, 8.5, 10.0, 11.666666666666666],
+                "average_total_cost": [18.0, 12.0, 10.666666666666666, 11.0, 12.0, 13.333333333333334],
+                "marginal_cost": [8.0, 6.0, 8.0, 12.0, 16.0, 20.0], "shutdown_price": 7.0,
+                "break_even_price": 10.666666666666666}
+
+_add("competitive_firm_cost_curves", name="Cost curves, best output and shutdown of a competitive firm",
+     topic="microeconomics / production costs and perfect competition",
+     purpose="Fixed, average fixed, average variable, average total and marginal cost from a total cost table, and "
+             "the price-taking firm's profit-maximising output, its profit, the shutdown price (minimum AVC) and the "
+             "break-even price (minimum ATC).",
+     inputs=[_i("quantities", "output levels of the table, starting at 0 and increasing", "output levels", "outputs",
+                "quantity", "output", "q", type="vector", min_length=3),
+             _i("total_costs", "total cost at each output level (the first is the fixed cost)", "total cost", "tc",
+                "costs", type="vector", min_length=3),
+             _i("price", "market price the firm takes as given", "market price", "p")],
+     outputs=[_o("fixed_cost", "total cost at output 0"),
+              _o("average_fixed_cost", "AFC = FC / Q for each output > 0"),
+              _o("average_variable_cost", "AVC = (TC - FC) / Q for each output > 0"),
+              _o("average_total_cost", "ATC = TC / Q for each output > 0"),
+              _o("marginal_cost", "MC = change in TC / change in Q for each step of the table"),
+              _o("best_output", "profit-maximising output in the table (0 = shut down)"),
+              _o("profit", "profit P Q - TC at the best output (negative = loss)"),
+              _o("shutdown_price", "minimum AVC: below it the firm produces nothing"),
+              _o("break_even_price", "minimum ATC: the price at which the best profit is zero"),
+              _o("decision", "produce or shut down", "text")],
+     primary="best_output",
+     conditions=["at least 3 rows, one total cost per output", "first output 0, outputs increasing",
+                 "total costs non-negative and non-decreasing", "price > 0"],
+     method="AFC = FC/Q, AVC = (TC - FC)/Q, ATC = TC/Q, MC = dTC/dQ; best output = the row maximising P Q - TC "
+            "(ties: larger output); shutdown price = min AVC, break-even price = min ATC",
+     latex=r"\mathrm{AVC} = \frac{TC - FC}{Q},\quad \mathrm{MC} = \frac{\Delta TC}{\Delta Q},\quad "
+           r"Q^{*} = \arg\max_{Q}\,(PQ - TC(Q))",
+     run=competitive_firm_cost_curves, reference=_ref_cost_curves, wrong=_wrong_cost_curves, rand=_rand_cost_curves,
+     triggers=["cost curves", "shutdown point", "shutdown price", "shut down", "competitive firm",
+               "perfectly competitive firm", "price taker", "price-taking firm", "average variable cost",
+               "average total cost"],
+     templates=["Find the cost curves and shutdown point of a competitive firm with quantities = [0, 1, 2, 3, 4, 5, 6], "
+                "total costs = [10, 18, 24, 32, 44, 60, 80], price = 16."],
+     examples=[{"inputs": {"quantities": _COST_TABLE, "total_costs": _COST_TC, "price": 16},
+                "outputs": dict(_COST_COMMON, best_output=5.0, profit=20.0, decision="produce")},
+               {"inputs": {"quantities": _COST_TABLE, "total_costs": _COST_TC, "price": 6},
+                "outputs": dict(_COST_COMMON, best_output=0.0, profit=-10.0, decision="shut down")},
+               {"inputs": {"quantities": "0, 1, 2, 3, 4, 5, 6", "total_costs": "10, 18, 24, 32, 44, 60, 80",
+                           "price": 9},
+                "outputs": dict(_COST_COMMON, best_output=3.0, profit=-5.0, decision="produce")}],
+     questions=[{"q": "Find the cost curves and shutdown point of a competitive firm with quantities = [0, 1, 2, 3, 4, 5, 6], "
+                      "total costs = [10, 18, 24, 32, 44, 60, 80], price = 16.",
+                 "outputs": {"best_output": 5.0, "profit": 20.0, "shutdown_price": 7.0,
+                             "marginal_cost": [8.0, 6.0, 8.0, 12.0, 16.0, 20.0]}},
+                {"q": "Should a price taker shut down with quantities = [0, 1, 2, 3, 4, 5, 6], "
+                      "total costs = [10, 18, 24, 32, 44, 60, 80], price = 6?",
+                 "outputs": {"best_output": 0.0, "profit": -10.0, "decision": "shut down"}},
+                {"q": "Find the cost curves and shutdown point of a competitive firm with quantities = [0, 1, 2, 3, 4, 5, 6], "
+                      "total costs = [10, 18, 24, 32, 44, 60, 80], price = 9.",
+                 "outputs": {"best_output": 3.0, "profit": -5.0, "decision": "produce"}},
+                {"q": "Find the cost curves and shutdown point of a competitive firm with quantities = [1, 2, 3], "
+                      "total costs = [10, 18, 24], price = 16.", "outcome": "INVALID_INPUT"},
+                {"q": "Find the cost curves and shutdown point of a competitive firm with quantities = [0, 1, 2, 3], "
+                      "total costs = [10, 18, 15, 24], price = 16.", "outcome": "INVALID_INPUT"},
+                {"q": "Find the cost curves and shutdown point of a competitive firm with quantities = [0, 1, 2, 3], "
+                      "total costs = [10, 18, 24, 32].", "outcome": "NEEDS_INPUT"}])
+
+
+# Direct-cost variances (materials or labour; the same algebra): standard price (or wage rate) SP, standard quantity
+# (or hours) allowed for the actual output SQ, actual price (rate) AP and actual quantity used (hours worked) AQ. The
+# price variance is taken on the quantity purchased (default: the quantity used), the quantity variance on the
+# quantity used: PV = QP (AP - SP), QV = SP (AQ - SQ), total = PV + QV (= AQ AP - SQ SP when all purchased is used).
+def _direct_var_inputs(standard_price, standard_quantity, actual_price, actual_quantity, quantity_purchased):
+    SP = _pos("standard_price", standard_price)
+    SQ = _pos("standard_quantity", standard_quantity)
+    AP = _nonneg("actual_price", actual_price)
+    AQ = _nonneg("actual_quantity", actual_quantity)
+    QP = AQ if quantity_purchased is None else _nonneg("quantity_purchased", quantity_purchased)
+    return SP, SQ, AP, AQ, QP
+
+
+def direct_cost_variances(standard_price, standard_quantity, actual_price, actual_quantity, quantity_purchased=None):
+    SP, SQ, AP, AQ, QP = _direct_var_inputs(standard_price, standard_quantity, actual_price, actual_quantity,
+                                            quantity_purchased)
+    pv = QP * (AP - SP)
+    qv = SP * (AQ - SQ)
+    tv = _snap(pv + qv, QP * AP + QP * SP + AQ * SP + SQ * SP)
+    return {"price_variance": pv, "quantity_variance": qv, "total_variance": tv,
+            "price_variance_type": _fav(pv), "quantity_variance_type": _fav(qv), "total_variance_type": _fav(tv),
+            "standard_cost_allowed": SQ * SP}
+
+
+def _ref_direct_var(standard_price, standard_quantity, actual_price, actual_quantity, quantity_purchased=None):
+    # the column layout in exact decimals: actual cost, actual input at standard price, standard input at standard
+    # price; each variance is a difference of two columns
+    SP, SQ, AP, AQ = _exact(standard_price), _exact(standard_quantity), _exact(actual_price), _exact(actual_quantity)
+    QP = AQ if quantity_purchased is None else _exact(quantity_purchased)
+    pv = QP * AP - QP * SP
+    qv = AQ * SP - SQ * SP
+    tv = pv + qv
+    return {"price_variance": float(pv), "quantity_variance": float(qv), "total_variance": float(tv),
+            "price_variance_type": _fav(pv), "quantity_variance_type": _fav(qv), "total_variance_type": _fav(tv),
+            "standard_cost_allowed": float(SQ * SP)}
+
+
+def _wrong_direct_var(standard_price, standard_quantity, actual_price, actual_quantity, quantity_purchased=None):
+    # the quantity variance priced at the actual price instead of the standard price
+    o = direct_cost_variances(standard_price, standard_quantity, actual_price, actual_quantity, quantity_purchased)
+    qv = float(actual_price) * (float(actual_quantity) - float(standard_quantity))
+    tv = o["price_variance"] + qv
+    return dict(o, quantity_variance=qv, total_variance=tv, quantity_variance_type=_fav(qv),
+                total_variance_type=_fav(tv))
+
+
+def _rand_direct_var(rng):
+    SP = _u(rng, 1, 80, 2)
+    SQ = float(rng.randint(100, 20000))
+    d = {"standard_price": SP, "standard_quantity": SQ,
+         "actual_price": round(SP * rng.choice([rng.uniform(0.8, 0.98), rng.uniform(1.02, 1.2)]), 2),
+         "actual_quantity": float(round(SQ * rng.choice([rng.uniform(0.85, 0.98), rng.uniform(1.02, 1.15)])))}
+    if rng.random() < 0.3:
+        d["quantity_purchased"] = float(round(d["actual_quantity"] * rng.uniform(1.0, 1.3)))
+    return d
+
+
+_add("direct_cost_variances", name="Standard-cost variances: materials price and quantity, labour rate and efficiency",
+     topic="accounting / standard costing and variances",
+     purpose="Price (labour: rate) and quantity (labour: efficiency) variances of direct materials or direct labour "
+             "from standard and actual prices and quantities, each marked favourable or unfavourable.",
+     inputs=[_i("standard_price", "standard price per unit of input (labour: standard wage rate per hour)",
+                "standard rate", "standard cost per unit", "standard wage rate", "sp", "sr"),
+             _i("standard_quantity", "standard quantity allowed for the actual output (labour: standard hours allowed)",
+                "standard hours", "standard quantity allowed", "standard hours allowed", "sq", "sh"),
+             _i("actual_price", "actual price paid per unit of input (labour: actual wage rate)", "actual rate",
+                "actual wage rate", "ap", "ar"),
+             _i("actual_quantity", "actual quantity used (labour: actual hours worked)", "actual hours",
+                "actual quantity used", "quantity used", "hours worked", "aq", "ah"),
+             _i("quantity_purchased", "quantity purchased (materials; default: the quantity used)",
+                "purchased quantity", "quantity bought", "units purchased", required=False)],
+     outputs=[_o("price_variance", "price (rate) variance QP (AP - SP); positive = unfavourable"),
+              _o("quantity_variance", "quantity (efficiency) variance SP (AQ - SQ); positive = unfavourable"),
+              _o("total_variance", "price variance + quantity variance"),
+              _o("price_variance_type", "favourable, unfavourable or none", "text"),
+              _o("quantity_variance_type", "favourable, unfavourable or none", "text"),
+              _o("total_variance_type", "favourable, unfavourable or none", "text"),
+              _o("standard_cost_allowed", "standard cost of the actual output SQ x SP")],
+     primary="total_variance",
+     conditions=["standard price and standard quantity > 0", "actual price, actual quantity and quantity purchased >= 0"],
+     method="PV = QP (AP - SP), QV = SP (AQ - SQ), total = PV + QV; positive = unfavourable",
+     latex=r"PV = Q_P\,(AP - SP),\qquad QV = SP\,(AQ - SQ)",
+     run=direct_cost_variances, reference=_ref_direct_var, wrong=_wrong_direct_var, rand=_rand_direct_var,
+     triggers=["standard cost variances", "standard costing variances", "variance analysis", "materials price variance",
+               "material price variance", "materials quantity variance", "material quantity variance",
+               "materials usage variance", "labour rate variance", "labor rate variance", "labour efficiency variance",
+               "labor efficiency variance", "direct materials variances", "direct labour variances",
+               "direct labor variances", "price and quantity variances", "rate and efficiency variances"],
+     templates=["Find the materials price and quantity variances with standard price = 4, standard quantity = 2000, "
+                "actual price = 4.2, actual quantity = 2100.",
+                "Find the labour rate and efficiency variances with standard rate = 20, standard hours = 500, "
+                "actual rate = 21, actual hours = 480."],
+     examples=[{"inputs": {"standard_price": 4, "standard_quantity": 2000, "actual_price": 4.2, "actual_quantity": 2100},
+                "outputs": {"price_variance": 420.0, "quantity_variance": 400.0, "total_variance": 820.0,
+                            "price_variance_type": "unfavourable", "quantity_variance_type": "unfavourable",
+                            "total_variance_type": "unfavourable", "standard_cost_allowed": 8000.0}},
+               {"inputs": {"standard_price": 20, "standard_quantity": 500, "actual_price": 21, "actual_quantity": 480},
+                "outputs": {"price_variance": 480.0, "quantity_variance": -400.0, "total_variance": 80.0,
+                            "price_variance_type": "unfavourable", "quantity_variance_type": "favourable",
+                            "total_variance_type": "unfavourable", "standard_cost_allowed": 10000.0}},
+               {"inputs": {"standard_price": 10, "standard_quantity": 900, "actual_price": 9.5, "actual_quantity": 950,
+                           "quantity_purchased": 1000},
+                "outputs": {"price_variance": -500.0, "quantity_variance": 500.0, "total_variance": 0.0,
+                            "price_variance_type": "favourable", "quantity_variance_type": "unfavourable",
+                            "total_variance_type": "none", "standard_cost_allowed": 9000.0}}],
+     questions=[{"q": "Find the materials price and quantity variances with standard price = 4, standard quantity = 2000, "
+                      "actual price = 4.2, actual quantity = 2100.",
+                 "outputs": {"price_variance": 420.0, "quantity_variance": 400.0, "total_variance": 820.0}},
+                {"q": "Find the labour rate and efficiency variances with standard rate = 20, standard hours = 500, "
+                      "actual rate = 21, actual hours = 480.",
+                 "outputs": {"price_variance": 480.0, "quantity_variance": -400.0,
+                             "quantity_variance_type": "favourable"}},
+                {"q": "Find the materials price and quantity variances with standard price = 10, standard quantity = 900, "
+                      "actual price = 9.5, actual quantity = 950, quantity purchased = 1000.",
+                 "outputs": {"price_variance": -500.0, "quantity_variance": 500.0, "total_variance_type": "none"}},
+                {"q": "Find the materials price and quantity variances with standard price = 4, standard quantity = 0, "
+                      "actual price = 4.2, actual quantity = 2100.", "outcome": "INVALID_INPUT"},
+                {"q": "Find the materials price and quantity variances with standard price = 4, standard quantity = 2000, "
+                      "actual price = 4.2.", "outcome": "NEEDS_INPUT"}])
+
+
+# Overhead variances (four-variance analysis), with overhead applied on an hours base: variable overhead rate VR per
+# hour; fixed overhead rate FR = budgeted fixed overhead / denominator hours. Spending = actual variable overhead -
+# AH x VR; efficiency = VR (AH - SH); budget = actual fixed - budgeted fixed; volume = budgeted fixed - SH x FR
+# (computed as budget x (DH - SH) / DH, so it is exactly 0 when SH = DH); total = actual overhead - applied overhead
+# (SH x (VR + FR)) = the sum of the four.
+def _overhead_inputs(variable_overhead_rate, actual_variable_overhead, actual_hours, standard_hours,
+                     budgeted_fixed_overhead, actual_fixed_overhead, denominator_hours):
+    return (_nonneg("variable_overhead_rate", variable_overhead_rate),
+            _nonneg("actual_variable_overhead", actual_variable_overhead), _nonneg("actual_hours", actual_hours),
+            _nonneg("standard_hours", standard_hours), _nonneg("budgeted_fixed_overhead", budgeted_fixed_overhead),
+            _nonneg("actual_fixed_overhead", actual_fixed_overhead), _pos("denominator_hours", denominator_hours))
+
+
+def overhead_cost_variances(variable_overhead_rate, actual_variable_overhead, actual_hours, standard_hours,
+                            budgeted_fixed_overhead, actual_fixed_overhead, denominator_hours):
+    VR, AV, AH, SH, BF, AF, DH = _overhead_inputs(variable_overhead_rate, actual_variable_overhead, actual_hours,
+                                                  standard_hours, budgeted_fixed_overhead, actual_fixed_overhead,
+                                                  denominator_hours)
+    FR = BF / DH
+    spend = _snap(AV - AH * VR, AV + AH * VR)
+    eff = VR * (AH - SH)
+    budget = AF - BF
+    volume = BF * (DH - SH) / DH
+    applied = SH * VR + SH * FR
+    total = _snap(spend + eff + budget + volume, AV + AF + applied)
+    return {"variable_spending_variance": spend, "variable_efficiency_variance": eff, "fixed_budget_variance": budget,
+            "fixed_volume_variance": volume, "total_overhead_variance": total, "fixed_overhead_rate": FR,
+            "applied_overhead": applied, "variable_spending_type": _fav(spend), "variable_efficiency_type": _fav(eff),
+            "fixed_budget_type": _fav(budget), "fixed_volume_type": _fav(volume), "total_type": _fav(total)}
+
+
+def _ref_overhead(variable_overhead_rate, actual_variable_overhead, actual_hours, standard_hours,
+                  budgeted_fixed_overhead, actual_fixed_overhead, denominator_hours):
+    # exact decimals, column layout: actual cost | flexible budget on actual hours | on standard hours | applied
+    VR, AV, AH, SH = (_exact(v) for v in (variable_overhead_rate, actual_variable_overhead, actual_hours, standard_hours))
+    BF, AF, DH = (_exact(v) for v in (budgeted_fixed_overhead, actual_fixed_overhead, denominator_hours))
+    FR = BF / DH
+    applied_fixed = SH * FR
+    applied = SH * VR + applied_fixed
+    spend, eff = AV - AH * VR, AH * VR - SH * VR
+    budget, volume = AF - BF, BF - applied_fixed
+    total = (AV + AF) - applied
+    return {"variable_spending_variance": float(spend), "variable_efficiency_variance": float(eff),
+            "fixed_budget_variance": float(budget), "fixed_volume_variance": float(volume),
+            "total_overhead_variance": float(total), "fixed_overhead_rate": float(FR), "applied_overhead": float(applied),
+            "variable_spending_type": _fav(spend), "variable_efficiency_type": _fav(eff), "fixed_budget_type": _fav(budget),
+            "fixed_volume_type": _fav(volume), "total_type": _fav(total)}
+
+
+def _wrong_overhead(variable_overhead_rate, actual_variable_overhead, actual_hours, standard_hours,
+                    budgeted_fixed_overhead, actual_fixed_overhead, denominator_hours):
+    # the volume variance taken on the actual hours instead of the standard hours allowed
+    o = overhead_cost_variances(variable_overhead_rate, actual_variable_overhead, actual_hours, standard_hours,
+                                budgeted_fixed_overhead, actual_fixed_overhead, denominator_hours)
+    v = float(budgeted_fixed_overhead) * (float(denominator_hours) - float(actual_hours)) / float(denominator_hours)
+    t = o["variable_spending_variance"] + o["variable_efficiency_variance"] + o["fixed_budget_variance"] + v
+    return dict(o, fixed_volume_variance=v, fixed_volume_type=_fav(v), total_overhead_variance=t, total_type=_fav(t))
+
+
+def _rand_overhead(rng):
+    VR = _u(rng, 0.5, 20, 2)
+    SH = float(rng.randint(500, 50000))
+    AH = float(round(SH * rng.choice([rng.uniform(0.85, 0.98), rng.uniform(1.02, 1.15)])))
+    DH = float(round(SH * rng.choice([rng.uniform(0.8, 0.97), rng.uniform(1.03, 1.2)])))
+    BF = round(DH * _u(rng, 1, 30, 2), 2)
+    return {"variable_overhead_rate": VR, "actual_variable_overhead": round(AH * VR * rng.uniform(0.9, 1.1), 2),
+            "actual_hours": AH, "standard_hours": SH, "budgeted_fixed_overhead": BF,
+            "actual_fixed_overhead": round(BF * rng.uniform(0.9, 1.1), 2), "denominator_hours": DH}
+
+
+_add("overhead_cost_variances", name="Overhead variances: variable spending and efficiency, fixed budget and volume",
+     topic="accounting / standard costing and variances",
+     purpose="The four overhead variances of a standard costing system with overhead applied on hours: variable "
+             "overhead spending and efficiency, fixed overhead budget (spending) and volume, and the total over- or "
+             "under-applied overhead, each marked favourable or unfavourable.",
+     inputs=[_i("variable_overhead_rate", "standard variable overhead rate per hour", "standard variable overhead rate",
+                "variable overhead rate per hour", "vr"),
+             _i("actual_variable_overhead", "actual variable overhead cost", "actual variable overhead cost"),
+             _i("actual_hours", "actual hours of the allocation base", "ah", "actual machine hours",
+                "actual labour hours", "actual labor hours"),
+             _i("standard_hours", "standard hours allowed for the actual output", "standard hours allowed", "sh"),
+             _i("budgeted_fixed_overhead", "budgeted fixed overhead", "fixed overhead budget", "budgeted fixed overhead cost"),
+             _i("actual_fixed_overhead", "actual fixed overhead cost", "actual fixed overhead cost"),
+             _i("denominator_hours", "denominator hours on which the fixed overhead rate was set (positive)",
+                "denominator activity", "normal capacity hours", "budgeted hours", "dh")],
+     outputs=[_o("variable_spending_variance", "actual variable overhead - AH x VR"),
+              _o("variable_efficiency_variance", "VR (AH - SH)"),
+              _o("fixed_budget_variance", "actual fixed overhead - budgeted fixed overhead"),
+              _o("fixed_volume_variance", "budgeted fixed overhead - SH x FR"),
+              _o("total_overhead_variance", "actual overhead - applied overhead (sum of the four)"),
+              _o("fixed_overhead_rate", "FR = budgeted fixed overhead / denominator hours"),
+              _o("applied_overhead", "SH x (VR + FR)"),
+              _o("variable_spending_type", "favourable, unfavourable or none", "text"),
+              _o("variable_efficiency_type", "favourable, unfavourable or none", "text"),
+              _o("fixed_budget_type", "favourable, unfavourable or none", "text"),
+              _o("fixed_volume_type", "favourable, unfavourable or none", "text"),
+              _o("total_type", "favourable (over-applied), unfavourable (under-applied) or none", "text")],
+     primary="total_overhead_variance",
+     conditions=["amounts, rates and hours >= 0", "denominator hours > 0"],
+     method="spending = AVOH - AH VR; efficiency = VR (AH - SH); budget = AFOH - BFOH; volume = BFOH (DH - SH)/DH; "
+            "total = AVOH + AFOH - SH (VR + BFOH/DH)",
+     latex=r"\text{spending} = \mathrm{AVOH} - AH\cdot VR,\quad \text{efficiency} = VR\,(AH - SH),\quad "
+           r"\text{volume} = \mathrm{BFOH} - SH\cdot\frac{\mathrm{BFOH}}{DH}",
+     run=overhead_cost_variances, reference=_ref_overhead, wrong=_wrong_overhead, rand=_rand_overhead,
+     triggers=["overhead variances", "overhead variance", "variable overhead spending variance",
+               "variable overhead efficiency variance", "fixed overhead budget variance", "fixed overhead volume variance",
+               "four-variance analysis", "four variance analysis", "overhead spending and efficiency variances",
+               "overhead variance analysis"],
+     templates=["Find the overhead variances with variable overhead rate = 2, actual variable overhead = 9000, "
+                "actual hours = 4200, standard hours = 4000, budgeted fixed overhead = 12000, "
+                "actual fixed overhead = 12500, denominator hours = 5000."],
+     examples=[{"inputs": {"variable_overhead_rate": 2, "actual_variable_overhead": 9000, "actual_hours": 4200,
+                           "standard_hours": 4000, "budgeted_fixed_overhead": 12000, "actual_fixed_overhead": 12500,
+                           "denominator_hours": 5000},
+                "outputs": {"variable_spending_variance": 600.0, "variable_efficiency_variance": 400.0,
+                            "fixed_budget_variance": 500.0, "fixed_volume_variance": 2400.0,
+                            "total_overhead_variance": 3900.0, "fixed_overhead_rate": 2.4, "applied_overhead": 17600.0,
+                            "variable_spending_type": "unfavourable", "variable_efficiency_type": "unfavourable",
+                            "fixed_budget_type": "unfavourable", "fixed_volume_type": "unfavourable",
+                            "total_type": "unfavourable"}},
+               {"inputs": {"variable_overhead_rate": 1.5, "actual_variable_overhead": 5800, "actual_hours": 4000,
+                           "standard_hours": 4100, "budgeted_fixed_overhead": 8000, "actual_fixed_overhead": 7900,
+                           "denominator_hours": 4000},
+                "outputs": {"variable_spending_variance": -200.0, "variable_efficiency_variance": -150.0,
+                            "fixed_budget_variance": -100.0, "fixed_volume_variance": -200.0,
+                            "total_overhead_variance": -650.0, "fixed_overhead_rate": 2.0, "applied_overhead": 14350.0,
+                            "variable_spending_type": "favourable", "variable_efficiency_type": "favourable",
+                            "fixed_budget_type": "favourable", "fixed_volume_type": "favourable",
+                            "total_type": "favourable"}}],
+     questions=[{"q": "Find the overhead variances with variable overhead rate = 2, actual variable overhead = 9000, "
+                      "actual hours = 4200, standard hours = 4000, budgeted fixed overhead = 12000, "
+                      "actual fixed overhead = 12500, denominator hours = 5000.",
+                 "outputs": {"variable_spending_variance": 600.0, "fixed_volume_variance": 2400.0,
+                             "total_overhead_variance": 3900.0}},
+                {"q": "Find the overhead variances with variable overhead rate = 1.5, actual variable overhead = 5800, "
+                      "actual hours = 4000, standard hours = 4100, budgeted fixed overhead = 8000, "
+                      "actual fixed overhead = 7900, denominator hours = 4000.",
+                 "outputs": {"total_overhead_variance": -650.0, "total_type": "favourable"}},
+                {"q": "Find the overhead variances with variable overhead rate = 2, actual variable overhead = 9000, "
+                      "actual hours = 4200, standard hours = 4000, budgeted fixed overhead = 12000, "
+                      "actual fixed overhead = 12500, denominator hours = 0.", "outcome": "INVALID_INPUT"},
+                {"q": "Find the overhead variances with variable overhead rate = 2, actual variable overhead = 9000, "
+                      "actual hours = 4200, standard hours = 4000, budgeted fixed overhead = 12000, "
+                      "actual fixed overhead = 12500.", "outcome": "NEEDS_INPUT"}])
+
+
+# Labour market: the labour force is the employed plus the unemployed; the unemployment rate is the unemployed share
+# of the labour force (not of the population). With the working-age (adult) population, the participation rate is
+# the labour force share of it and the employment-population ratio the employed share.
+def unemployment_rate(employed, unemployed, working_age_population=None):
+    E = _nonneg("employed", employed)
+    U = _nonneg("unemployed", unemployed)
+    LF = E + U
+    _need(LF > 0, "the labour force (employed plus unemployed) must be positive")
+    out = {"labour_force": LF, "unemployment_rate": U / LF}
+    if working_age_population is not None:
+        N = _pos("working_age_population", working_age_population)
+        _need(LF <= N * (1 + 1e-12), "the labour force cannot exceed the working-age population")
+        nilf = N - LF
+        if nilf < 0:
+            nilf = 0.0
+        out["participation_rate"] = LF / N
+        out["employment_population_ratio"] = E / N
+        out["not_in_labour_force"] = nilf
+    return out
+
+
+def _ref_unemployment(employed, unemployed, working_age_population=None):
+    # exact decimals; the rate as 1 - the employed share of the labour force
+    E, U = _exact(employed), _exact(unemployed)
+    LF = E + U
+    out = {"labour_force": float(LF), "unemployment_rate": float(1 - E / LF)}
+    if working_age_population is not None:
+        N = _exact(working_age_population)
+        out.update(participation_rate=float(1 - (N - LF) / N), employment_population_ratio=float(E / N),
+                   not_in_labour_force=float(N - LF))
+    return out
+
+
+def _rand_unemployment(rng):
+    N = _u(rng, 1e3, 3e8, 0)
+    LF = round(N * rng.uniform(0.5, 0.75))
+    U = round(LF * rng.uniform(0.02, 0.15))
+    d = {"employed": float(LF - U), "unemployed": float(U)}
+    if rng.random() < 0.7:
+        d["working_age_population"] = N
+    return d
+
+
+_add("unemployment_rate", name="Unemployment rate and labour-force participation", topic="macroeconomics / unemployment",
+     purpose="Labour force, unemployment rate, and (with the working-age population) the labour-force participation "
+             "rate, the employment-population ratio and the number not in the labour force.",
+     inputs=[_i("employed", "number of employed people", "number employed", "employed persons", "employment"),
+             _i("unemployed", "number of unemployed people (without work and looking for it)", "number unemployed",
+                "unemployed persons", "unemployment"),
+             _i("working_age_population", "working-age (adult) population (optional)", "working-age population",
+                "adult population", "civilian population", "population", required=False)],
+     outputs=[_o("labour_force", "employed + unemployed"),
+              _o("unemployment_rate", "unemployed / labour force"),
+              _o("participation_rate", "labour force / working-age population"),
+              _o("employment_population_ratio", "employed / working-age population"),
+              _o("not_in_labour_force", "working-age population - labour force")],
+     primary="unemployment_rate",
+     conditions=["employed, unemployed >= 0, labour force > 0", "labour force <= working-age population"],
+     method="LF = E + U; u = U / LF; participation = LF / N; employment ratio = E / N",
+     latex=r"u = \frac{U}{E + U},\qquad \text{participation} = \frac{E + U}{N}",
+     run=unemployment_rate, reference=_ref_unemployment,
+     wrong=lambda employed, unemployed, working_age_population=None: dict(
+         unemployment_rate(employed, unemployed, working_age_population),
+         unemployment_rate=float(unemployed) / float(employed) if float(employed) > 0 else 2.0),
+     rand=_rand_unemployment,
+     triggers=["unemployment rate", "labour force participation rate", "labor force participation rate",
+               "labour-force participation rate", "labor-force participation rate", "participation rate",
+               "labour force", "labor force", "employment-population ratio", "employment population ratio"],
+     templates=["Find the unemployment rate with employed = 150, unemployed = 10, working-age population = 250."],
+     examples=[{"inputs": {"employed": 150, "unemployed": 10, "working_age_population": 250},
+                "outputs": {"labour_force": 160.0, "unemployment_rate": 0.0625, "participation_rate": 0.64,
+                            "employment_population_ratio": 0.6, "not_in_labour_force": 90.0}},
+               {"inputs": {"employed": 9200, "unemployed": 800},
+                "outputs": {"labour_force": 10000.0, "unemployment_rate": 0.08}}],
+     questions=[{"q": "Find the unemployment rate with employed = 150, unemployed = 10, working-age population = 250.",
+                 "outputs": {"unemployment_rate": 0.0625, "participation_rate": 0.64}},
+                {"q": "What is the unemployment rate with number employed = 9200, number unemployed = 800?",
+                 "outputs": {"labour_force": 10000.0, "unemployment_rate": 0.08}},
+                {"q": "Find the labour force participation rate with employed = 150, unemployed = 10, adult population = 250.",
+                 "outputs": {"participation_rate": 0.64, "employment_population_ratio": 0.6}},
+                {"q": "Find the unemployment rate with employed = 150, unemployed = 10, working-age population = 100.",
+                 "outcome": "INVALID_INPUT"},
+                {"q": "Find the unemployment rate with employed = 150.", "outcome": "NEEDS_INPUT"}])
+
+
+# Comparative advantage, two countries (A, B) and two goods (X, Y). basis = output: the four numbers are units made
+# per worker (or per hour); basis = hours: hours (or workers) needed per unit. A country's opportunity cost of X is the
+# units of Y it gives up per unit of X; the country with the lower opportunity cost of X has the comparative advantage
+# in X (the other in Y); equal opportunity costs (to 1e-12) leave neither with an advantage. Absolute advantage: more
+# output (or fewer hours) per unit. Terms of trade that benefit both lie between the two opportunity costs of X (units
+# of Y per unit of X).
+def _who(a, b, more_is_better):
+    if a == b:
+        return "equal"
+    if (a > b) == more_is_better:
+        return "country A"
+    return "country B"
+
+
+def comparative_advantage(a_good_x, a_good_y, b_good_x, b_good_y, basis):
+    ax, ay = _pos("a_good_x", a_good_x), _pos("a_good_y", a_good_y)
+    bx, by = _pos("b_good_x", b_good_x), _pos("b_good_y", b_good_y)
+    _need(basis in ("output", "hours"),
+          "basis is 'output' (units made per worker or hour) or 'hours' (hours needed per unit)")
+    if basis == "output":
+        oxa, oya, oxb, oyb = ay / ax, ax / ay, by / bx, bx / by
+        cross_a, cross_b = ay * bx, by * ax                  # oxa < oxb exactly when cross_a < cross_b
+        abs_x, abs_y = _who(ax, bx, True), _who(ay, by, True)
+    else:
+        oxa, oya, oxb, oyb = ax / ay, ay / ax, bx / by, by / bx
+        cross_a, cross_b = ax * by, bx * ay
+        abs_x, abs_y = _who(ax, bx, False), _who(ay, by, False)
+    if abs(cross_a - cross_b) <= 1e-12 * max(cross_a, cross_b):
+        cx, cy = "neither", "neither"
+        lo, hi = oxa, oxa
+    elif cross_a < cross_b:
+        cx, cy = "country A", "country B"
+        lo, hi = oxa, oxb
+    else:
+        cx, cy = "country B", "country A"
+        lo, hi = oxb, oxa
+    return {"opportunity_cost_x_a": oxa, "opportunity_cost_y_a": oya, "opportunity_cost_x_b": oxb,
+            "opportunity_cost_y_b": oyb, "comparative_advantage_x": cx, "comparative_advantage_y": cy,
+            "absolute_advantage_x": abs_x, "absolute_advantage_y": abs_y, "terms_low": lo, "terms_high": hi}
+
+
+def _ref_trade(a_good_x, a_good_y, b_good_x, b_good_y, basis):
+    # exact decimals; the hours form converted to output per hour (1 / hours) before the opportunity costs
+    v = [_exact(a_good_x), _exact(a_good_y), _exact(b_good_x), _exact(b_good_y)]
+    out_per = v if basis == "output" else [1 / x for x in v]
+    ax, ay, bx, by = out_per
+    oxa, oxb = ay / ax, by / bx
+    def who(a, b):
+        return "equal" if a == b else ("country A" if a > b else "country B")
+    if oxa == oxb:
+        cx = cy = "neither"
+    else:
+        cx, cy = ("country A", "country B") if oxa < oxb else ("country B", "country A")
+    return {"opportunity_cost_x_a": float(oxa), "opportunity_cost_y_a": float(1 / oxa),
+            "opportunity_cost_x_b": float(oxb), "opportunity_cost_y_b": float(1 / oxb),
+            "comparative_advantage_x": cx, "comparative_advantage_y": cy,
+            "absolute_advantage_x": who(ax, bx), "absolute_advantage_y": who(ay, by),
+            "terms_low": float(min(oxa, oxb)), "terms_high": float(max(oxa, oxb))}
+
+
+def _rand_trade(rng):
+    while True:
+        v = [float(rng.randint(1, 20)) for _ in range(4)]
+        if v[0] != v[1] and v[2] != v[3]:
+            break
+    return {"a_good_x": v[0], "a_good_y": v[1], "b_good_x": v[2], "b_good_y": v[3],
+            "basis": rng.choice(["output", "hours"])}
+
+
+_add("comparative_advantage", name="Comparative advantage and opportunity cost", topic="international trade / comparative advantage",
+     purpose="Opportunity costs of two goods in two countries from output per worker (or hours per unit), who has the "
+             "absolute and the comparative advantage in each good, and the range of terms of trade that benefits both.",
+     inputs=[_i("a_good_x", "country A, good X: output per worker (basis output) or hours per unit (basis hours)",
+                "country a good x"),
+             _i("a_good_y", "country A, good Y: output per worker or hours per unit", "country a good y"),
+             _i("b_good_x", "country B, good X: output per worker or hours per unit", "country b good x"),
+             _i("b_good_y", "country B, good Y: output per worker or hours per unit", "country b good y"),
+             _i("basis", "'output' (units made per worker or hour) or 'hours' (hours needed per unit)", "data basis",
+                "data", type="choice", choices=["output", "hours"],
+                syn={"outputs": "output", "units": "output", "production": "output", "hour": "hours",
+                     "labour": "hours", "labor": "hours", "time": "hours"})],
+     outputs=[_o("opportunity_cost_x_a", "country A's opportunity cost of X, in units of Y"),
+              _o("opportunity_cost_y_a", "country A's opportunity cost of Y, in units of X"),
+              _o("opportunity_cost_x_b", "country B's opportunity cost of X, in units of Y"),
+              _o("opportunity_cost_y_b", "country B's opportunity cost of Y, in units of X"),
+              _o("comparative_advantage_x", "who should specialise in X: country A, country B or neither", "text"),
+              _o("comparative_advantage_y", "who should specialise in Y: country A, country B or neither", "text"),
+              _o("absolute_advantage_x", "who is more productive in X: country A, country B or equal", "text"),
+              _o("absolute_advantage_y", "who is more productive in Y: country A, country B or equal", "text"),
+              _o("terms_low", "lowest mutually beneficial price of X, in units of Y"),
+              _o("terms_high", "highest mutually beneficial price of X, in units of Y")],
+     primary="comparative_advantage_x",
+     conditions=["all four numbers > 0", "basis output or hours"],
+     method="output basis: OC of X = (Y per worker) / (X per worker); hours basis: OC of X = (hours per X) / "
+            "(hours per Y); the lower OC of X has the comparative advantage in X; terms of trade between the two OCs",
+     latex=r"OC_X^{A} = \frac{y_A}{x_A}\ \text{(output)}\quad\text{or}\quad \frac{h_{X,A}}{h_{Y,A}}\ \text{(hours)},"
+           r"\qquad \min(OC_X^{A}, OC_X^{B}) \le p_X \le \max(OC_X^{A}, OC_X^{B})",
+     run=comparative_advantage, reference=_ref_trade,
+     wrong=lambda a_good_x, a_good_y, b_good_x, b_good_y, basis: comparative_advantage(
+         a_good_x, a_good_y, b_good_x, b_good_y, "hours" if basis == "output" else "output"),
+     rand=_rand_trade,
+     triggers=["comparative advantage", "absolute advantage", "terms of trade", "opportunity cost",
+               "opportunity costs"],
+     templates=["Find the comparative advantage with a good x = 6, a good y = 3, b good x = 1, b good y = 2, "
+                "basis = output."],
+     examples=[{"inputs": {"a_good_x": 6, "a_good_y": 3, "b_good_x": 1, "b_good_y": 2, "basis": "output"},
+                "outputs": {"opportunity_cost_x_a": 0.5, "opportunity_cost_y_a": 2.0, "opportunity_cost_x_b": 2.0,
+                            "opportunity_cost_y_b": 0.5, "comparative_advantage_x": "country A",
+                            "comparative_advantage_y": "country B", "absolute_advantage_x": "country A",
+                            "absolute_advantage_y": "country A", "terms_low": 0.5, "terms_high": 2.0}},
+               {"inputs": {"a_good_x": 2, "a_good_y": 4, "b_good_x": 3, "b_good_y": 3, "basis": "hours"},
+                "outputs": {"opportunity_cost_x_a": 0.5, "opportunity_cost_y_a": 2.0, "opportunity_cost_x_b": 1.0,
+                            "opportunity_cost_y_b": 1.0, "comparative_advantage_x": "country A",
+                            "comparative_advantage_y": "country B", "absolute_advantage_x": "country A",
+                            "absolute_advantage_y": "country B", "terms_low": 0.5, "terms_high": 1.0}},
+               {"inputs": {"a_good_x": 4, "a_good_y": 2, "b_good_x": 2, "b_good_y": 1, "basis": "output"},
+                "outputs": {"opportunity_cost_x_a": 0.5, "opportunity_cost_y_a": 2.0, "opportunity_cost_x_b": 0.5,
+                            "opportunity_cost_y_b": 2.0, "comparative_advantage_x": "neither",
+                            "comparative_advantage_y": "neither", "absolute_advantage_x": "country A",
+                            "absolute_advantage_y": "country A", "terms_low": 0.5, "terms_high": 0.5}}],
+     questions=[{"q": "Find the comparative advantage with a good x = 6, a good y = 3, b good x = 1, b good y = 2, "
+                      "basis = output.",
+                 "outputs": {"comparative_advantage_x": "country A", "comparative_advantage_y": "country B",
+                             "terms_low": 0.5, "terms_high": 2.0}},
+                {"q": "Find the opportunity cost with country a good x = 2, country a good y = 4, country b good x = 3, "
+                      "country b good y = 3, basis = hours.",
+                 "outputs": {"opportunity_cost_x_a": 0.5, "opportunity_cost_x_b": 1.0,
+                             "absolute_advantage_y": "country B"}},
+                {"q": "Find the comparative advantage with a good x = 0, a good y = 3, b good x = 1, b good y = 2, "
+                      "basis = output.", "outcome": "INVALID_INPUT"},
+                {"q": "Find the comparative advantage with a good x = 6, a good y = 3, b good x = 1, b good y = 2.",
+                 "outcome": "NEEDS_INPUT"}])
