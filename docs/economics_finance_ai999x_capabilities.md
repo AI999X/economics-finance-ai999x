@@ -1713,7 +1713,7 @@ $$
 
 ![macaulay_duration (Macaulay duration in years) against ytm (yield to maturity, nominal annual, compounded at the coupon frequency) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-duration-curve)
 
-*macaulay_duration (Macaulay duration in years) against ytm (yield to maturity, nominal annual, compounded at the coupon frequency) from 0.006 to 0.6 on a logarithmic axis. One curve for each value of years (years to maturity (a whole number of coupon periods)): 10, 5, 20. Other inputs as in the worked example: face = 1000, coupon_rate = 0.05, frequency = 2. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, ytm = 0.06, macaulay_duration = 7.895.*
+*macaulay_duration (Macaulay duration in years) against ytm (yield to maturity, nominal annual, compounded at the coupon frequency) from 0.006 to 0.6 on a logarithmic axis. One curve for each value of years (years to maturity (a whole number of coupon periods)): 10, 5, 20. Other inputs as in the worked example: face = 1000.0, coupon_rate = 0.05, frequency = 2. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, ytm = 0.06, macaulay_duration = 7.895.*
 
 ```python
 economics_finance_ai999x.solve('bond_duration', face=1000, coupon_rate=0.05, years=10, ytm=0.06, frequency=2)
@@ -1765,7 +1765,7 @@ $$
 
 ![convexity (convexity (1/P) d2P/dy2, years^2) against ytm (yield to maturity, nominal annual, compounded at the coupon frequency) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-convexity-curve-2)
 
-*convexity (convexity (1/P) d2P/dy2, years^2) against ytm (yield to maturity, nominal annual, compounded at the coupon frequency) from 0.006 to 0.6 on a logarithmic axis. One curve for each value of years (years to maturity (a whole number of coupon periods)): 10, 5, 20. Other inputs as in the worked example: face = 1000, coupon_rate = 0.05, frequency = 2. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, ytm = 0.06, convexity = 71.7854.*
+*convexity (convexity (1/P) d2P/dy2, years^2) against ytm (yield to maturity, nominal annual, compounded at the coupon frequency) from 0.006 to 0.6 on a logarithmic axis. One curve for each value of years (years to maturity (a whole number of coupon periods)): 10, 5, 20. Other inputs as in the worked example: face = 1000.0, coupon_rate = 0.05, frequency = 2. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, ytm = 0.06, convexity = 71.7854.*
 
 ```python
 economics_finance_ai999x.solve('bond_convexity', face=1000, coupon_rate=0.05, years=10, ytm=0.06, frequency=2)
@@ -2060,7 +2060,7 @@ $$
 
 ![required_return (implied required return D1/P0 + g) against price (current share price) from 5 to 500 on a logarithmic axis](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gordon-implied-return-curve)
 
-*required_return (implied required return D1/P0 + g) against price (current share price) from 5 to 500 on a logarithmic axis. One curve for each value of growth (constant dividend growth rate (decimal)): 0.04, 0.02, 0.08. Other inputs as in the worked example: dividend = 2. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, price = 50, required_return = 0.0816.*
+*required_return (implied required return D1/P0 + g) against price (current share price) from 5 to 500 on a logarithmic axis. One curve for each value of growth (constant dividend growth rate (decimal)): 0.04, 0.02, 0.08. Other inputs as in the worked example: dividend = 2.0. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, price = 50, required_return = 0.0816.*
 
 ```python
 economics_finance_ai999x.solve('gordon_implied_return', price=50, dividend=2, growth=0.04)
@@ -2161,7 +2161,7 @@ $$
 
 ![wacc (weighted average cost of capital) against cost_of_equity (cost of equity (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/wacc-curve)
 
-*wacc (weighted average cost of capital) against cost_of_equity (cost of equity (decimal)) from 0.06 to 0.18. One curve for each value of cost_of_debt (pre-tax cost of debt (decimal)): 0.06, 0.03, 0.12. Other inputs as in the worked example: equity_value = 600, debt_value = 400, tax_rate = 0.25. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, cost_of_equity = 0.12, wacc = 0.09.*
+*wacc (weighted average cost of capital) against cost_of_equity (cost of equity (decimal)) from 0.06 to 0.18. One curve for each value of cost_of_debt (pre-tax cost of debt (decimal)): 0.06, 0.03, 0.12. Other inputs as in the worked example: equity_value = 600.0, debt_value = 400.0, tax_rate = 0.25. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, cost_of_equity = 0.12, wacc = 0.09.*
 
 ```python
 economics_finance_ai999x.solve('wacc', equity_value=600, debt_value=400, cost_of_equity=0.12, cost_of_debt=0.06, tax_rate=0.25)
@@ -2813,7 +2813,7 @@ $$
 
 ![var (value at risk V (z sd sqrt(h) - mean h)) against confidence (confidence level (0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/parametric-var-curve)
 
-*var (value at risk V (z sd sqrt(h) - mean h)) against confidence (confidence level (0.95 = 95%)) from 0.891 to 1.089. One curve for each value of std_dev (standard deviation of returns per period (decimal)): 0.012, 0.006, 0.024. Other inputs as in the worked example: mean = 0.0005, horizon = 10, portfolio_value = 1000000. 17 points per curve computed by economics-finance-ai999x; marked: the worked example, confidence = 0.99, var = 83278.7.*
+*var (value at risk V (z sd sqrt(h) - mean h)) against confidence (confidence level (0.95 = 95%)) from 0.891 to 1.089. One curve for each value of std_dev (standard deviation of returns per period (decimal)): 0.012, 0.006, 0.024. Other inputs as in the worked example: mean = 0.0005, horizon = 10.0, portfolio_value = 1000000.0. 17 points per curve computed by economics-finance-ai999x; marked: the worked example, confidence = 0.99, var = 83278.7.*
 
 ```python
 economics_finance_ai999x.solve('parametric_var', mean=0.0005, std_dev=0.012, confidence=0.99, horizon=10, portfolio_value=1000000)
@@ -3671,11 +3671,11 @@ $$
 
 ![elastic, inelastic, unit elastic or perfectly inelastic (classification) over price_1 (first price) from 1 to 100 and quantity_1 (quantity demanded at price 1) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, elastic: 330 cells, inelastic: 321 cells](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/arc-price-elasticity-decision)
 
-*elastic, inelastic, unit elastic or perfectly inelastic (classification) over price_1 (first price) from 1 to 100 and quantity_1 (quantity demanded at price 1) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, elastic: 330 cells, inelastic: 321 cells. Other inputs as in the worked example: price_2 = 12, quantity_2 = 80. Marked: the worked example, price_1 = 10, quantity_1 = 100 → elastic.*
+*elastic, inelastic, unit elastic or perfectly inelastic (classification) over price_1 (first price) from 1 to 100 and quantity_1 (quantity demanded at price 1) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, elastic: 330 cells, inelastic: 321 cells. Other inputs as in the worked example: price_2 = 12.0, quantity_2 = 80.0. Marked: the worked example, price_1 = 10, quantity_1 = 100 → elastic.*
 
 ![elasticity ((dQ / mean Q) / (dP / mean P)) against price_1 (first price) from 1 to 11](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/arc-price-elasticity-curve)
 
-*elasticity ((dQ / mean Q) / (dP / mean P)) against price_1 (first price) from 1 to 11.2202 on a logarithmic axis. One curve for each value of quantity_1 (quantity demanded at price 1): 100, 50, 200. Other inputs as in the worked example: price_2 = 12, quantity_2 = 80. 22 points per curve computed by economics-finance-ai999x; marked: the worked example, price_1 = 10, elasticity = -1.22222.*
+*elasticity ((dQ / mean Q) / (dP / mean P)) against price_1 (first price) from 1 to 11.2202 on a logarithmic axis. One curve for each value of quantity_1 (quantity demanded at price 1): 100, 50, 200. Other inputs as in the worked example: price_2 = 12.0, quantity_2 = 80.0. 22 points per curve computed by economics-finance-ai999x; marked: the worked example, price_1 = 10, elasticity = -1.22222.*
 
 ```python
 economics_finance_ai999x.solve('arc_price_elasticity', price_1=10, quantity_1=100, price_2=12, quantity_2=80)
@@ -3722,11 +3722,11 @@ $$
 
 ![inferior, necessity or luxury (classification) over income_1 (first income) from 4000 to 400000 and income_2 (second income) from 5000 to 500000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, inferior good: 300 cells, normal good (luxury): 31 cells, normal good (necessity): 320 cells](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-elasticity-decision)
 
-*inferior, necessity or luxury (classification) over income_1 (first income) from 4000 to 400000 and income_2 (second income) from 5000 to 500000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, inferior good: 300 cells, normal good (luxury): 31 cells, normal good (necessity): 320 cells. Other inputs as in the worked example: quantity_1 = 10, quantity_2 = 13. Marked: the worked example, income_1 = 40000, income_2 = 50000 → normal good (luxury).*
+*inferior, necessity or luxury (classification) over income_1 (first income) from 4000 to 400000 and income_2 (second income) from 5000 to 500000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, inferior good: 300 cells, normal good (luxury): 31 cells, normal good (necessity): 320 cells. Other inputs as in the worked example: quantity_1 = 10.0, quantity_2 = 13.0. Marked: the worked example, income_1 = 40000, income_2 = 50000 → normal good (luxury).*
 
 ![elasticity ((dQ / mean Q) / (dI / mean I)) against income_1 (first income) from 20000 to 49333](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-elasticity-curve)
 
-*elasticity ((dQ / mean Q) / (dI / mean I)) against income_1 (first income) from 20000 to 49333.3. One curve for each value of quantity_1 (quantity at income 1): 10, 5, 20. Other inputs as in the worked example: income_2 = 50000, quantity_2 = 13. 23 points per curve computed by economics-finance-ai999x; marked: the worked example, income_1 = 40000, elasticity = 1.17391.*
+*elasticity ((dQ / mean Q) / (dI / mean I)) against income_1 (first income) from 20000 to 49333.3. One curve for each value of quantity_1 (quantity at income 1): 10, 5, 20. Other inputs as in the worked example: income_2 = 50000.0, quantity_2 = 13.0. 23 points per curve computed by economics-finance-ai999x; marked: the worked example, income_1 = 40000, elasticity = 1.17391.*
 
 ```python
 economics_finance_ai999x.solve('income_elasticity', income_1=40000, quantity_1=10, income_2=50000, quantity_2=13)
@@ -3767,11 +3767,11 @@ $$
 
 ![substitutes, complements or independent (relationship) over price_other_1 (first price of the other good) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cross-price-elasticity-decision)
 
-*substitutes, complements or independent (relationship) over price_other_1 (first price of the other good) from 0.2 to 20 and quantity_1 (quantity of this good at that price) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, complements: 324 cells, substitutes: 327 cells. Other inputs as in the worked example: price_other_2 = 2.5, quantity_2 = 120. Marked: the worked example, price_other_1 = 2, quantity_1 = 100 → substitutes.*
+*substitutes, complements or independent (relationship) over price_other_1 (first price of the other good) from 0.2 to 20 and quantity_1 (quantity of this good at that price) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, complements: 324 cells, substitutes: 327 cells. Other inputs as in the worked example: price_other_2 = 2.5, quantity_2 = 120.0. Marked: the worked example, price_other_1 = 2, quantity_1 = 100 → substitutes.*
 
 ![elasticity ((dQa / mean Qa) / (dPb / mean Pb)) against price_other_1 (first price of the other good) from 1 to 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cross-price-elasticity-curve)
 
-*elasticity ((dQa / mean Qa) / (dPb / mean Pb)) against price_other_1 (first price of the other good) from 1 to 2.46667. One curve for each value of quantity_1 (quantity of this good at that price): 100, 50, 200. Other inputs as in the worked example: price_other_2 = 2.5, quantity_2 = 120. 23 points per curve computed by economics-finance-ai999x; marked: the worked example, price_other_1 = 2, elasticity = 0.818182.*
+*elasticity ((dQa / mean Qa) / (dPb / mean Pb)) against price_other_1 (first price of the other good) from 1 to 2.46667. One curve for each value of quantity_1 (quantity of this good at that price): 100, 50, 200. Other inputs as in the worked example: price_other_2 = 2.5, quantity_2 = 120.0. 23 points per curve computed by economics-finance-ai999x; marked: the worked example, price_other_1 = 2, elasticity = 0.818182.*
 
 ```python
 economics_finance_ai999x.solve('cross_price_elasticity', price_other_1=2, quantity_1=100, price_other_2=2.5, quantity_2=120)
@@ -4153,7 +4153,7 @@ $$
 
 ![x (alpha/(alpha+beta) M/px) against price_x (price of good x) from 5 to 15](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cobb-douglas-demand-curve)
 
-*x (alpha/(alpha+beta) M/px) against price_x (price of good x) from 5 to 15. One curve for each value of income (income (budget)): 1000, 500, 2000. Other inputs as in the worked example: alpha = 0.3, beta = 0.7, price_y = 20. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, price_x = 10, x = 30.*
+*x (alpha/(alpha+beta) M/px) against price_x (price of good x) from 5 to 15. One curve for each value of income (income (budget)): 1000, 500, 2000. Other inputs as in the worked example: alpha = 0.3, beta = 0.7, price_y = 20.0. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, price_x = 10, x = 30.*
 
 ```python
 economics_finance_ai999x.solve('cobb_douglas_demand', alpha=0.3, beta=0.7, income=1000, price_x=10, price_y=20)
@@ -4373,7 +4373,7 @@ $$
 
 ![money_multiplier ((1 + c)/(rr + c)) against currency_ratio (currency-to-deposit ratio (default 0)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/money-multiplier-curve)
 
-*money_multiplier ((1 + c)/(rr + c)) against currency_ratio (currency-to-deposit ratio (default 0)) from 0.02 to 0.98. One curve for each value of reserve_ratio (reserve ratio (decimal)): 0.1, 0.26, 0.74. Other inputs as in the worked example: monetary_base = 1000. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, currency_ratio = 0.2, money_multiplier = 4.*
+*money_multiplier ((1 + c)/(rr + c)) against currency_ratio (currency-to-deposit ratio (default 0)) from 0.02 to 0.98. One curve for each value of reserve_ratio (reserve ratio (decimal)): 0.1, 0.26, 0.74. Other inputs as in the worked example: monetary_base = 1000.0. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, currency_ratio = 0.2, money_multiplier = 4.*
 
 ```python
 economics_finance_ai999x.solve('money_multiplier', reserve_ratio=0.1, currency_ratio=0.2, monetary_base=1000)
@@ -4421,7 +4421,7 @@ $$
 
 ![spending_multiplier (1/(1 - mpc(1 - t) + m)) against tax_rate (proportional income tax rate (default 0)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/spending-multiplier-curve)
 
-*spending_multiplier (1/(1 - mpc(1 - t) + m)) against tax_rate (proportional income tax rate (default 0)) from 0.02 to 0.98. One curve for each value of import_propensity (marginal propensity to import (default 0)): 0.1, 0.05, 0.2. Other inputs as in the worked example: mpc = 0.8, spending_change = 100. 36 points per curve computed by economics-finance-ai999x; marked: the worked example, tax_rate = 0.25, spending_multiplier = 2.*
+*spending_multiplier (1/(1 - mpc(1 - t) + m)) against tax_rate (proportional income tax rate (default 0)) from 0.02 to 0.98. One curve for each value of import_propensity (marginal propensity to import (default 0)): 0.1, 0.05, 0.2. Other inputs as in the worked example: mpc = 0.8, spending_change = 100.0. 36 points per curve computed by economics-finance-ai999x; marked: the worked example, tax_rate = 0.25, spending_multiplier = 2.*
 
 ```python
 economics_finance_ai999x.solve('spending_multiplier', mpc=0.8, tax_rate=0.25, import_propensity=0.1, spending_change=100)
@@ -4905,7 +4905,7 @@ $$
 
 ![The data bracket_thresholds (lower bound of each bracket, starting at 0, increasing) against bracket_rates (tax rate of each bracket (decimals or percentages)) as given in the worked example (3 points)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-tax-xy)
 
-*The data bracket_thresholds (lower bound of each bracket, starting at 0, increasing) against bracket_rates (tax rate of each bracket (decimals or percentages)) as given in the worked example (3 points). Also returned: tax = 10000, marginal_rate = 0.3, effective_rate = 0.2, after_tax_income = 40000. Other inputs: taxable_income = 50000.*
+*The data bracket_thresholds (lower bound of each bracket, starting at 0, increasing) against bracket_rates (tax rate of each bracket (decimals or percentages)) as given in the worked example (3 points). Also returned: tax = 10000, marginal_rate = 0.3, effective_rate = 0.2, after_tax_income = 40000. Other inputs: taxable_income = 50000.0.*
 
 ![tax (tax owed: each bracket's rate on the income inside it) against taxable_income (taxable income (after deductions)) from 25000 to 75000](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-tax-curve)
 
@@ -4974,7 +4974,7 @@ $$
 
 ![roe (return on equity: net income / equity = margin x turnover x multiplier) against total_equity (total shareholders' equity (positive, at most total assets)) from 80000 to 240000](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/financial-ratios-curve)
 
-*roe (return on equity: net income / equity = margin x turnover x multiplier) against total_equity (total shareholders' equity (positive, at most total assets)) from 80000 to 240000. One curve for each value of net_income (net income (negative for a loss)): 40000, 20000, 80000. Other inputs as in the worked example: sales = 500000, total_assets = 400000, current_assets = 150000, current_liabilities = 100000, inventory = 60000. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, total_equity = 160000, roe = 0.25.*
+*roe (return on equity: net income / equity = margin x turnover x multiplier) against total_equity (total shareholders' equity (positive, at most total assets)) from 80000 to 240000. One curve for each value of net_income (net income (negative for a loss)): 40000, 20000, 80000. Other inputs as in the worked example: sales = 500000.0, total_assets = 400000.0, current_assets = 150000.0, current_liabilities = 100000.0, inventory = 60000.0. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, total_equity = 160000, roe = 0.25.*
 
 ```python
 economics_finance_ai999x.solve('financial_ratios', sales=500000, net_income=40000, total_assets=400000, total_equity=160000, current_assets=150000, current_liabilities=100000, inventory=60000)
@@ -5040,7 +5040,7 @@ $$
 
 ![fifo_cogs (cost of goods sold, FIFO (oldest layers sold first)) against units_sold (units sold in the period) from 150 to 450](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/inventory-costing-curve)
 
-*fifo_cogs (cost of goods sold, FIFO (oldest layers sold first)) against units_sold (units sold in the period) from 150 to 450. Other inputs as in the worked example: layer_units = [100, 200, 150], layer_costs = [10, 12, 14], selling_price = 20. 31 points computed by economics-finance-ai999x; marked: the worked example, units_sold = 300, fifo_cogs = 3400.*
+*fifo_cogs (cost of goods sold, FIFO (oldest layers sold first)) against units_sold (units sold in the period) from 150 to 450. Other inputs as in the worked example: layer_units = [100, 200, 150], layer_costs = [10, 12, 14], selling_price = 20.0. 31 points computed by economics-finance-ai999x; marked: the worked example, units_sold = 300, fifo_cogs = 3400.*
 
 ```python
 economics_finance_ai999x.solve('inventory_costing', layer_units=[100, 200, 150], layer_costs=[10, 12, 14], units_sold=300, selling_price=20)
@@ -5101,7 +5101,7 @@ $$
 
 ![AFC = FC / Q for each output > 0 (average_fixed_cost) returned by economics-finance-ai999x for the worked example, one value for each position in the list (6 values, first 10, last 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/competitive-firm-cost-curves-series)
 
-*AFC = FC / Q for each output > 0 (average_fixed_cost) returned by economics-finance-ai999x for the worked example, one value for each position in the list (6 values, first 10, last 1.66667, largest 10); with average_variable_cost (AVC = (TC - FC) / Q for each output > 0), average_total_cost (ATC = TC / Q for each output > 0). Inputs: quantities = [0, 1, 2, 3, 4, 5, 6], total_costs = [10, 18, 24, 32, 44, 60, 80], price = 16.*
+*AFC = FC / Q for each output > 0 (average_fixed_cost) returned by economics-finance-ai999x for the worked example, one value for each position in the list (6 values, first 10, last 1.66667, largest 10); with average_variable_cost (AVC = (TC - FC) / Q for each output > 0), average_total_cost (ATC = TC / Q for each output > 0). Inputs: quantities = [0, 1, 2, 3, 4, 5, 6], total_costs = [10, 18, 24, 32, 44, 60, 80], price = 16.0.*
 
 ```python
 economics_finance_ai999x.solve('competitive_firm_cost_curves', quantities=[0, 1, 2, 3, 4, 5, 6], total_costs=[10, 18, 24, 32, 44, 60, 80], price=16)
@@ -5163,11 +5163,11 @@ $$
 
 ![favourable, unfavourable or none (price_variance_type) over standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/direct-cost-variances-decision)
 
-*favourable, unfavourable or none (price_variance_type) over standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 0.4 to 40 and actual_price (actual price paid per unit of input (labour: actual wage rate)) from 0.42 to 42 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, favourable: 320 cells, unfavourable: 331 cells. Other inputs as in the worked example: standard_quantity = 2000, actual_quantity = 2100. Marked: the worked example, standard_price = 4, actual_price = 4.2 → unfavourable.*
+*favourable, unfavourable or none (price_variance_type) over standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 0.4 to 40 and actual_price (actual price paid per unit of input (labour: actual wage rate)) from 0.42 to 42 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, favourable: 320 cells, unfavourable: 331 cells. Other inputs as in the worked example: standard_quantity = 2000.0, actual_quantity = 2100.0. Marked: the worked example, standard_price = 4, actual_price = 4.2 → unfavourable.*
 
 ![total_variance (price variance + quantity variance) against standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 2 to 6](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/direct-cost-variances-curve)
 
-*total_variance (price variance + quantity variance) against standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 2 to 6. One curve for each value of actual_price (actual price paid per unit of input (labour: actual wage rate)): 4.2, 2.1, 8.4. Other inputs as in the worked example: standard_quantity = 2000, actual_quantity = 2100. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, standard_price = 4, total_variance = 820.*
+*total_variance (price variance + quantity variance) against standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 2 to 6. One curve for each value of actual_price (actual price paid per unit of input (labour: actual wage rate)): 4.2, 2.1, 8.4. Other inputs as in the worked example: standard_quantity = 2000.0, actual_quantity = 2100.0. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, standard_price = 4, total_variance = 820.*
 
 ```python
 economics_finance_ai999x.solve('direct_cost_variances', standard_price=4, standard_quantity=2000, actual_price=4.2, actual_quantity=2100)
@@ -5235,11 +5235,11 @@ $$
 
 ![favourable, unfavourable or none (variable_spending_type) over variable_overhead_rate (standard variable overhead rate per hour) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/overhead-cost-variances-decision)
 
-*favourable, unfavourable or none (variable_spending_type) over variable_overhead_rate (standard variable overhead rate per hour) from 0.2 to 20 and actual_variable_overhead (actual variable overhead cost) from 900 to 90000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, favourable: 320 cells, unfavourable: 331 cells. Other inputs as in the worked example: actual_hours = 4200, standard_hours = 4000, budgeted_fixed_overhead = 12000, actual_fixed_overhead = 12500, denominator_hours = 5000. Marked: the worked example, variable_overhead_rate = 2, actual_variable_overhead = 9000 → unfavourable.*
+*favourable, unfavourable or none (variable_spending_type) over variable_overhead_rate (standard variable overhead rate per hour) from 0.2 to 20 and actual_variable_overhead (actual variable overhead cost) from 900 to 90000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, favourable: 320 cells, unfavourable: 331 cells. Other inputs as in the worked example: actual_hours = 4200.0, standard_hours = 4000.0, budgeted_fixed_overhead = 12000.0, actual_fixed_overhead = 12500.0, denominator_hours = 5000.0. Marked: the worked example, variable_overhead_rate = 2, actual_variable_overhead = 9000 → unfavourable.*
 
 ![total_overhead_variance (actual overhead - applied overhead (sum of the four)) against denominator_hours (denominator hours on which the fixed overhead rate was set (positive)) from 500 to 50000 on a logarithmic axis](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/overhead-cost-variances-curve)
 
-*total_overhead_variance (actual overhead - applied overhead (sum of the four)) against denominator_hours (denominator hours on which the fixed overhead rate was set (positive)) from 500 to 50000 on a logarithmic axis. One curve for each value of standard_hours (standard hours allowed for the actual output): 4000, 2000, 8000. Other inputs as in the worked example: variable_overhead_rate = 2, actual_variable_overhead = 9000, actual_hours = 4200, budgeted_fixed_overhead = 12000, actual_fixed_overhead = 12500. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, denominator_hours = 5000, total_overhead_variance = 3900.*
+*total_overhead_variance (actual overhead - applied overhead (sum of the four)) against denominator_hours (denominator hours on which the fixed overhead rate was set (positive)) from 500 to 50000 on a logarithmic axis. One curve for each value of standard_hours (standard hours allowed for the actual output): 4000, 2000, 8000. Other inputs as in the worked example: variable_overhead_rate = 2.0, actual_variable_overhead = 9000.0, actual_hours = 4200.0, budgeted_fixed_overhead = 12000.0, actual_fixed_overhead = 12500.0. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, denominator_hours = 5000, total_overhead_variance = 3900.*
 
 ```python
 economics_finance_ai999x.solve('overhead_cost_variances', variable_overhead_rate=2, actual_variable_overhead=9000, actual_hours=4200, standard_hours=4000, budgeted_fixed_overhead=12000, actual_fixed_overhead=12500, denominator_hours=5000)
@@ -5290,7 +5290,7 @@ $$
 
 ![unemployment_rate (unemployed / labour force) against unemployed (number of unemployed people (without work and looking for it)) from 1 to 100 on a logarithmic axis](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/unemployment-rate-curve)
 
-*unemployment_rate (unemployed / labour force) against unemployed (number of unemployed people (without work and looking for it)) from 1 to 100 on a logarithmic axis. One curve for each value of employed (number of employed people): 150, 75. Other inputs as in the worked example: working_age_population = 250. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, unemployed = 10, unemployment_rate = 0.0625.*
+*unemployment_rate (unemployed / labour force) against unemployed (number of unemployed people (without work and looking for it)) from 1 to 100 on a logarithmic axis. One curve for each value of employed (number of employed people): 150, 75. Other inputs as in the worked example: working_age_population = 250.0. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, unemployed = 10, unemployment_rate = 0.0625.*
 
 ```python
 economics_finance_ai999x.solve('unemployment_rate', employed=150, unemployed=10, working_age_population=250)
@@ -5349,11 +5349,11 @@ $$
 
 ![who should specialise in X: country A, country B or neither (comparative_advantage_x) over a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/comparative-advantage-decision)
 
-*who should specialise in X: country A, country B or neither (comparative_advantage_x) over a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 0.6 to 60 and a_good_y (country A, good Y: output per worker or hours per unit) from 0.3 to 30 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, country A: 490 cells, country B: 161 cells. Other inputs as in the worked example: b_good_x = 1, b_good_y = 2, basis = output. Marked: the worked example, a_good_x = 6, a_good_y = 3 → country A.*
+*who should specialise in X: country A, country B or neither (comparative_advantage_x) over a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 0.6 to 60 and a_good_y (country A, good Y: output per worker or hours per unit) from 0.3 to 30 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, country A: 490 cells, country B: 161 cells. Other inputs as in the worked example: b_good_x = 1.0, b_good_y = 2.0, basis = output. Marked: the worked example, a_good_x = 6, a_good_y = 3 → country A.*
 
 ![opportunity_cost_x_a (country A's opportunity cost of X, in units of Y) against a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 3 to 9](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/comparative-advantage-curve)
 
-*opportunity_cost_x_a (country A's opportunity cost of X, in units of Y) against a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 3 to 9. One curve for each value of a_good_y (country A, good Y: output per worker or hours per unit): 3, 1.5, 6. Other inputs as in the worked example: b_good_x = 1, b_good_y = 2, basis = output. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, a_good_x = 6, opportunity_cost_x_a = 0.5.*
+*opportunity_cost_x_a (country A's opportunity cost of X, in units of Y) against a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 3 to 9. One curve for each value of a_good_y (country A, good Y: output per worker or hours per unit): 3, 1.5, 6. Other inputs as in the worked example: b_good_x = 1.0, b_good_y = 2.0, basis = output. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, a_good_x = 6, opportunity_cost_x_a = 0.5.*
 
 ```python
 economics_finance_ai999x.solve('comparative_advantage', a_good_x=6, a_good_y=3, b_good_x=1, b_good_y=2, basis='output')
