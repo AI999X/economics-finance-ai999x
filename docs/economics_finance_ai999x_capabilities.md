@@ -440,9 +440,9 @@ $$
 - **Assumes:** -1 < effective_rate < 1; periods_per_year a whole number >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The nominal annual rate that gives an effective rate of 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/nominal-rate-stems)
+![The nominal annual rate that gives an effective rate of 8 % when compounded 1, 2, 4, 12, 52 and 365 times a year, each a run of the package: the more often interest compounds, the lower the quoted rate](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/nominal-rate-stems)
 
-*The nominal annual rate that gives an effective rate of 10.25 % when compounded 1, 2, 4, 12, 52 and 365 times a year, each a run of the package: the more often interest compounds, the lower the quoted rate. Marked: the worked example, m = 2.*
+*The nominal annual rate that gives an effective rate of 8 % when compounded 1, 2, 4, 12, 52 and 365 times a year, each a run of the package: the more often interest compounds, the lower the quoted rate. Marked: the worked example, m = 12.*
 
 ```python
 economics_finance_ai999x.solve('nominal_rate', effective_rate=0.1025, periods_per_year=2)
@@ -486,9 +486,9 @@ $$
 - **Assumes:** -1 < rate < 1; periods >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![What 1102](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/present-value-curve)
+![What 1000 received in the future is worth today, against the number of periods until it arrives, at rates 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/present-value-curve)
 
-*What 1102.5 received in the future is worth today, against the number of periods until it arrives, at rates 2.5 %, 5 % and 10 % (every point a run of the package). Marked: the worked example, 2 periods at 5 %: 1000 (discount factor 0.907029).*
+*What 1000 received in the future is worth today, against the number of periods until it arrives, at rates 2.5 %, 5 % and 10 % (every point a run of the package). Marked: the worked example, 10 periods at 5 %: 613.913 (discount factor 0.613913).*
 
 ```python
 economics_finance_ai999x.solve('present_value', future_value=1102.5, rate=0.05, periods=2)
@@ -1030,9 +1030,9 @@ $$
 - **Assumes:** begin_value > 0; end_value > 0; years > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A value growing from 1000 to 1210 in 2 years: the compound annual growth rate the package returns, 10 % (total growth 21 %), compounds 1000 into 1210 (curve: compound-interest runs at that rate); dashed: a straight line between the stated values](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cagr-growth)
+![A value growing from 1000 to 2000 in 5 years: the compound annual growth rate the package returns, 14](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cagr-growth)
 
-*A value growing from 1000 to 1210 in 2 years: the compound annual growth rate the package returns, 10 % (total growth 21 %), compounds 1000 into 1210 (curve: compound-interest runs at that rate); dashed: a straight line between the stated values.*
+*A value growing from 1000 to 2000 in 5 years: the compound annual growth rate the package returns, 14.8698 % (total growth 100 %), compounds 1000 into 2000 (curve: compound-interest runs at that rate); dashed: a straight line between the stated values.*
 
 ```python
 economics_finance_ai999x.solve('cagr', begin_value=1000, end_value=1210, years=2)
@@ -1137,9 +1137,9 @@ $$
 
 *How the monthly payment of 1199.1 on a loan of 200000 at 6 % over 30 years splits into interest (lower part) and principal (upper part): the first payment of each year, as computed by the package. Year 1: interest 1000, principal 199.101; principal is the larger part from year 20 (interest 578.324). Total interest over the loan: 231676.*
 
-![How payment number 1 on a loan of 200000 over 30 years splits into interest and principal at annual rates from 2 % to 10 % (each a run of the package; the worked example uses 6 %)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-split-bars)
+![How payment number 12 on a loan of 200000 over 30 years splits into interest and principal at annual rates from 2 % to 10 % (each a run of the package; the worked example uses 6 %)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-split-bars)
 
-*How payment number 1 on a loan of 200000 over 30 years splits into interest and principal at annual rates from 2 % to 10 % (each a run of the package; the worked example uses 6 %). The higher the rate, the larger the payment and the more of it is interest.*
+*How payment number 12 on a loan of 200000 over 30 years splits into interest and principal at annual rates from 2 % to 10 % (each a run of the package; the worked example uses 6 %). The higher the rate, the larger the payment and the more of it is interest.*
 
 ```python
 economics_finance_ai999x.solve('loan_payment_split', principal=200000, annual_rate=0.06, years=30, payment_number=1)
@@ -1657,9 +1657,9 @@ $$
 - **Assumes:** price > 0; face > 0; 0 <= coupon_rate < 1; years x frequency a whole number, years at most 1000; a yield between -50% and 100% per period
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The price of a 5-year bond (face 1000, coupon 6 %) at 41 yields, each a run of the package's bond price; the yield to maturity is where that curve meets the stated market price 1000](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-ytm-curve)
+![The price of a 10-year bond (face 1000, coupon 5 %) at 41 yields, each a run of the package's bond price; the yield to maturity is where that curve meets the stated market price 925](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-ytm-curve)
 
-*The price of a 5-year bond (face 1000, coupon 6 %) at 41 yields, each a run of the package's bond price; the yield to maturity is where that curve meets the stated market price 1000. Marked: the yield the package returns, 6 % (current yield 6 %).*
+*The price of a 10-year bond (face 1000, coupon 5 %) at 41 yields, each a run of the package's bond price; the yield to maturity is where that curve meets the stated market price 925.61. Marked: the yield the package returns, 6.00004 % (current yield 5.40184 %).*
 
 ```python
 economics_finance_ai999x.solve('bond_ytm', price=1000, face=1000, coupon_rate=0.06, years=5, frequency=2)
@@ -2807,9 +2807,9 @@ $$
 - **Assumes:** 0 < std_dev < 5; 0.5 < confidence < 1; horizon > 0; returns normally distributed
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The distribution of the loss on a 1000000 portfolio over 10 period(s) (mean return 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/parametric-var-density)
+![The distribution of the loss on a 1e+06 portfolio over 10 period(s) (mean return 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/parametric-var-density)
 
-*The distribution of the loss on a 1000000 portfolio over 10 period(s) (mean return 0.0005, standard deviation 0.012 per period), above its median: the density is drawn from the VaR the package returns at 120 confidence levels between 0.5 and 0.9999 (probability differences divided by loss differences). Shaded: losses beyond the 99 % VaR = 83278.7; the expected loss in that tail, CVaR = 96137.8, is also returned.*
+*The distribution of the loss on a 1e+06 portfolio over 10 period(s) (mean return 0.0005, standard deviation 0.012 per period), above its median: the density is drawn from the VaR the package returns at 120 confidence levels between 0.5 and 0.9999 (probability differences divided by loss differences). Shaded: losses beyond the 99 % VaR = 83278.7; the expected loss in that tail, CVaR = 96137.8, is also returned.*
 
 ![var (value at risk V (z sd sqrt(h) - mean h)) against confidence (confidence level (0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/parametric-var-curve)
 
@@ -2905,9 +2905,9 @@ $$
 - **Assumes:** one weight per row of the covariance; covariance symmetric positive semidefinite; 0.5 < confidence < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Value at risk at 99 % confidence of a 1000000 two-asset portfolio (covariance [[0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/portfolio-var-curve)
+![Value at risk at 99 % confidence of a 1e+06 two-asset portfolio (covariance [[0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/portfolio-var-curve)
 
-*Value at risk at 99 % confidence of a 1000000 two-asset portfolio (covariance [[0.0004, 0.00006], [0.00006, 0.0009]]) as the weight of asset 1 runs from 0 to 1: the portfolio VaR and the undiversified VaR (the sum of the stand-alone VaRs), both returned by the package at 51 weights; the shaded gap is the diversification benefit. Marked: weights 0.6, 0.4, VaR 41406.4, benefit 14426.*
+*Value at risk at 99 % confidence of a 1e+06 two-asset portfolio (covariance [[0.0004, 0.00006], [0.00006, 0.0009]]) as the weight of asset 1 runs from 0 to 1: the portfolio VaR and the undiversified VaR (the sum of the stand-alone VaRs), both returned by the package at 51 weights; the shaded gap is the diversification benefit. Marked: weights 0.6, 0.4, VaR 41406.4, benefit 14426.*
 
 ```python
 economics_finance_ai999x.solve('portfolio_var', weights='0.6, 0.4', covariance='[[0.0004, 0.00006], [0.00006, 0.0009]]', confidence=0.99, portfolio_value=1000000)
@@ -3062,7 +3062,7 @@ $$
 
 ![The Black–Scholes value of a call (spot 100, strike 100, 1 year, rate 5 %) at 51 volatilities, each a run of the package; the implied volatility is where it equals the market price 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/implied-volatility-curve)
 
-*The Black–Scholes value of a call (spot 100, strike 100, 1 year, rate 5 %) at 51 volatilities, each a run of the package; the implied volatility is where it equals the market price 10.4506. Marked: the volatility the package returns, 20 % (vega 37.524, the slope there).*
+*The Black–Scholes value of a call (spot 100, strike 100, 1 year, rate 5 %) at 51 volatilities, each a run of the package; the implied volatility is where it equals the market price 10.45. Marked: the volatility the package returns, 19.9984 % (vega 37.5239, the slope there).*
 
 ```python
 economics_finance_ai999x.solve('implied_volatility', option_price=10.450583572185565, spot=100, strike=100, time=1, rate=0.05)
@@ -3113,7 +3113,7 @@ $$
 
 ![Put–call parity: a call priced 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/put-call-parity-bars)
 
-*Put–call parity: a call priced 10.4506 plus the present value of the strike (95.1229, returned) is worth the same as the put plus the underlying (5.57353 + 100, both returned), for strike 100, 1 year at 5 %; the two bars have equal height.*
+*Put–call parity: a call priced 10.45 plus the present value of the strike (95.1229, returned) is worth the same as the put plus the underlying (5.57294 + 100, both returned), for strike 100, 1 year at 5 %; the two bars have equal height.*
 
 ```python
 economics_finance_ai999x.solve('put_call_parity', call_price=10.450583572185565, spot=100, strike=100, time=1, rate=0.05)
