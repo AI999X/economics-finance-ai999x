@@ -10,8 +10,8 @@ Economics and Finance covers time value of money, loans and annuities, bonds, st
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-economics-finance-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-economics-finance-1.6.6-linux-x86_64.tar.gz) |
-| **Command line** `economics-finance` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-economics-finance-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-economics-finance-1.6.7-linux-x86_64.tar.gz) |
+| **Command line** `economics-finance` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/economics-finance-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install economics-finance-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -145,95 +145,6 @@ print(a.outcome, a.values)
 # SOLVED {'apv': 2848.9275147928993}
 ```
 
-## Command line: 15 examples
-
-Each command below was run with `economics-finance` of this release; the lines under it are the answer it printed (the full answer goes on with the method, every input in SI units and the conditions it assumes).
-
-```text
-$ economics-finance solve financial_ratios sales=500000 net_income=40000 total_assets=400000 total_equity=160000 current_assets=150000 current_liabilities=100000 inventory=60000
-current_ratio = 1.5
-quick_ratio = 0.9
-debt_ratio = 0.6
-debt_to_equity = 1.5
-net_profit_margin = 0.08
-asset_turnover = 1.25
-
-$ economics-finance solve endowment_insurance "mortality_rates=[0.01, 0.02, 0.03]" interest_rate=0.04 term=3 benefit=1000
-apv = 890.4258648
-term_part = 53.79672565
-pure_endowment = 836.6291392
-
-$ economics-finance solve bond_price_change face=1000 coupon_rate=0.05 years=10 ytm=0.06 yield_change=0.01 frequency=2
-duration_estimate = -70.94863318
-duration_convexity_estimate = -67.62635965
-actual_change = -67.73665872
-new_price = 857.875967
-price = 925.6126257
-
-$ economics-finance solve discounted_payback rate=0.1 "cash_flows=[-1000, 300, 400, 500, 200]"
-discounted_payback = 3.154
-
-$ economics-finance solve credit_card_finance_charge opening_balance=1500 apr=0.18 billing_days=30 rate_basis=daily "transaction_days=[11, 21]" "transaction_amounts=[-500, 200]"
-average_daily_balance = 1233.333333
-finance_charge = 18.24657534
-cycle_rate = 0.01479452055
-closing_balance = 1200
-new_balance = 1218.246575
-
-$ economics-finance solve log_log_elasticity "prices=[1, 2, 4, 8]" "quantities=[100, 50, 25, 12.5]"
-elasticity = -1
-intercept = 4.605170186
-r_squared = 1
-
-$ economics-finance solve comparative_advantage a_good_x=6 a_good_y=3 b_good_x=1 b_good_y=2 basis=output
-opportunity_cost_x_a = 0.5
-opportunity_cost_y_a = 2
-opportunity_cost_x_b = 2
-opportunity_cost_y_b = 0.5
-comparative_advantage_x = country A
-comparative_advantage_y = country B
-
-$ economics-finance solve loan_cumulative_interest principal=200000 annual_rate=0.06 years=30 payments_made=12
-cumulative_interest = 11933.18918
-principal_repaid = 2456.023425
-
-$ economics-finance solve inflation_adjustment "price_levels=[100, 103, 107.12]" amount=1000
-total_inflation = 0.0712
-average_inflation = 0.03498792263
-real_value = 933.5324869
-
-$ economics-finance solve break_even fixed_costs=10000 price=50 variable_cost=30
-quantity = 500
-revenue = 25000
-contribution_margin = 20
-contribution_margin_ratio = 0.4
-
-$ economics-finance solve mean_returns "returns=[0.1, -0.05, 0.2]"
-arithmetic_mean = 0.08333333333
-geometric_mean = 0.07836515339
-cumulative_return = 0.254
-
-$ economics-finance solve historical_var "returns=[-0.02, 0.01, -0.035, 0.004, 0.012, -0.01, 0.02, -0.005, 0.007, 0.001, -0.015]" confidence=0.9
-var = 0.02
-cvar = 0.0275
-tail_observations = 2
-
-$ economics-finance solve capm risk_free=0.03 beta=1.2 market_return=0.09
-expected_return = 0.102
-market_risk_premium = 0.06
-risk_premium = 0.072
-
-$ economics-finance solve binomial_option spot=100 strike=100 time=1 rate=0.05 volatility=0.2 steps=3
-price = 11.04387109
-delta = 0.6140855606
-up_factor = 1.122400902
-probability_up = 0.5437765964
-
-$ economics-finance solve cagr begin_value=1000 end_value=2000 years=5
-cagr = 0.148698355
-total_growth = 1
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/economics-finance-ai999x/blob/main/docs/economics_finance_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/economics-finance-ai999x/blob/main/docs/economics_finance_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/economics-finance-ai999x/blob/main/docs/economics_finance_ai999x_desktop_guide.md)
@@ -242,13 +153,13 @@ total_growth = 1
 
 Every calculation, with its formula, a worked example and its figures: **[Economics and Finance on ai999x.com](https://www.ai999x.com/models/economics-finance-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.7 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/economics-finance-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.6`; the [GitHub release](https://github.com/AI999X/economics-finance-ai999x/releases/tag/v1.6.6) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/economics-finance-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.7`; the [GitHub release](https://github.com/AI999X/economics-finance-ai999x/releases/tag/v1.6.7) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 
