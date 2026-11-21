@@ -246,17 +246,9 @@ $$
 - **Assumes:** principal > 0; 0 <= rate < 1; years >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![1000 at 5 % simple interest: principal plus the interest the model returns for each year 1 to 10 (stacked), with yearly compounding (line, compound-interest runs) for comparison](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/simple-interest-bars)
+![1000 at 5 % simple interest: principal plus the interest returned by the package for each year 1–10 (stacked), with yearly compounding (line, compound-interest runs) for comparison](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/simple-interest-bars)
 
-*1000 at 5 % simple interest: principal plus the interest the model returns for each year 1 to 10 (stacked), with yearly compounding (line, compound-interest runs) for comparison. Marked: 3 years, amount 1150, interest 150. Your inputs: principal = 1000, rate = 0.05, years = 3.*
-
-![Simple interest earned P r t as years runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/simple-interest-live-1)
-
-*Simple interest earned P r t as years runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your years = 3 gives interest = 150. Your inputs: principal = 1000, rate = 0.05, years = 3.*
-
-![Simple interest earned P r t as principal runs from 250 to 1750, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/simple-interest-live-2)
-
-*Simple interest earned P r t as principal runs from 250 to 1750, every other input as you entered it (29 solutions). Marked: your principal = 1000 gives interest = 150. Your inputs: principal = 1000, rate = 0.05, years = 3.*
+*1000 at 5 % simple interest: principal plus the interest returned by the package for each year 1–10 (stacked), with yearly compounding (line, compound-interest runs) for comparison. Marked: 3 years, amount 1150, interest 150.*
 
 ```python
 economics_finance_ai999x.solve('simple_interest', principal=1000, rate=0.05, years=3)
@@ -304,17 +296,9 @@ $$
 - **Assumes:** principal > 0; -1 < rate < 1; years >= 0; periods_per_year a whole number >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![1000 at 5 % a year over 30 years: simple interest, compounding once and 12 times a year and continuously, every point a run of the model (its simple-interest, compound-interest and continuous-compounding capabilities)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/compound-interest-growth)
+![1000 at 5 % a year over 30 years: simple interest, compounding once and 12 times a year and continuously, every point a run of the package (simple-interest, compound-interest and continuous-compounding capabilities)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/compound-interest-growth)
 
-*1000 at 5 % a year over 30 years: simple interest, compounding once and 12 times a year and continuously, every point a run of the model (its simple-interest, compound-interest and continuous-compounding capabilities). Marked: 2 years compounded 1 time(s) a year, amount 1102. Your inputs: principal = 1000, rate = 0.05, years = 2, periods_per_year = 1.*
-
-![Future amount A as years runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/compound-interest-live-1)
-
-*Future amount A as years runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your years = 2 gives amount = 1102. Your inputs: principal = 1000, rate = 0.05, years = 2, periods_per_year = 1.*
-
-![Future amount A as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/compound-interest-live-2)
-
-*Future amount A as rate runs from 0.0125 to 0.0875, every other input as you entered it (29 solutions). Marked: your rate = 0.05 gives amount = 1102. Your inputs: principal = 1000, rate = 0.05, years = 2, periods_per_year = 1.*
+*1000 at 5 % a year over 30 years: simple interest, compounding once and 12 times a year and continuously, every point a run of the package (simple-interest, compound-interest and continuous-compounding capabilities). Marked: the worked example, 2 years compounded 1 time(s) a year, amount 1102.5.*
 
 ```python
 economics_finance_ai999x.solve('compound_interest', principal=1000, rate=0.05, years=2, periods_per_year=1)
@@ -360,17 +344,9 @@ $$
 - **Assumes:** principal > 0; -1 < rate < 1; years >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![1000 at 5 % for 10 years compounded 1, 2, 4, 12, 52 and 365 times a year (stems, each a compound-interest run of the model: 1629, 1639, 1644, 1647, 1648, 1649) approach the continuously compounded amount the model returns, 1649 (dashed)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/continuous-compounding-limit)
+![1000 at 5 % for 10 years compounded 1, 2, 4, 12, 52 and 365 times a year (stems from the principal, each a compound-interest run of the package) approach the continuously compounded amount the package returns, 1648](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/continuous-compounding-limit)
 
-*1000 at 5 % for 10 years compounded 1, 2, 4, 12, 52 and 365 times a year (stems, each a compound-interest run of the model: 1629, 1639, 1644, 1647, 1648, 1649) approach the continuously compounded amount the model returns, 1649 (dashed). Your inputs: principal = 1000, rate = 0.05, years = 10.*
-
-![Amount as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/continuous-compounding-live-1)
-
-*Amount as rate runs from 0.0125 to 0.0875, every other input as you entered it (41 solutions). Marked: your rate = 0.05 gives amount = 1649. Your inputs: principal = 1000, rate = 0.05, years = 10.*
-
-![Amount as years runs from 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/continuous-compounding-live-2)
-
-*Amount as years runs from 2.5 to 17.5, every other input as you entered it (29 solutions). Marked: your years = 10 gives amount = 1649. Your inputs: principal = 1000, rate = 0.05, years = 10.*
+*1000 at 5 % for 10 years compounded 1, 2, 4, 12, 52 and 365 times a year (stems from the principal, each a compound-interest run of the package) approach the continuously compounded amount the package returns, 1648.72 (dashed).*
 
 ```python
 economics_finance_ai999x.solve('continuous_compounding', principal=1000, rate=0.05, years=10)
@@ -414,21 +390,13 @@ $$
 - **Assumes:** -1 < rate < 1; periods_per_year a whole number >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The effective annual rate over the nominal rate from 3 % to 9 % and 1 to 24 compounding periods a year: each of the 21 x 12 cells is one run of the model, shaded by its value](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/effective-annual-rate-field)
+![The effective annual rate of a nominal 6 % compounded 1, 2, 4, 12, 52 and 365 times a year (each a run of the package), rising from the nominal rate towards the continuous limit (the package's continuous compounding of 1 for a year: 6](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/effective-annual-rate-stems)
 
-*The effective annual rate over the nominal rate from 3 % to 9 % and 1 to 24 compounding periods a year: each of the 21 x 12 cells is one run of the model, shaded by its value. Marked: the given rate 6 % compounded 12 times a year, effective rate 6.168 %. In SI units: effective_rate = 0.06168. Your inputs: rate = 0.06, periods_per_year = 12.*
+*The effective annual rate of a nominal 6 % compounded 1, 2, 4, 12, 52 and 365 times a year (each a run of the package), rising from the nominal rate towards the continuous limit (the package's continuous compounding of 1 for a year: 6.18365 %). Marked: the worked example, m = 12.*
 
-![The effective annual rate of a nominal 6 % compounded 1, 2, 4, 12, 52, 365 times a year (each a run of the model), rising from the nominal rate towards the continuous limit (the model's continuous compounding of 1 for a year: 6](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/effective-annual-rate-stems)
+![effective_rate (effective annual rate (1 + r/m)^m - 1) over rate (nominal annual rate (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/effective-annual-rate-field)
 
-*The effective annual rate of a nominal 6 % compounded 1, 2, 4, 12, 52, 365 times a year (each a run of the model), rising from the nominal rate towards the continuous limit (the model's continuous compounding of 1 for a year: 6.184 %). Marked: m = 12, 6.168 %. In SI units: effective_rate = 0.06168. Your inputs: rate = 0.06, periods_per_year = 12.*
-
-![Effective annual rate (1 + r/m)^m - 1 as periods_per_year runs from 1 to 32, every other input as you entered it (32 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/effective-annual-rate-live-1)
-
-*Effective annual rate (1 + r/m)^m - 1 as periods_per_year runs from 1 to 32, every other input as you entered it (32 solutions). Marked: your periods_per_year = 12 gives effective_rate = 0.06168. Your inputs: rate = 0.06, periods_per_year = 12.*
-
-![Effective annual rate (1 + r/m)^m - 1 as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/effective-annual-rate-live-2)
-
-*Effective annual rate (1 + r/m)^m - 1 as rate runs from 0.015 to 0.105, every other input as you entered it (29 solutions). Marked: your rate = 0.06 gives effective_rate = 0.06168. Your inputs: rate = 0.06, periods_per_year = 12.*
+*effective_rate (effective annual rate (1 + r/m)^m - 1) over rate (nominal annual rate (decimal)) from 0.03 to 0.09 and periods_per_year (compounding periods per year) from 1 to 24: each of the 21 × 12 cells is one run of economics-finance-ai999x, shaded by its value (light 0.03 to dark 0.0939901); iso-lines at effective_rate = 0.04, 0.06, 0.08. Marked: the worked example, rate = 0.06, periods_per_year = 12, effective_rate = 0.0616778.*
 
 ```python
 economics_finance_ai999x.solve('effective_annual_rate', rate=0.06, periods_per_year=12)
@@ -472,17 +440,9 @@ $$
 - **Assumes:** -1 < effective_rate < 1; periods_per_year a whole number >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The nominal annual rate that gives an effective rate of 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/nominal-rate-stems)
+![The nominal annual rate that gives an effective rate of 8 % when compounded 1, 2, 4, 12, 52 and 365 times a year, each a run of the package: the more often interest compounds, the lower the quoted rate](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/nominal-rate-stems)
 
-*The nominal annual rate that gives an effective rate of 10.25 % when compounded 1, 2, 4, 12, 52, 365 times a year, each a run of the model: the more often interest compounds, the lower the quoted rate. Marked: m = 2, nominal 10 %. In SI units: nominal_rate = 0.1. Your inputs: effective_rate = 0.1025, periods_per_year = 2.*
-
-![Nominal rate as periods_per_year runs from 1 to 6, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/nominal-rate-live-1)
-
-*Nominal rate as periods_per_year runs from 1 to 6, every other input as you entered it (6 solutions). Marked: your periods_per_year = 2 gives nominal_rate = 0.1. Your inputs: effective_rate = 0.1025, periods_per_year = 2.*
-
-![Nominal rate as effective_rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/nominal-rate-live-2)
-
-*Nominal rate as effective_rate runs from 0.02562 to 0.1794, every other input as you entered it (29 solutions). Marked: your effective_rate = 0.1025 gives nominal_rate = 0.1. Your inputs: effective_rate = 0.1025, periods_per_year = 2.*
+*The nominal annual rate that gives an effective rate of 8 % when compounded 1, 2, 4, 12, 52 and 365 times a year, each a run of the package: the more often interest compounds, the lower the quoted rate. Marked: the worked example, m = 12.*
 
 ```python
 economics_finance_ai999x.solve('nominal_rate', effective_rate=0.1025, periods_per_year=2)
@@ -526,13 +486,9 @@ $$
 - **Assumes:** -1 < rate < 1; periods >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Value today FV (1 + r)^-n as future_value runs from 275](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/present-value-live-1)
+![What 1000 received in the future is worth today, against the number of periods until it arrives, at rates 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/present-value-curve)
 
-*Value today FV (1 + r)^-n as future_value runs from 275.6 to 1929, every other input as you entered it (41 solutions). Marked: your future_value = 1102 gives present_value = 1000. Your inputs: future_value = 1102.5, rate = 0.05, periods = 2.*
-
-![Value today FV (1 + r)^-n as periods runs from 0 to 6, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/present-value-live-2)
-
-*Value today FV (1 + r)^-n as periods runs from 0 to 6, every other input as you entered it (7 solutions). Marked: your periods = 2 gives present_value = 1000. Your inputs: future_value = 1102.5, rate = 0.05, periods = 2.*
+*What 1000 received in the future is worth today, against the number of periods until it arrives, at rates 2.5 %, 5 % and 10 % (every point a run of the package). Marked: the worked example, 10 periods at 5 %: 613.913 (discount factor 0.613913).*
 
 ```python
 economics_finance_ai999x.solve('present_value', future_value=1102.5, rate=0.05, periods=2)
@@ -577,17 +533,9 @@ $$
 - **Assumes:** -1 < rate < 1; periods a whole number >= 1; timing ordinary or due
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The balance after each of 10 payments of 100 at 5 % per period: the future value after k payments is a run of the model; it is split into the payments made (k x 100) and the interest (the rest)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/future-value-annuity-bars)
+![The balance after each of 10 payments of 100 at 5 % per period: the future value after k payments is a run of the package; it is split into the payments made (k × 100) and the interest (the remainder, computed here)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/future-value-annuity-bars)
 
-*The balance after each of 10 payments of 100 at 5 % per period: the future value after k payments is a run of the model; it is split into the payments made (k x 100) and the interest (the rest). Marked: after 10 payments, 1258. Your inputs: payment = 100, rate = 0.05, periods = 10.*
-
-![Accumulated value at the end of period n as periods runs from 1 to 30, every other input as you entered it (30 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/future-value-annuity-live-1)
-
-*Accumulated value at the end of period n as periods runs from 1 to 30, every other input as you entered it (30 solutions). Marked: your periods = 10 gives future_value = 1258. Your inputs: payment = 100, rate = 0.05, periods = 10.*
-
-![Accumulated value at the end of period n as payment runs from 25 to 175, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/future-value-annuity-live-2)
-
-*Accumulated value at the end of period n as payment runs from 25 to 175, every other input as you entered it (29 solutions). Marked: your payment = 100 gives future_value = 1258. Your inputs: payment = 100, rate = 0.05, periods = 10.*
+*The balance after each of 10 payments of 100 at 5 % per period: the future value after k payments is a run of the package; it is split into the payments made (k × 100) and the interest (the remainder, computed here). Marked: after 10 payments, 1257.79.*
 
 ```python
 economics_finance_ai999x.solve('future_value_annuity', payment=100, rate=0.05, periods=10)
@@ -638,17 +586,13 @@ $$
 - **Assumes:** -1 < rate < 1; periods a whole number >= 1; timing ordinary or due
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![10 payments of 100 at the end of each period and the present value of each at 5 % (runs of the model's present value); they sum to the annuity's present value the model returns, 772](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/present-value-annuity-bars)
+![10 payments of 100 at the end of each period and the present value of each at 5 % (runs of the package's present value); they sum to the annuity's present value the package returns, 772](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/present-value-annuity-bars)
 
-*10 payments of 100 at the end of each period and the present value of each at 5 % (runs of the model's present value); they sum to the annuity's present value the model returns, 772.2. Your inputs: payment = 100, rate = 0.05, periods = 10.*
+*10 payments of 100 at the end of each period and the present value of each at 5 % (runs of the package's present value); they sum to the annuity's present value the package returns, 772.173.*
 
-![Value today of the payments as payment runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/present-value-annuity-live-1)
+![present_value (value today of the payments) against periods (number of payments) from 1 to 20](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/present-value-annuity-curve)
 
-*Value today of the payments as payment runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your payment = 100 gives present_value = 772.2. Your inputs: payment = 100, rate = 0.05, periods = 10.*
-
-![Value today of the payments as periods runs from 2 to 30, every other input as you entered it (15 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/present-value-annuity-live-2)
-
-*Value today of the payments as periods runs from 2 to 30, every other input as you entered it (15 solutions). Marked: your periods = 10 gives present_value = 772.2. Your inputs: payment = 100, rate = 0.05, periods = 10.*
+*present_value (value today of the payments) against periods (number of payments) from 1 to 20. One curve for each value of payment (payment per period): 100, 50, 200. Other inputs as in the worked example: rate = 0.05. 20 points per curve computed by economics-finance-ai999x; marked: the worked example, periods = 10, present_value = 772.173.*
 
 ```python
 economics_finance_ai999x.solve('present_value_annuity', payment=100, rate=0.05, periods=10)
@@ -701,17 +645,9 @@ $$
 - **Assumes:** principal > 0; 0 <= annual_rate < 1; years x payments_per_year a whole number, years at most 1000
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A loan of 200000 at 6 % repaid over 10, 15, 20, 25, 30 years: the payment and the total interest returned by the model for each term (stacked on the principal)](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/loan-payment-bars.svg)
+![A loan of 200000 at 6 % repaid over 10 to 30 years: the payment and the total interest returned by the package for each term (stacked on the principal)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-bars)
 
-*A loan of 200000 at 6 % repaid over 10, 15, 20, 25, 30 years: the payment and the total interest returned by the model for each term (stacked on the principal). Longer terms lower the payment and raise the interest; 30 years pays 1199 a period and 231676 interest in all. Your inputs: principal = 200000, annual_rate = 0.06, years = 30.*
-
-![Level payment per period as annual_rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-live-1)
-
-*Level payment per period as annual_rate runs from 0.015 to 0.105, every other input as you entered it (41 solutions). Marked: your annual_rate = 0.06 gives payment = 1199. Your inputs: principal = 200000, annual_rate = 0.06, years = 30.*
-
-![Level payment per period as years runs from 7](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-live-2)
-
-*Level payment per period as years runs from 7.5 to 52.5, every other input as you entered it (7 solutions). Values in this range where the inputs admit no answer (36 of 43) are left out. Marked: your years = 30 gives payment = 1199. Your inputs: principal = 200000, annual_rate = 0.06, years = 30.*
+*A loan of 200000 at 6 % repaid over 10 to 30 years: the payment and the total interest returned by the package for each term (stacked on the principal). Longer terms lower the payment and raise the interest; the worked example, 30 years, pays 1199.1 a period and 231676 interest in all.*
 
 ```python
 economics_finance_ai999x.solve('loan_payment', principal=200000, annual_rate=0.06, years=30)
@@ -763,17 +699,9 @@ $$
 - **Assumes:** future_value > 0; -1 < rate < 1; periods a whole number >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A fund that must reach 10000 after 5 periods at 4 %: the model returns the payment per period, 1846; the balance after each payment (future-value-of-annuity runs with that payment) reaches the target exactly](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/sinking-fund-bars)
+![A fund that must reach 10000 after 5 periods at 4 %: the package returns the payment per period, 1846](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/sinking-fund-bars)
 
-*A fund that must reach 10000 after 5 periods at 4 %: the model returns the payment per period, 1846; the balance after each payment (future-value-of-annuity runs with that payment) reaches the target exactly. Your inputs: future_value = 10000, rate = 0.04, periods = 5.*
-
-![Payment per period as periods runs from 1 to 9, every other input as you entered it (9 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/sinking-fund-live-1)
-
-*Payment per period as periods runs from 1 to 9, every other input as you entered it (9 solutions). Marked: your periods = 5 gives payment = 1846. Your inputs: future_value = 10000, rate = 0.04, periods = 5.*
-
-![Payment per period as future_value runs from 2500 to 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/sinking-fund-live-2)
-
-*Payment per period as future_value runs from 2500 to 1.75e+04, every other input as you entered it (29 solutions). Marked: your future_value = 1e+04 gives payment = 1846. Your inputs: future_value = 10000, rate = 0.04, periods = 5.*
+*A fund that must reach 10000 after 5 periods at 4 %: the package returns the payment per period, 1846.27; the balance after each payment (future-value-of-annuity runs with that payment) reaches the target exactly.*
 
 ```python
 economics_finance_ai999x.solve('sinking_fund', future_value=10000, rate=0.04, periods=5)
@@ -817,13 +745,9 @@ $$
 - **Assumes:** present_value > 0; payment > 0; 0 < rate < 1; payment larger than the interest of one period
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Number of periods n as payment runs from 125 to 875, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/number-of-periods-live-1)
+![The present value of 1, 2, … 49 payments of 500 at 1 % per period (runs of the package's present value of an annuity); it reaches the stated 10000 after the number of periods the package returns, n = 22](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/number-of-periods-curve)
 
-*Number of periods n as payment runs from 125 to 875, every other input as you entered it (41 solutions). Marked: your payment = 500 gives periods = 22.43. Your inputs: present_value = 10000, payment = 500, rate = 0.01.*
-
-![Number of periods n as present_value runs from 2500 to 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/number-of-periods-live-2)
-
-*Number of periods n as present_value runs from 2500 to 1.75e+04, every other input as you entered it (29 solutions). Marked: your present_value = 1e+04 gives periods = 22.43. Your inputs: present_value = 10000, payment = 500, rate = 0.01.*
+*The present value of 1, 2, … 49 payments of 500 at 1 % per period (runs of the package's present value of an annuity); it reaches the stated 10000 after the number of periods the package returns, n = 22.4257.*
 
 ```python
 economics_finance_ai999x.solve('number_of_periods', present_value=10000, payment=500, rate=0.01)
@@ -867,13 +791,9 @@ $$
 - **Assumes:** present_value > 0; payment > 0; periods a whole number >= 1; the rate lies between -99% and 99%
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Interest rate per period as present_value runs from 250 to 1750, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/annuity-rate-live-1)
+![The present value of 4 payments of 263](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/annuity-rate-curve)
 
-*Interest rate per period as present_value runs from 250 to 1750, every other input as you entered it (41 solutions). Marked: your present_value = 1000 gives rate = 0.02184. Your inputs: present_value = 1000, payment = 263.8, periods = 4.*
-
-![Interest rate per period as payment runs from 65](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/annuity-rate-live-2)
-
-*Interest rate per period as payment runs from 65.95 to 461.7, every other input as you entered it (29 solutions). Marked: your payment = 263.8 gives rate = 0.02184. Your inputs: present_value = 1000, payment = 263.8, periods = 4.*
+*The present value of 4 payments of 263.8 falls as the rate rises (50 runs of the package's present value of an annuity); the rate that makes it equal the stated 1000 is the one the package returns, 2.1844 %. Marked: that rate.*
 
 ```python
 economics_finance_ai999x.solve('annuity_rate', present_value=1000, payment=263.8, periods=4)
@@ -916,17 +836,13 @@ $$
 - **Assumes:** 0 < rate < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The present value at 5 % of the first N payments of 100 (runs of the model's present value of an annuity, N up to 95) approaches the value of payments that never stop, which the model returns: 2000](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/perpetuity-limit)
+![The present value at 5 % of the first N payments of 100 (runs of the package's present value of an annuity, N up to 100) approaches the value of payments that never stop, which the package returns: 2000](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/perpetuity-limit)
 
-*The present value at 5 % of the first N payments of 100 (runs of the model's present value of an annuity, N up to 95) approaches the value of payments that never stop, which the model returns: 2000. Your inputs: payment = 100, rate = 0.05.*
+*The present value at 5 % of the first N payments of 100 (runs of the package's present value of an annuity, N up to 100) approaches the value of payments that never stop, which the package returns: 2000.*
 
-![Value today as payment runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/perpetuity-live-1)
+![present_value (value today) against rate (discount rate per period (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/perpetuity-curve)
 
-*Value today as payment runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your payment = 100 gives present_value = 2000. Your inputs: payment = 100, rate = 0.05.*
-
-![Value today as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/perpetuity-live-2)
-
-*Value today as rate runs from 0.0125 to 0.0875, every other input as you entered it (29 solutions). Marked: your rate = 0.05 gives present_value = 2000. Your inputs: payment = 100, rate = 0.05.*
+*present_value (value today) against rate (discount rate per period (decimal)) from 0.025 to 0.075. One curve for each value of payment (payment per period): 100, 50, 200. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, rate = 0.05, present_value = 2000.*
 
 ```python
 economics_finance_ai999x.solve('perpetuity', payment=100, rate=0.05)
@@ -970,17 +886,13 @@ $$
 - **Assumes:** 0 < rate < 1; growth < rate
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Payments starting at 100 and growing 3 % a period, discounted at 8 %: the present value of the first N (growing-annuity runs of the model, N from 1 to 98) approaches the growing perpetuity's value the model returns, 2000; dashed: the same first payment without growth](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/growing-perpetuity-limit)
+![Payments starting at 100 and growing 3 % a period, discounted at 8 %: the present value of the first N (growing-annuity runs of the package) approaches the growing perpetuity's value the package returns, 2000; dashed: the same first payment without growth](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/growing-perpetuity-limit)
 
-*Payments starting at 100 and growing 3 % a period, discounted at 8 %: the present value of the first N (growing-annuity runs of the model, N from 1 to 98) approaches the growing perpetuity's value the model returns, 2000; dashed: the same first payment without growth. Your inputs: first_payment = 100, rate = 0.08, growth = 0.03.*
+*Payments starting at 100 and growing 3 % a period, discounted at 8 %: the present value of the first N (growing-annuity runs of the package) approaches the growing perpetuity's value the package returns, 2000; dashed: the same first payment without growth.*
 
-![Present value as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/growing-perpetuity-live-1)
+![present_value (value today C1 / (r - g)) against rate (discount rate per period (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/growing-perpetuity-curve)
 
-*Present value as rate runs from 0.032 to 0.14, every other input as you entered it (37 solutions). Marked: your rate = 0.08 gives present_value = 2000. Your inputs: first_payment = 100, rate = 0.08, growth = 0.03.*
-
-![Present value as first_payment runs from 25 to 175, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/growing-perpetuity-live-2)
-
-*Present value as first_payment runs from 25 to 175, every other input as you entered it (29 solutions). Marked: your first_payment = 100 gives present_value = 2000. Your inputs: first_payment = 100, rate = 0.08, growth = 0.03.*
+*present_value (value today C1 / (r - g)) against rate (discount rate per period (decimal)) from 0.04 to 0.12. One curve for each value of first_payment (payment one period from now): 100, 50, 200. Other inputs as in the worked example: growth = 0.03. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, rate = 0.08, present_value = 2000.*
 
 ```python
 economics_finance_ai999x.solve('growing_perpetuity', first_payment=100, rate=0.08, growth=0.03)
@@ -1025,17 +937,13 @@ $$
 - **Assumes:** -1 < rate < 1; -1 < growth < 1; periods a whole number >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Present value at 8 % of the first k payments of an annuity starting at 1000 and growing 3 % a period, beside level payments of 1000 (both runs of the model for k = 1 to 10)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/growing-annuity-bars)
+![Present value at 8 % of the first k payments of an annuity starting at 1000 and growing 3 % a period, beside level payments of 1000 (both runs of the package for k = 1 … 10)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/growing-annuity-bars)
 
-*Present value at 8 % of the first k payments of an annuity starting at 1000 and growing 3 % a period, beside level payments of 1000 (both runs of the model for k = 1 to 10). Marked: all 10 payments, 7550 (future value 16300). Your inputs: first_payment = 1000, rate = 0.08, growth = 0.03, periods = 10.*
+*Present value at 8 % of the first k payments of an annuity starting at 1000 and growing 3 % a period, beside level payments of 1000 (both runs of the package for k = 1 … 10). Marked: all 10 payments, 7550.13 (future value 16300.2).*
 
-![Value today as periods runs from 1 to 30, every other input as you entered it (30 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/growing-annuity-live-1)
+![present_value (value today) against growth (growth rate per period (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/growing-annuity-curve)
 
-*Value today as periods runs from 1 to 30, every other input as you entered it (30 solutions). Marked: your periods = 10 gives present_value = 7550. Your inputs: first_payment = 1000, rate = 0.08, growth = 0.03, periods = 10.*
-
-![Value today as first_payment runs from 250 to 1750, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/growing-annuity-live-2)
-
-*Value today as first_payment runs from 250 to 1750, every other input as you entered it (29 solutions). Marked: your first_payment = 1000 gives present_value = 7550. Your inputs: first_payment = 1000, rate = 0.08, growth = 0.03, periods = 10.*
+*present_value (value today) against growth (growth rate per period (decimal)) from 0.003 to 0.3 on a logarithmic axis. One curve for each value of first_payment (first payment (end of period 1)): 1000, 500, 2000. Other inputs as in the worked example: rate = 0.08, periods = 10. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, growth = 0.03, present_value = 7550.13.*
 
 ```python
 economics_finance_ai999x.solve('growing_annuity', first_payment=1000, rate=0.08, growth=0.03, periods=10)
@@ -1076,9 +984,9 @@ $$
 - **Assumes:** 0 < rate < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Periods as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/doubling-time-live-1)
+![Periods for an amount to double at growth rates from 1 % to 25 % per period: the exact doubling time and the rule of 72, both returned by the package at 49 rates](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/doubling-time-curve)
 
-*Periods as rate runs from 0.015 to 0.105, every other input as you entered it (41 solutions). Marked: your rate = 0.06 gives periods = 11.9. Your inputs: rate = 0.06.*
+*Periods for an amount to double at growth rates from 1 % to 25 % per period: the exact doubling time and the rule of 72, both returned by the package at 49 rates. Marked: the worked example, 6 %: 11.8957 periods exactly, 12 by the rule.*
 
 ```python
 economics_finance_ai999x.solve('doubling_time', rate=0.06)
@@ -1122,17 +1030,9 @@ $$
 - **Assumes:** begin_value > 0; end_value > 0; years > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A value growing from 1000 to 1210 in 2 years: the compound annual growth rate the model returns, 10 % (total growth 21 %), compounds 1000 into 1210 (curve: compound-interest runs at that rate); dashed: a straight line between the stated values](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cagr-growth)
+![A value growing from 1000 to 2000 in 5 years: the compound annual growth rate the package returns, 14](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cagr-growth)
 
-*A value growing from 1000 to 1210 in 2 years: the compound annual growth rate the model returns, 10 % (total growth 21 %), compounds 1000 into 1210 (curve: compound-interest runs at that rate); dashed: a straight line between the stated values. In SI units: cagr = 0.1. Your inputs: begin_value = 1000, end_value = 1210, years = 2.*
-
-![Compound annual growth rate (end/begin)^(1/t)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cagr-live-1)
-
-*Compound annual growth rate (end/begin)^(1/t)... as begin_value runs from 250 to 1750, every other input as you entered it (41 solutions). Marked: your begin_value = 1000 gives cagr = 0.1. Your inputs: begin_value = 1000, end_value = 1210, years = 2.*
-
-![Compound annual growth rate (end/begin)^(1/t)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cagr-live-2)
-
-*Compound annual growth rate (end/begin)^(1/t)... as end_value runs from 302.5 to 2118, every other input as you entered it (29 solutions). Marked: your end_value = 1210 gives cagr = 0.1. Your inputs: begin_value = 1000, end_value = 1210, years = 2.*
+*A value growing from 1000 to 2000 in 5 years: the compound annual growth rate the package returns, 14.8698 % (total growth 100 %), compounds 1000 into 2000 (curve: compound-interest runs at that rate); dashed: a straight line between the stated values.*
 
 ```python
 economics_finance_ai999x.solve('cagr', begin_value=1000, end_value=1210, years=2)
@@ -1179,13 +1079,9 @@ $$
 - **Assumes:** principal > 0; 0 <= annual_rate < 1; 0 <= payments_made <= number of payments
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Balance owed after k payments as principal runs from 5e+04 to 3](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-balance-live-1)
+![The balance of a 200000 loan at 6 % over 30 years after each number of payments (every 6 payments, runs of the package): it falls slowly at first, while most of each payment is interest](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-balance-curve)
 
-*Balance owed after k payments as principal runs from 5e+04 to 3.5e+05, every other input as you entered it (41 solutions). Marked: your principal = 2e+05 gives balance = 1.861e+05. Your inputs: principal = 200000, annual_rate = 0.06, years = 30, payments_made = 60.*
-
-![Balance owed after k payments as annual_rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-balance-live-2)
-
-*Balance owed after k payments as annual_rate runs from 0.015 to 0.105, every other input as you entered it (29 solutions). Marked: your annual_rate = 0.06 gives balance = 1.861e+05. Your inputs: principal = 200000, annual_rate = 0.06, years = 30, payments_made = 60.*
+*The balance of a 200000 loan at 6 % over 30 years after each number of payments (every 6 payments, runs of the package): it falls slowly at first, while most of each payment is interest. Marked: after 60 payments, 186109.*
 
 ```python
 economics_finance_ai999x.solve('loan_balance', principal=200000, annual_rate=0.06, years=30, payments_made=60)
@@ -1237,21 +1133,13 @@ $$
 - **Assumes:** principal > 0; 0 <= annual_rate < 1; 1 <= payment_number <= number of payments
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![How payment number 1 on a loan of 200000 over 30 years splits into interest and principal at annual rates 2 %, 4 %, 6 %, 8 %, 10 % (each a run of the model; the given rate is 6 %)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-split-bars)
+![How the monthly payment of 1199](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/loan-payment-split-schedule.svg)
 
-*How payment number 1 on a loan of 200000 over 30 years splits into interest and principal at annual rates 2 %, 4 %, 6 %, 8 %, 10 % (each a run of the model; the given rate is 6 %). The higher the rate, the larger the payment and the more of it is interest. In SI units: interest_part = 1000. Your inputs: principal = 200000, annual_rate = 0.06, years = 30, payment_number = 1.*
+*How the monthly payment of 1199.1 on a loan of 200000 at 6 % over 30 years splits into interest (lower part) and principal (upper part): the first payment of each year, as computed by the package. Year 1: interest 1000, principal 199.101; principal is the larger part from year 20 (interest 578.324). Total interest over the loan: 231676.*
 
-![How the payment of 1199 on a loan of 200000 at 6 % over 30 years splits into interest (lower part) and principal (upper part): the first payment of each year, as computed by the model](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-split-schedule)
+![How payment number 12 on a loan of 200000 over 30 years splits into interest and principal at annual rates from 2 % to 10 % (each a run of the package; the worked example uses 6 %)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-split-bars)
 
-*How the payment of 1199 on a loan of 200000 at 6 % over 30 years splits into interest (lower part) and principal (upper part): the first payment of each year, as computed by the model. Year 1: interest 1000, principal 199.1; principal is the larger part from year 20; total interest over the loan 231676. Your inputs: principal = 200000, annual_rate = 0.06, years = 30, payment_number = 1.*
-
-![Principal repaid by payment k as years runs from 7](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-split-live-1)
-
-*Principal repaid by payment k as years runs from 7.5 to 52.5, every other input as you entered it (21 solutions). Values in this range where the inputs admit no answer (20 of 41) are left out. Marked: your years = 30 gives principal_part = 199.1. Your inputs: principal = 200000, annual_rate = 0.06, years = 30, payment_number = 1.*
-
-![Interest in payment k as annual_rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-payment-split-live-2)
-
-*Interest in payment k as annual_rate runs from 0.015 to 0.105, every other input as you entered it (29 solutions). Marked: your annual_rate = 0.06 gives interest_part = 1000. Your inputs: principal = 200000, annual_rate = 0.06, years = 30, payment_number = 1.*
+*How payment number 12 on a loan of 200000 over 30 years splits into interest and principal at annual rates from 2 % to 10 % (each a run of the package; the worked example uses 6 %). The higher the rate, the larger the payment and the more of it is interest.*
 
 ```python
 economics_finance_ai999x.solve('loan_payment_split', principal=200000, annual_rate=0.06, years=30, payment_number=1)
@@ -1298,17 +1186,9 @@ $$
 - **Assumes:** principal > 0; 0 <= annual_rate < 1; 1 <= payments_made <= number of payments
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![What has been paid after each number of payments on a 200000 loan at 6 % over 30 years, split into interest (lower) and principal (upper), both returned by the model every 6 payments](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-cumulative-interest-area)
+![What has been paid after each number of payments on a 200000 loan at 6 % over 30 years, split into interest (lower) and principal (upper), both returned by the package every 6 payments](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-cumulative-interest-area)
 
-*What has been paid after each number of payments on a 200000 loan at 6 % over 30 years, split into interest (lower) and principal (upper), both returned by the model every 6 payments. Marked: after 12 payments, interest 11933, principal 2456. In SI units: cumulative_interest = 1.193e+04. Your inputs: principal = 200000, annual_rate = 0.06, years = 30, payments_made = 12.*
-
-![Interest paid in payments 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-cumulative-interest-live-1)
-
-*Interest paid in payments 1..k as years runs from 7.5 to 52.5, every other input as you entered it (21 solutions). Values in this range where the inputs admit no answer (20 of 41) are left out. Marked: your years = 30 gives cumulative_interest = 1.193e+04. Your inputs: principal = 200000, annual_rate = 0.06, years = 30, payments_made = 12.*
-
-![Interest paid in payments 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/loan-cumulative-interest-live-2)
-
-*Interest paid in payments 1..k as payments_made runs from 1 to 31, every other input as you entered it (17 solutions). Marked: your payments_made = 12 gives cumulative_interest = 1.193e+04. Your inputs: principal = 200000, annual_rate = 0.06, years = 30, payments_made = 12.*
+*What has been paid after each number of payments on a 200000 loan at 6 % over 30 years, split into interest (lower) and principal (upper), both returned by the package every 6 payments. Marked: after 12 payments, interest 11933.2, principal 2456.02.*
 
 ```python
 economics_finance_ai999x.solve('loan_cumulative_interest', principal=200000, annual_rate=0.06, years=30, payments_made=12)
@@ -1349,17 +1229,9 @@ $$
 - **Assumes:** -1 < rate < 1; at least two cash flows
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cash flows -1000, 300, 400, 500 (period 0 first) beside their present values at the discount rate 10 %, each a run of the model's present value; the net present value it returns, NPV = -21](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/npv-discounted)
+![Cash flows -1000, 300, 400, 500 (period 0 first) beside their present values at the discount rate 10 %, each a run of the package's present value; the net present value it returns, NPV = -21](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/npv-discounted)
 
-*Cash flows -1000, 300, 400, 500 (period 0 first) beside their present values at the discount rate 10 %, each a run of the model's present value; the net present value it returns, NPV = -21.04, is their sum. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500.*
-
-![Net present value as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/npv-live-1)
-
-*Net present value as rate runs from 0.025 to 0.175, every other input as you entered it (41 solutions). Marked: your rate = 0.1 gives npv = -21.04. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500.*
-
-![Net present value as cash_flows[1] runs from -1750 to -294, every other input as you entered it (30 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/npv-live-2)
-
-*Net present value as cash_flows[1] runs from -1750 to -294, every other input as you entered it (30 solutions). Marked: your cash_flows[1] = -1000 gives npv = -21.04. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500.*
+*Cash flows -1000, 300, 400, 500 (period 0 first) beside their present values at the discount rate 10 %, each a run of the package's present value; the net present value it returns, NPV = -21.0368, is their sum. Marked: each present value.*
 
 ```python
 economics_finance_ai999x.solve('npv', rate=0.1, cash_flows='-1000, 300, 400, 500')
@@ -1403,17 +1275,9 @@ $$
 - **Assumes:** the cash flows change sign exactly once (otherwise the IRR is not unique and none is given)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Top: the cash flows -1000, 300, 400, 500 as a timeline (arrows down: paid; up: received)](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/irr-profile.svg)
+![Top: the cash flows -1000, 300, 400, 500 as a timeline (arrows down: paid; up: received)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/irr-profile)
 
-*Top: the cash flows -1000, 300, 400, 500 as a timeline (arrows down: paid; up: received). Bottom: their net present value at 61 discount rates from 0 % to 30 %, each a run of the model's NPV. The NPV is zero at the internal rate of return the model returns; marked: IRR = 8.896 %. In SI units: irr = 0.08896. Your inputs: cash_flows = -1000, 300, 400, 500.*
-
-![Internal rate of return per period as cash_flows[1] runs from -1750 to -270, every other input as you entered it (42 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/irr-live-1)
-
-*Internal rate of return per period as cash_flows[1] runs from -1750 to -270, every other input as you entered it (42 solutions). Marked: your cash_flows[1] = -1000 gives irr = 0.08896. Your inputs: cash_flows = -1000, 300, 400, 500.*
-
-![Internal rate of return per period as cash_flows[4] runs from 250 to 736, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/irr-live-2)
-
-*Internal rate of return per period as cash_flows[4] runs from 250 to 736, every other input as you entered it (29 solutions). Marked: your cash_flows[4] = 500 gives irr = 0.08896. Your inputs: cash_flows = -1000, 300, 400, 500.*
+*Top: the cash flows -1000, 300, 400, 500 as a timeline (arrows down: paid; up: received). Bottom: their net present value at 61 discount rates from 0 to 30 %, each a run of the package's NPV. The NPV is zero at the internal rate of return the package returns; marked: IRR = 8.89634 %.*
 
 ```python
 economics_finance_ai999x.solve('irr', cash_flows='-1000, 300, 400, 500')
@@ -1465,17 +1329,13 @@ $$
 - **Assumes:** at least one inflow and one outflow; -1 < rates < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Modified IRR of the flows -1000, 300, 400, 500: each inflow is carried forward to period 3 at the reinvestment rate 12 % (stacked bar, each a compound-interest run of the model; they sum to the returned terminal value 1324), and the present value of the outflows 1000 grows at the returned MIRR = 9](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/mirr-growth)
+![Modified IRR of the flows -1000, 300, 400, 500: each inflow is carried forward to period 3 at the reinvestment rate 12 % (stacked bar, each a compound-interest run of the package; they sum to the returned terminal value 1324](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/mirr-growth)
 
-*Modified IRR of the flows -1000, 300, 400, 500: each inflow is carried forward to period 3 at the reinvestment rate 12 % (stacked bar, each a compound-interest run of the model; they sum to the returned terminal value 1324), and the present value of the outflows 1000 grows at the returned MIRR = 9.816 % to exactly that terminal value (the curve, compound-interest runs). In SI units: mirr = 0.09816. Your inputs: cash_flows = -1000, 300, 400, 500, finance_rate = 0.1, reinvest_rate = 0.12.*
+*Modified IRR of the flows -1000, 300, 400, 500: each inflow is carried forward to period 3 at the reinvestment rate 12 % (stacked bar, each a compound-interest run of the package; they sum to the returned terminal value 1324.32), and the present value of the outflows 1000 (finance rate 10 %) grows at the returned MIRR = 9.81567 % to exactly that terminal value (the curve, compound-interest runs).*
 
-![Modified IRR per period as cash_flows[1] runs from -1750 to -268, every other input as you entered it (40 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/mirr-live-1)
+![mirr (modified IRR per period) against reinvest_rate (reinvestment rate for inflows (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/mirr-curve)
 
-*Modified IRR per period as cash_flows[1] runs from -1750 to -268, every other input as you entered it (40 solutions). Marked: your cash_flows[1] = -1000 gives mirr = 0.09816. Your inputs: cash_flows = -1000, 300, 400, 500, finance_rate = 0.1, reinvest_rate = 0.12.*
-
-![Modified IRR per period as cash_flows[4] runs from 250 to 736, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/mirr-live-2)
-
-*Modified IRR per period as cash_flows[4] runs from 250 to 736, every other input as you entered it (29 solutions). Marked: your cash_flows[4] = 500 gives mirr = 0.09816. Your inputs: cash_flows = -1000, 300, 400, 500, finance_rate = 0.1, reinvest_rate = 0.12.*
+*mirr (modified IRR per period) against reinvest_rate (reinvestment rate for inflows (decimal)) from 0.06 to 0.18. Other inputs as in the worked example: cash_flows = -1000, 300, 400, 500, finance_rate = 0.1. 31 points computed by economics-finance-ai999x; marked: the worked example, reinvest_rate = 0.12, mirr = 0.0981567.*
 
 ```python
 economics_finance_ai999x.solve('mirr', cash_flows='-1000, 300, 400, 500', finance_rate=0.1, reinvest_rate=0.12)
@@ -1516,17 +1376,9 @@ $$
 - **Assumes:** $CF0 < 0$; every later cash flow > 0; the investment is recovered within the flows
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cash flows -1000, 300, 400, 500 as bars and their running sum (the cumulative cash flow) as a line: the investment is recovered where the line crosses zero](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/payback-period-cumulative)
+![Cash flows -1000, 300, 400, 500 as bars and their running sum (the cumulative cash flow, summed here from the stated flows) as a line: the investment is recovered where the line crosses zero](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/payback-period-cumulative)
 
-*Cash flows -1000, 300, 400, 500 as bars and their running sum (the cumulative cash flow) as a line: the investment is recovered where the line crosses zero. Marked: the payback period the model returns, 2.6 periods (flows assumed spread evenly within a period). Your inputs: cash_flows = -1000, 300, 400, 500.*
-
-![Payback period in periods as cash_flows[1] runs from -1195 to -270, every other input as you entered it (27 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/payback-period-live-1)
-
-*Payback period in periods as cash_flows[1] runs from -1195 to -270, every other input as you entered it (27 solutions). Marked: your cash_flows[1] = -1000 gives payback = 2.6. Your inputs: cash_flows = -1000, 300, 400, 500.*
-
-![Payback period in periods as cash_flows[4] runs from 304 to 736, every other input as you entered it (26 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/payback-period-live-2)
-
-*Payback period in periods as cash_flows[4] runs from 304 to 736, every other input as you entered it (26 solutions). Marked: your cash_flows[4] = 500 gives payback = 2.6. Your inputs: cash_flows = -1000, 300, 400, 500.*
+*Cash flows -1000, 300, 400, 500 as bars and their running sum (the cumulative cash flow, summed here from the stated flows) as a line: the investment is recovered where the line crosses zero. Marked: the payback period the package returns, 2.6 periods (flows assumed spread evenly within a period).*
 
 ```python
 economics_finance_ai999x.solve('payback_period', cash_flows='-1000, 300, 400, 500')
@@ -1568,17 +1420,13 @@ $$
 - **Assumes:** $CF0 < 0$; every later cash flow > 0; recovered within the flows; -1 < rate < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cash flows -1000, 300, 400, 500, 200: their running sum (dashed) and the running sum of their present values at 10 % (each present value a run of the model; the sums are added here)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/discounted-payback-cumulative)
+![Cash flows -1000, 300, 400, 500, 200: their running sum (dashed) and the running sum of their present values at 10 % (each present value a run of the package; the sums are added here)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/discounted-payback-cumulative)
 
-*Cash flows -1000, 300, 400, 500, 200: their running sum (dashed) and the running sum of their present values at 10 % (each present value a run of the model; the sums are added here). Discounting delays recovery; marked: the discounted payback period the model returns, 3.154 periods. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500, 200.*
+*Cash flows -1000, 300, 400, 500, 200: their running sum (dashed) and the running sum of their present values at 10 % (each present value a run of the package; the sums are added here). Discounting delays recovery; marked: the discounted payback period the package returns, 3.154 periods.*
 
-![Discounted payback period in periods as cash_flows[1] runs from -1084 to -270, every other input as you entered it (24 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/discounted-payback-live-1)
+![discounted_payback (discounted payback period in periods) against rate (discount rate per period (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/discounted-payback-curve)
 
-*Discounted payback period in periods as cash_flows[1] runs from -1084 to -270, every other input as you entered it (24 solutions). Marked: your cash_flows[1] = -1000 gives discounted_payback = 3.154. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500, 200.*
-
-![Discounted payback period in periods as cash_flows[2] runs from 183 to 447, every other input as you entered it (26 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/discounted-payback-live-2)
-
-*Discounted payback period in periods as cash_flows[2] runs from 183 to 447, every other input as you entered it (26 solutions). Marked: your cash_flows[2] = 300 gives discounted_payback = 3.154. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500, 200.*
+*discounted_payback (discounted payback period in periods) against rate (discount rate per period (decimal)) from 0.05 to 0.15. Other inputs as in the worked example: cash_flows = -1000, 300, 400, 500, 200. 31 points computed by economics-finance-ai999x; marked: the worked example, rate = 0.1, discounted_payback = 3.154.*
 
 ```python
 economics_finance_ai999x.solve('discounted_payback', rate=0.1, cash_flows='-1000, 300, 400, 500, 200')
@@ -1622,17 +1470,9 @@ $$
 - **Assumes:** $CF0 < 0$; -1 < rate < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The initial outlay 1000 beside the present values at 10 % of the later flows 300, 400, 500 (stacked, each a run of the model; they sum to the returned 979)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/profitability-index-bars)
+![The initial outlay 1000 beside the present values at 10 % of the later flows 300, 400, 500 (stacked, each a run of the package; they sum to the returned 978](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/profitability-index-bars)
 
-*The initial outlay 1000 beside the present values at 10 % of the later flows 300, 400, 500 (stacked, each a run of the model; they sum to the returned 979). Profitability index = PV / outlay = 0.979, NPV = -21.04, as returned. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500.*
-
-![Profitability index as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/profitability-index-live-1)
-
-*Profitability index as rate runs from 0.025 to 0.175, every other input as you entered it (41 solutions). Marked: your rate = 0.1 gives profitability_index = 0.979. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500.*
-
-![Profitability index as cash_flows[1] runs from -1750 to -294, every other input as you entered it (30 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/profitability-index-live-2)
-
-*Profitability index as cash_flows[1] runs from -1750 to -294, every other input as you entered it (30 solutions). Marked: your cash_flows[1] = -1000 gives profitability_index = 0.979. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500.*
+*The initial outlay 1000 beside the present values at 10 % of the later flows 300, 400, 500 (stacked, each a run of the package; they sum to the returned 978.963). Profitability index = PV ÷ outlay = 0.978963, NPV = -21.0368, as returned.*
 
 ```python
 economics_finance_ai999x.solve('profitability_index', rate=0.1, cash_flows='-1000, 300, 400, 500')
@@ -1675,17 +1515,9 @@ $$
 - **Assumes:** -1 < rate < 1; at least two cash flows
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The cash flows -1000, 300, 400, 500 and the level amount per period with the same net present value at 10 %: the model returns NPV = -21](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/equivalent-annual-annuity-bars)
+![The cash flows -1000, 300, 400, 500 and the level amount per period with the same net present value at 10 %: the package returns NPV = -21](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/equivalent-annual-annuity-bars)
 
-*The cash flows -1000, 300, 400, 500 and the level amount per period with the same net present value at 10 %: the model returns NPV = -21.04 and the equivalent annual annuity -8.459 per period over 3 periods. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500.*
-
-![Eaa as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/equivalent-annual-annuity-live-1)
-
-*Eaa as rate runs from 0.025 to 0.175, every other input as you entered it (41 solutions). Marked: your rate = 0.1 gives eaa = -8.459. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500.*
-
-![Eaa as cash_flows[1] runs from -1750 to -294, every other input as you entered it (30 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/equivalent-annual-annuity-live-2)
-
-*Eaa as cash_flows[1] runs from -1750 to -294, every other input as you entered it (30 solutions). Marked: your cash_flows[1] = -1000 gives eaa = -8.459. Your inputs: rate = 0.1, cash_flows = -1000, 300, 400, 500.*
+*The cash flows -1000, 300, 400, 500 and the level amount per period with the same net present value at 10 %: the package returns NPV = -21.0368 and the equivalent annual annuity -8.45921 per period over 3 periods.*
 
 ```python
 economics_finance_ai999x.solve('equivalent_annual_annuity', rate=0.1, cash_flows='-1000, 300, 400, 500')
@@ -1727,9 +1559,9 @@ $$
 - **Assumes:** equal lengths; the difference A - B changes sign exactly once
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![NPV profiles of two projects (A: -1000, 100, 1200; B: -1000, 700, 500) at 61 discount rates, each a run of the model's NPV](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/crossover-rate-profile)
+![NPV profiles of two projects (A: -1000, 100, 1200; B: -1000, 700, 500) at 61 discount rates, each a run of the package's NPV](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/crossover-rate-profile)
 
-*NPV profiles of two projects (A: -1000, 100, 1200; B: -1000, 700, 500) at 61 discount rates, each a run of the model's NPV. Below the crossover rate one project is worth more, above it the other; marked: the crossover rate the model returns, 16.67 %, where both NPVs equal -32.65. Dots on the axis: each project's IRR from the model, 14.66 % and 13.9 %. In SI units: crossover_rate = 0.1667. Your inputs: cash_flows_a = -1000, 100, 1200, cash_flows_b = -1000, 700, 500.*
+*NPV profiles of two projects (A: -1000, 100, 1200; B: -1000, 700, 500) at 61 discount rates, each a run of the package's NPV. Below the crossover rate one project is worth more, above it the other; marked: the crossover rate the package returns, 16.6667 %, where both NPVs equal -32.6531. Dots on the axis: each project's IRR, also from the package.*
 
 ```python
 economics_finance_ai999x.solve('crossover_rate', cash_flows_a='-1000, 100, 1200', cash_flows_b='-1000, 700, 500')
@@ -1771,21 +1603,13 @@ $$
 - **Assumes:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number, years at most 1000
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Prices of 10-year bonds (face 1000, 2 payment(s) a year) with coupons 0 %, 5 %, 10 % at yields from 0](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/bond-price-family.svg)
+![The cash flows of a 10-year bond with face 1000 and a 5 % coupon paid 2 time(s) a year, bought at the price the package returns for a yield of 6 %: 925](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-price-timeline)
 
-*Prices of 10-year bonds (face 1000, 2 payment(s) a year) with coupons 0 %, 5 %, 10 % at yields from 0.5 % to 15 % (41 runs of the model each): a bond trades at par where its yield equals its coupon, and the zero-coupon bond is the most sensitive. Marked: yield 6 %, price 925.6. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, frequency = 2.*
+*The cash flows of a 10-year bond with face 1000 and a 5 % coupon paid 2 time(s) a year, bought at the price the package returns for a yield of 6 %: 925.613 paid, then 20 coupons of 25 (returned) and the face at maturity. Current yield 5.40183 %.*
 
-![The cash flows of a 10-year bond with face 1000 and a 5 % coupon paid 2 time(s) a year, bought at the price the model returns for a yield of 6 %: 925](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-price-timeline)
+![Prices of 10-year bonds (face 1000, 2 payment(s) a year) with coupons 0, 5 % and 10 % at yields from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-price-family)
 
-*The cash flows of a 10-year bond with face 1000 and a 5 % coupon paid 2 time(s) a year, bought at the price the model returns for a yield of 6 %: 925.6 paid, then 20 coupons of 25 (returned) and the face at maturity. Current yield 5.402 %. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, frequency = 2.*
-
-![Bond price as frequency runs from 1 to 6, every other input as you entered it (5 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-price-live-1)
-
-*Bond price as frequency runs from 1 to 6, every other input as you entered it (5 solutions). Values in this range where the inputs admit no answer (1 of 6) are left out. Marked: your frequency = 2 gives price = 925.6. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, frequency = 2.*
-
-![Bond price as face runs from 250 to 1750, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-price-live-2)
-
-*Bond price as face runs from 250 to 1750, every other input as you entered it (29 solutions). Marked: your face = 1000 gives price = 925.6. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, frequency = 2.*
+*Prices of 10-year bonds (face 1000, 2 payment(s) a year) with coupons 0, 5 % and 10 % at yields from 0.5 % to 15 % (41 runs of the package each): a bond trades at par where its yield equals its coupon, and the zero-coupon bond is the most sensitive. Marked: the worked example, yield 6 %, price 925.613.*
 
 ```python
 economics_finance_ai999x.solve('bond_price', face=1000, coupon_rate=0.05, years=10, ytm=0.06, frequency=2)
@@ -1833,13 +1657,9 @@ $$
 - **Assumes:** price > 0; face > 0; 0 <= coupon_rate < 1; years x frequency a whole number, years at most 1000; a yield between -50% and 100% per period
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Yield to maturity, nominal annual as price runs from 250 to 1750, every other input as you entered it (37 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-ytm-live-1)
+![The price of a 10-year bond (face 1000, coupon 5 %) at 41 yields, each a run of the package's bond price; the yield to maturity is where that curve meets the stated market price 925](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-ytm-curve)
 
-*Yield to maturity, nominal annual as price runs from 250 to 1750, every other input as you entered it (37 solutions). Marked: your price = 1000 gives ytm = 0.06. Your inputs: price = 1000, face = 1000, coupon_rate = 0.06, years = 5, frequency = 2.*
-
-![Yield to maturity, nominal annual as face runs from 250 to 1750, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-ytm-live-2)
-
-*Yield to maturity, nominal annual as face runs from 250 to 1750, every other input as you entered it (29 solutions). Marked: your face = 1000 gives ytm = 0.06. Your inputs: price = 1000, face = 1000, coupon_rate = 0.06, years = 5, frequency = 2.*
+*The price of a 10-year bond (face 1000, coupon 5 %) at 41 yields, each a run of the package's bond price; the yield to maturity is where that curve meets the stated market price 925.61. Marked: the yield the package returns, 6.00004 % (current yield 5.40184 %).*
 
 ```python
 economics_finance_ai999x.solve('bond_ytm', price=1000, face=1000, coupon_rate=0.06, years=5, frequency=2)
@@ -1887,17 +1707,13 @@ $$
 - **Assumes:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number, years at most 1000
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Each payment of a 10-year bond (coupon 25 per period, face 1000) at its present value at the yield 6 % (runs of the model's present value; they sum to the returned price 925](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-duration-stems)
+![Each payment of a 10-year bond (coupon 25 per period, face 1000) at its present value at the yield 6 % (runs of the package's present value; they sum to the returned price 925](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-duration-stems)
 
-*Each payment of a 10-year bond (coupon 25 per period, face 1000) at its present value at the yield 6 % (runs of the model's present value; they sum to the returned price 925.6). The Macaulay duration the model returns, 7.895 years, is the present-value-weighted average time of the payments, the balance point of these stems (modified duration 7.665). Logarithmic value axis. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, frequency = 2.*
+*Each payment of a 10-year bond (coupon 25 per period, face 1000) at its present value at the yield 6 % (runs of the package's present value; they sum to the returned price 925.613). The Macaulay duration the package returns, 7.895 years, is the present-value-weighted average time of the payments, the balance point of these stems (modified duration 7.66505). Logarithmic value axis.*
 
-![Bond price as face runs from 250 to 1750, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-duration-live-1)
+![macaulay_duration (Macaulay duration in years) against ytm (yield to maturity, nominal annual, compounded at the coupon frequency) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-duration-curve)
 
-*Bond price as face runs from 250 to 1750, every other input as you entered it (41 solutions). Marked: your face = 1000 gives price = 925.6. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, frequency = 2.*
-
-![Macaulay duration in years as years runs from 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-duration-live-2)
-
-*Macaulay duration in years as years runs from 2.5 to 17.5, every other input as you entered it (3 solutions). Values in this range where the inputs admit no answer (44 of 47) are left out. Marked: your years = 10 gives macaulay_duration = 7.895. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, frequency = 2.*
+*macaulay_duration (Macaulay duration in years) against ytm (yield to maturity, nominal annual, compounded at the coupon frequency) from 0.006 to 0.6 on a logarithmic axis. One curve for each value of years (years to maturity (a whole number of coupon periods)): 10, 5, 20. Other inputs as in the worked example: face = 1000.0, coupon_rate = 0.05, frequency = 2. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, ytm = 0.06, macaulay_duration = 7.895.*
 
 ```python
 economics_finance_ai999x.solve('bond_duration', face=1000, coupon_rate=0.05, years=10, ytm=0.06, frequency=2)
@@ -1943,17 +1759,13 @@ $$
 - **Assumes:** face > 0; 0 <= coupon_rate < 1; -1 < ytm < 1; years x frequency a whole number, years at most 1000
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Convexity against the yield to maturity from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-convexity-curve-2)
+![Convexity of bonds yielding 6 % against maturity, for coupons 0, 5 % and 10 % (30 runs of the package each): longer and lower-coupon bonds curve more](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-convexity-curve)
 
-*Convexity against the yield to maturity from 0.006 to 0.6 on a logarithmic axis, one curve for each maturity: 10, 5, 20 years; other inputs as given. 41 points per curve computed by the model; marked: yield 0.06, convexity 71.79. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, frequency = 2.*
+*Convexity of bonds yielding 6 % against maturity, for coupons 0, 5 % and 10 % (30 runs of the package each): longer and lower-coupon bonds curve more. Marked: the worked example, 10 years, convexity 71.7854, price 925.613.*
 
-![Convexity (1/P) d2P/dy2, years^2 as years runs from 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-convexity-live-1)
+![convexity (convexity (1/P) d2P/dy2, years^2) against ytm (yield to maturity, nominal annual, compounded at the coupon frequency) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-convexity-curve-2)
 
-*Convexity (1/P) d2P/dy2, years^2 as years runs from 2.5 to 17.5, every other input as you entered it (11 solutions). Values in this range where the inputs admit no answer (50 of 61) are left out. Marked: your years = 10 gives convexity = 71.79. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, frequency = 2.*
-
-![Bond price as face runs from 250 to 1750, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-convexity-live-2)
-
-*Bond price as face runs from 250 to 1750, every other input as you entered it (29 solutions). Marked: your face = 1000 gives price = 925.6. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, frequency = 2.*
+*convexity (convexity (1/P) d2P/dy2, years^2) against ytm (yield to maturity, nominal annual, compounded at the coupon frequency) from 0.006 to 0.6 on a logarithmic axis. One curve for each value of years (years to maturity (a whole number of coupon periods)): 10, 5, 20. Other inputs as in the worked example: face = 1000.0, coupon_rate = 0.05, frequency = 2. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, ytm = 0.06, convexity = 71.7854.*
 
 ```python
 economics_finance_ai999x.solve('bond_convexity', face=1000, coupon_rate=0.05, years=10, ytm=0.06, frequency=2)
@@ -1997,17 +1809,9 @@ $$
 - **Assumes:** face > 0; -1 < ytm < 1; years >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Price F x discount factor as face runs from 250 to 1750, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/zero-coupon-bond-live-1)
+![Price of a zero-coupon bond with face 1000 at a yield of 5 % against its maturity, with the yield compounded annual, semiannual, continuous (61 runs of the package each)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/zero-coupon-bond-curve)
 
-*Price F x discount factor as face runs from 250 to 1750, every other input as you entered it (41 solutions). Marked: your face = 1000 gives price = 610.3. Your inputs: face = 1000, ytm = 0.05, years = 10, compounding = semiannual.*
-
-![Price F x discount factor for every choice of compounding, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/zero-coupon-bond-live-2)
-
-*Price F x discount factor for every choice of compounding, every other input as you entered it (highlighted: your choice). annual: 613.9; semiannual: 610.3; quarterly: 608.4; monthly: 607.2; continuous: 606.5. Your inputs: face = 1000, ytm = 0.05, years = 10, compounding = semiannual.*
-
-![Price F x discount factor as years runs from 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/zero-coupon-bond-live-3)
-
-*Price F x discount factor as years runs from 2.5 to 17.5, every other input as you entered it (29 solutions). Marked: your years = 10 gives price = 610.3. Your inputs: face = 1000, ytm = 0.05, years = 10, compounding = semiannual.*
+*Price of a zero-coupon bond with face 1000 at a yield of 5 % against its maturity, with the yield compounded annual, semiannual, continuous (61 runs of the package each). Marked: the worked example, 10 years, price 610.271 (discount factor 0.610271).*
 
 ```python
 economics_finance_ai999x.solve('zero_coupon_bond', face=1000, ytm=0.05, years=10, compounding='semiannual')
@@ -2063,17 +1867,13 @@ $$
 - **Assumes:** face > 0; 0 <= coupon_rate < 1; the old and new yields between -100% and 100%; |yield_change| < 50%
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Price change of a 10-year bond (yield 6 %, price 925](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-price-change-bars)
+![Price of a 10-year bond (face 1000, coupon 5 %, 2 payments a year) against its yield, with the duration (tangent) and duration-plus-convexity approximations, all computed by the package for yield changes of ±4 points](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/bond-price-change-curve.svg)
 
-*Price change of a 10-year bond (yield 6 %, price 925.6) for yield moves of -2, -1, 1, 2 percentage points: the duration estimate, the duration-plus-convexity estimate and the actual change, all returned by the model. Duration alone overstates a fall and understates a rise; convexity closes most of the gap. In SI units: duration_convexity_estimate = -67.63. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, yield_change = 0.01, frequency = 2.*
+*Price of a 10-year bond (face 1000, coupon 5 %, 2 payments a year) against its yield, with the duration (tangent) and duration-plus-convexity approximations, all computed by the package for yield changes of ±4 points. Modified duration 7.66505; marked: yield = 6 %, price = 925.613.*
 
-![Duration convexity estimate as face runs from 250 to 1750, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-price-change-live-1)
+![Price change of a 10-year bond (face 1000, coupon 5 %, yield 6 %) for yield moves of −2, −1, +1 and +2 points: the duration estimate, the duration-plus-convexity estimate and the actual change, all returned by the package](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-price-change-bars)
 
-*Duration convexity estimate as face runs from 250 to 1750, every other input as you entered it (41 solutions). Marked: your face = 1000 gives duration_convexity_estimate = -67.63. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, yield_change = 0.01, frequency = 2.*
-
-![Duration convexity estimate as yield_change runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bond-price-change-live-2)
-
-*Duration convexity estimate as yield_change runs from 0.0025 to 0.0175, every other input as you entered it (29 solutions). Marked: your yield_change = 0.01 gives duration_convexity_estimate = -67.63. Your inputs: face = 1000, coupon_rate = 0.05, years = 10, ytm = 0.06, yield_change = 0.01, frequency = 2.*
+*Price change of a 10-year bond (face 1000, coupon 5 %, yield 6 %) for yield moves of −2, −1, +1 and +2 points: the duration estimate, the duration-plus-convexity estimate and the actual change, all returned by the package. Duration alone overstates a fall and understates a rise; convexity closes most of the gap.*
 
 ```python
 economics_finance_ai999x.solve('bond_price_change', face=1000, coupon_rate=0.05, years=10, ytm=0.06, yield_change=0.01, frequency=2)
@@ -2111,17 +1911,9 @@ $$
 - **Assumes:** -1 < spot rates < 1; $0  \leq  t_{1} < t_{2}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Spot rates 4 % for 1 year(s) and 5 % for 2 years (stated): investing at the first and rolling over at the forward rate must equal investing at the second, which gives the forward rate the model returns for the period from 1 to 2 years, 6](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/forward-rate-rates)
+![Spot rates 4 % for 1 year(s) and 5 % for 2 years (stated): investing at the first and rolling over at the forward rate must equal investing at the second, which gives the forward rate the package returns for the period from 1 to 2 years, 6](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/forward-rate-rates)
 
-*Spot rates 4 % for 1 year(s) and 5 % for 2 years (stated): investing at the first and rolling over at the forward rate must equal investing at the second, which gives the forward rate the model returns for the period from 1 to 2 years, 6.01 %. In SI units: forward_rate = 0.0601. Your inputs: spot_rate_1 = 0.04, maturity_1 = 1, spot_rate_2 = 0.05, maturity_2 = 2.*
-
-![Forward rate f(t1, t2), annual compounding as spot_rate_2 runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/forward-rate-live-1)
-
-*Forward rate f(t1, t2), annual compounding as spot_rate_2 runs from 0.0125 to 0.0875, every other input as you entered it (41 solutions). Marked: your spot_rate_2 = 0.05 gives forward_rate = 0.0601. Your inputs: spot_rate_1 = 0.04, maturity_1 = 1, spot_rate_2 = 0.05, maturity_2 = 2.*
-
-![Forward rate f(t1, t2), annual compounding as maturity_2 runs from 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/forward-rate-live-2)
-
-*Forward rate f(t1, t2), annual compounding as maturity_2 runs from 1.036 to 3.5, every other input as you entered it (24 solutions). Marked: your maturity_2 = 2 gives forward_rate = 0.0601. Your inputs: spot_rate_1 = 0.04, maturity_1 = 1, spot_rate_2 = 0.05, maturity_2 = 2.*
+*Spot rates 4 % for 1 year(s) and 5 % for 2 years (stated): investing at the first and rolling over at the forward rate must equal investing at the second, which gives the forward rate the package returns for the period from 1 to 2 years, 6.00962 %.*
 
 ```python
 economics_finance_ai999x.solve('forward_rate', spot_rate_1=0.04, maturity_1=1, spot_rate_2=0.05, maturity_2=2)
@@ -2167,13 +1959,9 @@ $$
 - **Assumes:** 0 < required_return < 1; growth < required_return; exactly one of dividend (D0), next_dividend (D1)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Price as required_return runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gordon-growth-live-1)
+![price (share value P0 = D1 / (r - g)) against required_return (required return on equity (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gordon-growth-curve)
 
-*Price as required_return runs from 0.04375 to 0.175, every other input as you entered it (36 solutions). Marked: your required_return = 0.1 gives price = 34.67. Your inputs: required_return = 0.1, growth = 0.04, dividend = 2.*
-
-![Price as dividend runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gordon-growth-live-2)
-
-*Price as dividend runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your dividend = 2 gives price = 34.67. Your inputs: required_return = 0.1, growth = 0.04, dividend = 2.*
+*price (share value P0 = D1 / (r - g)) against required_return (required return on equity (decimal)) from 0.05 to 0.15. One curve for each value of dividend (dividend just paid D0 (give this OR next_dividend)): 2, 1, 4. Other inputs as in the worked example: growth = 0.04. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, required_return = 0.1, price = 34.6667.*
 
 ```python
 economics_finance_ai999x.solve('gordon_growth', dividend=2, required_return=0.1, growth=0.04)
@@ -2223,17 +2011,13 @@ $$
 - **Assumes:** dividend > 0; stable_growth < required_return; high_growth_years a whole number >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A share paying 2 now, growing 15 % for 5 years and 4 % after, at a required return of 10 %: the model returns the terminal value in year 5, 69](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/two-stage-ddm-bars)
+![A share paying 2 now, growing 15 % for 5 years and 4 % after, at a required return of 10 %: the package returns the terminal value in year 5, 69](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/two-stage-ddm-bars)
 
-*A share paying 2 now, growing 15 % for 5 years and 4 % after, at a required return of 10 %: the model returns the terminal value in year 5, 69.73, its present value 43.3, the present value of the high-growth dividends 11.45 and their sum, the price 54.74. Your inputs: dividend = 2, high_growth = 0.15, high_growth_years = 5, stable_growth = 0.04, required_return = 0.1.*
+*A share paying 2 now, growing 15 % for 5 years and 4 % after, at a required return of 10 %: the package returns the terminal value in year 5, 69.727, its present value 43.295, the present value of the high-growth dividends 11.4492 and their sum, the price 54.7442.*
 
-![Share value as required_return runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/two-stage-ddm-live-1)
+![price (share value) against high_growth (growth rate in the first stage (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/two-stage-ddm-curve)
 
-*Share value as required_return runs from 0.04375 to 0.175, every other input as you entered it (36 solutions). Marked: your required_return = 0.1 gives price = 54.74. Your inputs: dividend = 2, high_growth = 0.15, high_growth_years = 5, stable_growth = 0.04, required_return = 0.1.*
-
-![Share value as high_growth_years runs from 1 to 9, every other input as you entered it (9 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/two-stage-ddm-live-2)
-
-*Share value as high_growth_years runs from 1 to 9, every other input as you entered it (9 solutions). Marked: your high_growth_years = 5 gives price = 54.74. Your inputs: dividend = 2, high_growth = 0.15, high_growth_years = 5, stable_growth = 0.04, required_return = 0.1.*
+*price (share value) against high_growth (growth rate in the first stage (decimal)) from 0.015 to 1.5 on a logarithmic axis. One curve for each value of dividend (dividend just paid D0): 2, 1, 4. Other inputs as in the worked example: high_growth_years = 5, stable_growth = 0.04, required_return = 0.1. 37 points per curve computed by economics-finance-ai999x; marked: the worked example, high_growth = 0.15, price = 54.7442.*
 
 ```python
 economics_finance_ai999x.solve('two_stage_ddm', dividend=2, high_growth=0.15, high_growth_years=5, stable_growth=0.04, required_return=0.1)
@@ -2274,13 +2058,9 @@ $$
 - **Assumes:** price > 0; exactly one of dividend (D0), next_dividend (D1); dividend > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Implied required return D1/P0 + g as price runs from 12](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gordon-implied-return-live-1)
+![required_return (implied required return D1/P0 + g) against price (current share price) from 5 to 500 on a logarithmic axis](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gordon-implied-return-curve)
 
-*Implied required return D1/P0 + g as price runs from 12.5 to 87.5, every other input as you entered it (41 solutions). Marked: your price = 50 gives required_return = 0.0816. Your inputs: price = 50, growth = 0.04, dividend = 2.*
-
-![Implied required return D1/P0 + g as dividend runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gordon-implied-return-live-2)
-
-*Implied required return D1/P0 + g as dividend runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your dividend = 2 gives required_return = 0.0816. Your inputs: price = 50, growth = 0.04, dividend = 2.*
+*required_return (implied required return D1/P0 + g) against price (current share price) from 5 to 500 on a logarithmic axis. One curve for each value of growth (constant dividend growth rate (decimal)): 0.04, 0.02, 0.08. Other inputs as in the worked example: dividend = 2.0. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, price = 50, required_return = 0.0816.*
 
 ```python
 economics_finance_ai999x.solve('gordon_implied_return', price=50, dividend=2, growth=0.04)
@@ -2325,17 +2105,9 @@ $$
 - **Assumes:** -1 < risk_free < 1; -1 < market_return < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The security market line for a risk-free rate of 3 % and a market return of 9 %: the expected return the model returns at 41 betas from 0 to 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/capm-line)
+![The security market line for a risk-free rate of 3 % and a market return of 9 %: the expected return the package returns at 41 betas from 0 to 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/capm-line)
 
-*The security market line for a risk-free rate of 3 % and a market return of 9 %: the expected return the model returns at 41 betas from 0 to 2. Marked: beta = 1.2, expected return 10.2 % (risk premium 7.2 %). In SI units: expected_return = 0.102. Your inputs: risk_free = 0.03, beta = 1.2, market_return = 0.09.*
-
-![Expected (required) return as market_return runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/capm-live-1)
-
-*Expected (required) return as market_return runs from 0.0225 to 0.1575, every other input as you entered it (41 solutions). Marked: your market_return = 0.09 gives expected_return = 0.102. Your inputs: risk_free = 0.03, beta = 1.2, market_return = 0.09.*
-
-![Expected (required) return as β runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/capm-live-2)
-
-*Expected (required) return as β runs from 0.3 to 2.1, every other input as you entered it (29 solutions). Marked: your β = 1.2 gives expected_return = 0.102. Your inputs: risk_free = 0.03, beta = 1.2, market_return = 0.09.*
+*The security market line for a risk-free rate of 3 % and a market return of 9 %: the expected return the package returns at 41 betas from 0 to 2. Marked: β = 1.2, expected return 10.2 % (risk premium 7.2 %, market premium 6 %).*
 
 ```python
 economics_finance_ai999x.solve('capm', risk_free=0.03, beta=1.2, market_return=0.09)
@@ -2383,17 +2155,13 @@ $$
 - **Assumes:** equity_value, debt_value >= 0 and not both 0; 0 <= tax_rate < 0.99
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Equity 600 at 12 % and debt 400 at 6 % before tax (tax rate 25 %): the model returns the after-tax cost of debt 4](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/wacc-bars)
+![Equity 600 at 12 % and debt 400 at 6 % before tax (tax rate 25 %): the package returns the after-tax cost of debt 4](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/wacc-bars)
 
-*Equity 600 at 12 % and debt 400 at 6 % before tax (tax rate 25 %): the model returns the after-tax cost of debt 4.5 %, the weights 0.6 and 0.4 and the weighted average cost of capital 9 %, drawn as the sum of each weight x cost (right bar). In SI units: wacc = 0.09. Your inputs: equity_value = 600, debt_value = 400, cost_of_equity = 0.12, cost_of_debt = 0.06, tax_rate = 0.25.*
+*Equity 600 at 12 % and debt 400 at 6 % before tax (tax rate 25 %): the package returns the after-tax cost of debt 4.5 %, the weights 0.6 and 0.4 and the weighted average cost of capital 9 %, drawn as the sum of each weight × cost (right bar; the products are computed here).*
 
-![Weighted average cost of capital as cost_of_debt runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/wacc-live-1)
+![wacc (weighted average cost of capital) against cost_of_equity (cost of equity (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/wacc-curve)
 
-*Weighted average cost of capital as cost_of_debt runs from 0.015 to 0.105, every other input as you entered it (41 solutions). Marked: your cost_of_debt = 0.06 gives wacc = 0.09. Your inputs: equity_value = 600, debt_value = 400, cost_of_equity = 0.12, cost_of_debt = 0.06, tax_rate = 0.25.*
-
-![Weighted average cost of capital as cost_of_equity runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/wacc-live-2)
-
-*Weighted average cost of capital as cost_of_equity runs from 0.03 to 0.21, every other input as you entered it (29 solutions). Marked: your cost_of_equity = 0.12 gives wacc = 0.09. Your inputs: equity_value = 600, debt_value = 400, cost_of_equity = 0.12, cost_of_debt = 0.06, tax_rate = 0.25.*
+*wacc (weighted average cost of capital) against cost_of_equity (cost of equity (decimal)) from 0.06 to 0.18. One curve for each value of cost_of_debt (pre-tax cost of debt (decimal)): 0.06, 0.03, 0.12. Other inputs as in the worked example: equity_value = 600.0, debt_value = 400.0, tax_rate = 0.25. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, cost_of_equity = 0.12, wacc = 0.09.*
 
 ```python
 economics_finance_ai999x.solve('wacc', equity_value=600, debt_value=400, cost_of_equity=0.12, cost_of_debt=0.06, tax_rate=0.25)
@@ -2435,7 +2203,7 @@ $$
 
 ![Asset returns 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/beta-regression-fit)
 
-*Asset returns 0.02, -0.01, 0.03, 0.015, -0.02 against market returns 0.015, -0.005, 0.02, 0.01, -0.015: the model returns the regression slope beta = 1.441 and intercept alpha = -0.0002059 (the line), correlation 0.9959, R squared = 0.9918. Your inputs: asset_returns = 0.02, -0.01, 0.03, 0.015,..., market_returns = 0.015, -0.005, 0.02....*
+*Asset returns 0.02, -0.01, 0.03, 0.015, -0.02 against market returns 0.015, -0.005, 0.02, 0.01, -0.015: the package returns the regression slope β = 1.44118 and intercept α = -0.000205882 (the line), correlation 0.995902, R² = 0.991821.*
 
 ```python
 economics_finance_ai999x.solve('beta_regression', asset_returns='0.02, -0.01, 0.03, 0.015, -0.02', market_returns='0.015, -0.005, 0.02, 0.01, -0.015')
@@ -2485,15 +2253,7 @@ $$
 
 ![Returns 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/sharpe-ratio-stems)
 
-*Returns 0.05, 0.02, -0.01, 0.04 against a risk-free rate of 0.5 %: the model returns the mean excess return 2 % and the standard deviation 2.646 % (the band around the mean), whose ratio is the Sharpe ratio 0.7559 (annualised 0.7559). Your inputs: returns = 0.05, 0.02, -0.01, 0.04, risk_free = 0.005.*
-
-![Sharpe as returns[1] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/sharpe-ratio-live-1)
-
-*Sharpe as returns[1] runs from 0.0125 to 0.0875, every other input as you entered it (41 solutions). Marked: your returns[1] = 0.05 gives sharpe = 0.7559. Your inputs: returns = 0.05, 0.02, -0.01, 0.04, risk_free = 0.005.*
-
-![Sharpe as returns[4] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/sharpe-ratio-live-2)
-
-*Sharpe as returns[4] runs from 0.01 to 0.07, every other input as you entered it (29 solutions). Marked: your returns[4] = 0.04 gives sharpe = 0.7559. Your inputs: returns = 0.05, 0.02, -0.01, 0.04, risk_free = 0.005.*
+*Returns 0.05, 0.02, -0.01, 0.04 against a risk-free rate of 0.5 %: the package returns the mean excess return 2 % and the standard deviation 2.64575 % (the band around the mean), whose ratio is the Sharpe ratio 0.755929 (annualised 0.755929).*
 
 ```python
 economics_finance_ai999x.solve('sharpe_ratio', returns='0.05, 0.02, -0.01, 0.04', risk_free=0.005)
@@ -2539,15 +2299,7 @@ $$
 
 ![Returns 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/sortino-ratio-stems)
 
-*Returns 0.05, 0.02, -0.01, 0.04, -0.03 measured from the target 0 %: only the shortfalls (highlighted) count as risk; the model returns their downside deviation 1.414 %, the mean return 1.4 % and the Sortino ratio 0.9899. Your inputs: returns = 0.05, 0.02, -0.01, 0.04..., target = 0.*
-
-![Sortino as returns[5] runs from -0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/sortino-ratio-live-1)
-
-*Sortino as returns[5] runs from -0.0525 to -0.0075, every other input as you entered it (41 solutions). Marked: your returns[5] = -0.03 gives sortino = 0.9899. Your inputs: returns = 0.05, 0.02, -0.01, 0.04..., target = 0.*
-
-![Sortino as returns[1] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/sortino-ratio-live-2)
-
-*Sortino as returns[1] runs from 0.0125 to 0.0875, every other input as you entered it (29 solutions). Marked: your returns[1] = 0.05 gives sortino = 0.9899. Your inputs: returns = 0.05, 0.02, -0.01, 0.04..., target = 0.*
+*Returns 0.05, 0.02, -0.01, 0.04, -0.03 measured from the target 0 %: only the shortfalls (highlighted) count as risk; the package returns their downside deviation 1.41421 %, the mean return 1.4 % and the Sortino ratio 0.989949.*
 
 ```python
 economics_finance_ai999x.solve('sortino_ratio', returns='0.05, 0.02, -0.01, 0.04, -0.03', target=0.0)
@@ -2589,13 +2341,9 @@ $$
 - **Assumes:** same number of observations, at least 3; market returns not constant; beta not 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The portfolio against the market with a risk-free rate of 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/treynor-jensen-line)
+![The portfolio (returns 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/treynor-jensen-line)
 
-*The portfolio against the market with a risk-free rate of 0.2 %: the model returns beta 1, mean returns 2 % (portfolio) and 1 % (market). The line through the risk-free and market points is the security market line (CAPM runs of the model); the portfolio's height above it is the returned Jensen's alpha 1 %; Treynor ratio 0.018. Your inputs: portfolio_returns = 0.03, -0.01, 0.04, 0.02, market_returns = 0.02, -0.02, 0.03, 0.01, risk_free = 0.002.*
-
-![Treynor as risk_free runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/treynor-jensen-live-1)
-
-*Treynor as risk_free runs from 0.0005 to 0.0035, every other input as you entered it (41 solutions). Marked: your risk_free = 0.002 gives treynor = 0.018. Your inputs: portfolio_returns = 0.03, -0.01, 0.04, 0.02, market_returns = 0.02, -0.02, 0.03, 0.01, risk_free = 0.002.*
+*The portfolio (returns 0.03, -0.01, 0.04, 0.02) against the market (returns 0.02, -0.02, 0.03, 0.01) with a risk-free rate of 0.2 %: the package returns beta 1, mean returns 2 % (portfolio) and 1 % (market). The line through the risk-free and market points is the security market line; the portfolio's height above it is the returned Jensen's alpha 1 %; Treynor ratio 0.018.*
 
 ```python
 economics_finance_ai999x.solve('treynor_jensen', portfolio_returns='0.03, -0.01, 0.04, 0.02', market_returns='0.02, -0.02, 0.03, 0.01', risk_free=0.002)
@@ -2635,7 +2383,7 @@ $$
 
 ![Top: portfolio returns 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/information-ratio-bars)
 
-*Top: portfolio returns 0.03, 0.01, 0.04, 0.02 and benchmark returns 0.02, 0.015, 0.03, 0.01. Bottom: their difference each period with the mean active return 0.625 % and the tracking error 0.75 % returned by the model (the band); information ratio = 0.8333. Your inputs: portfolio_returns = 0.03, 0.01, 0.04, 0.02, benchmark_returns = 0.02, 0.015, 0.03, 0.01.*
+*Top: portfolio returns 0.03, 0.01, 0.04, 0.02 and benchmark returns 0.02, 0.015, 0.03, 0.01. Bottom: their difference each period (computed here) with the mean active return 0.625 % and the tracking error 0.75 % returned by the package; information ratio = 0.833333.*
 
 ```python
 economics_finance_ai999x.solve('information_ratio', portfolio_returns='0.03, 0.01, 0.04, 0.02', benchmark_returns='0.02, 0.015, 0.03, 0.01')
@@ -2674,17 +2422,9 @@ $$
 - **Assumes:** one weight, return and row per asset; weights add up to 1; covariance symmetric, positive semidefinite
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Expected return and standard deviation of portfolios of 2 assets (expected returns 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/portfolio-return-risk-frontier)
+![Expected return and standard deviation of portfolios of two assets (expected returns 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/portfolio-return-risk-frontier)
 
-*Expected return and standard deviation of portfolios of 2 assets (expected returns 0.1, 0.15) at 51 weights, each a run of the model. Marked: weights 0.6, 0.4: return 12 %, standard deviation 17.8 % (variance 0.03168). In SI units: std_dev = 0.178. Your inputs: weights = 0.6, 0.4, expected_returns = 0.1, 0.15, covariance = [[0.04, 0.006], [0.006....*
-
-![Std dev as covariance[1,1] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/portfolio-return-risk-live-1)
-
-*Std dev as covariance[1,1] runs from 0.01 to 0.07, every other input as you entered it (41 solutions). Marked: your covariance[1,1] = 0.04 gives std_dev = 0.178. Your inputs: weights = 0.6, 0.4, expected_returns = 0.1, 0.15, covariance = [[0.04, 0.006], [0.006....*
-
-![Std dev as covariance[2,2] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/portfolio-return-risk-live-2)
-
-*Std dev as covariance[2,2] runs from 0.0225 to 0.1575, every other input as you entered it (29 solutions). Marked: your covariance[2,2] = 0.09 gives std_dev = 0.178. Your inputs: weights = 0.6, 0.4, expected_returns = 0.1, 0.15, covariance = [[0.04, 0.006], [0.006....*
+*Expected return and standard deviation of portfolios of two assets (expected returns 0.1, 0.15, covariance [[0.04, 0.006], [0.006, 0.09]]) at 51 weights, each a run of the package. Marked: weights 0.6, 0.4: return 12 %, σ 17.7989 % (variance 0.03168).*
 
 ```python
 economics_finance_ai999x.solve('portfolio_return_risk', weights='0.6, 0.4', expected_returns='0.1, 0.15', covariance='[[0.04, 0.006], [0.006, 0.09]]')
@@ -2734,21 +2474,17 @@ $$
 - **Assumes:** -1 <= correlation <= 1; standard deviations >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Risk and return of every mix of two assets (returns 10 % and 15 %, standard deviations 20 % and 30 %, correlation 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/two-asset-portfolio-frontier)
+![Risk and return of every mix of two assets (returns 10 % and 15 %, standard deviations 20 % and 30 %, correlation 0](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/two-asset-portfolio-frontier.svg)
 
-*Risk and return of every mix of two assets (returns 10 % and 15 %, standard deviations 20 % and 30 %, correlation 0.1), computed by the model at 51 weights. The mix w1 = 0.6 gives 12 % at a standard deviation of 17.8 %; marked: the minimum-variance mix from the model, w1 = 0.7119, standard deviation 17.38 %, return 11.44 %. In SI units: std_dev = 0.178. Your inputs: weight_1 = 0.6, return_1 = 0.1, return_2 = 0.15, sd_1 = 0.2, sd_2 = 0.3, correlation = 0.1.*
+*Risk and return of every mix of two assets (returns 10 % and 15 %, standard deviations 20 % and 30 %, correlation 0.1), computed by the package at 51 weights. The mix w₁ = 0.6 gives 12 % at σ = 17.7989 %; marked: the minimum-variance mix w₁ = 0.711864, σ = 17.3791 %, return 11.4407 %.*
 
 ![All mixes of two assets (returns 10 % and 15 %, standard deviations 20 % and 30 %) for correlations -1, 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/two-asset-portfolio-frontier-2)
 
-*All mixes of two assets (returns 10 % and 15 %, standard deviations 20 % and 30 %) for correlations -1, 0.1, 0.6, 1 (51 weights each, runs of the model): the lower the correlation, the more risk diversification removes; at -1 a riskless mix exists, at +1 the mixes lie on a straight line. Dots: each asset alone. In SI units: std_dev = 0.178. Your inputs: weight_1 = 0.6, return_1 = 0.1, return_2 = 0.15, sd_1 = 0.2, sd_2 = 0.3, correlation = 0.1.*
+*All mixes of two assets (returns 10 % and 15 %, standard deviations 20 % and 30 %) for correlations -1, 0.1, 0.6, 1 (51 weights each, runs of the package): the lower the correlation, the more risk diversification removes; at −1 a riskless mix exists, at +1 the mixes lie on a straight line. Dots: each asset alone.*
 
-![Portfolio standard deviation as weight_1 runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/two-asset-portfolio-live-1)
+![std_dev (portfolio standard deviation) against weight_1 (weight of asset 1 (asset 2 gets 1 - w1)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/two-asset-portfolio-curve)
 
-*Portfolio standard deviation as weight_1 runs from 0.15 to 1.05, every other input as you entered it (41 solutions). Marked: your weight_1 = 0.6 gives std_dev = 0.178. Your inputs: weight_1 = 0.6, return_1 = 0.1, return_2 = 0.15, sd_1 = 0.2, sd_2 = 0.3, correlation = 0.1.*
-
-![Portfolio standard deviation as sd_1 runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/two-asset-portfolio-live-2)
-
-*Portfolio standard deviation as sd_1 runs from 0.05 to 0.35, every other input as you entered it (29 solutions). Marked: your sd_1 = 0.2 gives std_dev = 0.178. Your inputs: weight_1 = 0.6, return_1 = 0.1, return_2 = 0.15, sd_1 = 0.2, sd_2 = 0.3, correlation = 0.1.*
+*std_dev (portfolio standard deviation) against weight_1 (weight of asset 1 (asset 2 gets 1 - w1)) from 0.02 to 0.98. One curve for each value of sd_1 (standard deviation of asset 1 (decimal)): 0.2, 0.1, 0.4. Other inputs as in the worked example: return_1 = 0.1, return_2 = 0.15, sd_2 = 0.3, correlation = 0.1. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, weight_1 = 0.6, std_dev = 0.177989.*
 
 ```python
 economics_finance_ai999x.solve('two_asset_portfolio', weight_1=0.6, return_1=0.1, return_2=0.15, sd_1=0.2, sd_2=0.3, correlation=0.1)
@@ -2793,13 +2529,9 @@ $$
 - **Assumes:** sd_1, $sd_2 > 0$; -1 <= correlation <= 1; not (correlation = 1 and sd_1 = sd_2)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Weight 1 as sd_1 runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/min-variance-two-asset-live-1)
+![Portfolio standard deviation of two assets (σ₁ = 20 %, σ₂ = 30 %) against the weight of asset 1, for correlations -0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/min-variance-two-asset-curve)
 
-*Weight 1 as sd_1 runs from 0.05 to 0.35, every other input as you entered it (41 solutions). Marked: your sd_1 = 0.2 gives weight_1 = 0.7119. Your inputs: sd_1 = 0.2, sd_2 = 0.3, correlation = 0.1.*
-
-![Weight 1 as sd_2 runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/min-variance-two-asset-live-2)
-
-*Weight 1 as sd_2 runs from 0.075 to 0.525, every other input as you entered it (29 solutions). Marked: your sd_2 = 0.3 gives weight_1 = 0.7119. Your inputs: sd_1 = 0.2, sd_2 = 0.3, correlation = 0.1.*
+*Portfolio standard deviation of two assets (σ₁ = 20 %, σ₂ = 30 %) against the weight of asset 1, for correlations -0.5, 0.1, 0.7 (two-asset portfolio runs of the package; expected returns set to 0, they do not affect σ). Dots: the minimum-variance weights the package returns; marked: the worked example, correlation 0.1: w₁ = 0.711864, σ = 17.3791 %.*
 
 ```python
 economics_finance_ai999x.solve('min_variance_two_asset', sd_1=0.2, sd_2=0.3, correlation=0.1)
@@ -2842,21 +2574,17 @@ $$
 - **Assumes:** covariance symmetric and positive definite
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The global minimum-variance portfolio of 3 assets with the covariance matrix shown (left): the model returns weights 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/global-min-variance-heatmap)
+![The global minimum-variance portfolio of three assets with the covariance matrix shown (left): the package returns weights [0](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/global-min-variance-heatmap.svg)
 
-*The global minimum-variance portfolio of 3 assets with the covariance matrix shown (left): the model returns weights 0.5475, 0.1904, 0.2621 (middle), a portfolio standard deviation of 0.1602, below every single asset's (0.2, 0.3, 0.25, each also computed by the model, right). Your inputs: covariance = [[0.04, 0.006, 0.01]....*
+*The global minimum-variance portfolio of three assets with the covariance matrix shown (left): the package returns weights [0.547506, 0.190409, 0.262085] (right), a portfolio standard deviation of 0.160198, below every single asset's (0.2, 0.3, 0.25, each also computed by the package).*
 
-![The covariance matrix (input) and the weights the model returns (0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/global-min-variance-matrix)
+![minimum-variance weights (list) (weights) returned by economics-finance-ai999x for the worked example, one value for each position in the list (3 values, first 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/global-min-variance-series)
 
-*The covariance matrix (input) and the weights the model returns (0.5475, 0.1904, 0.2621) as heat maps, each cell shaded by its magnitude. Returned with them: variance = 0.02566, standard deviation = 0.1602. Your inputs: covariance = [[0.04, 0.006, 0.01]....*
+*minimum-variance weights (list) (weights) returned by economics-finance-ai999x for the worked example, one value for each position in the list (3 values, first 0.547506, last 0.262085, largest 0.547506). Inputs: covariance = [[0.04, 0.006, 0.01], [0.006, 0.09, 0.02], [0….*
 
-![Portfolio sd as covariance[1,1] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/global-min-variance-live-1)
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): covariance (input); weights (returned)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/global-min-variance-matrix)
 
-*Portfolio sd as covariance[1,1] runs from 0.01 to 0.07, every other input as you entered it (37 solutions). Marked: your covariance[1,1] = 0.04 gives std_dev = 0.1602. Your inputs: covariance = [[0.04, 0.006, 0.01]....*
-
-![Every entry of weights as computed for your inputs (3 entries: 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/global-min-variance-live-2)
-
-*Every entry of weights as computed for your inputs (3 entries: 0.5475, 0.1904, 0.2621). Your inputs: covariance = [[0.04, 0.006, 0.01]....*
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): covariance (input); weights (returned). Returned with them by economics-finance-ai999x: variance = 0.0256635, std_dev = 0.160198.*
 
 ```python
 economics_finance_ai999x.solve('global_min_variance', covariance='[[0.04, 0.006, 0.01], [0.006, 0.09, 0.02], [0.01, 0.02, 0.0625]]')
@@ -2902,21 +2630,9 @@ $$
 - **Assumes:** covariance positive definite; 1' $Sigma^{-1}$ $(mu - rf) > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Risk and return of mixes of the assets (expected returns 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/tangency-portfolio-frontier)
+![Risk and return of mixes of two assets (expected returns 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/tangency-portfolio-frontier)
 
-*Risk and return of mixes of the assets (expected returns 0.1, 0.15; portfolio runs of the model) and the line from the risk-free rate 3 % through the tangency portfolio the model returns (weights 0.5602, 0.4398; return 12.2 %, standard deviation 18.14 %, Sharpe ratio 0.507); the line is drawn through those two returned points. Your inputs: expected_returns = 0.1, 0.15, covariance = [[0.04, 0.006], [0.006..., risk_free = 0.03.*
-
-![Sharpe as expected_returns[2] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/tangency-portfolio-live-1)
-
-*Sharpe as expected_returns[2] runs from 0.0375 to 0.2625, every other input as you entered it (41 solutions). Marked: your expected_returns[2] = 0.15 gives sharpe = 0.507. Your inputs: expected_returns = 0.1, 0.15, covariance = [[0.04, 0.006], [0.006..., risk_free = 0.03.*
-
-![Every entry of weights as computed for your inputs (2 entries: 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/tangency-portfolio-live-2)
-
-*Every entry of weights as computed for your inputs (2 entries: 0.5602, 0.4398). Your inputs: expected_returns = 0.1, 0.15, covariance = [[0.04, 0.006], [0.006..., risk_free = 0.03.*
-
-![Sharpe as expected_returns[1] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/tangency-portfolio-live-3)
-
-*Sharpe as expected_returns[1] runs from 0.025 to 0.175, every other input as you entered it (29 solutions). Marked: your expected_returns[1] = 0.1 gives sharpe = 0.507. Your inputs: expected_returns = 0.1, 0.15, covariance = [[0.04, 0.006], [0.006..., risk_free = 0.03.*
+*Risk and return of mixes of two assets (expected returns 0.1, 0.15, covariance [[0.04, 0.006], [0.006, 0.09]]; portfolio runs of the package for weights −0.2 … 1.2) and the line from the risk-free rate 3 % through the tangency portfolio the package returns (weights 0.560241, 0.439759; return 12.1988 %, σ 18.1428 %, Sharpe ratio 0.507021); the line is drawn through those two returned points.*
 
 ```python
 economics_finance_ai999x.solve('tangency_portfolio', expected_returns='0.1, 0.15', covariance='[[0.04, 0.006], [0.006, 0.09]]', risk_free=0.03)
@@ -2956,15 +2672,7 @@ $$
 
 ![1 invested through returns 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/mean-returns-growth)
 
-*1 invested through returns 0.1, -0.05, 0.2: the value after each period is 1 plus the cumulative return the model returns for the returns so far. Growth at the returned geometric mean 7.837 % ends at the same value; growth at the arithmetic mean 8.333 % overstates it (both compound-interest runs). In SI units: geometric_mean = 0.07837. Your inputs: returns = 0.1, -0.05, 0.2.*
-
-![(prod (1 + R))^(1/n) - 1 as returns[3] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/mean-returns-live-1)
-
-*(prod (1 + R))^(1/n) - 1 as returns[3] runs from 0.05 to 0.35, every other input as you entered it (41 solutions). Marked: your returns[3] = 0.2 gives geometric_mean = 0.07837. Your inputs: returns = 0.1, -0.05, 0.2.*
-
-![(prod (1 + R))^(1/n) - 1 as returns[1] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/mean-returns-live-2)
-
-*(prod (1 + R))^(1/n) - 1 as returns[1] runs from 0.025 to 0.175, every other input as you entered it (29 solutions). Marked: your returns[1] = 0.1 gives geometric_mean = 0.07837. Your inputs: returns = 0.1, -0.05, 0.2.*
+*1 invested through returns 0.1, -0.05, 0.2: the value after each period is 1 plus the cumulative return the package returns for the returns so far. Growth at the returned geometric mean 7.83652 % ends at the same value; growth at the arithmetic mean 8.33333 % overstates it (both compound-interest runs).*
 
 ```python
 economics_finance_ai999x.solve('mean_returns', returns='0.1, -0.05, 0.2')
@@ -3010,7 +2718,7 @@ $$
 
 ![Returns 20 %, 10 %, -15 % in 3 scenarios with probabilities 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/scenario-return-bars)
 
-*Returns 20 %, 10 %, -15 % in 3 scenarios with probabilities 0.3, 0.5, 0.2 (bar width grows with the probability): the model returns the expected return 8 % and the standard deviation 12.29 % (band). In SI units: expected_return = 0.08. Your inputs: probabilities = 0.3, 0.5, 0.2, returns = 0.2, 0.1, -0.15.*
+*Returns 20 %, 10 %, -15 % in 3 scenarios with probabilities 0.3, 0.5, 0.2 (bar width grows with the probability): the package returns the expected return 8 % and the standard deviation 12.2882 % (band).*
 
 ```python
 economics_finance_ai999x.solve('scenario_return', probabilities='0.3, 0.5, 0.2', returns='0.2, 0.1, -0.15')
@@ -3052,15 +2760,7 @@ $$
 
 ![The historical returns -0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/historical-var-stems)
 
-*The historical returns -0.02, 0.01, -0.035, 0.004, 0.012, -0.01, 0.02, -0.005, 0.007, 0.001, -0.015 as stems: the model returns the 90 % value at risk, a loss of 2 %, and the average loss beyond it (CVaR) 2.75 %; the 2 return(s) in the tail are highlighted. Your inputs: returns = -0.02, 0.01, -0.035..., confidence = 0.9.*
-
-![Value at risk as confidence runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/historical-var-live-1)
-
-*Value at risk as confidence runs from 0.5012 to 0.9988, every other input as you entered it (31 solutions). Marked: your confidence = 0.9 gives var = 0.02. Your inputs: returns = -0.02, 0.01, -0.035..., confidence = 0.9.*
-
-![Value at risk as returns[6] runs from -0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/historical-var-live-2)
-
-*Value at risk as returns[6] runs from -0.03 to 0.01, every other input as you entered it (9 solutions). Marked: your returns[6] = -0.01 gives var = 0.02. Your inputs: returns = -0.02, 0.01, -0.035..., confidence = 0.9.*
+*The historical returns -0.02, 0.01, -0.035, 0.004, 0.012, -0.01, 0.02, -0.005, 0.007, 0.001, -0.015 as stems: the package returns the 90 % value at risk, a loss of 2 %, and the average loss beyond it (CVaR) 2.75 %; the 2 returns in the tail are highlighted.*
 
 ```python
 economics_finance_ai999x.solve('historical_var', returns='-0.02, 0.01, -0.035, 0.004, 0.012, -0.01, 0.02, -0.005, 0.007, 0.001, -0.015', confidence=0.9)
@@ -3107,17 +2807,13 @@ $$
 - **Assumes:** 0 < std_dev < 5; 0.5 < confidence < 1; horizon > 0; returns normally distributed
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The distribution of the loss on a 1000000 portfolio over 10 period(s) (mean return 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/parametric-var-density)
+![The distribution of the loss on a 1e+06 portfolio over 10 period(s) (mean return 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/parametric-var-density)
 
-*The distribution of the loss on a 1000000 portfolio over 10 period(s) (mean return 0.0005, standard deviation 0.012 per period), above its median: the density is drawn from the VaR the model returns at 119 confidence levels between 0.5 and 0.9999 (probability differences divided by loss differences). Shaded: losses beyond the 99 % VaR = 83279; the expected loss in that tail, CVaR = 96138, is also returned. In SI units: var = 8.328e+04. Your inputs: mean = 0.0005, std_dev = 0.012, confidence = 0.99, horizon = 10, portfolio_value = 1000000.*
+*The distribution of the loss on a 1e+06 portfolio over 10 period(s) (mean return 0.0005, standard deviation 0.012 per period), above its median: the density is drawn from the VaR the package returns at 120 confidence levels between 0.5 and 0.9999 (probability differences divided by loss differences). Shaded: losses beyond the 99 % VaR = 83278.7; the expected loss in that tail, CVaR = 96137.8, is also returned.*
 
-![Value at risk V as confidence runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/parametric-var-live-1)
+![var (value at risk V (z sd sqrt(h) - mean h)) against confidence (confidence level (0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/parametric-var-curve)
 
-*Value at risk V as confidence runs from 0.5074 to 0.99, every other input as you entered it (34 solutions). Marked: your confidence = 0.99 gives var = 8.328e+04. Your inputs: mean = 0.0005, std_dev = 0.012, confidence = 0.99, horizon = 10, portfolio_value = 1000000.*
-
-![Value at risk V as std_dev runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/parametric-var-live-2)
-
-*Value at risk V as std_dev runs from 0.003 to 0.021, every other input as you entered it (27 solutions). Marked: your std_dev = 0.012 gives var = 8.328e+04. Your inputs: mean = 0.0005, std_dev = 0.012, confidence = 0.99, horizon = 10, portfolio_value = 1000000.*
+*var (value at risk V (z sd sqrt(h) - mean h)) against confidence (confidence level (0.95 = 95%)) from 0.891 to 1.089. One curve for each value of std_dev (standard deviation of returns per period (decimal)): 0.012, 0.006, 0.024. Other inputs as in the worked example: mean = 0.0005, horizon = 10.0, portfolio_value = 1000000.0. 17 points per curve computed by economics-finance-ai999x; marked: the worked example, confidence = 0.99, var = 83278.7.*
 
 ```python
 economics_finance_ai999x.solve('parametric_var', mean=0.0005, std_dev=0.012, confidence=0.99, horizon=10, portfolio_value=1000000)
@@ -3161,15 +2857,7 @@ $$
 
 ![Top: the price series 100, 120, 90, 110, 80, 130](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/max-drawdown-drawdown)
 
-*Top: the price series 100, 120, 90, 110, 80, 130. Bottom: the largest fall from a previous peak seen so far, a run of the model on the prices up to each observation; marked: the maximum drawdown of the whole series, 33.33 %. In SI units: max_drawdown = 0.3333. Your inputs: prices = 100, 120, 90, 110, 80, 130.*
-
-![Max drawdown as prices[5] runs from 40 to 120, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/max-drawdown-live-1)
-
-*Max drawdown as prices[5] runs from 40 to 120, every other input as you entered it (41 solutions). Marked: your prices[5] = 80 gives max_drawdown = 0.3333. Your inputs: prices = 100, 120, 90, 110, 80, 130.*
-
-![Max drawdown as prices[3] runs from 45 to 133, every other input as you entered it (24 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/max-drawdown-live-2)
-
-*Max drawdown as prices[3] runs from 45 to 133, every other input as you entered it (24 solutions). Marked: your prices[3] = 90 gives max_drawdown = 0.3333. Your inputs: prices = 100, 120, 90, 110, 80, 130.*
+*Top: the price series 100, 120, 90, 110, 80, 130. Bottom: the largest fall from a previous peak seen so far, a run of the package on the prices up to each observation; marked: the maximum drawdown of the whole series, 33.3333 %.*
 
 ```python
 economics_finance_ai999x.solve('max_drawdown', prices='100, 120, 90, 110, 80, 130')
@@ -3217,13 +2905,9 @@ $$
 - **Assumes:** one weight per row of the covariance; covariance symmetric positive semidefinite; 0.5 < confidence < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Var as confidence runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/portfolio-var-live-1)
+![Value at risk at 99 % confidence of a 1e+06 two-asset portfolio (covariance [[0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/portfolio-var-curve)
 
-*Var as confidence runs from 0.5074 to 0.99, every other input as you entered it (34 solutions). Marked: your confidence = 0.99 gives var = 4.141e+04. Your inputs: weights = 0.6, 0.4, covariance = [[0.0004, 0.00006]..., confidence = 0.99, portfolio_value = 1000000.*
-
-![Var as portfolio_value runs from 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/portfolio-var-live-2)
-
-*Var as portfolio_value runs from 2.5e+05 to 1.75e+06, every other input as you entered it (27 solutions). Marked: your portfolio_value = 1e+06 gives var = 4.141e+04. Your inputs: weights = 0.6, 0.4, covariance = [[0.0004, 0.00006]..., confidence = 0.99, portfolio_value = 1000000.*
+*Value at risk at 99 % confidence of a 1e+06 two-asset portfolio (covariance [[0.0004, 0.00006], [0.00006, 0.0009]]) as the weight of asset 1 runs from 0 to 1: the portfolio VaR and the undiversified VaR (the sum of the stand-alone VaRs), both returned by the package at 51 weights; the shaded gap is the diversification benefit. Marked: weights 0.6, 0.4, VaR 41406.4, benefit 14426.*
 
 ```python
 economics_finance_ai999x.solve('portfolio_var', weights='0.6, 0.4', covariance='[[0.0004, 0.00006], [0.00006, 0.0009]]', confidence=0.99, portfolio_value=1000000)
@@ -3266,21 +2950,13 @@ $$
 - **Assumes:** spot, strike, time > 0; 0 < volatility < 5; European exercise; lognormal prices
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Profit and loss at expiry of a European call (strike 100) bought for the Black-Scholes price the model returns, 10](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/black-scholes-payoff.svg)
+![Profit and loss at expiry of a European call (strike 100) bought for the Black–Scholes price the package returns, 10](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/black-scholes-payoff.svg)
 
-*Profit and loss at expiry of a European call (strike 100) bought for the Black-Scholes price the model returns, 10.45 (rate 5 %, volatility 20 %, 1 year(s)): the payoff is the model's value with 1e-6 year left, at 61 prices, minus the premium. The loss (shaded) is capped at the premium; profit starts above the break-even price S = 110.5. Dashed: value before expiry minus the premium. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2.*
+*Profit and loss at expiry of a European call (strike 100) bought for the Black–Scholes price the package returns, 10.4506 (rate 5 %, volatility 20 %, 1 year): the payoff is the package's value with 10⁻⁶ year left, at 101 prices, minus the premium. The loss (shaded) is capped at the premium; profit starts above the break-even price S ≈ 110.451 (strike + premium = 110.451). Dashed: value before expiry minus the premium.*
 
-![Black-Scholes values of a European call and put (strike 100, rate 5 %, volatility 20 %, 1 year(s) to expiry) at 61 underlying prices, each a run of the model; dashed: the values with 1e-6 year left (the payoff at expiry)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/black-scholes-value)
+![Black–Scholes values of a European call and put (strike 100, rate 5 %, volatility 20 %, 1 year to expiry) at 101 underlying prices, each a run of the package; dashed: the values with 10⁻⁶ year left (the payoff at expiry)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/black-scholes-value)
 
-*Black-Scholes values of a European call and put (strike 100, rate 5 %, volatility 20 %, 1 year(s) to expiry) at 61 underlying prices, each a run of the model; dashed: the values with 1e-6 year left (the payoff at expiry). The gap is the time value. Marked: S = 100, call 10.45, put 5.574. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2.*
-
-![European call price as spot runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/black-scholes-live-1)
-
-*European call price as spot runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your spot = 100 gives call = 10.45. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2.*
-
-![European call price as strike runs from 25 to 175, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/black-scholes-live-2)
-
-*European call price as strike runs from 25 to 175, every other input as you entered it (29 solutions). Marked: your strike = 100 gives call = 10.45. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2.*
+*Black–Scholes values of a European call and put (strike 100, rate 5 %, volatility 20 %, 1 year to expiry) at 101 underlying prices, each a run of the package; dashed: the values with 10⁻⁶ year left (the payoff at expiry). The gap is the time value. Marked: S = 100, call 10.4506, put 5.57353.*
 
 ```python
 economics_finance_ai999x.solve('black_scholes', spot=100, strike=100, time=1, rate=0.05, volatility=0.2)
@@ -3335,17 +3011,9 @@ $$
 - **Assumes:** spot, strike, time > 0; 0 < volatility < 5
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Delta (call and put), gamma and vega of a European option (strike 100, 1 year(s), rate 5 %, volatility 20 %) at 51 underlying prices, each a run of the model; the vertical line is the strike](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bs-greeks-greeks)
+![Delta (call and put), gamma and vega of a European option (strike 100, 1 year, rate 5 %, volatility 20 %) at 51 underlying prices, each a run of the package; the vertical line is the strike](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bs-greeks-greeks)
 
-*Delta (call and put), gamma and vega of a European option (strike 100, 1 year(s), rate 5 %, volatility 20 %) at 51 underlying prices, each a run of the model; the vertical line is the strike. Gamma and vega peak near the money. Marked at S = 100: call delta 0.6368, put delta -0.3632, gamma 0.01876, vega 37.52. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2.*
-
-![DC/dS as spot runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bs-greeks-live-1)
-
-*DC/dS as spot runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your spot = 100 gives call_delta = 0.6368. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2.*
-
-![DC/dS as strike runs from 25 to 175, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/bs-greeks-live-2)
-
-*DC/dS as strike runs from 25 to 175, every other input as you entered it (29 solutions). Marked: your strike = 100 gives call_delta = 0.6368. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2.*
+*Delta (call and put), gamma and vega of a European option (strike 100, 1 year, rate 5 %, volatility 20 %) at 51 underlying prices, each a run of the package; the vertical line is the strike. Gamma and vega peak near the money. Marked at S = 100: call delta 0.636831, put delta -0.363169, gamma 0.018762, vega 37.524.*
 
 ```python
 economics_finance_ai999x.solve('bs_greeks', spot=100, strike=100, time=1, rate=0.05, volatility=0.2)
@@ -3392,13 +3060,9 @@ $$
 - **Assumes:** price within the no-arbitrage bounds; implied volatility between 0.01% and 500%; not too far from the money
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Implied volatility, annual as spot runs from 25 to 103](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/implied-volatility-live-1)
+![The Black–Scholes value of a call (spot 100, strike 100, 1 year, rate 5 %) at 51 volatilities, each a run of the package; the implied volatility is where it equals the market price 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/implied-volatility-curve)
 
-*Implied volatility, annual as spot runs from 25 to 103.8, every other input as you entered it (22 solutions). Marked: your spot = 100 gives volatility = 0.2. Your inputs: option_price = 10.450583572185565, spot = 100, strike = 100, time = 1, rate = 0.05.*
-
-![Implied volatility, annual as strike runs from 94](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/implied-volatility-live-2)
-
-*Implied volatility, annual as strike runs from 94.64 to 175, every other input as you entered it (16 solutions). Marked: your strike = 100 gives volatility = 0.2. Your inputs: option_price = 10.450583572185565, spot = 100, strike = 100, time = 1, rate = 0.05.*
+*The Black–Scholes value of a call (spot 100, strike 100, 1 year, rate 5 %) at 51 volatilities, each a run of the package; the implied volatility is where it equals the market price 10.45. Marked: the volatility the package returns, 19.9984 % (vega 37.5239, the slope there).*
 
 ```python
 economics_finance_ai999x.solve('implied_volatility', option_price=10.450583572185565, spot=100, strike=100, time=1, rate=0.05)
@@ -3447,17 +3111,9 @@ $$
 - **Assumes:** European options, same strike and expiry; call within the no-arbitrage bounds
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Put-call parity: a call priced 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/put-call-parity-bars)
+![Put–call parity: a call priced 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/put-call-parity-bars)
 
-*Put-call parity: a call priced 10.45 plus the present value of the strike (95.12, returned) is worth the same as the put plus the underlying (5.574 + 100, both returned), for strike 100, 1 year(s) at 5 %; the two bars have equal height. Your inputs: call_price = 10.450583572185565, spot = 100, strike = 100, time = 1, rate = 0.05.*
-
-![European put price as spot runs from 25 to 103](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/put-call-parity-live-1)
-
-*European put price as spot runs from 25 to 103.8, every other input as you entered it (22 solutions). Marked: your spot = 100 gives put_price = 5.574. Your inputs: call_price = 10.450583572185565, spot = 100, strike = 100, time = 1, rate = 0.05.*
-
-![European put price as strike runs from 94](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/put-call-parity-live-2)
-
-*European put price as strike runs from 94.64 to 175, every other input as you entered it (16 solutions). Marked: your strike = 100 gives put_price = 5.574. Your inputs: call_price = 10.450583572185565, spot = 100, strike = 100, time = 1, rate = 0.05.*
+*Put–call parity: a call priced 10.45 plus the present value of the strike (95.1229, returned) is worth the same as the put plus the underlying (5.57294 + 100, both returned), for strike 100, 1 year at 5 %; the two bars have equal height.*
 
 ```python
 economics_finance_ai999x.solve('put_call_parity', call_price=10.450583572185565, spot=100, strike=100, time=1, rate=0.05)
@@ -3503,21 +3159,13 @@ $$
 - **Assumes:** European exercise; 1 <= steps <= 1000; $0 < p < 1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Price of a European call (spot 100, strike 100, 1 year(s), rate 5 %, volatility 20 %) from binomial trees of 1 to 60 steps, each a run of the model; the prices oscillate towards the Black-Scholes value the model returns, 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/binomial-option-convergence)
+![Price of a European call (spot 100, strike 100, 1 year, rate 5 %, volatility 20 %) from binomial trees of 1 to 60 steps, each a run of the package; the prices oscillate towards the Black–Scholes value the package returns (dashed)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/binomial-option-convergence)
 
-*Price of a European call (spot 100, strike 100, 1 year(s), rate 5 %, volatility 20 %) from binomial trees of 1 to 60 steps, each a run of the model; the prices oscillate towards the Black-Scholes value the model returns, 10.45 (dashed). Marked: 3 steps, 11.04. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2, steps = 3.*
+*Price of a European call (spot 100, strike 100, 1 year, rate 5 %, volatility 20 %) from binomial trees of 1 to 60 steps, each a run of the package; the prices oscillate towards the Black–Scholes value the package returns (dashed). Marked: the worked example's 3 steps, 11.0439.*
 
-![The 3-step price tree behind the binomial call (spot 100, strike 100, 1 year(s)): each step multiplies the price by the up factor the model returns, u = 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/binomial-option-tree)
+![The 3-step price tree behind the binomial call (spot 100, strike 100, 1 year): each step multiplies the price by the up factor the package returns, u = 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/binomial-option-tree)
 
-*The 3-step price tree behind the binomial call (spot 100, strike 100, 1 year(s)): each step multiplies the price by the up factor the model returns, u = 1.122, or by 1/u; the labels at expiry give each price and the payoff max(S - K, 0) for a call (max(K - S, 0) for a put). Risk-neutral up probability 0.5438; option price 11.04, delta 0.6141, as returned. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2, steps = 3.*
-
-![Option price at time 0 as spot runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/binomial-option-live-1)
-
-*Option price at time 0 as spot runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your spot = 100 gives price = 11.04. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2, steps = 3.*
-
-![Option price at time 0 as strike runs from 25 to 175, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/binomial-option-live-2)
-
-*Option price at time 0 as strike runs from 25 to 175, every other input as you entered it (29 solutions). Marked: your strike = 100 gives price = 11.04. Your inputs: spot = 100, strike = 100, time = 1, rate = 0.05, volatility = 0.2, steps = 3.*
+*The 3-step price tree behind the binomial call (spot 100, strike 100, 1 year): each step multiplies the price by the up factor the package returns, u = 1.1224, or by 1/u (node prices computed here from u); the labels at expiry give each price and the payoff max(S − K, 0) for a call (max(K − S, 0) for a put). Risk-neutral up probability 0.543777; option price 11.0439, delta 0.614086, as returned.*
 
 ```python
 economics_finance_ai999x.solve('binomial_option', spot=100, strike=100, time=1, rate=0.05, volatility=0.2, steps=3)
@@ -3563,13 +3211,9 @@ $$
 - **Assumes:** spot > 0; time >= 0; rates as continuously compounded decimals
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Forward price as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/forward-price-live-1)
+![Forward price of an asset with spot 100 at a rate of 5 % for deliveries up to 3 years, with dividend yields 0 %, 2 %, 7 % (60 runs of the package each): the forward rises above spot when the rate exceeds the yield and falls below it otherwise](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/forward-price-curve)
 
-*Forward price as rate runs from 0.0125 to 0.0875, every other input as you entered it (41 solutions). Marked: your rate = 0.05 gives forward = 101.5. Your inputs: spot = 100, rate = 0.05, time = 0.5, dividend_yield = 0.02.*
-
-![Forward price as spot runs from 25 to 175, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/forward-price-live-2)
-
-*Forward price as spot runs from 25 to 175, every other input as you entered it (29 solutions). Marked: your spot = 100 gives forward = 101.5. Your inputs: spot = 100, rate = 0.05, time = 0.5, dividend_yield = 0.02.*
+*Forward price of an asset with spot 100 at a rate of 5 % for deliveries up to 3 years, with dividend yields 0 %, 2 %, 7 % (60 runs of the package each): the forward rises above spot when the rate exceeds the yield and falls below it otherwise. Marked: the worked example, 0.5 year, forward 101.511 (cost of carry 3 %).*
 
 ```python
 economics_finance_ai999x.solve('forward_price', spot=100, rate=0.05, time=0.5, dividend_yield=0.02)
@@ -3617,15 +3261,7 @@ $$
 
 ![Forward price for delivery in 1 year(s) of an asset priced 50 that pays dividends 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/forward-price-dividends-bars)
 
-*Forward price for delivery in 1 year(s) of an asset priced 50 that pays dividends 0.75, 0.75 at times 0.25, 0.75: the model returns the present value of the dividends, 1.463, which is taken off the spot, and the forward price 51.03, the remainder carried at 5 %. The value axis does not start at zero. Your inputs: spot = 50, rate = 0.05, time = 1, dividends = 0.75, 0.75, dividend_times = 0.25, 0.75.*
-
-![Forward price as spot runs from 12](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/forward-price-dividends-live-1)
-
-*Forward price as spot runs from 12.5 to 87.5, every other input as you entered it (41 solutions). Marked: your spot = 50 gives forward = 51.03. Your inputs: spot = 50, rate = 0.05, time = 1, dividends = 0.75, 0.75, dividend_times = 0.25, 0.75.*
-
-![Forward price as rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/forward-price-dividends-live-2)
-
-*Forward price as rate runs from 0.0125 to 0.0875, every other input as you entered it (29 solutions). Marked: your rate = 0.05 gives forward = 51.03. Your inputs: spot = 50, rate = 0.05, time = 1, dividends = 0.75, 0.75, dividend_times = 0.25, 0.75.*
+*Forward price for delivery in 1 year(s) of an asset priced 50 that pays dividends 0.75, 0.75 at times 0.25, 0.75: the package returns the present value of the dividends, 1.46308, which is taken off the spot, and the forward price 51.0255, the remainder carried at 5 %. The value axis does not start at zero.*
 
 ```python
 economics_finance_ai999x.solve('forward_price_dividends', spot=50, rate=0.05, time=1, dividends='0.75, 0.75', dividend_times='0.25, 0.75')
@@ -3667,15 +3303,7 @@ $$
 
 ![Top: the one-year death probabilities 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/survival-probability-survival)
 
-*Top: the one-year death probabilities 0.01, 0.02, 0.03, 0.05 for each year from the current age (stated). Bottom: the probability of surviving t years, a run of the model for t = 0 to 4. Marked: t = 3: survival 0.9411, death within 3 years 0.05891. Your inputs: mortality_rates = 0.01, 0.02, 0.03, 0.05, years = 3.*
-
-![Survival as years runs from 0 to 3, every other input as you entered it (4 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/survival-probability-live-1)
-
-*Survival as years runs from 0 to 3, every other input as you entered it (4 solutions). Marked: your years = 3 gives survival = 0.9411. Your inputs: mortality_rates = 0.01, 0.02, 0.03, 0.05, years = 3.*
-
-![Deferred death probability as mortality_rates[4] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/survival-probability-live-2)
-
-*Deferred death probability as mortality_rates[4] runs from 0.0125 to 0.0875, every other input as you entered it (29 solutions). Marked: your mortality_rates[4] = 0.05 gives deferred_death_probability = 0.04705. Your inputs: mortality_rates = 0.01, 0.02, 0.03, 0.05, years = 3.*
+*Top: the one-year death probabilities 0.01, 0.02, 0.03, 0.05 for each year from the current age (stated). Bottom: the probability of surviving t years, a run of the package for t = 0 … 3 (the last point is the survival to year 3 less the returned probability of dying in that year). Marked: t = 3: survival 0.941094, death within 3 years 0.058906.*
 
 ```python
 economics_finance_ai999x.solve('survival_probability', mortality_rates='0.01, 0.02, 0.03, 0.05', years=3)
@@ -3719,15 +3347,7 @@ $$
 
 ![Survival for the one-year death probabilities 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/life-expectancy-survival)
 
-*Survival for the one-year death probabilities 0.1, 0.3, 0.6, 1 (each value a run of the model's survival probability). The curtate life expectancy the model returns, 1.782 years, is the sum of the bars (whole years lived); the complete expectancy 2.282 adds half a year. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1.*
-
-![Curtate expectation of life e_x as mortality_rates[3] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/life-expectancy-live-1)
-
-*Curtate expectation of life e_x as mortality_rates[3] runs from 0.15 to 0.9808, every other input as you entered it (38 solutions). Marked: your mortality_rates[3] = 0.6 gives curtate = 1.782. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1.*
-
-![Curtate expectation of life e_x as mortality_rates[2] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/life-expectancy-live-2)
-
-*Curtate expectation of life e_x as mortality_rates[2] runs from 0.075 to 0.525, every other input as you entered it (29 solutions). Marked: your mortality_rates[2] = 0.3 gives curtate = 1.782. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1.*
+*Survival for the one-year death probabilities 0.1, 0.3, 0.6, 1 (each value a run of the package's survival probability). The curtate life expectancy the package returns, 1.782 years, is the sum of the bars (whole years lived); the complete expectancy 2.282 adds half a year.*
 
 ```python
 economics_finance_ai999x.solve('life_expectancy', mortality_rates='0.1, 0.3, 0.6, 1')
@@ -3772,15 +3392,11 @@ $$
 
 ![A benefit of 1000 paid at the end of the year of death, for death probabilities 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/whole-life-insurance-bars)
 
-*A benefit of 1000 paid at the end of the year of death, for death probabilities 0.1, 0.3, 0.6, 1 and interest 5 %. Each bar is the amount x the probability of payment that year (from the model's survival probabilities) x the discount factor (from the model's present value); the bars sum to the returned actuarial present value 874. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1, interest_rate = 0.05, benefit = 1000.*
+*A benefit of 1000 paid at the end of the year of death, for death probabilities 0.1, 0.3, 0.6, 1 and interest 5 %. Each bar is the amount × the probability of payment that year (from the package's survival probabilities) × the discount factor (from the package's present value); the bars sum to the returned actuarial present value 873.988.*
 
-![Apv as benefit runs from 250 to 1750, every other input as you entered it (39 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/whole-life-insurance-live-1)
+![apv (B A_x = B sum v^(k+1) k p_x q_x+k) against interest_rate (annual effective interest rate (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/whole-life-insurance-curve)
 
-*Apv as benefit runs from 250 to 1750, every other input as you entered it (39 solutions). Marked: your benefit = 1000 gives apv = 874. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1, interest_rate = 0.05, benefit = 1000.*
-
-![Apv as interest_rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/whole-life-insurance-live-2)
-
-*Apv as interest_rate runs from 0.0125 to 0.0875, every other input as you entered it (29 solutions). Marked: your interest_rate = 0.05 gives apv = 874. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1, interest_rate = 0.05, benefit = 1000.*
+*apv (B A_x = B sum v^(k+1) k p_x q_x+k) against interest_rate (annual effective interest rate (decimal)) from 0.005 to 0.5 on a logarithmic axis. One curve for each value of benefit (benefit amount (default 1)): 1000, 500, 2000. Other inputs as in the worked example: mortality_rates = 0.1, 0.3, 0.6, 1. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, interest_rate = 0.05, apv = 873.988.*
 
 ```python
 economics_finance_ai999x.solve('whole_life_insurance', mortality_rates='0.1, 0.3, 0.6, 1', interest_rate=0.05, benefit=1000)
@@ -3825,15 +3441,11 @@ $$
 
 ![A benefit of 100000 paid at the end of the year of death within 3 years, for death probabilities 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/term-insurance-bars)
 
-*A benefit of 100000 paid at the end of the year of death within 3 years, for death probabilities 0.01, 0.02, 0.03 and interest 4 %. Each bar is the amount x the probability of payment that year (from the model's survival probabilities) x the discount factor (from the model's present value); the bars sum to the returned actuarial present value 5380. Your inputs: mortality_rates = 0.01, 0.02, 0.03, interest_rate = 0.04, term = 3, benefit = 100000.*
+*A benefit of 100000 paid at the end of the year of death within 3 years, for death probabilities 0.01, 0.02, 0.03 and interest 4 %. Each bar is the amount × the probability of payment that year (from the package's survival probabilities) × the discount factor (from the package's present value); the bars sum to the returned actuarial present value 5379.67.*
 
-![Apv as term runs from 1 to 3, every other input as you entered it (3 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/term-insurance-live-1)
+![apv (B A^1_{x:n} = B sum_{k<n} v^(k+1) k p_x q_x+k) against interest_rate (annual effective interest rate (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/term-insurance-curve)
 
-*Apv as term runs from 1 to 3, every other input as you entered it (3 solutions). Marked: your term = 3 gives apv = 5380. Your inputs: mortality_rates = 0.01, 0.02, 0.03, interest_rate = 0.04, term = 3, benefit = 100000.*
-
-![Apv as benefit runs from 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/term-insurance-live-2)
-
-*Apv as benefit runs from 2.5e+04 to 1.75e+05, every other input as you entered it (29 solutions). Marked: your benefit = 1e+05 gives apv = 5380. Your inputs: mortality_rates = 0.01, 0.02, 0.03, interest_rate = 0.04, term = 3, benefit = 100000.*
+*apv (B A^1_{x:n} = B sum_{k<n} v^(k+1) k p_x q_x+k) against interest_rate (annual effective interest rate (decimal)) from 0.004 to 0.4 on a logarithmic axis. One curve for each value of benefit (benefit amount (default 1)): 100000, 50000, 200000. Other inputs as in the worked example: mortality_rates = 0.01, 0.02, 0.03, term = 3. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, interest_rate = 0.04, apv = 5379.67.*
 
 ```python
 economics_finance_ai999x.solve('term_insurance', mortality_rates='0.01, 0.02, 0.03', interest_rate=0.04, term=3, benefit=100000)
@@ -3873,15 +3485,11 @@ $$
 
 ![Payments of 1000 at the start of each year while alive, for death probabilities 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/life-annuity-due-bars)
 
-*Payments of 1000 at the start of each year while alive, for death probabilities 0.1, 0.3, 0.6, 1 and interest 5 %. Each bar is the amount x the probability of payment that year (from the model's survival probabilities) x the discount factor (from the model's present value); the bars sum to the returned actuarial present value 2646. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1, interest_rate = 0.05, payment = 1000.*
+*Payments of 1000 at the start of each year while alive, for death probabilities 0.1, 0.3, 0.6, 1 and interest 5 %. Each bar is the amount × the probability of payment that year (from the package's survival probabilities) × the discount factor (from the package's present value); the bars sum to the returned actuarial present value 2646.26.*
 
-![Apv as payment runs from 250 to 1750, every other input as you entered it (39 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/life-annuity-due-live-1)
+![apv (P a-due_x = P sum v^k k p_x) against interest_rate (annual effective interest rate (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/life-annuity-due-curve)
 
-*Apv as payment runs from 250 to 1750, every other input as you entered it (39 solutions). Marked: your payment = 1000 gives apv = 2646. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1, interest_rate = 0.05, payment = 1000.*
-
-![Apv as mortality_rates[2] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/life-annuity-due-live-2)
-
-*Apv as mortality_rates[2] runs from 0.075 to 0.525, every other input as you entered it (29 solutions). Marked: your mortality_rates[2] = 0.3 gives apv = 2646. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1, interest_rate = 0.05, payment = 1000.*
+*apv (P a-due_x = P sum v^k k p_x) against interest_rate (annual effective interest rate (decimal)) from 0.005 to 0.5 on a logarithmic axis. One curve for each value of payment (annual payment (default 1)): 1000, 500, 2000. Other inputs as in the worked example: mortality_rates = 0.1, 0.3, 0.6, 1. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, interest_rate = 0.05, apv = 2646.26.*
 
 ```python
 economics_finance_ai999x.solve('life_annuity_due', mortality_rates='0.1, 0.3, 0.6, 1', interest_rate=0.05, payment=1000)
@@ -3926,15 +3534,11 @@ $$
 
 ![Payments of 1000 at the start of each of 3 years while alive, for death probabilities 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/temporary-annuity-due-bars)
 
-*Payments of 1000 at the start of each of 3 years while alive, for death probabilities 0.01, 0.02, 0.03 and interest 4 %. Each bar is the amount x the probability of payment that year (from the model's survival probabilities) x the discount factor (from the model's present value); the bars sum to the returned actuarial present value 2849. Your inputs: mortality_rates = 0.01, 0.02, 0.03, interest_rate = 0.04, term = 3, payment = 1000.*
+*Payments of 1000 at the start of each of 3 years while alive, for death probabilities 0.01, 0.02, 0.03 and interest 4 %. Each bar is the amount × the probability of payment that year (from the package's survival probabilities) × the discount factor (from the package's present value); the bars sum to the returned actuarial present value 2848.93.*
 
-![Apv as payment runs from 250 to 1750, every other input as you entered it (39 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/temporary-annuity-due-live-1)
+![apv (P sum_{k<n} v^k k p_x) against interest_rate (annual effective interest rate (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/temporary-annuity-due-curve)
 
-*Apv as payment runs from 250 to 1750, every other input as you entered it (39 solutions). Marked: your payment = 1000 gives apv = 2849. Your inputs: mortality_rates = 0.01, 0.02, 0.03, interest_rate = 0.04, term = 3, payment = 1000.*
-
-![Apv as term runs from 1 to 3, every other input as you entered it (3 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/temporary-annuity-due-live-2)
-
-*Apv as term runs from 1 to 3, every other input as you entered it (3 solutions). Marked: your term = 3 gives apv = 2849. Your inputs: mortality_rates = 0.01, 0.02, 0.03, interest_rate = 0.04, term = 3, payment = 1000.*
+*apv (P sum_{k<n} v^k k p_x) against interest_rate (annual effective interest rate (decimal)) from 0.004 to 0.4 on a logarithmic axis. One curve for each value of payment (annual payment (default 1)): 1000, 500, 2000. Other inputs as in the worked example: mortality_rates = 0.01, 0.02, 0.03, term = 3. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, interest_rate = 0.04, apv = 2848.93.*
 
 ```python
 economics_finance_ai999x.solve('temporary_annuity_due', mortality_rates='0.01, 0.02, 0.03', interest_rate=0.04, term=3, payment=1000)
@@ -3975,15 +3579,11 @@ $$
 
 ![Whole life insurance of 1000 (death probabilities 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/net-premium-whole-life-bars)
 
-*Whole life insurance of 1000 (death probabilities 0.1, 0.3, 0.6, 1, interest 5 %) paid for by the net annual premium the model returns, 330.3. Up: expected present value of each premium (premium x survival x discount); down: of each year's benefit (benefit x death probability x discount); survival and discount factors are runs of the model. Both sum to the returned insurance value 874 (= premium x annuity-due 2.646). Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1, interest_rate = 0.05, benefit = 1000.*
+*Whole life insurance of 1000 (death probabilities 0.1, 0.3, 0.6, 1, interest 5 %) paid for by the net annual premium the package returns, 330.273. Up: expected present value of each premium (premium × survival × discount); down: of each year's benefit (benefit × death probability × discount); survival and discount factors are runs of the package. Both sum to the returned insurance value 873.988 (= premium × annuity-due 2.64626).*
 
-![Premium as benefit runs from 250 to 1750, every other input as you entered it (39 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/net-premium-whole-life-live-1)
+![premium (net annual premium B A_x / a-due_x) against interest_rate (annual effective interest rate (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/net-premium-whole-life-curve)
 
-*Premium as benefit runs from 250 to 1750, every other input as you entered it (39 solutions). Marked: your benefit = 1000 gives premium = 330.3. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1, interest_rate = 0.05, benefit = 1000.*
-
-![Premium as mortality_rates[2] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/net-premium-whole-life-live-2)
-
-*Premium as mortality_rates[2] runs from 0.075 to 0.525, every other input as you entered it (29 solutions). Marked: your mortality_rates[2] = 0.3 gives premium = 330.3. Your inputs: mortality_rates = 0.1, 0.3, 0.6, 1, interest_rate = 0.05, benefit = 1000.*
+*premium (net annual premium B A_x / a-due_x) against interest_rate (annual effective interest rate (decimal)) from 0.005 to 0.5 on a logarithmic axis. One curve for each value of benefit (benefit amount (default 1)): 1000, 500, 2000. Other inputs as in the worked example: mortality_rates = 0.1, 0.3, 0.6, 1. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, interest_rate = 0.05, premium = 330.273.*
 
 ```python
 economics_finance_ai999x.solve('net_premium_whole_life', mortality_rates='0.1, 0.3, 0.6, 1', interest_rate=0.05, benefit=1000)
@@ -4025,15 +3625,11 @@ $$
 
 ![An endowment of 1000 paid at the end of the year of death within 3 years, or at year 3 on survival (death probabilities 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/endowment-insurance-bars)
 
-*An endowment of 1000 paid at the end of the year of death within 3 years, or at year 3 on survival (death probabilities 0.01, 0.02, 0.03, interest 4 %). The death bars are benefit x death probability that year (differences of the model's survival probabilities) x discount factor and sum to the returned term part 53.8; stacked on the last year: the returned pure endowment 836.6. Total 890.4, as returned. Your inputs: mortality_rates = 0.01, 0.02, 0.03, interest_rate = 0.04, term = 3, benefit = 1000.*
+*An endowment of 1000 paid at the end of the year of death within 3 years, or at year 3 on survival (death probabilities 0.01, 0.02, 0.03, interest 4 %). The death bars are benefit × death probability that year (differences of the package's survival probabilities) × discount factor and sum to the returned term part 53.7967; stacked on the last year: the returned pure endowment 836.629. Total 890.426, as returned.*
 
-![Apv as term runs from 1 to 3, every other input as you entered it (3 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/endowment-insurance-live-1)
+![apv (B (A^1_{x:n} + nE_x)) against interest_rate (annual effective interest rate (decimal)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/endowment-insurance-curve)
 
-*Apv as term runs from 1 to 3, every other input as you entered it (3 solutions). Marked: your term = 3 gives apv = 890.4. Your inputs: mortality_rates = 0.01, 0.02, 0.03, interest_rate = 0.04, term = 3, benefit = 1000.*
-
-![Apv as benefit runs from 250 to 1750, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/endowment-insurance-live-2)
-
-*Apv as benefit runs from 250 to 1750, every other input as you entered it (29 solutions). Marked: your benefit = 1000 gives apv = 890.4. Your inputs: mortality_rates = 0.01, 0.02, 0.03, interest_rate = 0.04, term = 3, benefit = 1000.*
+*apv (B (A^1_{x:n} + nE_x)) against interest_rate (annual effective interest rate (decimal)) from 0.004 to 0.4 on a logarithmic axis. One curve for each value of benefit (benefit amount (default 1)): 1000, 500, 2000. Other inputs as in the worked example: mortality_rates = 0.01, 0.02, 0.03, term = 3. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, interest_rate = 0.04, apv = 890.426.*
 
 ```python
 economics_finance_ai999x.solve('endowment_insurance', mortality_rates='0.01, 0.02, 0.03', interest_rate=0.04, term=3, benefit=1000)
@@ -4073,17 +3669,13 @@ $$
 - **Assumes:** prices and quantities > 0; the two prices differ
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Elasticity as price_1 runs from 9](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/arc-price-elasticity-live-1)
+![elastic, inelastic, unit elastic or perfectly inelastic (classification) over price_1 (first price) from 1 to 100 and quantity_1 (quantity demanded at price 1) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, elastic: 330 cells, inelastic: 321 cells](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/arc-price-elasticity-decision)
 
-*Elasticity as price_1 runs from 9.625 to 11.92, every other input as you entered it (24 solutions). Marked: your price_1 = 10 gives elasticity = -1.222. Your inputs: price_1 = 10, quantity_1 = 100, price_2 = 12, quantity_2 = 80.*
+*elastic, inelastic, unit elastic or perfectly inelastic (classification) over price_1 (first price) from 1 to 100 and quantity_1 (quantity demanded at price 1) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, elastic: 330 cells, inelastic: 321 cells. Other inputs as in the worked example: price_2 = 12.0, quantity_2 = 80.0. Marked: the worked example, price_1 = 10, quantity_1 = 100 → elastic.*
 
-![Elastic, inelastic, unit elastic or perfectly inelastic for 25 5 x 5 combinations of price_1 and price_2 around your inputs (the other inputs as entered); the ring marks your inputs, which give elastic](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/arc-price-elasticity-live-2)
+![elasticity ((dQ / mean Q) / (dP / mean P)) against price_1 (first price) from 1 to 11](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/arc-price-elasticity-curve)
 
-*Elastic, inelastic, unit elastic or perfectly inelastic for 25 5 x 5 combinations of price_1 and price_2 around your inputs (the other inputs as entered); the ring marks your inputs, which give elastic. Blank cells admit no answer. Your inputs: price_1 = 10, quantity_1 = 100, price_2 = 12, quantity_2 = 80.*
-
-![Elasticity as price_2 runs from 3 to 21, every other input as you entered it (13 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/arc-price-elasticity-live-3)
-
-*Elasticity as price_2 runs from 3 to 21, every other input as you entered it (13 solutions). Marked: your price_2 = 12 gives elasticity = -1.222. Shaded by elastic, inelastic, unit elastic or perfectly inelastic: inelastic, elastic. Your inputs: price_1 = 10, quantity_1 = 100, price_2 = 12, quantity_2 = 80.*
+*elasticity ((dQ / mean Q) / (dP / mean P)) against price_1 (first price) from 1 to 11.2202 on a logarithmic axis. One curve for each value of quantity_1 (quantity demanded at price 1): 100, 50, 200. Other inputs as in the worked example: price_2 = 12.0, quantity_2 = 80.0. 22 points per curve computed by economics-finance-ai999x; marked: the worked example, price_1 = 10, elasticity = -1.22222.*
 
 ```python
 economics_finance_ai999x.solve('arc_price_elasticity', price_1=10, quantity_1=100, price_2=12, quantity_2=80)
@@ -4128,17 +3720,13 @@ $$
 - **Assumes:** incomes and quantities > 0; the incomes differ
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Elasticity as income_1 runs from 3](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-elasticity-live-1)
+![inferior, necessity or luxury (classification) over income_1 (first income) from 4000 to 400000 and income_2 (second income) from 5000 to 500000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, inferior good: 300 cells, normal good (luxury): 31 cells, normal good (necessity): 320 cells](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-elasticity-decision)
 
-*Elasticity as income_1 runs from 3.85e+04 to 4.99e+04, every other input as you entered it (24 solutions). Marked: your income_1 = 4e+04 gives elasticity = 1.174. Your inputs: income_1 = 40000, quantity_1 = 10, income_2 = 50000, quantity_2 = 13.*
+*inferior, necessity or luxury (classification) over income_1 (first income) from 4000 to 400000 and income_2 (second income) from 5000 to 500000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, inferior good: 300 cells, normal good (luxury): 31 cells, normal good (necessity): 320 cells. Other inputs as in the worked example: quantity_1 = 10.0, quantity_2 = 13.0. Marked: the worked example, income_1 = 40000, income_2 = 50000 → normal good (luxury).*
 
-![Inferior, necessity or luxury for 20 5 x 5 combinations of income_1 and quantity_1 around your inputs (the other inputs as entered); the ring marks your inputs, which give normal good (luxury)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-elasticity-live-2)
+![elasticity ((dQ / mean Q) / (dI / mean I)) against income_1 (first income) from 20000 to 49333](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-elasticity-curve)
 
-*Inferior, necessity or luxury for 20 5 x 5 combinations of income_1 and quantity_1 around your inputs (the other inputs as entered); the ring marks your inputs, which give normal good (luxury). Blank cells admit no answer. Your inputs: income_1 = 40000, quantity_1 = 10, income_2 = 50000, quantity_2 = 13.*
-
-![Elasticity as quantity_1 runs from 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-elasticity-live-3)
-
-*Elasticity as quantity_1 runs from 2.5 to 17.5, every other input as you entered it (15 solutions). Marked: your quantity_1 = 10 gives elasticity = 1.174. Shaded by inferior, necessity or luxury: normal good (luxury), normal good (necessity), inferior good. Your inputs: income_1 = 40000, quantity_1 = 10, income_2 = 50000, quantity_2 = 13.*
+*elasticity ((dQ / mean Q) / (dI / mean I)) against income_1 (first income) from 20000 to 49333.3. One curve for each value of quantity_1 (quantity at income 1): 10, 5, 20. Other inputs as in the worked example: income_2 = 50000.0, quantity_2 = 13.0. 23 points per curve computed by economics-finance-ai999x; marked: the worked example, income_1 = 40000, elasticity = 1.17391.*
 
 ```python
 economics_finance_ai999x.solve('income_elasticity', income_1=40000, quantity_1=10, income_2=50000, quantity_2=13)
@@ -4177,17 +3765,13 @@ $$
 - **Assumes:** prices and quantities > 0; the prices differ
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Elasticity as price_other_1 runs from 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cross-price-elasticity-live-1)
+![substitutes, complements or independent (relationship) over price_other_1 (first price of the other good) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cross-price-elasticity-decision)
 
-*Elasticity as price_other_1 runs from 1.925 to 2.495, every other input as you entered it (24 solutions). Marked: your price_other_1 = 2 gives elasticity = 0.8182. Your inputs: price_other_1 = 2, quantity_1 = 100, price_other_2 = 2.5, quantity_2 = 120.*
+*substitutes, complements or independent (relationship) over price_other_1 (first price of the other good) from 0.2 to 20 and quantity_1 (quantity of this good at that price) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, complements: 324 cells, substitutes: 327 cells. Other inputs as in the worked example: price_other_2 = 2.5, quantity_2 = 120.0. Marked: the worked example, price_other_1 = 2, quantity_1 = 100 → substitutes.*
 
-![Substitutes, complements or independent for 20 5 x 5 combinations of price_other_1 and quantity_1 around your inputs (the other inputs as entered); the ring marks your inputs, which give substitutes](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cross-price-elasticity-live-2)
+![elasticity ((dQa / mean Qa) / (dPb / mean Pb)) against price_other_1 (first price of the other good) from 1 to 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cross-price-elasticity-curve)
 
-*Substitutes, complements or independent for 20 5 x 5 combinations of price_other_1 and quantity_1 around your inputs (the other inputs as entered); the ring marks your inputs, which give substitutes. Blank cells admit no answer. Your inputs: price_other_1 = 2, quantity_1 = 100, price_other_2 = 2.5, quantity_2 = 120.*
-
-![Elasticity as quantity_1 runs from 25 to 175, every other input as you entered it (15 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cross-price-elasticity-live-3)
-
-*Elasticity as quantity_1 runs from 25 to 175, every other input as you entered it (15 solutions). Marked: your quantity_1 = 100 gives elasticity = 0.8182. Shaded by substitutes, complements or independent: substitutes, complements. Your inputs: price_other_1 = 2, quantity_1 = 100, price_other_2 = 2.5, quantity_2 = 120.*
+*elasticity ((dQa / mean Qa) / (dPb / mean Pb)) against price_other_1 (first price of the other good) from 1 to 2.46667. One curve for each value of quantity_1 (quantity of this good at that price): 100, 50, 200. Other inputs as in the worked example: price_other_2 = 2.5, quantity_2 = 120.0. 23 points per curve computed by economics-finance-ai999x; marked: the worked example, price_other_1 = 2, elasticity = 0.818182.*
 
 ```python
 economics_finance_ai999x.solve('cross_price_elasticity', price_other_1=2, quantity_1=100, price_other_2=2.5, quantity_2=120)
@@ -4228,13 +3812,9 @@ $$
 - **Assumes:** a, b, $P > 0$; $Q = a - bP > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Elasticity as demand_intercept runs from 43](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/point-elasticity-live-1)
+![Along the demand line Q = 100 − 2P: revenue (top) and the point price elasticity (bottom) at 48 prices, each a run of the package](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/point-elasticity-curve)
 
-*Elasticity as demand_intercept runs from 43.75 to 175, every other input as you entered it (36 solutions). Marked: your demand_intercept = 100 gives elasticity = -0.6667. Your inputs: demand_intercept = 100, demand_slope = 2, price = 20.*
-
-![Elasticity as demand_slope runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/point-elasticity-live-2)
-
-*Elasticity as demand_slope runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your demand_slope = 2 gives elasticity = -0.6667. Your inputs: demand_intercept = 100, demand_slope = 2, price = 20.*
+*Along the demand line Q = 100 − 2P: revenue (top) and the point price elasticity (bottom) at 48 prices, each a run of the package. Revenue peaks where demand is unit elastic, at the returned price 25. Marked: P = 20: elasticity -0.666667, quantity 60, revenue 1200.*
 
 ```python
 economics_finance_ai999x.solve('point_elasticity', demand_intercept=100, demand_slope=2, price=20)
@@ -4277,21 +3857,13 @@ $$
 - **Assumes:** b, $d > 0$; positive equilibrium price and quantity
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Linear demand Q = 100 - 2 P and supply Q = -20 + 4 P: the model returns the equilibrium P* = 20, Q* = 60, consumer surplus 900 and producer surplus 450 (the shaded areas; total 1350)](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/market-equilibrium-equilibrium.svg)
+![Linear demand Q = 100 − 2P and supply Q = -20 + 4P: the package returns the equilibrium P* = 20, Q* = 60, consumer surplus 900 and producer surplus 450 (the shaded triangles; total 1350)](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/market-equilibrium-equilibrium.svg)
 
-*Linear demand Q = 100 - 2 P and supply Q = -20 + 4 P: the model returns the equilibrium P* = 20, Q* = 60, consumer surplus 900 and producer surplus 450 (the shaded areas; total 1350). Your inputs: demand_intercept = 100, demand_slope = 2, supply_intercept = -20, supply_slope = 4.*
+*Linear demand Q = 100 − 2P and supply Q = -20 + 4P: the package returns the equilibrium P* = 20, Q* = 60, consumer surplus 900 and producer surplus 450 (the shaded triangles; total 1350). Marked: Q = 60, P = 20.*
 
-![Supply Q = -20 + 4 P with demand shifted to intercepts 80, 100, 120 (slope 2): the equilibrium the model returns for each, (Q*, P*) = (46](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/market-equilibrium-shift)
+![Supply Q = -20 + 4P with demand shifted to intercepts 80, 100 and 120 (slope 2): the equilibrium the package returns for each, (Q*, P*) = (46](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/market-equilibrium-shift)
 
-*Supply Q = -20 + 4 P with demand shifted to intercepts 80, 100, 120 (slope 2): the equilibrium the model returns for each, (Q*, P*) = (46.67, 16.67); (60, 20); (73.33, 23.33). A rise in demand raises both price and quantity, moving along the supply line. Your inputs: demand_intercept = 100, demand_slope = 2, supply_intercept = -20, supply_slope = 4.*
-
-![Equilibrium price as demand_intercept runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/market-equilibrium-live-1)
-
-*Equilibrium price as demand_intercept runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your demand_intercept = 100 gives price = 20. Your inputs: demand_intercept = 100, demand_slope = 2, supply_intercept = -20, supply_slope = 4.*
-
-![Equilibrium price as demand_slope runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/market-equilibrium-live-2)
-
-*Equilibrium price as demand_slope runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your demand_slope = 2 gives price = 20. Your inputs: demand_intercept = 100, demand_slope = 2, supply_intercept = -20, supply_slope = 4.*
+*Supply Q = -20 + 4P with demand shifted to intercepts 80, 100 and 120 (slope 2): the equilibrium the package returns for each, (Q*, P*) = (46.6667, 16.6667); (60, 20); (73.3333, 23.3333). A rise in demand raises both price and quantity, moving along the supply line.*
 
 ```python
 economics_finance_ai999x.solve('market_equilibrium', demand_intercept=100, demand_slope=2, supply_intercept=-20, supply_slope=4)
@@ -4341,17 +3913,9 @@ $$
 - **Assumes:** b, $d > 0$; tax > 0; positive quantity and seller price with the tax
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Demand Q = 100 - 2 P and supply Q = -20 + 4 P with a tax of 3 per unit (the dashed supply is shifted up by the tax)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/per-unit-tax-wedge)
+![Demand Q = 100 − 2P and supply Q = -20 + 4P with a tax of 3 per unit (lines from the stated inputs; the dashed supply is shifted up by the tax)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/per-unit-tax-wedge)
 
-*Demand Q = 100 - 2 P and supply Q = -20 + 4 P with a tax of 3 per unit (the dashed supply is shifted up by the tax). The model returns the taxed quantity 56, the buyers' price 22 and the sellers' price 19 (buyers bear 66.67 % of the tax), the tax revenue 168 (rectangle) and the deadweight loss 6 (triangle up to the untaxed equilibrium 60, 20, also from the model). Your inputs: demand_intercept = 100, demand_slope = 2, supply_intercept = -20, supply_slope = 4, tax = 3.*
-
-![Deadweight loss as tax runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/per-unit-tax-live-1)
-
-*Deadweight loss as tax runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your tax = 3 gives deadweight_loss = 6. Your inputs: demand_intercept = 100, demand_slope = 2, supply_intercept = -20, supply_slope = 4, tax = 3.*
-
-![Quantity with the tax as demand_intercept runs from 25 to 175, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/per-unit-tax-live-2)
-
-*Quantity with the tax as demand_intercept runs from 25 to 175, every other input as you entered it (29 solutions). Marked: your demand_intercept = 100 gives quantity = 56. Your inputs: demand_intercept = 100, demand_slope = 2, supply_intercept = -20, supply_slope = 4, tax = 3.*
+*Demand Q = 100 − 2P and supply Q = -20 + 4P with a tax of 3 per unit (lines from the stated inputs; the dashed supply is shifted up by the tax). The package returns the taxed quantity 56, the buyers' price 22 and the sellers' price 19 (buyers bear 66.6667 % of the tax), the tax revenue 168 (rectangle) and the deadweight loss 6 (triangle up to the untaxed equilibrium 60, 20, also returned).*
 
 ```python
 economics_finance_ai999x.solve('per_unit_tax', demand_intercept=100, demand_slope=2, supply_intercept=-20, supply_slope=4, tax=3)
@@ -4395,17 +3959,9 @@ $$
 - **Assumes:** $A > c  \geq  0$; $B > 0$; F, $e  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A monopolist facing demand P = 100 - 2 Q with marginal cost 20 (lines from the stated inputs; marginal revenue 100 - 4 Q)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/monopoly-diagram)
+![A monopolist facing demand P = 100 − 2Q with marginal cost 20 (lines from the stated inputs; marginal revenue 100 − 4Q)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/monopoly-diagram)
 
-*A monopolist facing demand P = 100 - 2 Q with marginal cost 20 (lines from the stated inputs; marginal revenue 100 - 4 Q). The model returns the output 20 where marginal revenue meets marginal cost, the price 60, the profit 800 (rectangle), the deadweight loss 400 (triangle out to the competitive quantity 40) and the Lerner index 0.6667. Your inputs: price_intercept = 100, price_slope = 2, marginal_cost = 20.*
-
-![Quantity as price_intercept runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/monopoly-live-1)
-
-*Quantity as price_intercept runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your price_intercept = 100 gives quantity = 20. Your inputs: price_intercept = 100, price_slope = 2, marginal_cost = 20.*
-
-![Quantity as price_slope runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/monopoly-live-2)
-
-*Quantity as price_slope runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your price_slope = 2 gives quantity = 20. Your inputs: price_intercept = 100, price_slope = 2, marginal_cost = 20.*
+*A monopolist facing demand P = 100 − 2Q with marginal cost 20 (lines from the stated inputs; marginal revenue 100 − 4Q). The package returns the output 20 where marginal revenue meets marginal cost, the price 60, the profit 800 (rectangle), the deadweight loss 400 (triangle out to the competitive quantity 40) and the Lerner index 0.666667.*
 
 ```python
 economics_finance_ai999x.solve('monopoly', price_intercept=100, price_slope=2, marginal_cost=20)
@@ -4453,17 +4009,9 @@ $$
 - **Assumes:** $B > 0$; both equilibrium quantities positive
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Two firms with inverse demand P = 100 - 1 (q1 + q2) and marginal costs 10 and 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cournot-reaction)
+![Two firms with inverse demand P = 100 − 1(q₁ + q₂) and marginal costs 10 and 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cournot-reaction)
 
-*Two firms with inverse demand P = 100 - 1 (q1 + q2) and marginal costs 10 and 10. Each best-response line gives one firm's profit-maximising output for every output of the other (runs of the model's monopoly output against the demand left over). They cross at the Cournot equilibrium the model returns, q1 = 30, q2 = 30, price 40, profits 900 and 900. Dot: the Stackelberg outcome with firm 1 leading (45, 22.5), also from the model. Your inputs: price_intercept = 100, price_slope = 1, cost_1 = 10, cost_2 = 10.*
-
-![(A - 2c1 + c2)/(3B) as price_intercept runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cournot-live-1)
-
-*(A - 2c1 + c2)/(3B) as price_intercept runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your price_intercept = 100 gives q1 = 30. Your inputs: price_intercept = 100, price_slope = 1, cost_1 = 10, cost_2 = 10.*
-
-![(A - 2c1 + c2)/(3B) as price_slope runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cournot-live-2)
-
-*(A - 2c1 + c2)/(3B) as price_slope runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your price_slope = 1 gives q1 = 30. Your inputs: price_intercept = 100, price_slope = 1, cost_1 = 10, cost_2 = 10.*
+*Two firms with inverse demand P = 100 − 1(q₁ + q₂) and marginal costs 10 and 10. Each best-response line gives one firm's profit-maximising output for every output of the other (40 runs of the package's monopoly output against the demand left over). They cross at the Cournot equilibrium the package returns, q₁ = 30, q₂ = 30, price 40, profits 900 and 900. Dot: the Stackelberg outcome with firm 1 leading (45, 22.5), also returned.*
 
 ```python
 economics_finance_ai999x.solve('cournot', price_intercept=100, price_slope=1, cost_1=10, cost_2=10)
@@ -4506,17 +4054,9 @@ $$
 - **Assumes:** $B > 0$; both quantities positive
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A leader (cost 10) and a follower (cost 10) facing P = 100 - 1 Q](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/stackelberg-reaction)
+![A leader (firm 1, cost 10) and a follower (cost 10) facing P = 100 − 1Q](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/stackelberg-reaction)
 
-*A leader (cost 10) and a follower (cost 10) facing P = 100 - 1 Q. The follower always plays its best response (the line: 39 runs of the model's monopoly output against the residual demand); the leader picks the point on that line it likes best. The model returns q_leader = 45, q_follower = 22.5, price 32.5, profits 1012 and 506.2. Dot: the simultaneous (Cournot) outcome (30, 30), also from the model. Your inputs: price_intercept = 100, price_slope = 1, cost_leader = 10, cost_follower = 10.*
-
-![(A - 2cL + cF)/(2B) as price_intercept runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/stackelberg-live-1)
-
-*(A - 2cL + cF)/(2B) as price_intercept runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your price_intercept = 100 gives q_leader = 45. Your inputs: price_intercept = 100, price_slope = 1, cost_leader = 10, cost_follower = 10.*
-
-![(A - 2cL + cF)/(2B) as price_slope runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/stackelberg-live-2)
-
-*(A - 2cL + cF)/(2B) as price_slope runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your price_slope = 1 gives q_leader = 45. Your inputs: price_intercept = 100, price_slope = 1, cost_leader = 10, cost_follower = 10.*
+*A leader (firm 1, cost 10) and a follower (cost 10) facing P = 100 − 1Q. The follower always plays its best response (lines: 40 runs of the package's monopoly output against the residual demand); the leader picks the point on that line it likes best. The package returns q_leader = 45, q_follower = 22.5, price 32.5, profits 1012.5 and 506.25. Dot: the simultaneous (Cournot) outcome (30, 30) for comparison.*
 
 ```python
 economics_finance_ai999x.solve('stackelberg', price_intercept=100, price_slope=1, cost_leader=10, cost_follower=10)
@@ -4557,17 +4097,9 @@ $$
 - **Assumes:** price > variable cost; fixed costs >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Revenue at a price of 50 and total cost with fixed costs 10000 and a variable cost of 30 per unit (lines from the stated inputs): the model returns the quantity 500 units (revenue 25000, contribution margin 20 per unit, ratio 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/break-even-chart)
+![Revenue at a price of 50 and total cost with fixed costs 10000 and a variable cost of 30 per unit (lines from the stated inputs): they cross at the break-even quantity the package returns, 500 units (revenue 25000, contribution margin 20 per unit, ratio 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/break-even-chart)
 
-*Revenue at a price of 50 and total cost with fixed costs 10000 and a variable cost of 30 per unit (lines from the stated inputs): the model returns the quantity 500 units (revenue 25000, contribution margin 20 per unit, ratio 0.4). Your inputs: fixed_costs = 10000, price = 50, variable_cost = 30.*
-
-![Units as variable_cost runs from 7](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/break-even-live-1)
-
-*Units as variable_cost runs from 7.5 to 49.12, every other input as you entered it (38 solutions). Marked: your variable_cost = 30 gives quantity = 500. Your inputs: fixed_costs = 10000, price = 50, variable_cost = 30.*
-
-![Units as price runs from 31](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/break-even-live-2)
-
-*Units as price runs from 31.25 to 87.5, every other input as you entered it (22 solutions). Marked: your price = 50 gives quantity = 500. Your inputs: fixed_costs = 10000, price = 50, variable_cost = 30.*
+*Revenue at a price of 50 and total cost with fixed costs 10000 and a variable cost of 30 per unit (lines from the stated inputs): they cross at the break-even quantity the package returns, 500 units (revenue 25000, contribution margin 20 per unit, ratio 0.4).*
 
 ```python
 economics_finance_ai999x.solve('break_even', fixed_costs=10000, price=50, variable_cost=30)
@@ -4615,17 +4147,13 @@ $$
 - **Assumes:** alpha, beta, income, prices > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cobb-Douglas preferences U = x^0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cobb-douglas-demand-budget)
+![Cobb–Douglas preferences U = x^0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cobb-douglas-demand-budget)
 
-*Cobb-Douglas preferences U = x^0.3 y^0.7 with income 1000 and prices 10 and 20: the budget line from the stated inputs and the indifference curve through the optimum the model returns, x = 30, y = 35, utility 33.42 (each curve point is the model's optimum at another price of x with the income set so the returned utility is that level; curves for the utility and +/- 25 %); the budget share of x is 0.3. Your inputs: alpha = 0.3, beta = 0.7, income = 1000, price_x = 10, price_y = 20.*
+*Cobb–Douglas preferences U = x^0.3 y^0.7 with income 1000 and prices 10 and 20: the budget line from the stated inputs and the indifference curve through the optimum the package returns, x = 30, y = 35, utility 33.4183 (curves drawn from that utility and ±25 %); the budget share of x is 0.3.*
 
-![Alpha/(alpha+beta) M/px as β runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cobb-douglas-demand-live-1)
+![x (alpha/(alpha+beta) M/px) against price_x (price of good x) from 5 to 15](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cobb-douglas-demand-curve)
 
-*Alpha/(alpha+beta) M/px as β runs from 0.175 to 1.225, every other input as you entered it (41 solutions). Marked: your β = 0.7 gives x = 30. Your inputs: alpha = 0.3, beta = 0.7, income = 1000, price_x = 10, price_y = 20.*
-
-![Alpha/(alpha+beta) M/px as income runs from 250 to 1750, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/cobb-douglas-demand-live-2)
-
-*Alpha/(alpha+beta) M/px as income runs from 250 to 1750, every other input as you entered it (29 solutions). Marked: your income = 1000 gives x = 30. Your inputs: alpha = 0.3, beta = 0.7, income = 1000, price_x = 10, price_y = 20.*
+*x (alpha/(alpha+beta) M/px) against price_x (price of good x) from 5 to 15. One curve for each value of income (income (budget)): 1000, 500, 2000. Other inputs as in the worked example: alpha = 0.3, beta = 0.7, price_y = 20.0. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, price_x = 10, x = 30.*
 
 ```python
 economics_finance_ai999x.solve('cobb_douglas_demand', alpha=0.3, beta=0.7, income=1000, price_x=10, price_y=20)
@@ -4668,9 +4196,9 @@ $$
 - **Assumes:** one price and quantity per good; prices > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![GDP with base prices 2, 5, base quantities 100, 50, current prices 3, 6 and current quantities 120, 60: base-year GDP 450 (a run of the model with the base year as the current one), real GDP 540 and nominal GDP 720 as returned](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gdp-deflator-bars)
+![GDP of the economy with base prices 2, 5, base quantities 100, 50, current prices 3, 6 and current quantities 120, 60: base-year GDP 450 (a run of the package with the base year as the current one), real GDP 540 and nominal GDP 720 as returned](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gdp-deflator-bars)
 
-*GDP with base prices 2, 5, base quantities 100, 50, current prices 3, 6 and current quantities 120, 60: base-year GDP 450 (a run of the model with the base year as the current one), real GDP 540 and nominal GDP 720 as returned. Real growth 20 %; the deflator 133.3 = 100 x nominal / real (inflation 33.33 %). Your inputs: base_prices = 2, 5, base_quantities = 100, 50, current_prices = 3, 6, current_quantities = 120, 60.*
+*GDP of the economy with base prices 2, 5, base quantities 100, 50, current prices 3, 6 and current quantities 120, 60: base-year GDP 450 (a run of the package with the base year as the current one), real GDP 540 and nominal GDP 720 as returned. Real growth 20 %; the deflator 133.333 = 100 × nominal ÷ real (inflation 33.3333 %).*
 
 ```python
 economics_finance_ai999x.solve('gdp_deflator', base_prices='2, 5', base_quantities='100, 50', current_prices='3, 6', current_quantities='120, 60')
@@ -4711,9 +4239,9 @@ $$
 - **Assumes:** one price and quantity per good; prices > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Price indices for base prices 2, 5, base quantities 100, 50, current prices 3, 6 and current quantities 150, 40, as returned by the model: Laspeyres 133](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/price-indices-bars)
+![Price indices for base prices 2, 5, base quantities 100, 50, current prices 3, 6 and current quantities 150, 40, as returned by the package: Laspeyres 133](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/price-indices-bars)
 
-*Price indices for base prices 2, 5, base quantities 100, 50, current prices 3, 6 and current quantities 150, 40, as returned by the model: Laspeyres 133.3 (base quantities), Paasche 138 (current quantities) and Fisher 135.6, their geometric mean. The axis starts at 95. Your inputs: base_prices = 2, 5, base_quantities = 100, 50, current_prices = 3, 6, current_quantities = 150, 40.*
+*Price indices for base prices 2, 5, base quantities 100, 50, current prices 3, 6 and current quantities 150, 40, as returned by the package: Laspeyres 133.333 (base quantities), Paasche 138 (current quantities) and Fisher 135.647, their geometric mean. The axis starts at 95.*
 
 ```python
 economics_finance_ai999x.solve('price_indices', base_prices='2, 5', base_quantities='100, 50', current_prices='3, 6', current_quantities='150, 40')
@@ -4750,13 +4278,9 @@ $$
 - **Assumes:** -1 < rates < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![(1 + i)/(1 + pi) - 1 as nominal_rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/fisher-real-rate-live-1)
+![The real interest rate earned at a nominal 8 % as inflation runs from 0 to 15 %: the exact Fisher rate and the approximation i − π, both returned by the package (31 runs each)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/fisher-real-rate-curve)
 
-*(1 + i)/(1 + pi) - 1 as nominal_rate runs from 0.02 to 0.14, every other input as you entered it (41 solutions). Marked: your nominal_rate = 0.08 gives real_rate = 0.04854. Your inputs: nominal_rate = 0.08, inflation_rate = 0.03.*
-
-![(1 + i)/(1 + pi) - 1 as inflation_rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/fisher-real-rate-live-2)
-
-*(1 + i)/(1 + pi) - 1 as inflation_rate runs from 0.0075 to 0.0525, every other input as you entered it (29 solutions). Marked: your inflation_rate = 0.03 gives real_rate = 0.04854. Your inputs: nominal_rate = 0.08, inflation_rate = 0.03.*
+*The real interest rate earned at a nominal 8 % as inflation runs from 0 to 15 %: the exact Fisher rate and the approximation i − π, both returned by the package (31 runs each). Marked: inflation 3 %: real rate 4.85437 % (approximation 5 %).*
 
 ```python
 economics_finance_ai999x.solve('fisher_real_rate', nominal_rate=0.08, inflation_rate=0.03)
@@ -4802,15 +4326,7 @@ $$
 
 ![The purchasing power of 1000 as the price index moves through 100, 103, 107](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/inflation-adjustment-path)
 
-*The purchasing power of 1000 as the price index moves through 100, 103, 107.1: the real value after each period is a run of the model on the price levels up to that period. Over the whole span: total inflation 7.12 %, average 3.499 % a period, real value 933.5. In SI units: average_inflation = 0.03499. Your inputs: price_levels = 100, 103, 107.12, amount = 1000.*
-
-![Average inflation as price_levels[1] runs from 25 to 175, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/inflation-adjustment-live-1)
-
-*Average inflation as price_levels[1] runs from 25 to 175, every other input as you entered it (41 solutions). Marked: your price_levels[1] = 100 gives average_inflation = 0.03499. Your inputs: price_levels = 100, 103, 107.12, amount = 1000.*
-
-![Average inflation as price_levels[3] runs from 26](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/inflation-adjustment-live-2)
-
-*Average inflation as price_levels[3] runs from 26.78 to 187.5, every other input as you entered it (29 solutions). Marked: your price_levels[3] = 107.1 gives average_inflation = 0.03499. Your inputs: price_levels = 100, 103, 107.12, amount = 1000.*
+*The purchasing power of 1000 as the price index moves through 100, 103, 107.12: the real value after each period is a run of the package on the price levels up to that period. Over the whole span: total inflation 7.12 %, average 3.49879 % a period, real value 933.532.*
 
 ```python
 economics_finance_ai999x.solve('inflation_adjustment', price_levels='100, 103, 107.12', amount=1000)
@@ -4855,13 +4371,9 @@ $$
 - **Assumes:** 0 < reserve_ratio <= 1; currency_ratio >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![(1 + c)/(rr + c) as reserve_ratio runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/money-multiplier-live-1)
+![money_multiplier ((1 + c)/(rr + c)) against currency_ratio (currency-to-deposit ratio (default 0)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/money-multiplier-curve)
 
-*(1 + c)/(rr + c) as reserve_ratio runs from 0.025 to 0.175, every other input as you entered it (41 solutions). Marked: your reserve_ratio = 0.1 gives money_multiplier = 4. Your inputs: reserve_ratio = 0.1, currency_ratio = 0.2, monetary_base = 1000.*
-
-![Multiplier x base as monetary_base runs from 250 to 1750, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/money-multiplier-live-2)
-
-*Multiplier x base as monetary_base runs from 250 to 1750, every other input as you entered it (29 solutions). Marked: your monetary_base = 1000 gives money_supply = 4000. Your inputs: reserve_ratio = 0.1, currency_ratio = 0.2, monetary_base = 1000.*
+*money_multiplier ((1 + c)/(rr + c)) against currency_ratio (currency-to-deposit ratio (default 0)) from 0.02 to 0.98. One curve for each value of reserve_ratio (reserve ratio (decimal)): 0.1, 0.26, 0.74. Other inputs as in the worked example: monetary_base = 1000.0. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, currency_ratio = 0.2, money_multiplier = 4.*
 
 ```python
 economics_finance_ai999x.solve('money_multiplier', reserve_ratio=0.1, currency_ratio=0.2, monetary_base=1000)
@@ -4907,13 +4419,9 @@ $$
 - **Assumes:** 0 < mpc < 1; 0 <= mpc(1 - t) - m < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![1/(1 - mpc(1 - t) + m) as mpc runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/spending-multiplier-live-1)
+![spending_multiplier (1/(1 - mpc(1 - t) + m)) against tax_rate (proportional income tax rate (default 0)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/spending-multiplier-curve)
 
-*1/(1 - mpc(1 - t) + m) as mpc runs from 0.2 to 0.98, every other input as you entered it (27 solutions). Marked: your mpc = 0.8 gives spending_multiplier = 2. Your inputs: mpc = 0.8, tax_rate = 0.25, import_propensity = 0.1, spending_change = 100.*
-
-![Multiplier x spending change as spending_change runs from 25 to 175, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/spending-multiplier-live-2)
-
-*Multiplier x spending change as spending_change runs from 25 to 175, every other input as you entered it (29 solutions). Marked: your spending_change = 100 gives output_change = 200. Your inputs: mpc = 0.8, tax_rate = 0.25, import_propensity = 0.1, spending_change = 100.*
+*spending_multiplier (1/(1 - mpc(1 - t) + m)) against tax_rate (proportional income tax rate (default 0)) from 0.02 to 0.98. One curve for each value of import_propensity (marginal propensity to import (default 0)): 0.1, 0.05, 0.2. Other inputs as in the worked example: mpc = 0.8, spending_change = 100.0. 36 points per curve computed by economics-finance-ai999x; marked: the worked example, tax_rate = 0.25, spending_multiplier = 2.*
 
 ```python
 economics_finance_ai999x.solve('spending_multiplier', mpc=0.8, tax_rate=0.25, import_propensity=0.1, spending_change=100)
@@ -4963,13 +4471,9 @@ $$
 - **Assumes:** $0 < s$, $\alpha < 1$; $n + g + \delta > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Capital as α runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/solow-steady-state-live-1)
+![The Solow model's steady state (population growth 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/solow-steady-state-curve)
 
-*Capital as α runs from 0.075 to 0.525, every other input as you entered it (41 solutions). Marked: your α = 0.3 gives capital = 5.584. Your inputs: saving_rate = 0.2, population_growth = 0.01, depreciation = 0.05, alpha = 0.3.*
-
-![Capital as saving_rate runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/solow-steady-state-live-2)
-
-*Capital as saving_rate runs from 0.05 to 0.35, every other input as you entered it (29 solutions). Marked: your saving_rate = 0.2 gives capital = 5.584. Your inputs: saving_rate = 0.2, population_growth = 0.01, depreciation = 0.05, alpha = 0.3.*
+*The Solow model's steady state (population growth 0.01, depreciation 0.05, capital share 0.3) at 45 saving rates, each a run of the package: saving more always raises steady-state capital (bottom, logarithmic) but consumption (top) peaks at the golden-rule saving rate the package returns, 0.3 (capital 9.96618). Marked: s = 0.2: capital 5.58431, output 1.67529, consumption 1.34023.*
 
 ```python
 economics_finance_ai999x.solve('solow_steady_state', saving_rate=0.2, population_growth=0.01, depreciation=0.05, alpha=0.3)
@@ -5015,9 +4519,9 @@ $$
 - **Assumes:** same number of x and y, at least 3; neither variable constant
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The data y against x as given (5 points); drawn on it from what the model returned: the line y = 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/ols-simple-xy)
+![The data y (dependent variable values) against x (explanatory variable values) as given in the worked example (5 points); drawn on it from what economics-finance-ai999x returned: the line y = 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/ols-simple-xy)
 
-*The data y against x as given (5 points); drawn on it from what the model returned: the line y = 0.05 + 1.99 x from the returned intercept and slope. Also returned: R squared = 0.9973, slope standard error 0.05972. Your inputs: x = 1, 2, 3, 4, 5, y = 2.1, 3.9, 6.2, 7.8, 10.1.*
+*The data y (dependent variable values) against x (explanatory variable values) as given in the worked example (5 points); drawn on it from what economics-finance-ai999x returned: the line y = 0.05 + 1.99·x from the returned intercept and slope. Also returned: r_squared = 0.997305, slope_std_error = 0.0597216.*
 
 ```python
 economics_finance_ai999x.solve('ols_simple', x='1, 2, 3, 4, 5', y='2.1, 3.9, 6.2, 7.8, 10.1')
@@ -5061,21 +4565,9 @@ $$
 - **Assumes:** one row of X per value of y; $n > k + 1$; columns not collinear; y not constant
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Observed y = 5, 5, 10, 10, 15 against the values fitted from X with the coefficients the model returns (intercept first: 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/multiple-regression-fit)
+![Observed y = 5, 5, 10, 10, 15 against the values fitted from X = [[1, 2], [2, 1], [3, 4], [4, 3], [5, 6]] with the coefficients the package returns (intercept first: 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/multiple-regression-fit)
 
-*Observed y = 5, 5, 10, 10, 15 against the values fitted from X with the coefficients the model returns (intercept first: 1.25, 1.25, 1.25), R squared = 1, adjusted 1. Points on the dashed line are fitted exactly. Your inputs: X = [[1, 2], [2, 1], [3, 4]..., y = 5, 5, 10, 10, 15.*
-
-![1 - SSR/SST as y[5] runs from 0 to 35, every other input as you entered it (36 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/multiple-regression-live-1)
-
-*1 - SSR/SST as y[5] runs from 0 to 35, every other input as you entered it (36 solutions). Marked: your y[5] = 15 gives r_squared = 1. Your inputs: X = [[1, 2], [2, 1], [3, 4]..., y = 5, 5, 10, 10, 15.*
-
-![The 5 rows of X as points (first column across, second up), coloured by y](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/multiple-regression-live-2)
-
-*The 5 rows of X as points (first column across, second up), coloured by y. Your inputs: X = [[1, 2], [2, 1], [3, 4]..., y = 5, 5, 10, 10, 15.*
-
-![Every entry of coefficients as computed for your inputs (3 entries: 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/multiple-regression-live-3)
-
-*Every entry of coefficients as computed for your inputs (3 entries: 1.25, 1.25, 1.25). Your inputs: X = [[1, 2], [2, 1], [3, 4]..., y = 5, 5, 10, 10, 15.*
+*Observed y = 5, 5, 10, 10, 15 against the values fitted from X = [[1, 2], [2, 1], [3, 4], [4, 3], [5, 6]] with the coefficients the package returns (intercept first: 1.25, 1.25, 1.25; fitted values computed here), R² = 1, adjusted 1. Points on the dashed line are fitted exactly.*
 
 ```python
 economics_finance_ai999x.solve('multiple_regression', X='[[1, 2], [2, 1], [3, 4], [4, 3], [5, 6]]', y='5, 5, 10, 10, 15')
@@ -5121,7 +4613,7 @@ $$
 
 ![Quantities 100, 50, 25, 12](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/log-log-elasticity-fit)
 
-*Quantities 100, 50, 25, 12.5 at prices 1, 2, 4, 8 on logarithmic axes: the model fits ln Q = a + e ln P and returns the elasticity e = -1, intercept a = 4.605 and R squared = 1; the line Q = exp(a) P^e is drawn from those returned values. Your inputs: prices = 1, 2, 4, 8, quantities = 100, 50, 25, 12.5.*
+*Quantities 100, 50, 25, 12.5 at prices 1, 2, 4, 8 on logarithmic axes: the package fits ln Q = a + e ln P and returns the elasticity e = -1, intercept a = 4.60517 and R² = 1; the line Q = exp(a)·P^e is drawn from those returned values.*
 
 ```python
 economics_finance_ai999x.solve('log_log_elasticity', prices='1, 2, 4, 8', quantities='100, 50, 25, 12.5')
@@ -5162,17 +4654,9 @@ $$
 - **Assumes:** incomes >= 0 with a positive total
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The Lorenz curve of the incomes 20000, 35000, 50000, 120000: the cumulative income share of the poorest k people (from the sorted incomes)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gini-coefficient-lorenz)
+![The Lorenz curve of the incomes 20000, 35000, 50000, 120000: the cumulative income share of the poorest k people (computed here from the sorted incomes)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gini-coefficient-lorenz)
 
-*The Lorenz curve of the incomes 20000, 35000, 50000, 120000: the cumulative income share of the poorest k people (from the sorted incomes). The Gini coefficient the model returns, 0.35, measures the shaded gap between the curve and the line of equality. Your inputs: incomes = 20000, 35000, 50000, 120000.*
-
-![Sum (2i - n - 1) x_(i) / as incomes[4] runs from 6e+04 to 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gini-coefficient-live-1)
-
-*Sum (2i - n - 1) x_(i) / as incomes[4] runs from 6e+04 to 1.771e+05, every other input as you entered it (42 solutions). Marked: your incomes[4] = 1.2e+05 gives gini = 0.35. Your inputs: incomes = 20000, 35000, 50000, 120000.*
-
-![Sum (2i - n - 1) x_(i) / as incomes[1] runs from 1e+04 to 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/gini-coefficient-live-2)
-
-*Sum (2i - n - 1) x_(i) / as incomes[1] runs from 1e+04 to 2.932e+04, every other input as you entered it (30 solutions). Marked: your incomes[1] = 2e+04 gives gini = 0.35. Your inputs: incomes = 20000, 35000, 50000, 120000.*
+*The Lorenz curve of the incomes 20000, 35000, 50000, 120000: the cumulative income share of the poorest k people (computed here from the sorted incomes). The Gini coefficient the package returns, 0.35, is twice the shaded area between the curve and the line of equality.*
 
 ```python
 economics_finance_ai999x.solve('gini_coefficient', incomes='20000, 35000, 50000, 120000')
@@ -5223,15 +4707,7 @@ $$
 
 ![Top: the market shares 40, 30, 20, 10](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/herfindahl-index-bars)
 
-*Top: the market shares 40, 30, 20, 10. Bottom: the Herfindahl-Hirschman index of markets of 1 to 10 equal-sized firms (runs of the model) and this market's index, 3000, which the model also expresses as 3.333 equivalent equal firms (four-firm concentration 100). Your inputs: market_shares = 40, 30, 20, 10.*
-
-![10,000 x sum of squared shares as market_shares[1] runs from 20 to 60, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/herfindahl-index-live-1)
-
-*10,000 x sum of squared shares as market_shares[1] runs from 20 to 60, every other input as you entered it (41 solutions). Marked: your market_shares[1] = 40 gives hhi = 3000. Your inputs: market_shares = 40, 30, 20, 10.*
-
-![10,000 x sum of squared shares as market_shares[3] runs from 0 to 40, every other input as you entered it (21 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/herfindahl-index-live-2)
-
-*10,000 x sum of squared shares as market_shares[3] runs from 0 to 40, every other input as you entered it (21 solutions). Marked: your market_shares[3] = 20 gives hhi = 3000. Your inputs: market_shares = 40, 30, 20, 10.*
+*Top: the market shares 40, 30, 20, 10. Bottom: the Herfindahl–Hirschman index of markets of 1 to 10 equal-sized firms (runs of the package) and this market's index, 3000, which the package also expresses as 3.33333 equivalent equal firms (four-firm concentration 100).*
 
 ```python
 economics_finance_ai999x.solve('herfindahl_index', market_shares='40, 30, 20, 10')
@@ -5274,15 +4750,7 @@ $$
 
 ![The residuals 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/durbin-watson-residuals)
 
-*The residuals 0.5, -0.3, 0.2, -0.4, 0.1 in time order (top) and the Durbin-Watson statistic the model returns, d = 2.727, on its scale from 0 to 4 (bottom): near 2 there is no first-order autocorrelation; residuals that keep their sign push d below 2, residuals that alternate push it above 2. Your inputs: residuals = 0.5, -0.3, 0.2, -0.4, 0.1.*
-
-![Sum (e_t - e_t-1)^2 / sum e_t^2 as residuals[1] runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/durbin-watson-live-1)
-
-*Sum (e_t - e_t-1)^2 / sum e_t^2 as residuals[1] runs from 0.125 to 0.875, every other input as you entered it (41 solutions). Marked: your residuals[1] = 0.5 gives durbin_watson = 2.727. Your inputs: residuals = 0.5, -0.3, 0.2, -0.4, 0.1.*
-
-![Sum (e_t - e_t-1)^2 / sum e_t^2 as residuals[2] runs from -0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/durbin-watson-live-2)
-
-*Sum (e_t - e_t-1)^2 / sum e_t^2 as residuals[2] runs from -0.525 to -0.075, every other input as you entered it (29 solutions). Marked: your residuals[2] = -0.3 gives durbin_watson = 2.727. Your inputs: residuals = 0.5, -0.3, 0.2, -0.4, 0.1.*
+*The residuals 0.5, -0.3, 0.2, -0.4, 0.1 in time order (top) and the Durbin–Watson statistic the package returns, d = 2.72727, on its scale from 0 to 4 (bottom): near 2 there is no first-order autocorrelation; residuals that alternate in sign, as these do, push d above 2.*
 
 ```python
 economics_finance_ai999x.solve('durbin_watson', residuals='0.5, -0.3, 0.2, -0.4, 0.1')
@@ -5326,9 +4794,9 @@ $$
 - **Assumes:** same length, at least 3; neither series constant
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The data y (second series) against x (first series) as given (5 points)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/correlation-xy)
+![The data y (second series) against x (first series) as given in the worked example (5 points)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/correlation-xy)
 
-*The data y (second series) against x (first series) as given (5 points). Returned: correlation = 0.7746, covariance = 1.5, R squared = 0.6. Your inputs: x = 1, 2, 3, 4, 5, y = 2, 4, 5, 4, 5.*
+*The data y (second series) against x (first series) as given in the worked example (5 points). Also returned: correlation = 0.774597, covariance = 1.5, r_squared = 0.6.*
 
 ```python
 economics_finance_ai999x.solve('correlation', x='1, 2, 3, 4, 5', y='2, 4, 5, 4, 5')
@@ -5378,17 +4846,9 @@ $$
 - **Assumes:** opening_balance >= 0; 0 <= apr < 1; billing_days a whole number 1..366; rate_basis daily or monthly; transaction days whole numbers 1..billing_days, one per amount; the balance never becomes negative
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Interest charged for the cycle: ADB x cycle rate as opening_balance runs from 543](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/credit-card-finance-charge-live-1)
+![finance_charge (interest charged for the cycle: ADB x cycle rate) against opening_balance (balance owed at the start of the cycle (previous balance)) from 750 to 2250](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/credit-card-finance-charge-curve)
 
-*Interest charged for the cycle: ADB x cycle rate as opening_balance runs from 543.8 to 2625, every other input as you entered it (38 solutions). Marked: your opening_balance = 1500 gives finance_charge = 18.25. Your inputs: opening_balance = 1500, apr = 0.18, billing_days = 30, rate_basis = daily, transaction_days = 11, 21, transaction_amounts = -500, 200.*
-
-![Interest charged for the cycle: ADB x cycle rate for every choice of rate_basis, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/credit-card-finance-charge-live-2)
-
-*Interest charged for the cycle: ADB x cycle rate for every choice of rate_basis, every other input as you entered it (highlighted: your choice). daily: 18.25; monthly: 18.5. Your inputs: opening_balance = 1500, apr = 0.18, billing_days = 30, rate_basis = daily, transaction_days = 11, 21, transaction_amounts = -500, 200.*
-
-![Interest charged for the cycle: ADB x cycle rate as apr runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/credit-card-finance-charge-live-3)
-
-*Interest charged for the cycle: ADB x cycle rate as apr runs from 0.045 to 0.315, every other input as you entered it (29 solutions). Marked: your apr = 0.18 gives finance_charge = 18.25. Your inputs: opening_balance = 1500, apr = 0.18, billing_days = 30, rate_basis = daily, transaction_days = 11, 21, transaction_amounts = -500, 200.*
+*finance_charge (interest charged for the cycle: ADB x cycle rate) against opening_balance (balance owed at the start of the cycle (previous balance)) from 750 to 2250. One curve for each value of apr (annual percentage rate of the card (decimal; 18% = 0.18)): 0.18, 0.26, 0.74. Other inputs as in the worked example: billing_days = 30, rate_basis = daily, transaction_days = 11, 21, transaction_amounts = -500, 200. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, opening_balance = 1500, finance_charge = 18.2466.*
 
 ```python
 economics_finance_ai999x.solve('credit_card_finance_charge', opening_balance=1500, apr=0.18, billing_days=30, rate_basis='daily', transaction_days='11, 21', transaction_amounts='-500, 200')
@@ -5443,9 +4903,13 @@ $$
 - **Assumes:** taxable_income > 0; first threshold 0, thresholds strictly increasing; one rate per threshold, 0 <= rate < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Tax owed: each bracket's rate on the income](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-tax-live-1)
+![The data bracket_thresholds (lower bound of each bracket, starting at 0, increasing) against bracket_rates (tax rate of each bracket (decimals or percentages)) as given in the worked example (3 points)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-tax-xy)
 
-*Tax owed: each bracket's rate on the income... as taxable_income runs from 1.25e+04 to 8.75e+04, every other input as you entered it (41 solutions). Marked: your taxable_income = 5e+04 gives tax = 1e+04. Your inputs: taxable_income = 50000, bracket_thresholds = 0, 10000, 40000, bracket_rates = 0.1, 0.2, 0.3.*
+*The data bracket_thresholds (lower bound of each bracket, starting at 0, increasing) against bracket_rates (tax rate of each bracket (decimals or percentages)) as given in the worked example (3 points). Also returned: tax = 10000, marginal_rate = 0.3, effective_rate = 0.2, after_tax_income = 40000. Other inputs: taxable_income = 50000.0.*
+
+![tax (tax owed: each bracket's rate on the income inside it) against taxable_income (taxable income (after deductions)) from 25000 to 75000](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/income-tax-curve)
+
+*tax (tax owed: each bracket's rate on the income inside it) against taxable_income (taxable income (after deductions)) from 25000 to 75000. Other inputs as in the worked example: bracket_thresholds = 0, 10000, 40000, bracket_rates = 0.1, 0.2, 0.3. 31 points computed by economics-finance-ai999x; marked: the worked example, taxable_income = 50000, tax = 10000.*
 
 ```python
 economics_finance_ai999x.solve('income_tax', taxable_income=50000, bracket_thresholds='0, 10000, 40000', bracket_rates='0.1, 0.2, 0.3')
@@ -5508,13 +4972,9 @@ $$
 - **Assumes:** sales, total assets, equity, current liabilities > 0; equity <= total assets; inventory <= current assets <= total assets; current liabilities <= total assets - equity
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Quick ratio as current_assets runs from 6e+04 to 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/financial-ratios-live-1)
+![roe (return on equity: net income / equity = margin x turnover x multiplier) against total_equity (total shareholders' equity (positive, at most total assets)) from 80000 to 240000](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/financial-ratios-curve)
 
-*Quick ratio as current_assets runs from 6e+04 to 2.625e+05, every other input as you entered it (37 solutions). Marked: your current_assets = 1.5e+05 gives quick_ratio = 0.9. Your inputs: sales = 500000, net_income = 40000, total_assets = 400000, total_equity = 160000, current_assets = 150000, current_liabilities = 100000, inventory = 60000.*
-
-![Roe as total_equity runs from 4e+04 to 2](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/financial-ratios-live-2)
-
-*Roe as total_equity runs from 4e+04 to 2.8e+05, every other input as you entered it (29 solutions). Marked: your total_equity = 1.6e+05 gives roe = 0.25. Your inputs: sales = 500000, net_income = 40000, total_assets = 400000, total_equity = 160000, current_assets = 150000, current_liabilities = 100000, inventory = 60000.*
+*roe (return on equity: net income / equity = margin x turnover x multiplier) against total_equity (total shareholders' equity (positive, at most total assets)) from 80000 to 240000. One curve for each value of net_income (net income (negative for a loss)): 40000, 20000, 80000. Other inputs as in the worked example: sales = 500000.0, total_assets = 400000.0, current_assets = 150000.0, current_liabilities = 100000.0, inventory = 60000.0. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, total_equity = 160000, roe = 0.25.*
 
 ```python
 economics_finance_ai999x.solve('financial_ratios', sales=500000, net_income=40000, total_assets=400000, total_equity=160000, current_assets=150000, current_liabilities=100000, inventory=60000)
@@ -5578,13 +5038,9 @@ $$
 - **Assumes:** one unit cost per layer; units of each layer > 0; unit costs >= 0; 0 <= units sold <= units available; selling price >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Sales revenue - LIFO cost of goods sold as selling_price runs from 5 to 35, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/inventory-costing-live-1)
+![fifo_cogs (cost of goods sold, FIFO (oldest layers sold first)) against units_sold (units sold in the period) from 150 to 450](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/inventory-costing-curve)
 
-*Sales revenue - LIFO cost of goods sold as selling_price runs from 5 to 35, every other input as you entered it (41 solutions). Marked: your selling_price = 20 gives lifo_gross_margin = 2100. Your inputs: layer_units = 100, 200, 150, layer_costs = 10, 12, 14, units_sold = 300, selling_price = 20.*
-
-![Cost of goods sold, FIFO (oldest layers sold](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/inventory-costing-live-2)
-
-*Cost of goods sold, FIFO (oldest layers sold... as units_sold runs from 75 to 444.6, every other input as you entered it (24 solutions). Marked: your units_sold = 300 gives fifo_cogs = 3400. Your inputs: layer_units = 100, 200, 150, layer_costs = 10, 12, 14, units_sold = 300, selling_price = 20.*
+*fifo_cogs (cost of goods sold, FIFO (oldest layers sold first)) against units_sold (units sold in the period) from 150 to 450. Other inputs as in the worked example: layer_units = [100, 200, 150], layer_costs = [10, 12, 14], selling_price = 20.0. 31 points computed by economics-finance-ai999x; marked: the worked example, units_sold = 300, fifo_cogs = 3400.*
 
 ```python
 economics_finance_ai999x.solve('inventory_costing', layer_units=[100, 200, 150], layer_costs=[10, 12, 14], units_sold=300, selling_price=20)
@@ -5639,13 +5095,13 @@ $$
 - **Assumes:** at least 3 rows, one total cost per output; first output 0, outputs increasing; total costs non-negative and non-decreasing; price > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Profit-maximising output in the table (0 =](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/competitive-firm-cost-curves-live-1)
+![produce or shut down (decision) along price (market price the firm takes as given) from 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/competitive-firm-cost-curves-decision)
 
-*Profit-maximising output in the table (0 =... as price runs from 4 to 28, every other input as you entered it (41 solutions). Marked: your price = 16 gives best_output = 5. Shaded by produce or shut down: shut down, produce. Your inputs: quantities = 0, 1, 2, 3, 4, 5, 6, total_costs = 10, 18, 24, 32, 44, 60, 80, price = 16.*
+*produce or shut down (decision) along price (market price the firm takes as given) from 1.6 to 160 (logarithmic axis): 81 runs of economics-finance-ai999x, each band coloured by the verdict returned (produce, shut down); it changes near price = 6.94416; the line is best_output (profit-maximising output in the table (0 = shut down)). Other inputs as in the worked example: quantities = [0, 1, 2, 3, 4, 5, 6], total_costs = [10, 18, 24, 32, 44, 60, 80]. Marked: the worked example, price = 16 → produce.*
 
-![Every entry of average_fixed_cost, average_variable_cost, average_total_cost as computed for your inputs (6 entries, average_fixed_cost first: 10, 5, 3](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/competitive-firm-cost-curves-live-2)
+![AFC = FC / Q for each output > 0 (average_fixed_cost) returned by economics-finance-ai999x for the worked example, one value for each position in the list (6 values, first 10, last 1](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/competitive-firm-cost-curves-series)
 
-*Every entry of average_fixed_cost, average_variable_cost, average_total_cost as computed for your inputs (6 entries, average_fixed_cost first: 10, 5, 3.333, 2.5, 2, 1.667). Your inputs: quantities = 0, 1, 2, 3, 4, 5, 6, total_costs = 10, 18, 24, 32, 44, 60, 80, price = 16.*
+*AFC = FC / Q for each output > 0 (average_fixed_cost) returned by economics-finance-ai999x for the worked example, one value for each position in the list (6 values, first 10, last 1.66667, largest 10); with average_variable_cost (AVC = (TC - FC) / Q for each output > 0), average_total_cost (ATC = TC / Q for each output > 0). Inputs: quantities = [0, 1, 2, 3, 4, 5, 6], total_costs = [10, 18, 24, 32, 44, 60, 80], price = 16.0.*
 
 ```python
 economics_finance_ai999x.solve('competitive_firm_cost_curves', quantities=[0, 1, 2, 3, 4, 5, 6], total_costs=[10, 18, 24, 32, 44, 60, 80], price=16)
@@ -5705,17 +5161,13 @@ $$
 - **Assumes:** standard price and standard quantity > 0; actual price, actual quantity and quantity purchased >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Price variance + quantity variance as standard_price runs from 1 to 7, every other input as you entered it (41 solutions)](https://huggingface.co/AI999X/economics-finance-ai999x/resolve/main/figures/direct-cost-variances-live-1.svg)
+![favourable, unfavourable or none (price_variance_type) over standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/direct-cost-variances-decision)
 
-*Price variance + quantity variance as standard_price runs from 1 to 7, every other input as you entered it (41 solutions). Marked: your standard_price = 4 gives total_variance = 820. Shaded by favourable, unfavourable or none: unfavourable, favourable. Your inputs: standard_price = 4, standard_quantity = 2000, actual_price = 4.2, actual_quantity = 2100.*
+*favourable, unfavourable or none (price_variance_type) over standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 0.4 to 40 and actual_price (actual price paid per unit of input (labour: actual wage rate)) from 0.42 to 42 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, favourable: 320 cells, unfavourable: 331 cells. Other inputs as in the worked example: standard_quantity = 2000.0, actual_quantity = 2100.0. Marked: the worked example, standard_price = 4, actual_price = 4.2 → unfavourable.*
 
-![Favourable, unfavourable or none for 25 5 x 5 combinations of standard_price and standard_quantity around your inputs (the other inputs as entered); the ring marks your inputs, which give unfavourable](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/direct-cost-variances-live-2)
+![total_variance (price variance + quantity variance) against standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 2 to 6](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/direct-cost-variances-curve)
 
-*Favourable, unfavourable or none for 25 5 x 5 combinations of standard_price and standard_quantity around your inputs (the other inputs as entered); the ring marks your inputs, which give unfavourable. Blank cells admit no answer. Your inputs: standard_price = 4, standard_quantity = 2000, actual_price = 4.2, actual_quantity = 2100.*
-
-![Price variance + quantity variance as standard_quantity runs from 500 to 3500, every other input as you entered it (27 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/direct-cost-variances-live-3)
-
-*Price variance + quantity variance as standard_quantity runs from 500 to 3500, every other input as you entered it (27 solutions). Marked: your standard_quantity = 2000 gives total_variance = 820. Shaded by favourable, unfavourable or none: unfavourable, favourable. Your inputs: standard_price = 4, standard_quantity = 2000, actual_price = 4.2, actual_quantity = 2100.*
+*total_variance (price variance + quantity variance) against standard_price (standard price per unit of input (labour: standard wage rate per hour)) from 2 to 6. One curve for each value of actual_price (actual price paid per unit of input (labour: actual wage rate)): 4.2, 2.1, 8.4. Other inputs as in the worked example: standard_quantity = 2000.0, actual_quantity = 2100.0. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, standard_price = 4, total_variance = 820.*
 
 ```python
 economics_finance_ai999x.solve('direct_cost_variances', standard_price=4, standard_quantity=2000, actual_price=4.2, actual_quantity=2100)
@@ -5781,17 +5233,13 @@ $$
 - **Assumes:** amounts, rates and hours >= 0; denominator hours > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Actual overhead - applied overhead (sum of](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/overhead-cost-variances-live-1)
+![favourable, unfavourable or none (variable_spending_type) over variable_overhead_rate (standard variable overhead rate per hour) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/overhead-cost-variances-decision)
 
-*Actual overhead - applied overhead (sum of... as variable_overhead_rate runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your variable_overhead_rate = 2 gives total_overhead_variance = 3900. Your inputs: variable_overhead_rate = 2, actual_variable_overhead = 9000, actual_hours = 4200, standard_hours = 4000, budgeted_fixed_overhead = 12000, actual_fixed_overhead = 12500, denominator_hours = 5000.*
+*favourable, unfavourable or none (variable_spending_type) over variable_overhead_rate (standard variable overhead rate per hour) from 0.2 to 20 and actual_variable_overhead (actual variable overhead cost) from 900 to 90000 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, favourable: 320 cells, unfavourable: 331 cells. Other inputs as in the worked example: actual_hours = 4200.0, standard_hours = 4000.0, budgeted_fixed_overhead = 12000.0, actual_fixed_overhead = 12500.0, denominator_hours = 5000.0. Marked: the worked example, variable_overhead_rate = 2, actual_variable_overhead = 9000 → unfavourable.*
 
-![Favourable, unfavourable or none for 25 5 x 5 combinations of variable_overhead_rate and actual_variable_overhead around your inputs (the other inputs as entered); the ring marks your inputs, which give unfavourable](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/overhead-cost-variances-live-2)
+![total_overhead_variance (actual overhead - applied overhead (sum of the four)) against denominator_hours (denominator hours on which the fixed overhead rate was set (positive)) from 500 to 50000 on a logarithmic axis](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/overhead-cost-variances-curve)
 
-*Favourable, unfavourable or none for 25 5 x 5 combinations of variable_overhead_rate and actual_variable_overhead around your inputs (the other inputs as entered); the ring marks your inputs, which give unfavourable. Blank cells admit no answer. Your inputs: variable_overhead_rate = 2, actual_variable_overhead = 9000, actual_hours = 4200, standard_hours = 4000, budgeted_fixed_overhead = 12000, actual_fixed_overhead = 12500, denominator_hours = 5000.*
-
-![Actual overhead - applied overhead (sum of](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/overhead-cost-variances-live-3)
-
-*Actual overhead - applied overhead (sum of... as actual_variable_overhead runs from 2250 to 1.575e+04, every other input as you entered it (23 solutions). Marked: your actual_variable_overhead = 9000 gives total_overhead_variance = 3900. Your inputs: variable_overhead_rate = 2, actual_variable_overhead = 9000, actual_hours = 4200, standard_hours = 4000, budgeted_fixed_overhead = 12000, actual_fixed_overhead = 12500, denominator_hours = 5000.*
+*total_overhead_variance (actual overhead - applied overhead (sum of the four)) against denominator_hours (denominator hours on which the fixed overhead rate was set (positive)) from 500 to 50000 on a logarithmic axis. One curve for each value of standard_hours (standard hours allowed for the actual output): 4000, 2000, 8000. Other inputs as in the worked example: variable_overhead_rate = 2.0, actual_variable_overhead = 9000.0, actual_hours = 4200.0, budgeted_fixed_overhead = 12000.0, actual_fixed_overhead = 12500.0. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, denominator_hours = 5000, total_overhead_variance = 3900.*
 
 ```python
 economics_finance_ai999x.solve('overhead_cost_variances', variable_overhead_rate=2, actual_variable_overhead=9000, actual_hours=4200, standard_hours=4000, budgeted_fixed_overhead=12000, actual_fixed_overhead=12500, denominator_hours=5000)
@@ -5840,13 +5288,9 @@ $$
 - **Assumes:** employed, unemployed >= 0, labour force > 0; labour force <= working-age population
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Working-age population - labour force as working_age_population runs from 165](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/unemployment-rate-live-1)
+![unemployment_rate (unemployed / labour force) against unemployed (number of unemployed people (without work and looking for it)) from 1 to 100 on a logarithmic axis](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/unemployment-rate-curve)
 
-*Working-age population - labour force as working_age_population runs from 165.6 to 437.5, every other input as you entered it (30 solutions). Marked: your working_age_population = 250 gives not_in_labour_force = 90. Your inputs: employed = 150, unemployed = 10, working_age_population = 250.*
-
-![Unemployment rate as unemployed runs from 0 to 30, every other input as you entered it (16 solutions)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/unemployment-rate-live-2)
-
-*Unemployment rate as unemployed runs from 0 to 30, every other input as you entered it (16 solutions). Marked: your unemployed = 10 gives unemployment_rate = 0.0625. Your inputs: employed = 150, unemployed = 10, working_age_population = 250.*
+*unemployment_rate (unemployed / labour force) against unemployed (number of unemployed people (without work and looking for it)) from 1 to 100 on a logarithmic axis. One curve for each value of employed (number of employed people): 150, 75. Other inputs as in the worked example: working_age_population = 250.0. 41 points per curve computed by economics-finance-ai999x; marked: the worked example, unemployed = 10, unemployment_rate = 0.0625.*
 
 ```python
 economics_finance_ai999x.solve('unemployment_rate', employed=150, unemployed=10, working_age_population=250)
@@ -5903,17 +5347,13 @@ $$
 - **Assumes:** all four numbers > 0; basis output or hours
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Country A's opportunity cost of X, in units of Y as a_good_y runs from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/comparative-advantage-live-1)
+![who should specialise in X: country A, country B or neither (comparative_advantage_x) over a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 0](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/comparative-advantage-decision)
 
-*Country A's opportunity cost of X, in units of Y as a_good_y runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your a_good_y = 3 gives opportunity_cost_x_a = 0.5. Your inputs: a_good_x = 6, a_good_y = 3, b_good_x = 1, b_good_y = 2, basis = output.*
+*who should specialise in X: country A, country B or neither (comparative_advantage_x) over a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 0.6 to 60 and a_good_y (country A, good Y: output per worker or hours per unit) from 0.3 to 30 (logarithmic axes): each of the 31 × 21 cells is one run of economics-finance-ai999x, coloured by the verdict it returned, country A: 490 cells, country B: 161 cells. Other inputs as in the worked example: b_good_x = 1.0, b_good_y = 2.0, basis = output. Marked: the worked example, a_good_x = 6, a_good_y = 3 → country A.*
 
-![Country A's opportunity cost of X, in units of Y for every choice of basis, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/comparative-advantage-live-2)
+![opportunity_cost_x_a (country A's opportunity cost of X, in units of Y) against a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 3 to 9](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/comparative-advantage-curve)
 
-*Country A's opportunity cost of X, in units of Y for every choice of basis, every other input as you entered it (highlighted: your choice). output: 0.5; hours: 2. Your inputs: a_good_x = 6, a_good_y = 3, b_good_x = 1, b_good_y = 2, basis = output.*
-
-![Who is more productive in Y: country A, country B or equal for 25 5 x 5 combinations of a_good_y and a_good_x around your inputs (the other inputs as entered); the ring marks your inputs, which give country A](https://www.ai999x.com/?ax_fig=economics-finance-ai999x/comparative-advantage-live-3)
-
-*Who is more productive in Y: country A, country B or equal for 25 5 x 5 combinations of a_good_y and a_good_x around your inputs (the other inputs as entered); the ring marks your inputs, which give country A. Blank cells admit no answer. Your inputs: a_good_x = 6, a_good_y = 3, b_good_x = 1, b_good_y = 2, basis = output.*
+*opportunity_cost_x_a (country A's opportunity cost of X, in units of Y) against a_good_x (country A, good X: output per worker (basis output) or hours per unit (basis hours)) from 3 to 9. One curve for each value of a_good_y (country A, good Y: output per worker or hours per unit): 3, 1.5, 6. Other inputs as in the worked example: b_good_x = 1.0, b_good_y = 2.0, basis = output. 31 points per curve computed by economics-finance-ai999x; marked: the worked example, a_good_x = 6, opportunity_cost_x_a = 0.5.*
 
 ```python
 economics_finance_ai999x.solve('comparative_advantage', a_good_x=6, a_good_y=3, b_good_x=1, b_good_y=2, basis='output')
